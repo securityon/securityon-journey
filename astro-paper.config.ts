@@ -8,7 +8,7 @@ export default defineAstroPaperConfig({
     author: "BAN Seok",
     profile: "https://journey.securityon.org/about",
     ogImage: "default-og.jpg",
-    lang: "ko",
+    lang: "en",
     timezone: "Asia/Seoul",
     dir: "ltr",
   },
@@ -22,7 +22,7 @@ export default defineAstroPaperConfig({
   features: {
     lightAndDarkMode: true,
     dynamicOgImage: true,
-    showArchives: true,
+    showArchives: false,
     showBackButton: true,
     editPost: {
       enabled: false,
