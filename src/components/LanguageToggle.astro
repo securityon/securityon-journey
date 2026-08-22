@@ -1,0 +1,61 @@
+<div class="flex shrink-0 gap-2" aria-label="Language">
+  <button
+    type="button"
+    data-language-button="ko"
+    class="rounded-md border border-border px-3 py-1.5 text-sm font-medium"
+  >
+    KO
+  </button>
+
+  <button
+    type="button"
+    data-language-button="en"
+    class="rounded-md border border-border px-3 py-1.5 text-sm opacity-60"
+  >
+    EN
+  </button>
+</div>
+
+<script>
+  function applyLanguage(language: string) {
+    document.querySelectorAll<HTMLElement>("[data-lang]").forEach(element => {
+      element.classList.toggle(
+        "hidden",
+        element.dataset.lang !== language
+      );
+    });
+
+    document
+      .querySelectorAll<HTMLElement>("[data-language-button]")
+      .forEach(button => {
+        const active = button.dataset.languageButton === language;
+        button.classList.toggle("opacity-60", !active);
+        button.classList.toggle("font-medium", active);
+      });
+
+    document.documentElement.lang = language;
+
+    localStorage.setItem("securityon-language", language);
+  }
+
+  function initializeLanguage() {
+    const saved = localStorage.getItem("securityon-language");
+
+    const browserLanguage =
+      navigator.language.toLowerCase().startsWith("ko") ? "ko" : "en";
+
+    const language = saved || browserLanguage;
+
+    applyLanguage(language);
+
+    document
+      .querySelectorAll<HTMLElement>("[data-language-button]")
+      .forEach(button => {
+        button.addEventListener("click", () => {
+          applyLanguage(button.dataset.languageButton || "ko");
+        });
+      });
+  }
+
+  document.addEventListener("astro:page-load", initializeLanguage);
+</script>
