@@ -2,7 +2,7 @@
   <button
     type="button"
     data-language-button="ko"
-    class="rounded-md border border-border px-3 py-1.5 text-sm font-medium"
+    class="border-border rounded-md border px-3 py-1.5 text-sm font-medium"
   >
     KO
   </button>
@@ -10,7 +10,7 @@
   <button
     type="button"
     data-language-button="en"
-    class="rounded-md border border-border px-3 py-1.5 text-sm opacity-60"
+    class="border-border rounded-md border px-3 py-1.5 text-sm opacity-60"
   >
     EN
   </button>
@@ -19,10 +19,7 @@
 <script>
   function applyLanguage(language: string) {
     document.querySelectorAll<HTMLElement>("[data-lang]").forEach(element => {
-      element.classList.toggle(
-        "hidden",
-        element.dataset.lang !== language
-      );
+      element.classList.toggle("hidden", element.dataset.lang !== language);
     });
 
     document
@@ -40,11 +37,7 @@
 
   function initializeLanguage() {
     const saved = localStorage.getItem("securityon-language");
-
-    const browserLanguage =
-      navigator.language.toLowerCase().startsWith("ko") ? "ko" : "en";
-
-    const language = saved || browserLanguage;
+    const language = saved || "ko";
 
     applyLanguage(language);
 
