@@ -50,23 +50,20 @@ const isActive = (path: string) => {
   <div
     class="border-border bg-background relative flex w-full items-baseline justify-between border-b py-4 sm:items-center sm:py-6"
   >
-
     <!-- Site title / Home -->
     <a
-      href={getRelativeLocaleUrl(locale, "")} 
+      href={getRelativeLocaleUrl(locale, "")}
       class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"
     >
       <span class="sm:hidden">SecurityOn</span>
       <span class="hidden sm:inline">{site.title}</span>
     </a>
 
-
     <!-- Navigation -->
     <nav
       id="nav-menu"
-      class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"
+      class="flex w-full flex-col items-center sm:ms-6 sm:flex-row sm:justify-end sm:py-0"
     >
-
       <!-- Mobile menu button -->
       <button
         id="menu-btn"
@@ -81,11 +78,19 @@ const isActive = (path: string) => {
         <IconMenuDeep id="menu-icon" />
       </button>
 
-
       <ul
         id="menu-items"
-        class="[&>li>a]:hover:text-accent mt-4 hidden w-44 grid-cols-2 place-content-center gap-2 sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0 sm:[&>li]:h-8 [&>li>a]:block [&>li>a]:px-4 [&>li>a]:py-3 [&>li>a]:text-center [&>li>a]:font-medium sm:[&>li>a]:px-2 sm:[&>li>a]:py-1"
+        class="[&>li>a]:hover:text-accent mt-1 hidden w-32 grid-cols-2 place-content-center gap-0 sm:mt-0 sm:flex sm:w-auto sm:gap-x-2 sm:gap-y-0 sm:[&>li]:h-7 [&>li>a]:block [&>li>a]:px-1.5 [&>li>a]:py-1 [&>li>a]:text-center [&>li>a]:font-medium sm:[&>li>a]:px-1.5 sm:[&>li>a]:py-1"
       >
+        <!-- Research -->
+        <li class="col-span-2">
+          <a
+            href={getRelativeLocaleUrl(locale, "research")}
+            class:list={{ "active-nav": isActive("/research") }}
+          >
+            Research
+          </a>
+        </li>
 
         <!-- Notes -->
         <li class="col-span-2">
@@ -97,7 +102,6 @@ const isActive = (path: string) => {
           </a>
         </li>
 
-
         <!-- About -->
         <li class="col-span-2">
           <a
@@ -107,7 +111,6 @@ const isActive = (path: string) => {
             About
           </a>
         </li>
-
 
         <!-- Search -->
         {
@@ -121,9 +124,7 @@ const isActive = (path: string) => {
               >
                 <IconSearch class="absolute top-1/2 left-1/2 size-6 -translate-x-1/2 -translate-y-1/2" />
 
-                <span class="sr-only">
-                  {t.nav.search}
-                </span>
+                <span class="sr-only">{t.nav.search}</span>
 
                 {isActive("/search") && (
                   <IconUnderline
@@ -136,7 +137,6 @@ const isActive = (path: string) => {
           )
         }
 
-
         <!-- Dark / Light mode -->
         {
           features.lightAndDarkMode && (
@@ -148,64 +148,40 @@ const isActive = (path: string) => {
                 aria-label="auto"
                 aria-live="polite"
               >
-                <IconMoon
-                  class="absolute top-[50%] left-[50%] translate-[-50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"
-                />
+                <IconMoon class="absolute top-[50%] left-[50%] translate-[-50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
 
-                <IconSunHigh
-                  class="absolute top-[50%] left-[50%] translate-[-50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"
-                />
+                <IconSunHigh class="absolute top-[50%] left-[50%] translate-[-50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
               </button>
             </li>
           )
         }
-
       </ul>
     </nav>
   </div>
 </header>
 
-
 <script>
   function toggleNav() {
-    const menuBtn =
-      document.querySelector<HTMLButtonElement>("#menu-btn");
+    const menuBtn = document.querySelector<HTMLButtonElement>("#menu-btn");
 
-    const menuItems =
-      document.querySelector("#menu-items");
+    const menuItems = document.querySelector("#menu-items");
 
-    const menuIcon =
-      document.querySelector("#menu-icon");
+    const menuIcon = document.querySelector("#menu-icon");
 
-    const closeIcon =
-      document.querySelector("#close-icon");
-
+    const closeIcon = document.querySelector("#close-icon");
 
     if (!menuBtn || !menuItems || !menuIcon || !closeIcon) return;
 
+    const openLabel = menuBtn.dataset.labelOpen ?? "Open menu";
 
-    const openLabel =
-      menuBtn.dataset.labelOpen ?? "Open menu";
-
-    const closeLabel =
-      menuBtn.dataset.labelClose ?? "Close menu";
-
+    const closeLabel = menuBtn.dataset.labelClose ?? "Close menu";
 
     menuBtn.addEventListener("click", () => {
-      const openMenu =
-        menuBtn.getAttribute("aria-expanded") === "true";
+      const openMenu = menuBtn.getAttribute("aria-expanded") === "true";
 
+      menuBtn.setAttribute("aria-expanded", openMenu ? "false" : "true");
 
-      menuBtn.setAttribute(
-        "aria-expanded",
-        openMenu ? "false" : "true"
-      );
-
-      menuBtn.setAttribute(
-        "aria-label",
-        openMenu ? openLabel : closeLabel
-      );
-
+      menuBtn.setAttribute("aria-label", openMenu ? openLabel : closeLabel);
 
       menuItems.classList.toggle("hidden");
       menuItems.classList.toggle("grid");
@@ -215,13 +191,10 @@ const isActive = (path: string) => {
     });
   }
 
-
   function handleSkipToContent() {
-    const skipLink =
-      document.getElementById("skip-to-content");
+    const skipLink = document.getElementById("skip-to-content");
 
     if (!skipLink) return;
-
 
     skipLink.addEventListener("click", e => {
       if (
@@ -230,15 +203,12 @@ const isActive = (path: string) => {
         e.ctrlKey ||
         e.shiftKey ||
         e.button !== 0
-      ) return;
-
+      )
+        return;
 
       e.preventDefault();
 
-
-      const target =
-        document.getElementById("main-content");
-
+      const target = document.getElementById("main-content");
 
       if (target) {
         target.setAttribute("tabindex", "-1");
@@ -252,25 +222,17 @@ const isActive = (path: string) => {
         target.focus();
 
         target.scrollIntoView({
-          behavior: "smooth"
+          behavior: "smooth",
         });
       }
     });
   }
 
-
   toggleNav();
 
-  document.addEventListener(
-    "astro:after-swap",
-    toggleNav
-  );
-
+  document.addEventListener("astro:after-swap", toggleNav);
 
   handleSkipToContent();
 
-  document.addEventListener(
-    "astro:after-swap",
-    handleSkipToContent
-  );
+  document.addEventListener("astro:after-swap", handleSkipToContent);
 </script>
