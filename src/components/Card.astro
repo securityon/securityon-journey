@@ -13,7 +13,10 @@ const { variant: Heading = "h2", id, data, filePath } = Astro.props;
 const { title, description, lang, ...props } = data;
 ---
 
-<li class="my-6">
+<li
+  class="my-6"
+  data-note-lang={lang}
+>
   <a
     href={getPostUrl(id, filePath, Astro.currentLocale)}
     class:list={[

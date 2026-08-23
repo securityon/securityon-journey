@@ -4,41 +4,39 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import LanguageToggle from "@/components/LanguageToggle.astro";
 import BackToTopButton from "@/components/BackToTopButton.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
 ---
 
 <Layout title="About | SecurityOn Research Journey">
   <Header />
 
-  <main id="main-content" class="app-layout py-8 sm:py-12">
+  <Breadcrumb />
 
+  <main id="main-content" class="app-layout py-8 sm:py-12">
     <!-- =========================================================
          Header
     ========================================================== -->
     <section class="border-border border-b pb-10">
       <div class="flex items-start justify-between gap-6">
         <div>
-          <p class="text-sm text-skin-base/60">
-            journey.securityon.org/about
-          </p>
-
           <h1 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
             About
           </h1>
 
           <p
             data-lang="ko"
-            class="ko-body mt-4 max-w-2xl leading-7 text-skin-base/75"
+            class="ko-body text-skin-base/75 mt-4 max-w-2xl leading-7"
           >
-            IT와 보안 분야에서 쌓아온 실무 경험을 바탕으로
-            AI Security를 공부하고 연구하는 과정을 기록하고 있습니다.
+            IT와 보안 분야에서 쌓아온 실무 경험을 바탕으로 AI Security를
+            공부하고 연구하는 과정을 기록하고 있습니다.
           </p>
 
           <p
             data-lang="en"
-            class="mt-4 hidden max-w-2xl leading-7 text-skin-base/75"
+            class="text-skin-base/75 mt-4 hidden max-w-2xl leading-7"
           >
-            I document my continuing journey from professional practice
-            in IT and security towards graduate study and research in AI Security.
+            I document my continuing journey from professional practice in IT
+            and security towards graduate study and research in AI Security.
           </p>
         </div>
 
@@ -46,63 +44,55 @@ import BackToTopButton from "@/components/BackToTopButton.astro";
       </div>
     </section>
 
-
     <!-- =========================================================
          Profile
     ========================================================== -->
     <section class="border-border border-b py-10">
-      <p class="text-sm font-medium uppercase tracking-[0.16em] text-accent">
+      <p class="text-accent text-sm font-medium tracking-[0.16em] uppercase">
         Profile
       </p>
 
-      <h2
-        data-lang="ko"
-        class="ko-ui mt-3 text-2xl font-semibold"
-      >
+      <h2 data-lang="ko" class="ko-ui mt-3 text-2xl font-semibold">
         반석 · BAN Seok
       </h2>
 
-      <h2
-        data-lang="en"
-        class="mt-3 hidden text-2xl font-semibold"
-      >
+      <h2 data-lang="en" class="mt-3 hidden text-2xl font-semibold">
         BAN Seok · 반석
       </h2>
 
-      <p class="mt-2 text-sm text-skin-base/60">
+      <p class="text-skin-base/60 mt-2 text-sm">
         IT & Security Engineer · M.S. Student
       </p>
 
       <p
         data-lang="ko"
-        class="ko-body mt-5 max-w-3xl leading-7 text-skin-base/80"
+        class="ko-body text-skin-base/80 mt-5 max-w-3xl leading-7"
       >
-        인터넷 서비스, 네트워크 인프라, 정보보안, 클라우드 및 SRE 분야에서
-        실무 경험을 쌓아왔습니다. 현재 삼성SDS에서 Network SRE 업무를
-        수행하고 있으며, 국립공주대학교 테크노융합대학원 IT융합
-        석사과정에서 AI와 보안의 접점을 공부하고 있습니다.
-        실무에서 접한 문제를 연구 가능한 질문으로 발전시키고,
-        배우고 실험하고 실패하고 수정하는 과정을 이곳에 기록하고자 합니다.
+        인터넷 서비스, 네트워크 인프라, 정보보안, 클라우드 및 SRE 분야에서 실무
+        경험을 쌓아왔습니다. 현재 삼성SDS에서 Network SRE 업무를 수행하고
+        있으며, 국립공주대학교 테크노융합대학원 IT융합 석사과정에서 AI와 보안의
+        접점을 공부하고 있습니다. 실무에서 접한 문제를 연구 가능한 질문으로
+        발전시키고, 배우고 실험하고 실패하고 수정하는 과정을 이곳에 기록하고자
+        합니다.
       </p>
 
       <p
         data-lang="en"
-        class="mt-5 hidden max-w-3xl leading-7 text-skin-base/80"
+        class="text-skin-base/80 mt-5 hidden max-w-3xl leading-7"
       >
         My professional experience spans Internet services, network
-        infrastructure, information security, cloud computing, and SRE.
-        I currently work in Network SRE at Samsung SDS while pursuing
-        an M.S. in IT Convergence at Kongju National University.
-        My goal is to transform problems encountered in real enterprise
-        environments into researchable questions at the intersection of
-        artificial intelligence and security, while documenting the process
-        of learning, experimentation, failure, and revision.
+        infrastructure, information security, cloud computing, and SRE. I
+        currently work in Network SRE at Samsung SDS while pursuing an M.S. in
+        IT Convergence at Kongju National University. My goal is to transform
+        problems encountered in real enterprise environments into researchable
+        questions at the intersection of artificial intelligence and security,
+        while documenting the process of learning, experimentation, failure, and
+        revision.
       </p>
-
 
       <!-- Public / Professional Profiles -->
       <div
-        class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-skin-base/60"
+        class="text-skin-base/60 mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm"
       >
         <a
           href="https://github.com/securityon"
@@ -122,10 +112,7 @@ import BackToTopButton from "@/components/BackToTopButton.astro";
           LinkedIn
         </a>
 
-        <a
-          href="mailto:security@securityon.org"
-          class="hover:text-accent"
-        >
+        <a href="mailto:security@securityon.org" class="hover:text-accent">
           Email
         </a>
 
@@ -137,397 +124,288 @@ import BackToTopButton from "@/components/BackToTopButton.astro";
           rel="noopener noreferrer"
           class="hover:text-accent"
         >
-          <span data-lang="ko" class="ko-ui">
-            네이버 인물정보
-          </span>
+          <span data-lang="ko" class="ko-ui"> 네이버 인물정보 </span>
 
-          <span data-lang="en" class="hidden">
-            Naver People Profile
-          </span>
+          <span data-lang="en" class="hidden"> Naver People Profile </span>
         </a>
       </div>
     </section>
-
 
     <!-- =========================================================
          Career Journey
     ========================================================== -->
     <section class="border-border border-b py-10">
-      <p class="text-sm font-medium uppercase tracking-[0.16em] text-accent">
+      <p class="text-accent text-sm font-medium tracking-[0.16em] uppercase">
         Career Journey
       </p>
 
-      <h2
-        data-lang="ko"
-        class="ko-ui mt-2 text-2xl font-semibold"
-      >
+      <h2 data-lang="ko" class="ko-ui mt-2 text-2xl font-semibold">
         기술과 함께 변화해 온 과정
       </h2>
 
-      <h2
-        data-lang="en"
-        class="mt-2 hidden text-2xl font-semibold"
-      >
+      <h2 data-lang="en" class="mt-2 hidden text-2xl font-semibold">
         A Career Evolving with Technology
       </h2>
 
       <p
         data-lang="ko"
-        class="ko-body mt-3 max-w-3xl text-sm leading-6 text-skin-base/65"
+        class="ko-body text-skin-base/65 mt-3 max-w-3xl text-sm leading-6"
       >
-        전자공학과 아마추어무선에서 시작해 인터넷, 네트워크,
-        보안, 클라우드, SRE를 거쳐 AI Security 연구로 이어지는 과정입니다.
+        전자공학과 아마추어무선에서 시작해 인터넷, 네트워크, 보안, 클라우드,
+        SRE를 거쳐 AI Security 연구로 이어지는 과정입니다.
       </p>
 
       <p
         data-lang="en"
-        class="mt-3 hidden max-w-3xl text-sm leading-6 text-skin-base/65"
+        class="text-skin-base/65 mt-3 hidden max-w-3xl text-sm leading-6"
       >
-        A journey beginning with electronics and amateur radio,
-        continuing through the Internet, networking, security, cloud,
-        and SRE, and now extending into AI Security research.
+        A journey beginning with electronics and amateur radio, continuing
+        through the Internet, networking, security, cloud, and SRE, and now
+        extending into AI Security research.
       </p>
 
-
-      <div class="relative mt-8 ml-3 border-s border-border pl-8">
-
+      <div class="border-border relative mt-8 ml-3 border-s pl-8">
         <article class="relative pb-8">
           <span
-            class="bg-accent absolute -left-[2.25rem] top-1.5 h-3 w-3 rounded-full"
+            class="bg-accent absolute top-1.5 -left-[2.25rem] h-3 w-3 rounded-full"
           ></span>
 
-          <p class="text-xs tracking-[0.14em] text-skin-base/50">1991</p>
+          <p class="text-skin-base/50 text-xs tracking-[0.14em]">1991</p>
 
           <h3 class="mt-1 text-lg font-semibold">
             Electronics & Amateur Radio
           </h3>
 
-          <p
-            data-lang="ko"
-            class="ko-body mt-1 text-sm text-skin-base/65"
-          >
-            전자공학과 아마추어무선을 통해 기술에 대한 관심을
-            구체화하기 시작했습니다.
+          <p data-lang="ko" class="ko-body text-skin-base/65 mt-1 text-sm">
+            전자공학과 아마추어무선을 통해 기술에 대한 관심을 구체화하기
+            시작했습니다.
           </p>
 
-          <p
-            data-lang="en"
-            class="mt-1 hidden text-sm text-skin-base/65"
-          >
-            Began developing a practical interest in technology
-            through electronics engineering and amateur radio.
+          <p data-lang="en" class="text-skin-base/65 mt-1 hidden text-sm">
+            Began developing a practical interest in technology through
+            electronics engineering and amateur radio.
           </p>
         </article>
 
-
         <article class="relative pb-8">
           <span
-            class="absolute -left-[2.25rem] top-1.5 h-3 w-3 rounded-full border border-border bg-[var(--background)]"
+            class="border-border absolute top-1.5 -left-[2.25rem] h-3 w-3 rounded-full border bg-[var(--background)]"
           ></span>
 
-          <p class="text-xs tracking-[0.14em] text-skin-base/50">1999</p>
+          <p class="text-skin-base/50 text-xs tracking-[0.14em]">1999</p>
 
-          <h3 class="mt-1 text-lg font-semibold">
-            Internet Services
-          </h3>
+          <h3 class="mt-1 text-lg font-semibold">Internet Services</h3>
 
-          <p
-            data-lang="ko"
-            class="ko-body mt-1 text-sm text-skin-base/65"
-          >
+          <p data-lang="ko" class="ko-body text-skin-base/65 mt-1 text-sm">
             인터넷 서비스 분야에서 본격적인 IT 실무 경력을 시작했습니다.
           </p>
 
-          <p
-            data-lang="en"
-            class="mt-1 hidden text-sm text-skin-base/65"
-          >
+          <p data-lang="en" class="text-skin-base/65 mt-1 hidden text-sm">
             Began a professional IT career in Internet services.
           </p>
         </article>
 
-
         <article class="relative pb-8">
           <span
-            class="absolute -left-[2.25rem] top-1.5 h-3 w-3 rounded-full border border-border bg-[var(--background)]"
+            class="border-border absolute top-1.5 -left-[2.25rem] h-3 w-3 rounded-full border bg-[var(--background)]"
           ></span>
 
-          <p class="text-xs tracking-[0.14em] text-skin-base/50">2004</p>
+          <p class="text-skin-base/50 text-xs tracking-[0.14em]">2004</p>
 
           <h3 class="mt-1 text-lg font-semibold">
             IDC · Network Infrastructure · Security
           </h3>
 
-          <p
-            data-lang="ko"
-            class="ko-body mt-1 text-sm text-skin-base/65"
-          >
-            IDC와 네트워크 인프라를 중심으로 보안과
-            안정적인 서비스 운영 경험을 확장했습니다.
+          <p data-lang="ko" class="ko-body text-skin-base/65 mt-1 text-sm">
+            IDC와 네트워크 인프라를 중심으로 보안과 안정적인 서비스 운영 경험을
+            확장했습니다.
           </p>
 
-          <p
-            data-lang="en"
-            class="mt-1 hidden text-sm text-skin-base/65"
-          >
+          <p data-lang="en" class="text-skin-base/65 mt-1 hidden text-sm">
             Expanded experience in data centres, network infrastructure,
             security, and reliable service operations.
           </p>
         </article>
 
-
         <article class="relative pb-8">
           <span
-            class="absolute -left-[2.25rem] top-1.5 h-3 w-3 rounded-full border border-border bg-[var(--background)]"
+            class="border-border absolute top-1.5 -left-[2.25rem] h-3 w-3 rounded-full border bg-[var(--background)]"
           ></span>
 
-          <p class="text-xs tracking-[0.14em] text-skin-base/50">2010</p>
+          <p class="text-skin-base/50 text-xs tracking-[0.14em]">2010</p>
 
-          <h3 class="mt-1 text-lg font-semibold">
-            Cloud Consulting
-          </h3>
+          <h3 class="mt-1 text-lg font-semibold">Cloud Consulting</h3>
 
-          <p
-            data-lang="ko"
-            class="ko-body mt-1 text-sm text-skin-base/65"
-          >
-            클라우드 기술의 확산과 함께 클라우드 컨설팅 분야로
-            업무 영역을 확장했습니다.
+          <p data-lang="ko" class="ko-body text-skin-base/65 mt-1 text-sm">
+            클라우드 기술의 확산과 함께 클라우드 컨설팅 분야로 업무 영역을
+            확장했습니다.
           </p>
 
-          <p
-            data-lang="en"
-            class="mt-1 hidden text-sm text-skin-base/65"
-          >
+          <p data-lang="en" class="text-skin-base/65 mt-1 hidden text-sm">
             Expanded into cloud consulting as enterprise cloud technologies
             began to mature.
           </p>
         </article>
 
-
         <article class="relative pb-8">
           <span
-            class="absolute -left-[2.25rem] top-1.5 h-3 w-3 rounded-full border border-border bg-[var(--background)]"
+            class="border-border absolute top-1.5 -left-[2.25rem] h-3 w-3 rounded-full border bg-[var(--background)]"
           ></span>
 
-          <p class="text-xs tracking-[0.14em] text-skin-base/50">2013</p>
+          <p class="text-skin-base/50 text-xs tracking-[0.14em]">2013</p>
 
-          <h3 class="mt-1 text-lg font-semibold">
-            Overseas Assignment
-          </h3>
+          <h3 class="mt-1 text-lg font-semibold">Overseas Assignment</h3>
 
-          <p
-            data-lang="ko"
-            class="ko-body mt-1 text-sm text-skin-base/65"
-          >
-            삼성SDS 인도법인에서 근무하며 해외 IT 환경과
-            글로벌 업무 경험을 쌓았습니다.
+          <p data-lang="ko" class="ko-body text-skin-base/65 mt-1 text-sm">
+            삼성SDS 인도법인에서 근무하며 해외 IT 환경과 글로벌 업무 경험을
+            쌓았습니다.
           </p>
 
-          <p
-            data-lang="en"
-            class="mt-1 hidden text-sm text-skin-base/65"
-          >
+          <p data-lang="en" class="text-skin-base/65 mt-1 hidden text-sm">
             Gained international IT and cross-cultural professional experience
             through an assignment at Samsung SDS India.
           </p>
         </article>
 
-
         <article class="relative pb-8">
           <span
-            class="absolute -left-[2.25rem] top-1.5 h-3 w-3 rounded-full border border-border bg-[var(--background)]"
+            class="border-border absolute top-1.5 -left-[2.25rem] h-3 w-3 rounded-full border bg-[var(--background)]"
           ></span>
 
-          <p class="text-xs tracking-[0.14em] text-skin-base/50">2017</p>
+          <p class="text-skin-base/50 text-xs tracking-[0.14em]">2017</p>
 
           <h3 class="mt-1 text-lg font-semibold">
             Cloud Deployment & Operations
           </h3>
 
-          <p
-            data-lang="ko"
-            class="ko-body mt-1 text-sm text-skin-base/65"
-          >
-            엔터프라이즈 클라우드 구축과 실행 업무를 중심으로
-            경험을 이어갔습니다.
+          <p data-lang="ko" class="ko-body text-skin-base/65 mt-1 text-sm">
+            엔터프라이즈 클라우드 구축과 실행 업무를 중심으로 경험을
+            이어갔습니다.
           </p>
 
-          <p
-            data-lang="en"
-            class="mt-1 hidden text-sm text-skin-base/65"
-          >
-            Continued working on enterprise cloud deployment
-            and operational environments.
+          <p data-lang="en" class="text-skin-base/65 mt-1 hidden text-sm">
+            Continued working on enterprise cloud deployment and operational
+            environments.
           </p>
         </article>
-
 
         <article class="relative pb-8">
           <span
-            class="absolute -left-[2.25rem] top-1.5 h-3 w-3 rounded-full border border-border bg-[var(--background)]"
+            class="border-border absolute top-1.5 -left-[2.25rem] h-3 w-3 rounded-full border bg-[var(--background)]"
           ></span>
 
-          <p class="text-xs tracking-[0.14em] text-skin-base/50">2020</p>
+          <p class="text-skin-base/50 text-xs tracking-[0.14em]">2020</p>
 
-          <h3 class="mt-1 text-lg font-semibold">
-            Network SRE
-          </h3>
+          <h3 class="mt-1 text-lg font-semibold">Network SRE</h3>
 
-          <p
-            data-lang="ko"
-            class="ko-body mt-1 text-sm text-skin-base/65"
-          >
-            Network SRE 업무를 중심으로 네트워크의 안정성,
-            운영, 자동화 및 보안을 다루고 있습니다.
+          <p data-lang="ko" class="ko-body text-skin-base/65 mt-1 text-sm">
+            Network SRE 업무를 중심으로 네트워크의 안정성, 운영, 자동화 및
+            보안을 다루고 있습니다.
           </p>
 
-          <p
-            data-lang="en"
-            class="mt-1 hidden text-sm text-skin-base/65"
-          >
-            Working in Network SRE with a focus on reliability,
-            operations, automation, and security.
+          <p data-lang="en" class="text-skin-base/65 mt-1 hidden text-sm">
+            Working in Network SRE with a focus on reliability, operations,
+            automation, and security.
           </p>
         </article>
 
-
         <article class="relative">
           <span
-            class="bg-accent absolute -left-[2.25rem] top-1.5 h-3 w-3 rounded-full"
+            class="bg-accent absolute top-1.5 -left-[2.25rem] h-3 w-3 rounded-full"
           ></span>
 
-          <p class="text-xs tracking-[0.14em] text-skin-base/50">2026</p>
+          <p class="text-skin-base/50 text-xs tracking-[0.14em]">2026</p>
 
           <h3 class="mt-1 text-lg font-semibold">
             Graduate Study · AI Security
           </h3>
 
-          <p
-            data-lang="ko"
-            class="ko-body mt-1 text-sm text-skin-base/65"
-          >
-            국립공주대학교 테크노융합대학원 IT융합 석사과정을 시작하고,
-            오랜 IT 실무 경험을 AI Security 연구로 연결하는
-            새로운 여정을 시작했습니다.
+          <p data-lang="ko" class="ko-body text-skin-base/65 mt-1 text-sm">
+            국립공주대학교 테크노융합대학원 IT융합 석사과정을 시작하고, 오랜 IT
+            실무 경험을 AI Security 연구로 연결하는 새로운 여정을 시작했습니다.
           </p>
 
-          <p
-            data-lang="en"
-            class="mt-1 hidden text-sm text-skin-base/65"
-          >
-            Began an M.S. programme in IT Convergence at Kongju National University,
-            connecting long-term professional IT experience with research
-            in AI Security.
+          <p data-lang="en" class="text-skin-base/65 mt-1 hidden text-sm">
+            Began an M.S. programme in IT Convergence at Kongju National
+            University, connecting long-term professional IT experience with
+            research in AI Security.
           </p>
         </article>
-
       </div>
     </section>
-
 
     <!-- =========================================================
          Education
     ========================================================== -->
     <section class="border-border border-b py-10">
-      <p class="text-sm font-medium uppercase tracking-[0.16em] text-accent">
+      <p class="text-accent text-sm font-medium tracking-[0.16em] uppercase">
         Education
       </p>
 
       <div class="mt-6 space-y-5">
-
         <div class="grid grid-cols-[6rem_1rem_1fr] gap-x-2">
           <div class="font-medium">2026–</div>
           <div class="text-skin-base/40">·</div>
 
           <div>
-            <p class="font-semibold">
-              Kongju National University
-            </p>
+            <p class="font-semibold">Kongju National University</p>
 
-            <p
-              data-lang="ko"
-              class="ko-ui mt-1 text-sm text-skin-base/65"
-            >
+            <p data-lang="ko" class="ko-ui text-skin-base/65 mt-1 text-sm">
               테크노융합대학원 IT융합 석사과정
             </p>
 
-            <p
-              data-lang="en"
-              class="mt-1 hidden text-sm text-skin-base/65"
-            >
-              Graduate School of Techno-Convergence ·
-              M.S. Programme in IT Convergence
+            <p data-lang="en" class="text-skin-base/65 mt-1 hidden text-sm">
+              Graduate School of Techno-Convergence · M.S. Programme in IT
+              Convergence
             </p>
           </div>
         </div>
-
 
         <div class="grid grid-cols-[6rem_1rem_1fr] gap-x-2">
           <div class="font-medium">1996–2000</div>
           <div class="text-skin-base/40">·</div>
 
           <div>
-            <p class="font-semibold">
-              Konkuk University
-            </p>
+            <p class="font-semibold">Konkuk University</p>
 
-            <p
-              data-lang="ko"
-              class="ko-ui mt-1 text-sm text-skin-base/65"
-            >
+            <p data-lang="ko" class="ko-ui text-skin-base/65 mt-1 text-sm">
               전자공학 학사
             </p>
 
-            <p
-              data-lang="en"
-              class="mt-1 hidden text-sm text-skin-base/65"
-            >
+            <p data-lang="en" class="text-skin-base/65 mt-1 hidden text-sm">
               B.S. in Electronic Engineering
             </p>
           </div>
         </div>
-
 
         <div class="grid grid-cols-[6rem_1rem_1fr] gap-x-2">
           <div class="font-medium">1991–1995</div>
           <div class="text-skin-base/40">·</div>
 
           <div>
-            <p class="font-semibold">
-              Dongyang Technical College
-            </p>
+            <p class="font-semibold">Dongyang Technical College</p>
 
-            <p
-              data-lang="ko"
-              class="ko-ui mt-1 text-sm text-skin-base/65"
-            >
+            <p data-lang="ko" class="ko-ui text-skin-base/65 mt-1 text-sm">
               전자공학 전문학사
             </p>
 
-            <p
-              data-lang="en"
-              class="mt-1 hidden text-sm text-skin-base/65"
-            >
+            <p data-lang="en" class="text-skin-base/65 mt-1 hidden text-sm">
               Associate Degree in Electronic Engineering
             </p>
           </div>
         </div>
-
       </div>
     </section>
-
 
     <!-- =========================================================
          Professional Experience
     ========================================================== -->
     <section class="border-border border-b py-10">
-      <p class="text-sm font-medium uppercase tracking-[0.16em] text-accent">
+      <p class="text-accent text-sm font-medium tracking-[0.16em] uppercase">
         Professional Experience
       </p>
 
       <div class="mt-6 space-y-5">
-
         <div class="grid grid-cols-[7rem_1rem_1fr] gap-x-2">
           <div class="font-medium">2020.09–</div>
           <div class="text-skin-base/40">·</div>
@@ -535,22 +413,15 @@ import BackToTopButton from "@/components/BackToTopButton.astro";
           <div>
             <p class="font-semibold">Samsung SDS</p>
 
-            <p
-              data-lang="ko"
-              class="ko-ui mt-1 text-sm text-skin-base/65"
-            >
+            <p data-lang="ko" class="ko-ui text-skin-base/65 mt-1 text-sm">
               DS N/W SRE그룹 · 시니어 엔지니어
             </p>
 
-            <p
-              data-lang="en"
-              class="mt-1 hidden text-sm text-skin-base/65"
-            >
+            <p data-lang="en" class="text-skin-base/65 mt-1 hidden text-sm">
               DS N/W SRE Group · Senior Engineer
             </p>
           </div>
         </div>
-
 
         <div class="grid grid-cols-[7rem_1rem_1fr] gap-x-2">
           <div class="font-medium">2017.01–2020.08</div>
@@ -559,22 +430,15 @@ import BackToTopButton from "@/components/BackToTopButton.astro";
           <div>
             <p class="font-semibold">Samsung SDS</p>
 
-            <p
-              data-lang="ko"
-              class="ko-ui mt-1 text-sm text-skin-base/65"
-            >
+            <p data-lang="ko" class="ko-ui text-skin-base/65 mt-1 text-sm">
               클라우드구축실행그룹 · 시니어 엔지니어
             </p>
 
-            <p
-              data-lang="en"
-              class="mt-1 hidden text-sm text-skin-base/65"
-            >
+            <p data-lang="en" class="text-skin-base/65 mt-1 hidden text-sm">
               Cloud Deployment & Operations · Senior Engineer
             </p>
           </div>
         </div>
-
 
         <div class="grid grid-cols-[7rem_1rem_1fr] gap-x-2">
           <div class="font-medium">2013.08–2016.12</div>
@@ -583,22 +447,15 @@ import BackToTopButton from "@/components/BackToTopButton.astro";
           <div>
             <p class="font-semibold">Samsung SDS India</p>
 
-            <p
-              data-lang="ko"
-              class="ko-ui mt-1 text-sm text-skin-base/65"
-            >
+            <p data-lang="ko" class="ko-ui text-skin-base/65 mt-1 text-sm">
               삼성SDS 인도법인 · 수석보
             </p>
 
-            <p
-              data-lang="en"
-              class="mt-1 hidden text-sm text-skin-base/65"
-            >
+            <p data-lang="en" class="text-skin-base/65 mt-1 hidden text-sm">
               India Subsidiary · Overseas Assignment
             </p>
           </div>
         </div>
-
 
         <div class="grid grid-cols-[7rem_1rem_1fr] gap-x-2">
           <div class="font-medium">2010.03–2013.07</div>
@@ -607,22 +464,15 @@ import BackToTopButton from "@/components/BackToTopButton.astro";
           <div>
             <p class="font-semibold">Samsung SDS</p>
 
-            <p
-              data-lang="ko"
-              class="ko-ui mt-1 text-sm text-skin-base/65"
-            >
+            <p data-lang="ko" class="ko-ui text-skin-base/65 mt-1 text-sm">
               클라우드컨설팅그룹 · 과장
             </p>
 
-            <p
-              data-lang="en"
-              class="mt-1 hidden text-sm text-skin-base/65"
-            >
+            <p data-lang="en" class="text-skin-base/65 mt-1 hidden text-sm">
               Cloud Consulting Group
             </p>
           </div>
         </div>
-
 
         <div class="grid grid-cols-[7rem_1rem_1fr] gap-x-2">
           <div class="font-medium">2004.01–2010.02</div>
@@ -631,22 +481,15 @@ import BackToTopButton from "@/components/BackToTopButton.astro";
           <div>
             <p class="font-semibold">Samsung Networks</p>
 
-            <p
-              data-lang="ko"
-              class="ko-ui mt-1 text-sm text-skin-base/65"
-            >
+            <p data-lang="ko" class="ko-ui text-skin-base/65 mt-1 text-sm">
               IDC사업팀 · 대리
             </p>
 
-            <p
-              data-lang="en"
-              class="mt-1 hidden text-sm text-skin-base/65"
-            >
+            <p data-lang="en" class="text-skin-base/65 mt-1 hidden text-sm">
               IDC Business Team
             </p>
           </div>
         </div>
-
 
         <div class="grid grid-cols-[7rem_1rem_1fr] gap-x-2">
           <div class="font-medium">1999.12–2003.12</div>
@@ -655,267 +498,179 @@ import BackToTopButton from "@/components/BackToTopButton.astro";
           <div>
             <p class="font-semibold">Sysgate</p>
 
-            <p
-              data-lang="ko"
-              class="ko-ui mt-1 text-sm text-skin-base/65"
-            >
+            <p data-lang="ko" class="ko-ui text-skin-base/65 mt-1 text-sm">
               인터넷서비스파트 · 주임
             </p>
 
-            <p
-              data-lang="en"
-              class="mt-1 hidden text-sm text-skin-base/65"
-            >
+            <p data-lang="en" class="text-skin-base/65 mt-1 hidden text-sm">
               Internet Services
             </p>
           </div>
         </div>
-
 
         <div class="grid grid-cols-[7rem_1rem_1fr] gap-x-2">
           <div class="font-medium">1998.09–1999.02</div>
           <div class="text-skin-base/40">·</div>
 
           <div>
-            <p
-              data-lang="ko"
-              class="ko-ui font-semibold"
-            >
-              서울개명초등학교
-            </p>
+            <p data-lang="ko" class="ko-ui font-semibold">서울개명초등학교</p>
 
-            <p
-              data-lang="en"
-              class="hidden font-semibold"
-            >
+            <p data-lang="en" class="hidden font-semibold">
               Seoul Gaemyeong Elementary School
             </p>
 
-            <p
-              data-lang="ko"
-              class="ko-ui mt-1 text-sm text-skin-base/65"
-            >
+            <p data-lang="ko" class="ko-ui text-skin-base/65 mt-1 text-sm">
               행정실 · 전산보조
             </p>
 
-            <p
-              data-lang="en"
-              class="mt-1 hidden text-sm text-skin-base/65"
-            >
+            <p data-lang="en" class="text-skin-base/65 mt-1 hidden text-sm">
               Administration Office · IT Support
             </p>
           </div>
         </div>
-
       </div>
     </section>
-
 
     <!-- =========================================================
          Certifications
     ========================================================== -->
     <section class="border-border border-b py-10">
-      <p class="text-sm font-medium uppercase tracking-[0.16em] text-accent">
+      <p class="text-accent text-sm font-medium tracking-[0.16em] uppercase">
         Certifications & Training
       </p>
 
-      <p
-        data-lang="ko"
-        class="ko-body mt-3 text-sm text-skin-base/60"
-      >
-        보안, IT 서비스 관리, 데이터센터, 클라우드 및 기술 분야에서
-        취득한 주요 자격입니다.
+      <p data-lang="ko" class="ko-body text-skin-base/60 mt-3 text-sm">
+        보안, IT 서비스 관리, 데이터센터, 클라우드 및 기술 분야에서 취득한 주요
+        자격입니다.
       </p>
 
-      <p
-        data-lang="en"
-        class="mt-3 hidden text-sm text-skin-base/60"
-      >
-        Selected certifications across security, IT service management,
-        data centres, cloud computing, and technology.
+      <p data-lang="en" class="text-skin-base/60 mt-3 hidden text-sm">
+        Selected certifications across security, IT service management, data
+        centres, cloud computing, and technology.
       </p>
-
 
       <div class="mt-6 grid gap-3 sm:grid-cols-2">
-
-        <div class="rounded-lg border border-border p-4">
-          <strong>
-            AWS Certified Solutions Architect – Associate
-          </strong>
-          <p class="mt-2 text-sm text-skin-base/60">
+        <div class="border-border rounded-lg border p-4">
+          <strong> AWS Certified Solutions Architect – Associate </strong>
+          <p class="text-skin-base/60 mt-2 text-sm">
             Amazon Web Services · 2022.09.30
           </p>
         </div>
 
-        <div class="rounded-lg border border-border p-4">
+        <div class="border-border rounded-lg border p-4">
           <strong>
             Oracle Cloud Infrastructure Certified Architect Associate (OCI)
           </strong>
-          <p class="mt-2 text-sm text-skin-base/60">
-            Oracle · 2022.02.21
-          </p>
+          <p class="text-skin-base/60 mt-2 text-sm">Oracle · 2022.02.21</p>
         </div>
 
-        <div class="rounded-lg border border-border p-4">
-          <strong>
-            Certified Data Centre Professional (CDCP)
-          </strong>
-          <p class="mt-2 text-sm text-skin-base/60">
-            EXIN · 2017.04.21
-          </p>
+        <div class="border-border rounded-lg border p-4">
+          <strong> Certified Data Centre Professional (CDCP) </strong>
+          <p class="text-skin-base/60 mt-2 text-sm">EXIN · 2017.04.21</p>
         </div>
 
-        <div class="rounded-lg border border-border p-4">
+        <div class="border-border rounded-lg border p-4">
           <strong>
             Information Technology Infrastructure Library (ITIL)
           </strong>
-          <p class="mt-2 text-sm text-skin-base/60">
-            EXIN · 2008.06.11
-          </p>
+          <p class="text-skin-base/60 mt-2 text-sm">EXIN · 2008.06.11</p>
         </div>
 
-        <div class="rounded-lg border border-border p-4">
+        <div class="border-border rounded-lg border p-4">
           <strong>
             Certified Information Systems Security Professional (CISSP)
           </strong>
-          <p class="mt-2 text-sm text-skin-base/60">
-            (ISC)² · 2004.01.05
-          </p>
+          <p class="text-skin-base/60 mt-2 text-sm">(ISC)² · 2004.01.05</p>
         </div>
 
-        <div class="rounded-lg border border-border p-4">
-          <strong>
-            Certified Information Systems Auditor (CISA)
-          </strong>
-          <p class="mt-2 text-sm text-skin-base/60">
-            ISACA · 2003.01.29
-          </p>
+        <div class="border-border rounded-lg border p-4">
+          <strong> Certified Information Systems Auditor (CISA) </strong>
+          <p class="text-skin-base/60 mt-2 text-sm">ISACA · 2003.01.29</p>
         </div>
 
-        <div class="rounded-lg border border-border p-4">
-          <strong
-            data-lang="ko"
-            class="ko-ui"
-          >
+        <div class="border-border rounded-lg border p-4">
+          <strong data-lang="ko" class="ko-ui">
             제3급 아마추어무선기사 전화급
           </strong>
 
-          <strong
-            data-lang="en"
-            class="hidden"
-          >
+          <strong data-lang="en" class="hidden">
             Amateur Radio Operator Licence
           </strong>
 
-          <p class="mt-2 text-sm text-skin-base/60">
+          <p class="ko-ui text-skin-base/60 mt-2 text-sm">
             한국전파진흥원 · 1991.11.28
           </p>
         </div>
 
-        <div class="rounded-lg border border-border p-4">
-          <strong>
-            Six Sigma Green Belt
-          </strong>
+        <div class="border-border rounded-lg border p-4">
+          <strong> Six Sigma Green Belt </strong>
 
-          <p class="mt-2 text-sm text-skin-base/60">
-            Samsung Networks · 2006
-          </p>
+          <p class="text-skin-base/60 mt-2 text-sm">Samsung Networks · 2006</p>
         </div>
-
       </div>
     </section>
-
 
     <!-- =========================================================
          Recognition & Activities
     ========================================================== -->
     <section class="border-border border-b py-10">
-      <p class="text-sm font-medium uppercase tracking-[0.16em] text-accent">
+      <p class="text-accent text-sm font-medium tracking-[0.16em] uppercase">
         Recognition & Activities
       </p>
 
       <div class="mt-6 space-y-3 text-sm leading-6">
-
         <div class="grid grid-cols-[4rem_1rem_1fr] gap-x-2">
           <strong>2026</strong>
           <span class="text-skin-base/40">·</span>
 
-          <span
-            data-lang="ko"
-            class="ko-body text-[1.03em]"
-          >
+          <span data-lang="ko" class="ko-body text-[1.03em]">
             대한적십자사 적십자헌혈유공장 금장
           </span>
 
-          <span
-            data-lang="en"
-            class="hidden col-start-3"
-          >
+          <span data-lang="en" class="col-start-3 hidden">
             Korean Red Cross Blood Donation Merit Gold Medal
           </span>
         </div>
-
 
         <div class="grid grid-cols-[4rem_1rem_1fr] gap-x-2">
           <strong>2024</strong>
           <span class="text-skin-base/40">·</span>
 
-          <span
-            data-lang="ko"
-            class="ko-body text-[1.03em]"
-          >
+          <span data-lang="ko" class="ko-body text-[1.03em]">
             삼성SDS 대표이사 표창
           </span>
 
-          <span
-            data-lang="en"
-            class="hidden col-start-3"
-          >
+          <span data-lang="en" class="col-start-3 hidden">
             Samsung SDS CEO Award
           </span>
         </div>
-
 
         <div class="grid grid-cols-[4rem_1rem_1fr] gap-x-2">
           <strong>2021</strong>
           <span class="text-skin-base/40">·</span>
 
-          <span
-            data-lang="ko"
-            class="ko-body text-[1.03em]"
-          >
+          <span data-lang="ko" class="ko-body text-[1.03em]">
             대한적십자사 적십자헌혈유공장 은장
           </span>
 
-          <span
-            data-lang="en"
-            class="hidden col-start-3"
-          >
+          <span data-lang="en" class="col-start-3 hidden">
             Korean Red Cross Blood Donation Merit Silver Medal
           </span>
         </div>
-
 
         <div class="grid grid-cols-[4rem_1rem_1fr] gap-x-2">
           <strong>2020</strong>
           <span class="text-skin-base/40">·</span>
 
-          <span
-            data-lang="ko"
-            class="ko-body text-[1.03em]"
-          >
+          <span data-lang="ko" class="ko-body text-[1.03em]">
             《미래를 여는 빛, 기업가정신》 검수
           </span>
 
-          <span
-            data-lang="en"
-            class="hidden col-start-3"
-          >
-            Technical review contributor for
-            “Entrepreneurship, the Light that Opens the Future”
+          <span data-lang="en" class="col-start-3 hidden">
+            Technical review contributor for “Entrepreneurship, the Light that
+            Opens the Future”
           </span>
         </div>
-
 
         <div class="grid grid-cols-[4rem_1rem_1fr] gap-x-2">
           <strong>2019</strong>
@@ -923,46 +678,31 @@ import BackToTopButton from "@/components/BackToTopButton.astro";
           <span>Samsung SDS Cloud Best Performer</span>
         </div>
 
-
         <div class="grid grid-cols-[4rem_1rem_1fr] gap-x-2">
           <strong>2014</strong>
           <span class="text-skin-base/40">·</span>
 
-          <span
-            data-lang="ko"
-            class="ko-body text-[1.03em]"
-          >
+          <span data-lang="ko" class="ko-body text-[1.03em]">
             삼성SDS 대표이사 표창
           </span>
 
-          <span
-            data-lang="en"
-            class="hidden col-start-3"
-          >
+          <span data-lang="en" class="col-start-3 hidden">
             Samsung SDS CEO Award
           </span>
         </div>
-
 
         <div class="grid grid-cols-[4rem_1rem_1fr] gap-x-2">
           <strong>2012</strong>
           <span class="text-skin-base/40">·</span>
 
-          <span
-            data-lang="ko"
-            class="ko-body text-[1.03em]"
-          >
+          <span data-lang="ko" class="ko-body text-[1.03em]">
             한국도서관협회 책읽는 가족
           </span>
 
-          <span
-            data-lang="en"
-            class="hidden col-start-3"
-          >
+          <span data-lang="en" class="col-start-3 hidden">
             Korean Library Association “Reading Family”
           </span>
         </div>
-
 
         <div class="grid grid-cols-[4rem_1rem_1fr] gap-x-2">
           <strong>2006</strong>
@@ -970,260 +710,192 @@ import BackToTopButton from "@/components/BackToTopButton.astro";
           <span>Samsung Networks CEO Award</span>
         </div>
 
-
         <div class="grid grid-cols-[4rem_1rem_1fr] gap-x-2">
           <strong>2005</strong>
           <span class="text-skin-base/40">·</span>
           <span>Samsung Networks CEO Award</span>
         </div>
 
-
         <div class="grid grid-cols-[4rem_1rem_1fr] gap-x-2">
           <strong>1996</strong>
           <span class="text-skin-base/40">·</span>
 
-          <span
-            data-lang="ko"
-            class="ko-body text-[1.03em]"
-          >
+          <span data-lang="ko" class="ko-body text-[1.03em]">
             한겨레통일문화재단 국민참여 창립발기인
           </span>
 
-          <span
-            data-lang="en"
-            class="hidden col-start-3"
-          >
-            Founding Participant, Hankyoreh Foundation for Reunification and Culture
+          <span data-lang="en" class="col-start-3 hidden">
+            Founding Participant, Hankyoreh Foundation for Reunification and
+            Culture
           </span>
         </div>
-
 
         <div class="grid grid-cols-[4rem_1rem_1fr] gap-x-2">
           <strong>1991</strong>
           <span class="text-skin-base/40">·</span>
 
-          <span
-            data-lang="ko"
-            class="ko-body text-[1.03em]"
-          >
+          <span data-lang="ko" class="ko-body text-[1.03em]">
             여의도고등학교 과학실 조교
           </span>
 
-          <span
-            data-lang="en"
-            class="hidden col-start-3"
-          >
+          <span data-lang="en" class="col-start-3 hidden">
             Science Laboratory Assistant, Yeouido High School
           </span>
         </div>
-
       </div>
     </section>
-
 
     <!-- =========================================================
          Current Research Directions
     ========================================================== -->
     <section class="border-border border-b py-10">
-
-      <p class="text-sm font-medium uppercase tracking-[0.16em] text-accent">
+      <p class="text-accent text-sm font-medium tracking-[0.16em] uppercase">
         Current Research Directions
       </p>
 
-      <h2
-        data-lang="ko"
-        class="ko-ui mt-2 text-2xl font-semibold"
-      >
+      <h2 data-lang="ko" class="ko-ui mt-2 text-2xl font-semibold">
         석사논문 연구 주제 후보
       </h2>
 
-      <h2
-        data-lang="en"
-        class="mt-2 hidden text-2xl font-semibold"
-      >
+      <h2 data-lang="en" class="mt-2 hidden text-2xl font-semibold">
         Master's Thesis Research Candidates
       </h2>
 
-
       <p
         data-lang="ko"
-        class="ko-body mt-3 max-w-3xl leading-7 text-skin-base/70"
+        class="ko-body text-skin-base/70 mt-3 max-w-3xl leading-7"
       >
-        현재 세 가지 연구 방향을 검토하고 있습니다.
-        연구가 진행됨에 따라 주제와 범위는 변경될 수 있으며,
-        그 변화와 선택의 과정 역시 Research Journey에 기록할 예정입니다.
+        현재 세 가지 연구 방향을 검토하고 있습니다. 연구가 진행됨에 따라 주제와
+        범위는 변경될 수 있으며, 그 변화와 선택의 과정 역시 Research Journey에
+        기록할 예정입니다.
       </p>
 
       <p
         data-lang="en"
-        class="mt-3 hidden max-w-3xl leading-7 text-skin-base/70"
+        class="text-skin-base/70 mt-3 hidden max-w-3xl leading-7"
       >
-        I am currently exploring three possible research directions.
-        The scope and research questions may evolve as the study progresses,
-        and the process of choosing and refining them will also become
-        part of this research record.
+        I am currently exploring three possible research directions. The scope
+        and research questions may evolve as the study progresses, and the
+        process of choosing and refining them will also become part of this
+        research record.
       </p>
 
-
       <!-- Research 1 -->
-      <article class="mt-8 rounded-xl border border-border p-6">
+      <article class="border-border mt-8 rounded-xl border p-6">
         <div class="flex justify-between gap-4">
           <div>
-            <p class="text-xs font-medium tracking-[0.16em] text-accent">
+            <p class="text-accent text-xs font-medium tracking-[0.16em]">
               PRIORITY 01
             </p>
 
-            <h3
-              data-lang="ko"
-              class="ko-ui mt-2 text-xl font-semibold"
-            >
+            <h3 data-lang="ko" class="ko-ui mt-2 text-xl font-semibold">
               문맥 기반 민감정보 탐지
             </h3>
 
-            <h3
-              data-lang="en"
-              class="mt-2 hidden text-xl font-semibold"
-            >
+            <h3 data-lang="en" class="mt-2 hidden text-xl font-semibold">
               Context-Aware Sensitive Information Detection
             </h3>
           </div>
 
-          <span class="h-fit rounded-full border border-border px-3 py-1 text-xs">
+          <span
+            class="border-border h-fit rounded-full border px-3 py-1 text-xs"
+          >
             1st
           </span>
         </div>
 
-
-        <p
-          data-lang="ko"
-          class="ko-body mt-4 leading-7 text-skin-base/75"
-        >
-          폐쇄망 기업 환경에서 경량 언어모델이 전송 데이터의 의미와
-          문맥을 분석하여 민감정보 및 위험 콘텐츠를 식별할 수 있는지
-          평가합니다.
+        <p data-lang="ko" class="ko-body text-skin-base/75 mt-4 leading-7">
+          폐쇄망 기업 환경에서 경량 언어모델이 전송 데이터의 의미와 문맥을
+          분석하여 민감정보 및 위험 콘텐츠를 식별할 수 있는지 평가합니다.
         </p>
 
-        <p
-          data-lang="en"
-          class="mt-4 hidden leading-7 text-skin-base/75"
-        >
-          Evaluates whether a lightweight language model can identify
-          sensitive information and risky content by understanding
-          semantic context in transmitted enterprise data.
+        <p data-lang="en" class="text-skin-base/75 mt-4 hidden leading-7">
+          Evaluates whether a lightweight language model can identify sensitive
+          information and risky content by understanding semantic context in
+          transmitted enterprise data.
         </p>
 
         <details class="mt-5">
-          <summary class="cursor-pointer text-sm font-medium text-accent">
+          <summary class="text-accent cursor-pointer text-sm font-medium">
             Research Title
           </summary>
 
           <div class="mt-3 space-y-3 text-sm leading-6">
-
-            <p
-              data-lang="ko"
-              class="ko-body"
-            >
-              <strong class="ko-ui">한국어:</strong>
-              폐쇄망 기업 환경에서 경량 언어모델을 활용한 전송 데이터의
-              문맥 기반 민감정보 및 위험 콘텐츠 탐지·평가
+            <p data-lang="ko" class="ko-body">
+              폐쇄망 기업 환경에서 경량 언어모델을 활용한 전송 데이터의 문맥
+              기반 민감정보 및 위험 콘텐츠 탐지·평가
             </p>
 
-            <p
-              data-lang="en"
-              class="hidden"
-            >
-              <strong>English:</strong>
+            <p data-lang="en" class="hidden">
               Context-Aware Detection and Evaluation of Sensitive Information
-              and Risky Content in Transmitted Data Using a Lightweight
-              Language Model in an Air-Gapped Enterprise Environment
+              and Risky Content in Transmitted Data Using a Lightweight Language
+              Model in an Air-Gapped Enterprise Environment
             </p>
 
             <p class="text-skin-base/65">
-              Keyword / Regex · TF-IDF · Embedding · Transformer ·
-              Lightweight LLM · Hybrid
+              Keyword / Regex · TF-IDF · Embedding · Transformer · Lightweight
+              LLM · Hybrid
             </p>
 
             <p class="text-skin-base/65">
-              Precision · Recall · F1 · False Positive / Negative ·
-              Evasion Detection · Latency · CPU / GPU / Memory
+              Precision · Recall · F1 · False Positive / Negative · Evasion
+              Detection · Latency · CPU / GPU / Memory
             </p>
-
           </div>
         </details>
       </article>
 
-
       <!-- Research 2 -->
-      <article class="mt-5 rounded-xl border border-border p-6">
+      <article class="border-border mt-5 rounded-xl border p-6">
         <div class="flex justify-between gap-4">
           <div>
-            <p class="text-xs font-medium tracking-[0.16em] text-accent">
+            <p class="text-accent text-xs font-medium tracking-[0.16em]">
               PRIORITY 02
             </p>
 
-            <h3
-              data-lang="ko"
-              class="ko-ui mt-2 text-xl font-semibold"
-            >
+            <h3 data-lang="ko" class="ko-ui mt-2 text-xl font-semibold">
               다중 로그 상관분석 기반 조기 위험 탐지
             </h3>
 
-            <h3
-              data-lang="en"
-              class="mt-2 hidden text-xl font-semibold"
-            >
+            <h3 data-lang="en" class="mt-2 hidden text-xl font-semibold">
               Early Risk Detection through Multi-Log Correlation
             </h3>
           </div>
 
-          <span class="h-fit rounded-full border border-border px-3 py-1 text-xs">
+          <span
+            class="border-border h-fit rounded-full border px-3 py-1 text-xs"
+          >
             2nd
           </span>
         </div>
 
-
-        <p
-          data-lang="ko"
-          class="ko-body mt-4 leading-7 text-skin-base/75"
-        >
-          개별적으로는 정상일 수 있는 여러 보안 이벤트를 사용자,
-          단말, IP 및 시간 흐름에 따라 연결하여 공격이나 정보유출로
-          발전하는 위험을 조기에 탐지하는 방법을 연구합니다.
+        <p data-lang="ko" class="ko-body text-skin-base/75 mt-4 leading-7">
+          개별적으로는 정상일 수 있는 여러 보안 이벤트를 사용자, 단말, IP 및
+          시간 흐름에 따라 연결하여 공격이나 정보유출로 발전하는 위험을 조기에
+          탐지하는 방법을 연구합니다.
         </p>
 
-        <p
-          data-lang="en"
-          class="mt-4 hidden leading-7 text-skin-base/75"
-        >
+        <p data-lang="en" class="text-skin-base/75 mt-4 hidden leading-7">
           Studies whether a lightweight language model can correlate
-          individually benign security events across users, endpoints,
-          IP addresses, and time to identify emerging attack sequences.
+          individually benign security events across users, endpoints, IP
+          addresses, and time to identify emerging attack sequences.
         </p>
 
         <details class="mt-5">
-          <summary class="cursor-pointer text-sm font-medium text-accent">
+          <summary class="text-accent cursor-pointer text-sm font-medium">
             Research Title
           </summary>
 
           <div class="mt-3 space-y-3 text-sm leading-6">
-
-            <p
-              data-lang="ko"
-              class="ko-body"
-            >
-              <strong class="ko-ui">한국어:</strong>
-              폐쇄망 기업 환경에서 경량 언어모델을 활용한 다중 보안 로그의
-              문맥 기반 이벤트 상관분석 및 조기 위험 탐지
+            <p data-lang="ko" class="ko-body">
+              폐쇄망 기업 환경에서 경량 언어모델을 활용한 다중 보안 로그의 문맥
+              기반 이벤트 상관분석 및 조기 위험 탐지
             </p>
 
-            <p
-              data-lang="en"
-              class="hidden"
-            >
-              <strong>English:</strong>
+            <p data-lang="en" class="hidden">
               Context-Aware Event Correlation and Early Risk Detection across
-              Multiple Security Logs Using a Lightweight Language Model
-              in an Air-Gapped Enterprise Environment
+              Multiple Security Logs Using a Lightweight Language Model in an
+              Air-Gapped Enterprise Environment
             </p>
 
             <p class="text-skin-base/65">
@@ -1235,137 +907,104 @@ import BackToTopButton from "@/components/BackToTopButton.astro";
               Precision · Recall · F1 · Detection Time · Scenario Detection ·
               ATT&CK Mapping · Resource Usage
             </p>
-
           </div>
         </details>
       </article>
 
-
       <!-- Research 3 -->
-      <article class="mt-5 rounded-xl border border-border p-6">
+      <article class="border-border mt-5 rounded-xl border p-6">
         <div class="flex justify-between gap-4">
           <div>
-            <p class="text-xs font-medium tracking-[0.16em] text-accent">
+            <p class="text-accent text-xs font-medium tracking-[0.16em]">
               PRIORITY 03
             </p>
 
-            <h3
-              data-lang="ko"
-              class="ko-ui mt-2 text-xl font-semibold"
-            >
+            <h3 data-lang="ko" class="ko-ui mt-2 text-xl font-semibold">
               오프라인 생성형 AI 교육 시스템
             </h3>
 
-            <h3
-              data-lang="en"
-              class="mt-2 hidden text-xl font-semibold"
-            >
+            <h3 data-lang="en" class="mt-2 hidden text-xl font-semibold">
               Offline Generative AI Learning Support System
             </h3>
           </div>
 
-          <span class="h-fit rounded-full border border-border px-3 py-1 text-xs">
+          <span
+            class="border-border h-fit rounded-full border px-3 py-1 text-xs"
+          >
             3rd
           </span>
         </div>
 
-
-        <p
-          data-lang="ko"
-          class="ko-body mt-4 leading-7 text-skin-base/75"
-        >
-          인터넷 연결이 어렵거나 비용 부담이 큰 교육환경에서
-          경량 언어모델과 RAG를 활용하여 로컬에서 동작하는
-          생성형 AI 학습지원 시스템을 설계하고 평가합니다.
+        <p data-lang="ko" class="ko-body text-skin-base/75 mt-4 leading-7">
+          인터넷 연결이 어렵거나 비용 부담이 큰 교육환경에서 경량 언어모델과
+          RAG를 활용하여 로컬에서 동작하는 생성형 AI 학습지원 시스템을 설계하고
+          평가합니다.
         </p>
 
-        <p
-          data-lang="en"
-          class="mt-4 hidden leading-7 text-skin-base/75"
-        >
-          Designs and evaluates a local generative AI learning system
-          combining lightweight language models and RAG for educational
-          environments with limited or costly Internet connectivity.
+        <p data-lang="en" class="text-skin-base/75 mt-4 hidden leading-7">
+          Designs and evaluates a local generative AI learning system combining
+          lightweight language models and RAG for educational environments with
+          limited or costly Internet connectivity.
         </p>
 
         <details class="mt-5">
-          <summary class="cursor-pointer text-sm font-medium text-accent">
+          <summary class="text-accent cursor-pointer text-sm font-medium">
             Research Title
           </summary>
 
           <div class="mt-3 space-y-3 text-sm leading-6">
-
-            <p
-              data-lang="ko"
-              class="ko-body"
-            >
-              <strong class="ko-ui">한국어:</strong>
-              저연결성 교육환경을 위한 경량 언어모델 기반 오프라인
-              생성형 AI 학습지원 시스템의 설계 및 평가
+            <p data-lang="ko" class="ko-body">
+              저연결성 교육환경을 위한 경량 언어모델 기반 오프라인 생성형 AI
+              학습지원 시스템의 설계 및 평가
             </p>
 
-            <p
-              data-lang="en"
-              class="hidden"
-            >
-              <strong>English:</strong>
-              Design and Evaluation of an Offline Generative AI Learning
-              Support System Using a Lightweight Language Model for
-              Low-Connectivity Educational Environments
+            <p data-lang="en" class="hidden">
+              Design and Evaluation of an Offline Generative AI Learning Support
+              System Using a Lightweight Language Model for Low-Connectivity
+              Educational Environments
             </p>
 
             <p class="text-skin-base/65">
-              RACHEL · Kolibri · Local Wi-Fi · RAG · Lightweight LLM ·
-              Offline Knowledge Base
+              RACHEL · Kolibri · Local Wi-Fi · RAG · Lightweight LLM · Offline
+              Knowledge Base
             </p>
 
             <p class="text-skin-base/65">
               Accuracy · Curriculum Alignment · Hallucination · Latency ·
               Concurrent Users · CPU / RAM · Power Consumption
             </p>
-
           </div>
         </details>
       </article>
 
-
       <!-- Shared Technical Direction -->
-      <div class="mt-8 rounded-xl border border-border p-6">
-
-        <p class="text-xs font-medium uppercase tracking-[0.16em] text-accent">
+      <div class="border-border mt-8 rounded-xl border p-6">
+        <p class="text-accent text-xs font-medium tracking-[0.16em] uppercase">
           Shared Technical Direction
         </p>
 
-        <p
-          data-lang="ko"
-          class="ko-body mt-4 leading-7 text-skin-base/75"
-        >
+        <p data-lang="ko" class="ko-body text-skin-base/75 mt-4 leading-7">
           세 연구 모두 폐쇄망 또는 저연결성 환경에서 경량 언어모델을 활용하고,
-          외부 클라우드 API에 의존하지 않는 로컬 추론 환경에서
-          기존 키워드·규칙·임계치 기반 방법과 AI 기반 방법의 정확도 및
-          자원 효율성을 비교·평가한다는 공통 기반을 갖습니다.
+          외부 클라우드 API에 의존하지 않는 로컬 추론 환경에서 기존
+          키워드·규칙·임계치 기반 방법과 AI 기반 방법의 정확도 및 자원 효율성을
+          비교·평가한다는 공통 기반을 갖습니다.
         </p>
 
-        <p
-          data-lang="en"
-          class="mt-4 hidden leading-7 text-skin-base/75"
-        >
-          All three directions share a common technical foundation:
-          lightweight language models running locally in air-gapped or
-          low-connectivity environments, with objective comparison against
-          traditional keyword-, rule-, and threshold-based approaches
-          in both effectiveness and resource efficiency.
+        <p data-lang="en" class="text-skin-base/75 mt-4 hidden leading-7">
+          All three directions share a common technical foundation: lightweight
+          language models running locally in air-gapped or low-connectivity
+          environments, with objective comparison against traditional keyword-,
+          rule-, and threshold-based approaches in both effectiveness and
+          resource efficiency.
         </p>
 
-        <p class="mt-5 text-sm leading-7 text-skin-base/60">
-          Python → pandas → Data Analysis → Machine Learning →
-          Text Classification → Embeddings → Transformer →
-          Lightweight LLM → RAG → Quantisation → Local Deployment
+        <p class="text-skin-base/60 mt-5 text-sm leading-7">
+          Python → pandas → Data Analysis → Machine Learning → Text
+          Classification → Embeddings → Transformer → Lightweight LLM → RAG →
+          Quantisation → Local Deployment
         </p>
-
       </div>
     </section>
-
 
     <!-- =========================================================
          Back
@@ -1373,12 +1012,11 @@ import BackToTopButton from "@/components/BackToTopButton.astro";
     <section class="py-8">
       <a
         href="/"
-        class="text-sm font-medium text-accent underline decoration-dashed underline-offset-4"
+        class="text-accent text-sm font-medium underline decoration-dashed underline-offset-4"
       >
         ← Research Journey
       </a>
     </section>
-
   </main>
 
   <BackToTopButton />

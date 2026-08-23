@@ -32,13 +32,16 @@ const navLabels: Record<string, string> = {
   search: t.nav.search,
 };
 
-// if breadcrumb is Home > Posts > [page] <etc>
-// replace Posts with localized "Posts (page number)"
+// Notes breadcrumb
 if (breadcrumbList[0] === "posts") {
+  const pageNumber = Number(breadcrumbList[1] || 1);
+
   breadcrumbList.splice(
     0,
     2,
-    `${t.nav.posts} (${t.pagination.page.toLowerCase()} ${breadcrumbList[1] || 1})`
+    pageNumber > 1
+      ? `${t.nav.posts} (${t.pagination.page} ${pageNumber})`
+      : t.nav.posts
   );
 }
 
