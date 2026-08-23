@@ -10,9 +10,9 @@ import { getSortedPosts } from "@/utils/getSortedPosts";
 import { slugifyStr } from "@/utils/slugify";
 import { toTransitionName } from "@/utils/toTransitionName";
 import EditPost from "./_components/EditPost.astro";
-import ShareLinks from "./_components/ShareLinks.astro";
+import ShareActions from "@/components/ShareActions.astro";
 import BackButton from "./_components/BackButton.astro";
-import BackToTopButton from "./_components/BackToTopButton.astro";
+import BackToTopButton from "@/components/BackToTopButton.astro";
 import AdjacentPostNav from "./_components/AdjacentPostNav.astro";
 import config from "@/config";
 
@@ -71,6 +71,7 @@ const {
   timezone,
   tags,
   hideEditPost,
+  lang,
 } = post.data;
 
 const { Content } = await render(post);
@@ -103,6 +104,7 @@ const ogImage = ogImageUrl
   canonicalURL={canonicalURL}
   pubDatetime={pubDatetime}
   modDatetime={modDatetime}
+  lang={lang}
 >
   <Header />
 
@@ -136,6 +138,7 @@ const ogImage = ogImageUrl
 
     <article
       id="article"
+      data-post-lang={lang}
       class:list={[
         "mt-8 w-full",
         "app-prose max-w-app",
@@ -155,7 +158,7 @@ const ogImage = ogImageUrl
       {tags.map(tag => <Tag tag={slugifyStr(tag)} tagName={tag} size="sm" />)}
     </ul>
 
-    <ShareLinks />
+    <ShareActions />
 
     <hr class="my-8 border-dashed" />
 

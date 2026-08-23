@@ -13,15 +13,31 @@
   font-display: swap;
 }
 
-[data-lang="ko"] {
+@font-face {
+  font-family: "Pretendard";
+  src: url("/fonts/PretendardVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+.ko-body,
+[data-post-lang="ko"] {
   font-family:
     "RIDIBatang",
     "Apple SD Gothic Neo",
     "Malgun Gothic",
     serif;
 
-  font-size: 1.03em;
   line-height: 1.8;
+}
+
+.ko-ui {
+  font-family:
+    "Pretendard",
+    "Apple SD Gothic Neo",
+    "Malgun Gothic",
+    sans-serif;
 }
 
 @layer base {

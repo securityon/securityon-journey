@@ -44,9 +44,5 @@ export default defineAstroPaperConfig({
   ],
   
 
-  shareLinks: [
-    { name: "mail",
-      url: "mailto:?subject=Research%20Note&body="
-    },
-  ],
+  shareLinks: [],
 });

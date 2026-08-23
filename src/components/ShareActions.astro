@@ -1,0 +1,61 @@
+<div class="mt-6 flex items-center gap-4 text-sm text-skin-base/60">
+  <span class="font-medium text-skin-base/70">
+    Share
+  </span>
+
+  <a
+    id="linkedin-share"
+    href="#"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="hover:text-accent"
+  >
+    LinkedIn
+  </a>
+
+  <button
+    id="copy-link"
+    type="button"
+    class="hover:text-accent"
+  >
+    Copy Link
+  </button>
+
+  <span
+    id="copy-feedback"
+    class="hidden text-xs text-accent"
+    aria-live="polite"
+  >
+    Copied
+  </span>
+</div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const linkedin =
+      document.querySelector<HTMLAnchorElement>("#linkedin-share");
+
+    const copyButton =
+      document.querySelector<HTMLButtonElement>("#copy-link");
+
+    const feedback =
+      document.querySelector<HTMLElement>("#copy-feedback");
+
+    const currentUrl = window.location.href;
+
+    if (linkedin) {
+      linkedin.href =
+        `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}`;
+    }
+
+    copyButton?.addEventListener("click", async () => {
+      await navigator.clipboard.writeText(currentUrl);
+
+      feedback?.classList.remove("hidden");
+
+      setTimeout(() => {
+        feedback?.classList.add("hidden");
+      }, 1500);
+    });
+  });
+</script>

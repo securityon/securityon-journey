@@ -10,7 +10,7 @@ type Props = {
 
 const { variant: Heading = "h2", id, data, filePath } = Astro.props;
 
-const { title, description, ...props } = data;
+const { title, description, lang, ...props } = data;
 ---
 
 <li class="my-6">
@@ -22,10 +22,15 @@ const { title, description, ...props } = data;
       "focus-visible:no-underline focus-visible:underline-offset-0",
     ]}
   >
-    <Heading transition:name={toTransitionName(id)}>
+    <Heading
+      transition:name={toTransitionName(id)}
+      class:list={{ "ko-ui": lang === "ko" }}
+    >
       {title}
     </Heading>
   </a>
   <Datetime {...props} />
-  <p>{description}</p>
+  <p class:list={{ "ko-body": lang === "ko" }}>
+    {description}
+  </p>
 </li>
