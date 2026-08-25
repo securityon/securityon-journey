@@ -9,6 +9,7 @@ type AdjacentPost = {
   id: string;
   title: string;
   filePath: string | undefined;
+  lang: "ko" | "en";
 } | null;
 
 type Props = {
@@ -31,7 +32,14 @@ const t = useTranslations(locale);
         <IconArrowLeft class="inline-block flex-none rtl:rotate-180" />
         <div>
           <span>{t.post.previousPost}</span>
-          <div class="text-accent/85 text-sm">{prevPost.title}</div>
+          <div
+            class:list={[
+              "text-accent/85 text-sm",
+              { "ko-ui": prevPost.lang === "ko" },
+            ]}
+          >
+            {prevPost.title}
+          </div>
         </div>
       </a>
     )
@@ -44,7 +52,14 @@ const t = useTranslations(locale);
       >
         <div>
           <span>{t.post.nextPost}</span>
-          <div class="text-accent/85 text-sm">{nextPost.title}</div>
+          <div
+            class:list={[
+              "text-accent/85 text-sm",
+              { "ko-ui": nextPost.lang === "ko" },
+            ]}
+          >
+            {nextPost.title}
+          </div>
         </div>
         <IconArrowRight class="inline-block flex-none rtl:rotate-180" />
       </a>

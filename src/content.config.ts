@@ -22,6 +22,7 @@ const posts = defineCollection({
       hideEditPost: z.boolean().optional(),
       timezone: z.string().optional(),
       lang: z.enum(["ko", "en"]).default("ko"),
+      translationKey: z.string().optional(),
     }),
 });
 

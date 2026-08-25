@@ -15,40 +15,90 @@ import BackButton from "./_components/BackButton.astro";
 import BackToTopButton from "@/components/BackToTopButton.astro";
 import AdjacentPostNav from "./_components/AdjacentPostNav.astro";
 import config from "@/config";
+import PostLanguageToggle from "./_components/PostLanguageToggle.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
   const sortedPosts = getSortedPosts(posts);
 
-  return sortedPosts.map((post, index) => ({
-    params: { slug: getPostSlug(post.id, post.filePath) },
-    props: {
-      post,
-      // sortedPosts is newest-first, so "older" (prev) is a higher index
-      // and "newer" (next) is a lower index.
-      prevPost:
-        index < sortedPosts.length - 1
+  return sortedPosts.map(post => {
+    const sameLanguagePosts = sortedPosts.filter(
+      item => item.data.lang === post.data.lang
+    );
+
+    const index = sameLanguagePosts.findIndex(item => item.id === post.id);
+
+    const translationKey = post.data.translationKey;
+
+    const koPost = translationKey
+      ? sortedPosts.find(
+          item =>
+            item.data.translationKey === translationKey &&
+            item.data.lang === "ko"
+        )
+      : undefined;
+
+    const enPost = translationKey
+      ? sortedPosts.find(
+          item =>
+            item.data.translationKey === translationKey &&
+            item.data.lang === "en"
+        )
+      : undefined;
+
+    return {
+      params: { slug: getPostSlug(post.id, post.filePath) },
+
+      props: {
+        post,
+
+        prevPost:
+          index < sameLanguagePosts.length - 1
+            ? {
+                id: sameLanguagePosts[index + 1].id,
+                title: sameLanguagePosts[index + 1].data.title,
+                filePath: sameLanguagePosts[index + 1].filePath,
+                lang: sameLanguagePosts[index + 1].data.lang,
+              }
+            : null,
+
+        nextPost:
+          index > 0
+            ? {
+                id: sameLanguagePosts[index - 1].id,
+                title: sameLanguagePosts[index - 1].data.title,
+                filePath: sameLanguagePosts[index - 1].filePath,
+                lang: sameLanguagePosts[index - 1].data.lang,
+              }
+            : null,
+
+        koPost: koPost
           ? {
-              id: sortedPosts[index + 1].id,
-              title: sortedPosts[index + 1].data.title,
-              filePath: sortedPosts[index + 1].filePath,
+              id: koPost.id,
+              filePath: koPost.filePath,
             }
           : null,
-      nextPost:
-        index > 0
+
+        enPost: enPost
           ? {
-              id: sortedPosts[index - 1].id,
-              title: sortedPosts[index - 1].data.title,
-              filePath: sortedPosts[index - 1].filePath,
+              id: enPost.id,
+              filePath: enPost.filePath,
             }
           : null,
-    },
-  }));
+      },
+    };
+  });
 }
 
 type AdjacentPost = {
   id: string;
   title: string;
+  filePath: string | undefined;
+  lang: "ko" | "en";
+} | null;
+
+type TranslationPost = {
+  id: string;
   filePath: string | undefined;
 } | null;
 
@@ -56,9 +106,11 @@ type Props = {
   post: CollectionEntry<"posts">;
   prevPost: AdjacentPost;
   nextPost: AdjacentPost;
+  koPost: TranslationPost;
+  enPost: TranslationPost;
 };
 
-const { post, prevPost, nextPost } = Astro.props;
+const { post, prevPost, nextPost, koPost, enPost } = Astro.props;
 const locale = Astro.currentLocale ?? config.site.lang;
 
 const {
@@ -115,12 +167,24 @@ const ogImage = ogImageUrl
     class:list={["app-layout", { "mt-8": !config.features.showBackButton }]}
     data-pagefind-body
   >
-    <h1
-      style={{ viewTransitionName: toTransitionName(post.id) }}
-      class="text-accent inline-block text-2xl font-bold sm:text-3xl"
-    >
-      {title}
-    </h1>
+    <div class="flex items-start justify-between gap-6">
+      <h1
+        style={{ viewTransitionName: toTransitionName(post.id) }}
+        class="text-accent text-2xl font-bold sm:text-3xl"
+      >
+        {title}
+      </h1>
+
+      {
+        koPost && enPost && (
+          <PostLanguageToggle
+            currentLang={lang}
+            koUrl={getPostUrl(koPost.id, koPost.filePath, locale)}
+            enUrl={getPostUrl(enPost.id, enPost.filePath, locale)}
+          />
+        )
+      }
+    </div>
 
     <div class="my-2 flex items-center gap-2">
       <Datetime {pubDatetime} {modDatetime} {timezone} size="lg" />
@@ -164,7 +228,7 @@ const ogImage = ogImageUrl
 
     <AdjacentPostNav {prevPost} {nextPost} />
   </main>
-  <Footer />
+  <Footer noMarginTop />
 </PostLayout>
 
 <script is:inline data-astro-rerun>

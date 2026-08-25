@@ -2,6 +2,7 @@
 title: "Research Journey 시작"
 description: "대학원 공부와 연구 과정을 기록하기 위한 SecurityOn Research Journey를 시작합니다."
 lang: ko
+translationKey: research-journey-begins
 pubDatetime: 2026-08-22T23:55:00+09:00
 tags:
   - research-journey

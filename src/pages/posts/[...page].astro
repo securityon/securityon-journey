@@ -41,5 +41,19 @@ const t = useTranslations(locale);
 
   <Pagination {page} />
 
-  <Footer noMarginTop={page.lastPage > 1} />
+  <!-- =========================================================
+       Back
+  ========================================================== -->
+  <div class="app-layout">
+    <section class="border-border border-t py-8">
+      <a
+        href="/"
+        class="text-accent text-sm font-medium underline decoration-dashed underline-offset-4"
+      >
+        ← Research Journey
+      </a>
+    </section>
+  </div>
+
+  <Footer noMarginTop />
 </Layout>

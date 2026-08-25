@@ -1,0 +1,45 @@
+---
+type Props = {
+  currentLang: "ko" | "en";
+  koUrl?: string;
+  enUrl?: string;
+};
+
+const { currentLang, koUrl, enUrl } = Astro.props;
+---
+
+<div class="flex shrink-0 gap-2" aria-label="Post language">
+  {
+    koUrl && (
+      <a
+        href={koUrl}
+        class:list={[
+          "border-border rounded-md border px-3 py-1.5 text-sm",
+          {
+            "font-medium": currentLang === "ko",
+            "opacity-60": currentLang !== "ko",
+          },
+        ]}
+      >
+        KO
+      </a>
+    )
+  }
+
+  {
+    enUrl && (
+      <a
+        href={enUrl}
+        class:list={[
+          "border-border rounded-md border px-3 py-1.5 text-sm",
+          {
+            "font-medium": currentLang === "en",
+            "opacity-60": currentLang !== "en",
+          },
+        ]}
+      >
+        EN
+      </a>
+    )
+  }
+</div>

@@ -2,33 +2,72 @@
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import LinkButton from "@/components/LinkButton.astro";
-import { getRelativeLocaleUrl } from "astro:i18n";
-import { useTranslations } from "@/i18n";
+import Breadcrumb from "@/components/Breadcrumb.astro";
 import config from "@/config";
-
-const locale = Astro.currentLocale ?? config.site.lang;
-const t = useTranslations(locale);
 ---
 
-<Layout title={`${t.notFound.title} | ${config.site.title}`}>
+<Layout title={`404 | ${config.site.title}`}>
   <Header />
 
-  <main
-    id="main-content"
-    class="app-layout my-1 flex flex-1 items-center justify-center"
-  >
-    <div class="mb-14 flex flex-col items-center justify-center">
-      <h1 class="text-accent text-9xl font-bold">404</h1>
-      <span aria-hidden="true"> ¯\_(ツ)_/¯ </span>
-      <p class="mt-4 text-2xl sm:text-3xl">{t.notFound.message}</p>
-      <LinkButton
-        href={getRelativeLocaleUrl(locale, "")}
-        class="my-6 text-lg underline decoration-dashed underline-offset-8"
+  <Breadcrumb />
+
+  <main id="main-content" class="app-layout py-8 sm:py-12">
+    <section class="max-w-3xl">
+      <p
+        class="text-accent font-mono text-xs font-medium tracking-[0.16em] uppercase"
       >
-        {t.notFound.goHome}
-      </LinkButton>
-    </div>
+        Document Status
+      </p>
+
+      <h1 class="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
+        Document not found
+      </h1>
+
+      <p class="text-skin-base/75 mt-4 max-w-2xl leading-7">
+        The requested page could not be located in this research archive.
+        It may have been moved, renamed, or is no longer available.
+      </p>
+
+      <div
+        class="border-border mt-10 grid max-w-2xl gap-6 border-t pt-7 sm:grid-cols-2"
+      >
+        <div>
+          <p
+            class="text-skin-base/40 font-mono text-xs tracking-[0.14em] uppercase"
+          >
+            Request
+          </p>
+
+          <p class="text-skin-base/70 mt-2 break-all font-mono text-sm">
+            {Astro.url.pathname}
+          </p>
+        </div>
+
+        <div>
+          <p
+            class="text-skin-base/40 font-mono text-xs tracking-[0.14em] uppercase"
+          >
+            Status
+          </p>
+
+          <p class="text-skin-base/70 mt-2 font-mono text-sm">
+            404 / NOT FOUND
+          </p>
+        </div>
+      </div>
+
+      <!-- =========================================================
+           Back
+      ========================================================== -->
+      <section class="py-8">
+        <a
+          href="/"
+          class="text-accent text-sm font-medium underline decoration-dashed underline-offset-4"
+        >
+          ← Research Journey
+        </a>
+      </section>
+    </section>
   </main>
 
   <Footer />
