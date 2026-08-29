@@ -1,0 +1,106 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Card from "@/components/Card.astro";
+import Footer from "@/components/Footer.astro";
+import Pagination from "@/components/Pagination.astro";
+import { getSortedNotes } from "@/utils/getSortedNotes";
+import config from "@/config";
+
+type NoteLanguage = "ko" | "en";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const notes = await getCollection("notes");
+
+  const languages: NoteLanguage[] = ["ko", "en"];
+
+  return languages.flatMap(lang => {
+    const languageNotes = getSortedNotes(
+      notes.filter(note => note.data.lang === lang)
+    );
+
+    return paginate(languageNotes, {
+      params: { lang },
+      props: { lang },
+      pageSize: config.notes.perPage,
+    });
+  });
+}) satisfies GetStaticPaths;
+
+const { page, lang } = Astro.props as {
+  page: any;
+  lang: NoteLanguage;
+};
+
+const isKo = lang === "ko";
+
+const pageTitle = "Notes";
+
+const pageDesc = isKo
+  ? "공부, 엔지니어링, 연구 과정에서 남긴 기록입니다."
+  : "Study, engineering, and research notes.";
+---
+
+<Layout title={`Notes | ${config.site.title}`}>
+  <Header />
+
+  <Breadcrumb />
+
+  <div class="app-layout flex justify-end pt-4">
+    <div class="flex shrink-0 gap-2" aria-label="Language">
+      <a
+        href="/notes/ko/"
+        class:list={[
+          "border-border rounded-md border px-3 py-1.5 text-sm",
+          {
+            "font-medium": lang === "ko",
+            "opacity-60": lang !== "ko",
+          },
+        ]}
+      >
+        KO
+      </a>
+
+      <a
+        href="/notes/en/"
+        class:list={[
+          "border-border rounded-md border px-3 py-1.5 text-sm",
+          {
+            "font-medium": lang === "en",
+            "opacity-60": lang !== "en",
+          },
+        ]}
+      >
+        EN
+      </a>
+    </div>
+  </div>
+
+  <Main pageTitle={pageTitle} pageDesc={pageDesc}>
+    <ul>
+      {page.data.map((data: CollectionEntry<"notes">) => <Card {...data} />)}
+    </ul>
+  </Main>
+
+  <Pagination {page} />
+
+  <!-- =========================================================
+       Back
+  ========================================================== -->
+  <div class="app-layout">
+    <section class="border-border border-t py-8">
+      <a
+        href="/"
+        class="text-accent text-sm font-medium underline decoration-dashed underline-offset-4"
+      >
+        ← Research Journey
+      </a>
+    </section>
+  </div>
+
+  <Footer noMarginTop />
+</Layout>

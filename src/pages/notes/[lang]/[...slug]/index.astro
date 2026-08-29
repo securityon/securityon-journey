@@ -1,45 +1,51 @@
 ---
 import { type CollectionEntry, getCollection, render } from "astro:content";
-import PostLayout from "@/layouts/PostLayout.astro";
+
+import NoteLayout from "@/layouts/NoteLayout.astro";
+
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Datetime from "@/components/Datetime.astro";
 import Tag from "@/components/Tag.astro";
-import { getPostSlug, getPostUrl } from "@/utils/getPostPaths";
-import { getSortedPosts } from "@/utils/getSortedPosts";
+
+import { getNoteSlug, getNoteUrl } from "@/utils/getNotePaths";
+import { getSortedNotes } from "@/utils/getSortedNotes";
 import { slugifyStr } from "@/utils/slugify";
 import { toTransitionName } from "@/utils/toTransitionName";
-import EditPost from "./_components/EditPost.astro";
+
+import EditNote from "./_components/EditNote.astro";
 import ShareActions from "@/components/ShareActions.astro";
 import BackButton from "./_components/BackButton.astro";
 import BackToTopButton from "@/components/BackToTopButton.astro";
-import AdjacentPostNav from "./_components/AdjacentPostNav.astro";
+import AdjacentNoteNav from "./_components/AdjacentNoteNav.astro";
+import NoteLanguageToggle from "./_components/NoteLanguageToggle.astro";
 import config from "@/config";
-import PostLanguageToggle from "./_components/PostLanguageToggle.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("posts");
-  const sortedPosts = getSortedPosts(posts);
+  const notes = await getCollection("notes");
+  const sortedNotes = getSortedNotes(notes);
 
-  return sortedPosts.map(post => {
-    const sameLanguagePosts = sortedPosts.filter(
-      item => item.data.lang === post.data.lang
+  return sortedNotes.map(note => {
+    const lang = note.data.lang;
+
+    const sameLanguageNotes = sortedNotes.filter(
+      item => item.data.lang === lang
     );
 
-    const index = sameLanguagePosts.findIndex(item => item.id === post.id);
+    const index = sameLanguageNotes.findIndex(item => item.id === note.id);
 
-    const translationKey = post.data.translationKey;
+    const translationKey = note.data.translationKey;
 
-    const koPost = translationKey
-      ? sortedPosts.find(
+    const koNote = translationKey
+      ? sortedNotes.find(
           item =>
             item.data.translationKey === translationKey &&
             item.data.lang === "ko"
         )
       : undefined;
 
-    const enPost = translationKey
-      ? sortedPosts.find(
+    const enNote = translationKey
+      ? sortedNotes.find(
           item =>
             item.data.translationKey === translationKey &&
             item.data.lang === "en"
@@ -47,42 +53,45 @@ export async function getStaticPaths() {
       : undefined;
 
     return {
-      params: { slug: getPostSlug(post.id, post.filePath) },
+      params: {
+        lang,
+        slug: getNoteSlug(note.id, note.filePath),
+      },
 
       props: {
-        post,
+        note,
 
-        prevPost:
-          index < sameLanguagePosts.length - 1
+        prevNote:
+          index < sameLanguageNotes.length - 1
             ? {
-                id: sameLanguagePosts[index + 1].id,
-                title: sameLanguagePosts[index + 1].data.title,
-                filePath: sameLanguagePosts[index + 1].filePath,
-                lang: sameLanguagePosts[index + 1].data.lang,
+                id: sameLanguageNotes[index + 1].id,
+                title: sameLanguageNotes[index + 1].data.title,
+                filePath: sameLanguageNotes[index + 1].filePath,
+                lang: sameLanguageNotes[index + 1].data.lang,
               }
             : null,
 
-        nextPost:
+        nextNote:
           index > 0
             ? {
-                id: sameLanguagePosts[index - 1].id,
-                title: sameLanguagePosts[index - 1].data.title,
-                filePath: sameLanguagePosts[index - 1].filePath,
-                lang: sameLanguagePosts[index - 1].data.lang,
+                id: sameLanguageNotes[index - 1].id,
+                title: sameLanguageNotes[index - 1].data.title,
+                filePath: sameLanguageNotes[index - 1].filePath,
+                lang: sameLanguageNotes[index - 1].data.lang,
               }
             : null,
 
-        koPost: koPost
+        koNote: koNote
           ? {
-              id: koPost.id,
-              filePath: koPost.filePath,
+              id: koNote.id,
+              filePath: koNote.filePath,
             }
           : null,
 
-        enPost: enPost
+        enNote: enNote
           ? {
-              id: enPost.id,
-              filePath: enPost.filePath,
+              id: enNote.id,
+              filePath: enNote.filePath,
             }
           : null,
       },
@@ -90,28 +99,27 @@ export async function getStaticPaths() {
   });
 }
 
-type AdjacentPost = {
+type AdjacentNote = {
   id: string;
   title: string;
   filePath: string | undefined;
   lang: "ko" | "en";
 } | null;
 
-type TranslationPost = {
+type TranslationNote = {
   id: string;
   filePath: string | undefined;
 } | null;
 
 type Props = {
-  post: CollectionEntry<"posts">;
-  prevPost: AdjacentPost;
-  nextPost: AdjacentPost;
-  koPost: TranslationPost;
-  enPost: TranslationPost;
+  note: CollectionEntry<"notes">;
+  prevNote: AdjacentNote;
+  nextNote: AdjacentNote;
+  koNote: TranslationNote;
+  enNote: TranslationNote;
 };
 
-const { post, prevPost, nextPost, koPost, enPost } = Astro.props;
-const locale = Astro.currentLocale ?? config.site.lang;
+const { note, prevNote, nextNote, koNote, enNote } = Astro.props;
 
 const {
   title,
@@ -124,9 +132,9 @@ const {
   tags,
   hideEditPost,
   lang,
-} = post.data;
+} = note.data;
 
-const { Content } = await render(post);
+const { Content } = await render(note);
 
 let ogImageUrl: string | undefined;
 
@@ -137,11 +145,12 @@ if (typeof initOgImage === "string") {
 }
 
 if (!ogImageUrl && config.features.dynamicOgImage) {
-  const postUrl = getPostUrl(post.id, post.filePath, locale).replace(
+  const noteUrl = getNoteUrl(note.id, note.filePath, lang).replace(
     /\/+$/,
     ""
   );
-  ogImageUrl = `${postUrl}/index.png`;
+
+  ogImageUrl = `${noteUrl}/index.png`;
 }
 
 const ogImage = ogImageUrl
@@ -149,7 +158,7 @@ const ogImage = ogImageUrl
   : undefined;
 ---
 
-<PostLayout
+<NoteLayout
   title={`${title} | ${config.site.title}`}
   description={description}
   ogImage={ogImage}
@@ -169,18 +178,18 @@ const ogImage = ogImageUrl
   >
     <div class="flex items-start justify-between gap-6">
       <h1
-        style={{ viewTransitionName: toTransitionName(post.id) }}
+        style={{ viewTransitionName: toTransitionName(note.id) }}
         class="text-accent text-2xl font-bold sm:text-3xl"
       >
         {title}
       </h1>
 
       {
-        koPost && enPost && (
-          <PostLanguageToggle
+        koNote && enNote && (
+          <NoteLanguageToggle
             currentLang={lang}
-            koUrl={getPostUrl(koPost.id, koPost.filePath, locale)}
-            enUrl={getPostUrl(enPost.id, enPost.filePath, locale)}
+            koUrl={getNoteUrl(koNote.id, koNote.filePath, "ko")}
+            enUrl={getNoteUrl(enNote.id, enNote.filePath, "en")}
           />
         )
       }
@@ -188,6 +197,7 @@ const ogImage = ogImageUrl
 
     <div class="my-2 flex items-center gap-2">
       <Datetime {pubDatetime} {modDatetime} {timezone} size="lg" />
+
       <span
         aria-hidden="true"
         class:list={[
@@ -197,12 +207,13 @@ const ogImage = ogImageUrl
       >
         |
       </span>
-      <EditPost {hideEditPost} {post} class="max-sm:hidden" />
+
+      <EditNote {hideEditPost} note={note} class="max-sm:hidden" />
     </div>
 
     <article
       id="article"
-      data-post-lang={lang}
+      data-note-lang={lang}
       class:list={[
         "mt-8 w-full",
         "app-prose max-w-app",
@@ -214,22 +225,39 @@ const ogImage = ogImageUrl
 
     <hr class="my-8 border-dashed" />
 
-    <EditPost class="sm:hidden" {hideEditPost} {post} />
+    <EditNote
+      class="sm:hidden"
+      {hideEditPost}
+      note={note}
+    />
 
     <BackToTopButton />
 
     <ul class="mt-4 mb-8 flex flex-wrap gap-4 sm:my-8">
-      {tags.map(tag => <Tag tag={slugifyStr(tag)} tagName={tag} size="sm" />)}
+      {
+        tags.map(tag => (
+          <Tag
+            tag={slugifyStr(tag)}
+            tagName={tag}
+            lang={lang}
+            size="sm"
+          />
+        ))
+      }
     </ul>
 
     <ShareActions />
 
     <hr class="my-8 border-dashed" />
 
-    <AdjacentPostNav {prevPost} {nextPost} />
+    <AdjacentNoteNav
+      prevNote={prevNote}
+      nextNote={nextNote}
+    />
   </main>
+
   <Footer noMarginTop />
-</PostLayout>
+</NoteLayout>
 
 <script is:inline data-astro-rerun>
   function createProgressBar() {

@@ -1,0 +1,109 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import type { GetStaticPathsOptions } from "astro";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Main from "@/components/Main.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Card from "@/components/Card.astro";
+import Footer from "@/components/Footer.astro";
+import Pagination from "@/components/Pagination.astro";
+import { getUniqueTags } from "@/utils/getUniqueTags";
+import { getSortedNotes } from "@/utils/getSortedNotes";
+import { slugifyAll } from "@/utils/slugify";
+import config from "@/config";
+
+type NoteLanguage = "ko" | "en";
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const notes = await getCollection("notes");
+
+  const languages: NoteLanguage[] = ["ko", "en"];
+
+  return languages.flatMap(lang => {
+    const languageNotes = notes.filter(note => note.data.lang === lang);
+
+    const tags = getUniqueTags(languageNotes);
+
+    return tags.flatMap(({ tag, tagName }) => {
+      const tagNotes = getSortedNotes(
+        languageNotes.filter(({ data }) => slugifyAll(data.tags).includes(tag))
+      );
+
+      return paginate(tagNotes, {
+        params: {
+          lang,
+          tag,
+        },
+        props: {
+          lang,
+          tag,
+          tagName,
+        },
+        pageSize: config.notes.perPage,
+      });
+    });
+  });
+}
+
+const { page, lang, tag, tagName } = Astro.props as {
+  page: any;
+  lang: NoteLanguage;
+  tag: string;
+  tagName: string;
+};
+
+const isKo = lang === "ko";
+
+const pageTitle = isKo ? `태그: ${tagName}` : `Tag: ${tagName}`;
+
+const pageDesc = isKo
+  ? `"${tagName}" 태그가 사용된 노트입니다.`
+  : `Notes tagged with "${tagName}".`;
+---
+
+<Layout title={`${pageTitle} | ${config.site.title}`}>
+  <Header />
+
+  <Breadcrumb />
+
+  <div class="app-layout flex justify-end pt-4">
+    <div class="flex shrink-0 gap-2" aria-label="Language">
+      <a
+        href={`/notes/ko/tags/${tag}/`}
+        class:list={[
+          "border-border rounded-md border px-3 py-1.5 text-sm",
+          {
+            "font-medium": lang === "ko",
+            "opacity-60": lang !== "ko",
+          },
+        ]}
+      >
+        KO
+      </a>
+
+      <a
+        href={`/notes/en/tags/${tag}/`}
+        class:list={[
+          "border-border rounded-md border px-3 py-1.5 text-sm",
+          {
+            "font-medium": lang === "en",
+            "opacity-60": lang !== "en",
+          },
+        ]}
+      >
+        EN
+      </a>
+    </div>
+  </div>
+
+  <Main pageTitle={pageTitle} pageDesc={pageDesc}>
+    <ul>
+      {page.data.map((data: CollectionEntry<"notes">) => <Card {...data} />)}
+    </ul>
+  </Main>
+
+  <Pagination {page} />
+
+  <Footer noMarginTop />
+</Layout>

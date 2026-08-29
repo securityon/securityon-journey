@@ -5,7 +5,7 @@ interface SiteConfig {
   title: string;
   /** Short description used in SEO meta and RSS feed */
   description: string;
-  /** Default post author name */
+  /** Default note author name */
   author: string;
   /** Author profile URL (used in structured data) */
   profile?: string;
@@ -13,7 +13,7 @@ interface SiteConfig {
   ogImage?: string;
   /** HTML lang attribute, defaults to "en" */
   lang?: string;
-  /** IANA timezone for post dates, e.g. "Asia/Bangkok" */
+  /** IANA timezone for note dates, e.g. "Asia/Bangkok" */
   timezone?: string;
   /** Text direction */
   dir?: "ltr" | "rtl" | "auto";
@@ -21,32 +21,32 @@ interface SiteConfig {
   googleVerification?: string;
 }
 
-interface PostsConfig {
-  /** Posts per page on paginated listing pages */
+interface NotesConfig {
+  /** Notes per page on paginated listing pages */
   perPage?: number;
-  /** Posts shown on the index/home page */
+  /** Notes shown on the index/home page */
   perIndex?: number;
   /**
-   * Scheduled posts within this window (ms) of their pubDatetime
+   * Scheduled notes within this window (ms) of their pubDatetime
    * are shown as published. Defaults to 15 minutes.
    */
-  scheduledPostMargin?: number;
+  scheduledNoteMargin?: number;
 }
 
 interface FeaturesConfig {
   /** Enable light/dark mode toggle. Defaults to true. */
   lightAndDarkMode?: boolean;
   /**
-   * Generate dynamic OG images per post and provide `/og.png` when the static
+   * Generate dynamic OG images per note and provide `/og.png` when the static
    * `public/{site.ogImage}` file is absent. When false, that file is required
    * for the default layout OG image (build fails if missing).
    */
   dynamicOgImage?: boolean;
   /** Show the /archives page and link it in nav. Defaults to true. */
   showArchives?: boolean;
-  /** Show back button on post detail pages. Defaults to true. */
+  /** Show back button on note detail pages. Defaults to true. */
   showBackButton?: boolean;
-  /** "Edit page" link shown on post detail pages. */
+  /** "Edit page" link shown on note detail pages. */
   editPost?:
     | {
         enabled: true;
@@ -82,11 +82,11 @@ interface ShareLink {
    * e.g. "facebook" → src/assets/icons/socials/facebook.svg
    */
   name: string;
-  /** Base share URL. The post URL will be appended as a query param. */
+  /** Base share URL. The note URL will be appended as a query param. */
   url: string;
   /**
    * Accessible label for the icon link (aria-label, title attribute).
-   * Auto-generated if omitted: "Share this post on Facebook", "Share this post via WhatsApp", etc.
+   * Auto-generated if omitted: "Share this note on Facebook", "Share this note via WhatsApp", etc.
    * Override when the default wording doesn't fit.
    */
   linkTitle?: string;
@@ -94,11 +94,11 @@ interface ShareLink {
 
 interface AstroPaperConfig {
   site: SiteConfig;
-  posts?: PostsConfig;
+  notes?: NotesConfig;
   features?: FeaturesConfig;
   /** Social profile links shown in header/footer */
   socials?: SocialLink[];
-  /** Share links shown on post detail pages */
+  /** Share links shown on note detail pages */
   shareLinks?: ShareLink[];
 }
 
@@ -119,7 +119,7 @@ type ResolvedSiteConfig = Required<
 
 export interface ResolvedAstroPaperConfig {
   site: ResolvedSiteConfig;
-  posts: Required<PostsConfig>;
+  notes: Required<NotesConfig>;
   features: Required<FeaturesConfig>;
   socials: SocialLink[];
   shareLinks: ShareLink[];

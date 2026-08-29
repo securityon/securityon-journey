@@ -3,8 +3,9 @@ import { getCollection } from "astro:content";
 import { fontData, experimental_getFontFileURL } from "astro:assets";
 import satori from "satori";
 import sharp from "sharp";
+
 import { getFontPathByWeight } from "@/utils/getFontPathByWeight";
-import { getPostSlug } from "@/utils/getPostPaths";
+import { getNoteSlug } from "@/utils/getNotePaths";
 import config from "@/config";
 
 export async function getStaticPaths() {
@@ -12,13 +13,16 @@ export async function getStaticPaths() {
     return [];
   }
 
-  const posts = await getCollection("posts").then(p =>
-    p.filter(({ data }) => !data.draft && !data.ogImage)
+  const notes = await getCollection("notes").then(notes =>
+    notes.filter(({ data }) => !data.draft && !data.ogImage)
   );
 
-  return posts.map(post => ({
-    params: { slug: getPostSlug(post.id, post.filePath) },
-    props: post,
+  return notes.map(note => ({
+    params: {
+      lang: note.data.lang,
+      slug: getNoteSlug(note.id, note.filePath),
+    },
+    props: note,
   }));
 }
 
@@ -28,6 +32,7 @@ export const GET: APIRoute = async ({ props, url }) => {
   }
 
   const fonts = fontData["--font-google-sans-code"];
+
   const regularFontPath = getFontPathByWeight(fonts, 400);
   const boldFontPath = getFontPathByWeight(fonts, 700);
 
@@ -152,7 +157,10 @@ export const GET: APIRoute = async ({ props, url }) => {
                           {
                             type: "span",
                             props: {
-                              style: { overflow: "hidden", fontWeight: "bold" },
+                              style: {
+                                overflow: "hidden",
+                                fontWeight: "bold",
+                              },
                               children: config.site.title,
                             },
                           },

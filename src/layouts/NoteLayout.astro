@@ -26,9 +26,10 @@ const {
 
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
+  "@type": "Article",
   headline: title ?? site.title,
   image: ogImage,
+  inLanguage: lang,
   ...(pubDatetime && { datePublished: pubDatetime.toISOString() }),
   ...(modDatetime && { dateModified: modDatetime.toISOString() }),
   author: [
@@ -43,7 +44,7 @@ const structuredData = {
 
 <Layout {title} {description} {ogImage} {canonicalURL}>
   <Fragment slot="head">
-    <!-- Override og:type for article pages -->
+    <!-- Article metadata -->
     <meta property="og:type" content="article" />
 
     {
@@ -54,6 +55,7 @@ const structuredData = {
         />
       )
     }
+
     {
       modDatetime && (
         <meta

@@ -3,10 +3,10 @@ import { z } from "astro/zod";
 import { glob } from "astro/loaders";
 import config from "@/config";
 
-export const BLOG_PATH = "src/content/posts";
+export const NOTES_PATH = "src/content/notes";
 
-const posts = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: `./${BLOG_PATH}` }),
+const notes = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: `./${NOTES_PATH}` }),
   schema: ({ image }) =>
     z.object({
       author: z.string().default(config.site.author),
@@ -36,4 +36,4 @@ const pages = defineCollection({
   }),
 });
 
-export const collections = { posts, pages };
+export const collections = { notes, pages };

@@ -21,6 +21,6 @@ export const toTransitionName = (str: string): string => {
     .replace(/^-+|-+$/g, "");
   // CSS ident must not start with a digit
   if (/^\d/.test(result)) result = "p-" + result;
-  if (!result) result = "post";
+  if (!result) result = "note";
   return result;
 };

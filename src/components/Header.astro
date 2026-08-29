@@ -95,8 +95,9 @@ const isActive = (path: string) => {
         <!-- Notes -->
         <li class="col-span-2">
           <a
-            href={getRelativeLocaleUrl(locale, "posts")}
-            class:list={{ "active-nav": isActive("/posts") }}
+            id="notes-nav-link"
+            href="/notes/ko/"
+            class:list={{ "active-nav": isActive("/notes") }}
           >
             Notes
           </a>
@@ -191,6 +192,18 @@ const isActive = (path: string) => {
     });
   }
 
+  function syncNotesNavLanguage() {
+    const notesLink =
+      document.querySelector<HTMLAnchorElement>("#notes-nav-link");
+
+    if (!notesLink) return;
+
+    const savedLanguage =
+      localStorage.getItem("securityon-language") === "en" ? "en" : "ko";
+
+    notesLink.href = `/notes/${savedLanguage}/`;
+  }
+
   function handleSkipToContent() {
     const skipLink = document.getElementById("skip-to-content");
 
@@ -229,10 +242,12 @@ const isActive = (path: string) => {
   }
 
   toggleNav();
-
-  document.addEventListener("astro:after-swap", toggleNav);
-
+  syncNotesNavLanguage();
   handleSkipToContent();
 
-  document.addEventListener("astro:after-swap", handleSkipToContent);
+  document.addEventListener("astro:after-swap", () => {
+    toggleNav();
+    syncNotesNavLanguage();
+    handleSkipToContent();
+  });
 </script>

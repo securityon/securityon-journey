@@ -1,0 +1,82 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import Tag from "@/components/Tag.astro";
+import { getUniqueTags } from "@/utils/getUniqueTags";
+import config from "@/config";
+
+type NoteLanguage = "ko" | "en";
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: "ko" }, props: { lang: "ko" } },
+    { params: { lang: "en" }, props: { lang: "en" } },
+  ];
+}
+
+const { lang } = Astro.props as {
+  lang: NoteLanguage;
+};
+
+const notes = await getCollection(
+  "notes",
+  ({ data }) => !data.draft && data.lang === lang
+);
+
+const tags = getUniqueTags(notes);
+
+const isKo = lang === "ko";
+
+const pageTitle = isKo ? "태그" : "Tags";
+const pageDesc = isKo
+  ? "노트에서 사용된 태그를 모아봅니다."
+  : "All tags used in notes.";
+---
+
+<Layout title={`${pageTitle} | ${config.site.title}`}>
+  <Header />
+
+  <Breadcrumb />
+
+  <div class="app-layout flex justify-end pt-4">
+    <div class="flex shrink-0 gap-2" aria-label="Language">
+      <a
+        href="/notes/ko/tags/"
+        class:list={[
+          "border-border rounded-md border px-3 py-1.5 text-sm",
+          {
+            "font-medium": lang === "ko",
+            "opacity-60": lang !== "ko",
+          },
+        ]}
+      >
+        KO
+      </a>
+
+      <a
+        href="/notes/en/tags/"
+        class:list={[
+          "border-border rounded-md border px-3 py-1.5 text-sm",
+          {
+            "font-medium": lang === "en",
+            "opacity-60": lang !== "en",
+          },
+        ]}
+      >
+        EN
+      </a>
+    </div>
+  </div>
+
+  <Main pageTitle={pageTitle} pageDesc={pageDesc}>
+    <ul class="flex flex-wrap gap-6">
+      {tags.map(({ tag, tagName }) => <Tag {tag} {tagName} lang={lang} />)}
+    </ul>
+  </Main>
+
+  <Footer noMarginTop />
+</Layout>

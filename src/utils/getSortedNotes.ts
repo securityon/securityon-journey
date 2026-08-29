@@ -1,15 +1,15 @@
 import type { CollectionEntry } from "astro:content";
-import { postFilter } from "./postFilter";
+import { noteFilter } from "./noteFilter";
 
 /**
- * Returns posts that are eligible to be shown to users, sorted by “last updated”
+ * Returns notes that are eligible to be shown to users, sorted by “last updated”
  * descending (uses `modDatetime` when present, otherwise `pubDatetime`).
  *
- * Note: filtering respects drafts and scheduled posts via `postFilter()`.
+ * Note: filtering respects drafts and scheduled notes via `noteFilter()`.
  */
-export function getSortedPosts(posts: CollectionEntry<"posts">[]) {
-  return posts
-    .filter(postFilter)
+export function getSortedNotes(notes: CollectionEntry<"notes">[]) {
+  return notes
+    .filter(noteFilter)
     .sort(
       (a, b) =>
         Math.floor(

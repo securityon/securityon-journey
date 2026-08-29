@@ -1,40 +1,45 @@
 export interface UIStrings {
   nav: {
     home: string;
-    posts: string;
+    notes: string;
     tags: string;
     about: string;
     archives: string;
     search: string;
   };
-  post: {
+
+  note: {
     publishedAt: string;
     updatedAt: string;
-    sharePostIntro: string;
-    sharePostOn: string;
-    sharePostViaEmail: string;
+    shareNoteIntro: string;
+    shareNoteOn: string;
+    shareNoteViaEmail: string;
     tagLabel: string;
     backToTop: string;
     goBack: string;
     editPage: string;
-    previousPost: string;
-    nextPost: string;
+    previousNote: string;
+    nextNote: string;
   };
+
   pagination: {
     prev: string;
     next: string;
     page: string;
   };
+
   home: {
     socialLinks: string;
     featured: string;
-    recentPosts: string;
-    allPosts: string;
+    recentNotes: string;
+    allNotes: string;
   };
+
   footer: {
     copyright: string;
     allRightsReserved: string;
   };
+
   pages: {
     tagTitle: string;
     tagDesc: string;
@@ -42,8 +47,8 @@ export interface UIStrings {
     tagsTitle: string;
     tagsDesc: string;
 
-    postsTitle: string;
-    postsDesc: string;
+    notesTitle: string;
+    notesDesc: string;
 
     archivesTitle: string;
     archivesDesc: string;
@@ -51,6 +56,7 @@ export interface UIStrings {
     searchTitle: string;
     searchDesc: string;
   };
+
   a11y: {
     skipToContent: string;
     openMenu: string;
@@ -61,6 +67,7 @@ export interface UIStrings {
     goToPreviousPage: string;
     goToNextPage: string;
   };
+
   notFound: {
     title: string;
     message: string;

@@ -7,8 +7,8 @@ import Breadcrumb from "@/components/Breadcrumb.astro";
 import Main from "@/components/Main.astro";
 import Footer from "@/components/Footer.astro";
 import Card from "@/components/Card.astro";
-import { postFilter } from "@/utils/postFilter";
-import { getPostsByGroupCondition } from "./_utils/getPostsByGroupCondition";
+import { noteFilter } from "@/utils/noteFilter";
+import { getNotesByGroupCondition } from "./_utils/getNotesByGroupCondition";
 import { useTranslations } from "@/i18n";
 import config from "@/config";
 
@@ -22,8 +22,9 @@ if (!config.features.showArchives && notFoundUrl) {
 
 const t = useTranslations(locale);
 
-const posts = await getCollection("posts");
-const filteredPosts = posts.filter(postFilter);
+const notes = await getCollection("notes");
+const filteredNotes = notes.filter(noteFilter);
+
 const monthFormatter = new Intl.DateTimeFormat(locale, { month: "long" });
 ---
 
@@ -35,8 +36,8 @@ const monthFormatter = new Intl.DateTimeFormat(locale, { month: "long" });
   <Main pageTitle={t.pages.archivesTitle} pageDesc={t.pages.archivesDesc}>
     {
       Object.entries(
-        getPostsByGroupCondition(filteredPosts, post =>
-          post.data.pubDatetime.getFullYear()
+        getNotesByGroupCondition(filteredNotes, note =>
+          note.data.pubDatetime.getFullYear()
         )
       )
         .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
@@ -44,10 +45,11 @@ const monthFormatter = new Intl.DateTimeFormat(locale, { month: "long" });
           <div>
             <span class="text-2xl font-bold">{year}</span>
             <sup class="text-muted-foreground text-sm">{yearGroup.length}</sup>
+
             {Object.entries(
-              getPostsByGroupCondition(
+              getNotesByGroupCondition(
                 yearGroup,
-                post => post.data.pubDatetime.getMonth() + 1
+                note => note.data.pubDatetime.getMonth() + 1
               )
             )
               .sort(([monthA], [monthB]) => Number(monthB) - Number(monthA))
@@ -59,10 +61,12 @@ const monthFormatter = new Intl.DateTimeFormat(locale, { month: "long" });
                         new Date(2000, Number(month) - 1, 1)
                       )}
                     </span>
+
                     <sup class="text-muted-foreground text-xs">
                       {monthGroup.length}
                     </sup>
                   </div>
+
                   <ul>
                     {monthGroup
                       .sort(
@@ -74,9 +78,7 @@ const monthFormatter = new Intl.DateTimeFormat(locale, { month: "long" });
                             new Date(a.data.pubDatetime).getTime() / 1000
                           )
                       )
-                      .map(data => (
-                        <Card {...data} />
-                      ))}
+                      .map(data => <Card {...data} />)}
                   </ul>
                 </div>
               ))}

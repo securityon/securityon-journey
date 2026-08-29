@@ -5,15 +5,15 @@ import { useTranslations } from "@/i18n";
 import config from "@/config";
 
 type Props = {
-  hideEditPost?: CollectionEntry<"posts">["data"]["hideEditPost"];
+  hideEditPost?: CollectionEntry<"notes">["data"]["hideEditPost"];
   class?: string;
-  post: CollectionEntry<"posts">;
+  note: CollectionEntry<"notes">;
 };
 
-const { hideEditPost, post, class: className = "" } = Astro.props;
+const { hideEditPost, note, class: className = "" } = Astro.props;
 
 const editPost = config.features.editPost;
-const href = editPost.enabled ? `${editPost.url}${post.filePath}` : "";
+const href = editPost.enabled ? `${editPost.url}${note.filePath}` : "";
 const showEditPost = editPost.enabled && !hideEditPost && href.trim() !== "";
 
 const t = useTranslations(Astro.currentLocale);
@@ -31,7 +31,7 @@ const t = useTranslations(Astro.currentLocale);
       ]}
     >
       <IconEdit class="inline-block" />
-      <span>{t.post.editPage}</span>
+      <span>{t.note.editPage}</span>
     </a>
   )
 }
