@@ -23,15 +23,6 @@
     });
 
     document
-      .querySelectorAll<HTMLElement>("[data-note-lang]")
-      .forEach(element => {
-        element.classList.toggle(
-          "hidden",
-          element.dataset.noteLang !== language
-        );
-      });
-
-    document
       .querySelectorAll<HTMLElement>("[data-language-button]")
       .forEach(button => {
         const active = button.dataset.languageButton === language;

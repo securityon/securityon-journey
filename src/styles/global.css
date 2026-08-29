@@ -21,8 +21,7 @@
   font-display: swap;
 }
 
-.ko-body,
-[data-note-lang="ko"] {
+.ko-body, {
   font-family:
     "RIDIBatang",
     "Apple SD Gothic Neo",
