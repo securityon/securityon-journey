@@ -15,7 +15,6 @@ export default defineAstroPaperConfig({
 
   notes: {
     perPage: 4,
-    perIndex: 4,
     scheduledNoteMargin: 15 * 60 * 1000,
   },
 

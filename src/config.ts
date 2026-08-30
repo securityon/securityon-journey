@@ -22,7 +22,6 @@ const config: ResolvedAstroPaperConfig = {
   },
   notes: {
   perPage: userConfig.notes?.perPage ?? 4,
-  perIndex: userConfig.notes?.perIndex ?? 4,
   scheduledNoteMargin:
     userConfig.notes?.scheduledNoteMargin ?? 15 * 60 * 1000,
   },

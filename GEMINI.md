@@ -421,15 +421,6 @@ Future changes should preserve these unless explicitly approved otherwise:
 11. No required legacy `/posts` redirects.
 12. Restrained academic research-journal visual identity.
 
-## Current repository observations
-
-The observations below may become stale as the project evolves. Verify them before relying on them.
-
-- `notes.perIndex` is configured and resolved, but no page or component reads
-  it; Home does not currently render a Note index.
-
-Do not automatically “fix” these observations. Confirm the task, current source, and dependencies first.
-
 ## Decision principle
 
 When two implementation choices are both valid, prefer the one that:

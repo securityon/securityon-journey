@@ -380,12 +380,3 @@ Do not violate these without explicit approval:
 10. Archives are retained even when hidden.
 11. No required legacy `/posts` redirects.
 12. Preserve the restrained academic-journal visual identity.
-
-## Known observations / possible remnants
-
-These are observations from the current repository state and may become stale. Verify them before relying on them.
-
-- `notes.perIndex` is configured and resolved, but no page or component reads
-  it; Home does not currently render a Note index.
-
-Do not “fix” these observations unless the active task includes them and their consequences have been traced.

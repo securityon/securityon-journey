@@ -24,8 +24,6 @@ interface SiteConfig {
 interface NotesConfig {
   /** Notes per page on paginated listing pages */
   perPage?: number;
-  /** Notes shown on the index/home page */
-  perIndex?: number;
   /**
    * Scheduled notes within this window (ms) of their pubDatetime
    * are shown as published. Defaults to 15 minutes.
