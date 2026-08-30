@@ -38,8 +38,11 @@ import config from "@/config";
             Request
           </p>
 
-          <p class="text-skin-base/70 mt-2 break-all font-mono text-sm">
-            {Astro.url.pathname}
+          <p
+            id="request-path"
+            class="text-skin-base/70 mt-2 break-all font-mono text-sm"
+          >
+            —
           </p>
         </div>
 
@@ -71,4 +74,17 @@ import config from "@/config";
   </main>
 
   <Footer />
+
+  <script>
+    function updateRequestPath() {
+      const requestPath = document.querySelector<HTMLElement>("#request-path");
+
+      if (requestPath) {
+        requestPath.textContent =
+          window.location.pathname + window.location.search;
+      }
+    }
+
+    document.addEventListener("astro:page-load", updateRequestPath);
+  </script>
 </Layout>
