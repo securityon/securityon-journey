@@ -15,15 +15,19 @@ type Tag = {
  * - Uniqueness is based on the slug (so differently-cased labels collapse)
  */
 export function getUniqueTags(notes: CollectionEntry<"notes">[]) {
-  const tags: Tag[] = notes
-    .filter(noteFilter)
-    .flatMap(note => note.data.tags)
-    .map(tag => ({ tag: slugifyStr(tag), tagName: tag }))
-    .filter(
-      (value, index, self) =>
-        self.findIndex(tag => tag.tag === value.tag) === index
-    )
-    .sort((tagA, tagB) => tagA.tag.localeCompare(tagB.tag));
+  const tagsBySlug = new Map<string, Tag>();
+
+  for (const tagName of notes.filter(noteFilter).flatMap(note => note.data.tags)) {
+    const tag = slugifyStr(tagName);
+
+    if (!tagsBySlug.has(tag)) {
+      tagsBySlug.set(tag, { tag, tagName });
+    }
+  }
+
+  const tags = [...tagsBySlug.values()].sort((tagA, tagB) =>
+    tagA.tag.localeCompare(tagB.tag)
+  );
 
   return tags;
 }

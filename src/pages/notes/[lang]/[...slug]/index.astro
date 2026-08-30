@@ -342,9 +342,12 @@ const ogImage = ogImageUrl
       const code = block.querySelector("code");
       const text = code?.innerText;
 
-      await navigator.clipboard.writeText(text ?? "");
-
-      button.innerText = "Copied";
+      try {
+        await navigator.clipboard.writeText(text ?? "");
+        button.innerText = "Copied";
+      } catch {
+        button.innerText = "Copy failed";
+      }
 
       setTimeout(() => {
         button.innerText = copyButtonLabel;

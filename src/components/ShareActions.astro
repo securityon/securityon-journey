@@ -31,7 +31,14 @@
 </div>
 
 <script>
+  let feedbackTimeout: number | undefined;
+  let copyRequest = 0;
+
   document.addEventListener("astro:page-load", () => {
+    copyRequest += 1;
+    window.clearTimeout(feedbackTimeout);
+    feedbackTimeout = undefined;
+
     const linkedin =
       document.querySelector<HTMLAnchorElement>("#linkedin-share");
 
@@ -49,12 +56,25 @@
     }
 
     copyButton?.addEventListener("click", async () => {
-      await navigator.clipboard.writeText(currentUrl);
+      const request = ++copyRequest;
+      let message = "Copied";
 
+      try {
+        await navigator.clipboard.writeText(currentUrl);
+      } catch {
+        message = "Copy failed";
+      }
+
+      if (request !== copyRequest) return;
+
+      feedback?.replaceChildren(message);
       feedback?.classList.remove("hidden");
 
-      setTimeout(() => {
+      window.clearTimeout(feedbackTimeout);
+      feedbackTimeout = window.setTimeout(() => {
         feedback?.classList.add("hidden");
+        feedback?.replaceChildren("Copied");
+        feedbackTimeout = undefined;
       }, 1500);
     });
   });
