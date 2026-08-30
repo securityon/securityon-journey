@@ -56,6 +56,11 @@ const t = useTranslations(locale);
     if (!bundlePath) return;
 
     const params = new URLSearchParams(window.location.search);
+    const searchLanguage =
+      localStorage.getItem("securityon-language") === "en" ? "en" : "ko";
+
+    document.documentElement.lang = searchLanguage;
+    pageFindSearch.dataset.searchLanguage = searchLanguage;
 
     const onIdle = window.requestIdleCallback || (cb => setTimeout(cb, 1));
 
@@ -148,16 +153,7 @@ const t = useTranslations(locale);
       outline: 1px solid var(--accent);
     }
 
-    .pagefind-ui__result-inner {
-      font-family: "RIDIBatang", "Apple SD Gothic Neo", "Malgun Gothic", serif;
-
-      line-height: 1.8;
-    }
-    
     .pagefind-ui__result-title a {
-      font-family:
-        "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-
       color: var(--accent);
       outline-offset: 1px;
       outline-color: var(--accent);
@@ -165,10 +161,19 @@ const t = useTranslations(locale);
       text-underline-offset: 4px;
     }
 
-    .pagefind-ui__result-excerpt {
-      font-family: "RIDIBatang", "Apple SD Gothic Neo", "Malgun Gothic", serif;
+    &[data-search-language="ko"] {
+      .pagefind-ui__result-inner,
+      .pagefind-ui__result-excerpt {
+        font-family:
+          "RIDIBatang", "Apple SD Gothic Neo", "Malgun Gothic", serif;
 
-      line-height: 1.8;
+        line-height: 1.8;
+      }
+
+      .pagefind-ui__result-title a {
+        font-family:
+          "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      }
     }
 
     .pagefind-ui__result-title a:focus-visible,
