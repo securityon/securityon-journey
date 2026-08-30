@@ -263,7 +263,9 @@ const ogImage = ogImageUrl
   createProgressBar();
 
   function updateScrollProgress() {
-    document.addEventListener("scroll", () => {
+    window.__noteScrollProgressCleanup?.();
+
+    const handleScroll = () => {
       const winScroll =
         document.body.scrollTop || document.documentElement.scrollTop;
       const height =
@@ -276,7 +278,13 @@ const ogImage = ogImageUrl
           myBar.style.width = scrolled + "%";
         }
       }
-    });
+    };
+
+    document.addEventListener("scroll", handleScroll, { passive: true });
+    window.__noteScrollProgressCleanup = () =>
+      document.removeEventListener("scroll", handleScroll);
+
+    handleScroll();
   }
   updateScrollProgress();
 
@@ -606,12 +614,10 @@ const ogImage = ogImageUrl
 
   if (!window.__lightboxSwapBound) {
     window.__lightboxSwapBound = true;
-    document.addEventListener("astro:before-swap", () =>
-      window.__closeLightbox?.()
-    );
+    document.addEventListener("astro:before-swap", () => {
+      window.__noteScrollProgressCleanup?.();
+      window.__noteScrollProgressCleanup = null;
+      window.__closeLightbox?.();
+    });
   }
-
-  document.addEventListener("astro:after-swap", () =>
-    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
-  );
 </script>

@@ -208,7 +208,6 @@ const isActive = (path: string) => {
 
     if (pathLanguage) {
       localStorage.setItem("securityon-language", pathLanguage);
-      document.documentElement.lang = pathLanguage;
     }
 
     notesLink.href = `/notes/${language}/`;

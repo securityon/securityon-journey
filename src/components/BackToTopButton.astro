@@ -41,6 +41,8 @@ const t = useTranslations(Astro.currentLocale);
 
 <script is:inline data-astro-rerun>
   function backToTop() {
+    window.__backToTopCleanup?.();
+
     const rootElement = document.documentElement;
     const btnContainer = document.querySelector("#btt-btn-container");
     const backToTopBtn = document.querySelector(
@@ -106,23 +108,39 @@ const t = useTranslations(Astro.currentLocale);
     }
 
     let ticking = false;
+    let animationFrame = null;
 
     const onScroll = () => {
       if (ticking) return;
 
-      window.requestAnimationFrame(() => {
+      animationFrame = window.requestAnimationFrame(() => {
         handleScroll();
         ticking = false;
+        animationFrame = null;
       });
 
       ticking = true;
     };
 
     document.addEventListener("scroll", onScroll, { passive: true });
+    window.__backToTopCleanup = () => {
+      document.removeEventListener("scroll", onScroll);
+
+      if (animationFrame !== null) {
+        window.cancelAnimationFrame(animationFrame);
+      }
+    };
 
     handleScroll();
   }
 
-  document.addEventListener("astro:page-load", backToTop);
+  if (!window.__backToTopSwapCleanupBound) {
+    window.__backToTopSwapCleanupBound = true;
+    document.addEventListener("astro:before-swap", () => {
+      window.__backToTopCleanup?.();
+      window.__backToTopCleanup = null;
+    });
+  }
+
   backToTop();
 </script>
