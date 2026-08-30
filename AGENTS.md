@@ -155,12 +155,20 @@ to `Layout.astro`, so their generated documents start with a truthful static
 
 - derives the Notes language from the URL when inside Notes;
 - points the Notes nav item to the matching language index;
-- keeps `<html lang>` aligned;
 - stores that route language as the latest preference.
+
+Header does not directly mutate `<html lang>` for Notes. The static Notes
+document language comes from the explicit route `lang` passed to
+`Layout.astro`.
 
 Outside Notes, `securityon-language` is preference state only.
 
 Never allow stale localStorage to override an explicit Notes URL.
+
+`BackButton.astro` must treat `sessionStorage.backUrl` as potentially stale
+after a Note translation switch. If its Notes language differs from the
+current Note URL language, fall back to `/notes/{currentLang}/`; do not
+mechanically translate pagination or tag URLs across languages.
 
 Do not reintroduce:
 
@@ -380,3 +388,7 @@ Do not violate these without explicit approval:
 10. Archives are retained even when hidden.
 11. No required legacy `/posts` redirects.
 12. Preserve the restrained academic-journal visual identity.
+13. The static 404 REQUEST display uses
+    `window.location.pathname + window.location.search`; build-time
+    `Astro.url.pathname` identifies the generated 404 document, not
+    necessarily the browser's missing URL.
