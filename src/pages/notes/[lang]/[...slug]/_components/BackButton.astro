@@ -32,7 +32,15 @@ const t = useTranslations(locale);
     const backUrl = sessionStorage.getItem("backUrl");
 
     if (backUrl && backButton) {
-      backButton.href = backUrl;
+      const currentNoteLang = window.location.pathname.match(
+        /^\/notes\/(ko|en)(?:\/|$)/
+      )?.[1];
+      const backNoteLang = backUrl.match(/^\/notes\/(ko|en)(?:\/|$)/)?.[1];
+
+      backButton.href =
+        currentNoteLang && backNoteLang && currentNoteLang !== backNoteLang
+          ? `/notes/${currentNoteLang}/`
+          : backUrl;
     }
   }
 
