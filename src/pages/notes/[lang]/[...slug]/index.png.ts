@@ -1,6 +1,7 @@
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
 import { fontData, experimental_getFontFileURL } from "astro:assets";
+import { readFile } from "node:fs/promises";
 import satori from "satori";
 import sharp from "sharp";
 
@@ -48,6 +49,10 @@ export const GET: APIRoute = async ({ props, url }) => {
       res.arrayBuffer()
     ),
   ]);
+  const koreanFontData =
+    props.data.lang === "ko"
+      ? await readFile("public/fonts/RIDIBatang.otf")
+      : undefined;
 
   const svg = await satori(
     {
@@ -111,7 +116,12 @@ export const GET: APIRoute = async ({ props, url }) => {
                       props: {
                         style: {
                           fontSize: 72,
-                          fontWeight: "bold",
+                          fontWeight:
+                            props.data.lang === "ko" ? 400 : "bold",
+                          fontFamily:
+                            props.data.lang === "ko"
+                              ? "RIDIBatang"
+                              : "Google Sans Code",
                           maxHeight: "84%",
                           overflow: "hidden",
                         },
@@ -192,6 +202,16 @@ export const GET: APIRoute = async ({ props, url }) => {
           weight: 700,
           style: "normal",
         },
+        ...(koreanFontData
+          ? [
+              {
+                name: "RIDIBatang",
+                data: koreanFontData,
+                weight: 400 as const,
+                style: "normal" as const,
+              },
+            ]
+          : []),
       ],
     }
   );

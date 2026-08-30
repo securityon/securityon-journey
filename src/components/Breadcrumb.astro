@@ -65,31 +65,6 @@ if (rawSegments[0] === "notes") {
 }
 
 /**
- * Existing tag routes.
- *
- * This section can be removed/reworked later when tags are moved under:
- * /notes/ko/tags/
- * /notes/en/tags/
- */
-else if (rawSegments[0] === "tags") {
-  breadcrumbItems.push({
-    label: t.nav.tags,
-    href: getRelativeLocaleUrl(locale, "tags"),
-  });
-
-  if (rawSegments[1]) {
-    const pageNumber = Number(rawSegments[2]);
-
-    breadcrumbItems.push({
-      label:
-        rawSegments[2] && !isNaN(pageNumber) && pageNumber > 1
-          ? `${decodeSegment(rawSegments[1])} (${t.pagination.page.toLowerCase()} ${pageNumber})`
-          : decodeSegment(rawSegments[1]),
-    });
-  }
-}
-
-/**
  * General pages
  */
 else {

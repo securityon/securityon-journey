@@ -19,11 +19,18 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const notes = await getCollection("notes");
 
   const languages: NoteLanguage[] = ["ko", "en"];
+  const notesByLanguage = {
+    ko: notes.filter(note => note.data.lang === "ko"),
+    en: notes.filter(note => note.data.lang === "en"),
+  };
+  const tagsByLanguage = {
+    ko: getUniqueTags(notesByLanguage.ko),
+    en: getUniqueTags(notesByLanguage.en),
+  };
 
   return languages.flatMap(lang => {
-    const languageNotes = notes.filter(note => note.data.lang === lang);
-
-    const tags = getUniqueTags(languageNotes);
+    const languageNotes = notesByLanguage[lang];
+    const tags = tagsByLanguage[lang];
 
     return tags.flatMap(({ tag, tagName }) => {
       const tagNotes = getSortedNotes(
@@ -39,6 +46,8 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
           lang,
           tag,
           tagName,
+          hasKoTag: tagsByLanguage.ko.some(item => item.tag === tag),
+          hasEnTag: tagsByLanguage.en.some(item => item.tag === tag),
         },
         pageSize: config.notes.perPage,
       });
@@ -46,11 +55,13 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   });
 }
 
-const { page, lang, tag, tagName } = Astro.props as {
+const { page, lang, tag, tagName, hasKoTag, hasEnTag } = Astro.props as {
   page: any;
   lang: NoteLanguage;
   tag: string;
   tagName: string;
+  hasKoTag: boolean;
+  hasEnTag: boolean;
 };
 
 const isKo = lang === "ko";
@@ -69,31 +80,39 @@ const pageDesc = isKo
 
   <div class="app-layout flex justify-end pt-4">
     <div class="flex shrink-0 gap-2" aria-label="Language">
-      <a
-        href={`/notes/ko/tags/${tag}/`}
-        class:list={[
-          "border-border rounded-md border px-3 py-1.5 text-sm",
-          {
-            "font-medium": lang === "ko",
-            "opacity-60": lang !== "ko",
-          },
-        ]}
-      >
-        KO
-      </a>
+      {
+        hasKoTag && (
+          <a
+            href={`/notes/ko/tags/${tag}/`}
+            class:list={[
+              "border-border rounded-md border px-3 py-1.5 text-sm",
+              {
+                "font-medium": lang === "ko",
+                "opacity-60": lang !== "ko",
+              },
+            ]}
+          >
+            KO
+          </a>
+        )
+      }
 
-      <a
-        href={`/notes/en/tags/${tag}/`}
-        class:list={[
-          "border-border rounded-md border px-3 py-1.5 text-sm",
-          {
-            "font-medium": lang === "en",
-            "opacity-60": lang !== "en",
-          },
-        ]}
-      >
-        EN
-      </a>
+      {
+        hasEnTag && (
+          <a
+            href={`/notes/en/tags/${tag}/`}
+            class:list={[
+              "border-border rounded-md border px-3 py-1.5 text-sm",
+              {
+                "font-medium": lang === "en",
+                "opacity-60": lang !== "en",
+              },
+            ]}
+          >
+            EN
+          </a>
+        )
+      }
     </div>
   </div>
 
