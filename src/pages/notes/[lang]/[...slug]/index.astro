@@ -145,10 +145,7 @@ if (typeof initOgImage === "string") {
 }
 
 if (!ogImageUrl && config.features.dynamicOgImage) {
-  const noteUrl = getNoteUrl(note.id, note.filePath, lang).replace(
-    /\/+$/,
-    ""
-  );
+  const noteUrl = getNoteUrl(note.id, note.filePath, lang).replace(/\/+$/, "");
 
   ogImageUrl = `${noteUrl}/index.png`;
 }
@@ -224,23 +221,14 @@ const ogImage = ogImageUrl
 
     <hr class="my-8 border-dashed" />
 
-    <EditNote
-      class="sm:hidden"
-      {hideEditPost}
-      note={note}
-    />
+    <EditNote class="sm:hidden" {hideEditPost} note={note} />
 
     <BackToTopButton />
 
     <ul class="mt-4 mb-8 flex flex-wrap gap-4 sm:my-8">
       {
         tags.map(tag => (
-          <Tag
-            tag={slugifyStr(tag)}
-            tagName={tag}
-            lang={lang}
-            size="sm"
-          />
+          <Tag tag={slugifyStr(tag)} tagName={tag} lang={lang} size="sm" />
         ))
       }
     </ul>
@@ -249,10 +237,7 @@ const ogImage = ogImageUrl
 
     <hr class="my-8 border-dashed" />
 
-    <AdjacentNoteNav
-      prevNote={prevNote}
-      nextNote={nextNote}
-    />
+    <AdjacentNoteNav prevNote={prevNote} nextNote={nextNote} />
   </main>
 
   <Footer noMarginTop />

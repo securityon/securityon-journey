@@ -198,10 +198,20 @@ const isActive = (path: string) => {
 
     if (!notesLink) return;
 
-    const savedLanguage =
-      localStorage.getItem("securityon-language") === "en" ? "en" : "ko";
+    const pathLanguage = window.location.pathname.match(
+      /\/notes\/(ko|en)(?:\/|$)/
+    )?.[1];
 
-    notesLink.href = `/notes/${savedLanguage}/`;
+    const language =
+      pathLanguage ??
+      (localStorage.getItem("securityon-language") === "en" ? "en" : "ko");
+
+    if (pathLanguage) {
+      localStorage.setItem("securityon-language", pathLanguage);
+      document.documentElement.lang = pathLanguage;
+    }
+
+    notesLink.href = `/notes/${language}/`;
   }
 
   function handleSkipToContent() {

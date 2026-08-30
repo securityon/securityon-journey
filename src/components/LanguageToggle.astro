@@ -33,6 +33,11 @@
     document.documentElement.lang = language;
 
     localStorage.setItem("securityon-language", language);
+
+    const notesLink =
+      document.querySelector<HTMLAnchorElement>("#notes-nav-link");
+
+    if (notesLink) notesLink.href = `/notes/${language}/`;
   }
 
   function initializeLanguage() {
