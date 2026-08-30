@@ -1,5 +1,7 @@
 # SecurityOn Research Journey
 
+![SecurityOn Research Journey](public/securityon-og.webp)
+
 SecurityOn Research Journey is BAN Seok's bilingual academic research journal.
 
 It documents graduate study, security and IT engineering experience, ongoing
