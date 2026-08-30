@@ -385,10 +385,6 @@ Do not violate these without explicit approval:
 
 These are observations from the current repository state and may become stale. Verify them before relying on them.
 
-- `README.md`, `.github/ISSUE_TEMPLATE/`, `.github/CONTRIBUTING.md`,
-  `.github/PULL_REQUEST_TEMPLATE.md`, and `.github/FUNDING.yml` still reflect
-  upstream AstroPaper. Treat their replacement as a separate documentation
-  maintenance task.
 - `notes.perIndex` is configured and resolved, but no page or component reads
   it; Home does not currently render a Note index.
 
