@@ -35,7 +35,7 @@ Key locations:
 - `astro-paper.config.ts` — project-facing configuration for site, Notes, features, social links, and sharing.
 - `src/config.ts` — resolved defaults.
 - `src/types/config.ts` — configuration contracts.
-- `src/content.config.ts` — `notes` and `pages` schemas.
+- `src/content.config.ts` — the sole `notes` content-collection schema.
 - `src/content/notes/` — active Korean and English Note sources.
 - `src/pages/index.astro`, `src/pages/about.astro`, `src/pages/research.astro` — bilingual static editorial pages.
 - `src/pages/notes/[lang]/` — language-aware Note listings, detail routes, tags, pagination, and OG routes.
@@ -53,11 +53,14 @@ This repository originated from AstroPaper. Current source and intentional proje
 
 The original AstroPaper `posts` collection and `/posts` routes were intentionally retired.
 
-The active content model is `notes`.
+The active and only content collection is `notes`. About is implemented by the
+standalone `src/pages/about.astro` route; do not recreate the removed `pages`
+collection or `src/content/pages/about.md`.
 
 Do not recreate:
 
 - `posts`;
+- the removed `pages` content collection;
 - `/posts`;
 - top-level `/tags`;
 - Post-named route helpers or layouts such as `PostLayout`, `getPostUrl`, `getPostSlug`, `getSortedPosts`, or `postFilter`.
@@ -81,6 +84,10 @@ Important Note frontmatter:
 Current source filenames are date-prefixed; English counterparts commonly end in `-en`. `getNotePaths.ts` removes those conventions from public slugs.
 
 Use `getNoteUrl()` rather than manually constructing Note-detail routes.
+
+Note detail pages use the shared `src/components/ShareActions.astro` and
+`src/components/BackToTopButton.astro` components. Do not recreate the removed
+route-local variants.
 
 ## Explicit multilingual routing
 
@@ -106,6 +113,13 @@ Korean and English therefore have independent:
 - previous / next Note sequences.
 
 Preserve the explicit language segment in Card links, Tag links, breadcrumbs, pagination, adjacent navigation, RSS, and OG routes.
+
+There is no top-level `/tags` route or breadcrumb branch. Tags remain nested
+under `/notes/{lang}/tags/...`.
+
+Tag-detail language controls are rendered only for languages in which the same
+tag slug actually exists. Never assume a tag slug has a counterpart in both
+languages.
 
 ## Translation pairing
 
@@ -140,6 +154,10 @@ Notes use explicit language URLs.
 
 Within `/notes/{ko|en}/...`, the **URL language is the source of truth**.
 
+Note list, detail, tag-index, and tag-detail routes pass their explicit `lang`
+to `Layout.astro`, so their generated documents start with a truthful static
+`<html lang="ko">` or `<html lang="en">` value.
+
 `Header.astro` should:
 
 - derive the current Note language from the URL;
@@ -163,7 +181,9 @@ Do not reintroduce:
 
 Those patterns previously caused hidden KO/EN article bodies and intermittent navigation-language mismatches.
 
-Astro i18n currently exposes only `en`; the KO/EN system is application-level rather than Astro locale-prefixed routing.
+Astro i18n currently exposes only `en`; the KO/EN system is application-level
+rather than Astro locale-prefixed routing. Explicit Note-route layout props,
+not Astro locale-prefixed routing, provide the static document language.
 
 ## Typography
 
@@ -197,6 +217,11 @@ Prefer structural inheritance to long element-specific override lists.
 Preserve the existing English typography unless explicitly asked to change it.
 
 Do not apply Korean font classes to English content.
+
+Per-Note dynamic OG images use the local `RIDIBatang.otf` registered at weight
+`400` for Korean titles. English titles retain the Google Sans Code bold
+treatment. Keep the current OG layout unless a task explicitly requires a
+design change.
 
 ## Editorial conventions
 
@@ -343,7 +368,11 @@ The build runs Pagefind against `dist` and copies the bundle into `public/pagefi
 
 Only pages with `data-pagefind-body` are indexed; Note detail pages are currently the main indexed content.
 
-Pagefind currently reports one indexed language (`en`) despite both Korean and English Notes being present. Treat this as a known observation to verify when working on search, not as evidence that Korean Notes are absent.
+Truthful static Note document languages produce separate `ko` and `en`
+Pagefind indexes. `search.astro` selects the active Pagefind language from
+`securityon-language` before initialisation and scopes RIDIBatang/Pretendard
+result typography to Korean search results; English results retain the
+application font.
 
 ## Safe editing behaviour
 
@@ -382,7 +411,7 @@ Future changes should preserve these unless explicitly approved otherwise:
 1. `notes`, never `posts`.
 2. Explicit `/notes/ko/` and `/notes/en/` routing.
 3. Language filtering before pagination, tags, and adjacent navigation.
-4. URL precedence inside Notes; localStorage preference outside.
+4. URL precedence and truthful static `<html lang>` inside Notes; localStorage preference outside.
 5. `translationKey` as the translation-pair contract.
 6. No `data-note-lang`.
 7. No hidden dual-language Note articles.
@@ -396,14 +425,12 @@ Future changes should preserve these unless explicitly approved otherwise:
 
 The observations below may become stale as the project evolves. Verify them before relying on them.
 
-- `README.md` still reflects upstream AstroPaper and may mention obsolete `posts` paths.
-- `Breadcrumb.astro` contains a stale top-level `/tags` branch / comment even though active tags are under Notes.
-- Route-local `ShareLinks.astro` and `BackToTopButton.astro` appear unused because Note detail uses `ShareActions.astro` and the shared BackToTop component.
-- `notes.perIndex` appears configured although Home does not currently render a Note index.
-- `src/content/pages/about.md` appears superseded by `src/pages/about.astro`.
-- Tag-language switch links assume the same tag slug exists in the other language.
-- Pagefind currently classifies indexed content as one language (`en`).
-- Per-Note OG generation embeds Google Sans Code only; verify Korean glyph rendering before depending on generated Korean OG images.
+- `README.md`, `.github/ISSUE_TEMPLATE/`, `.github/CONTRIBUTING.md`,
+  `.github/PULL_REQUEST_TEMPLATE.md`, and `.github/FUNDING.yml` still reflect
+  upstream AstroPaper. Treat their replacement as a separate documentation
+  maintenance task.
+- `notes.perIndex` is configured and resolved, but no page or component reads
+  it; Home does not currently render a Note index.
 
 Do not automatically “fix” these observations. Confirm the task, current source, and dependencies first.
 
