@@ -110,6 +110,10 @@
     }
   }
 
+  html[lang="ko"] .app-prose strong {
+    @apply font-semibold;
+  }
+
   /* ===== Code Blocks & Syntax Highlighting ===== */
   .astro-code {
     @apply outline-border flex border bg-(--shiki-light-bg) text-(--shiki-light) [&_span]:text-(--shiki-light);
