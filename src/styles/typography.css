@@ -17,6 +17,11 @@
       @apply italic;
     }
 
+    h2.numbered-heading {
+      padding-inline-start: 1.35em;
+      text-indent: -1.35em;
+    }
+
     p,
     strong,
     ol,

@@ -70,24 +70,53 @@ function wrapKoreanTitle(title: string, lang: "ko" | "en") {
   return lines.join("\n");
 }
 
-function trimDescription(
-  description: string,
-  lang: "ko" | "en",
-  hasLongTitle: boolean
-) {
-  const limit =
-    lang === "ko" ? (hasLongTitle ? 78 : 92) : hasLongTitle ? 120 : 140;
-  const characters = Array.from(description.trim());
+function getDescriptionWidth(text: string) {
+  return Array.from(text).reduce((width, character) => {
+    if (/\s/u.test(character)) return width + 0.33;
+    if (/\p{Script=Hangul}|\p{Script=Han}/u.test(character)) return width + 1;
+    if (/[A-Z]/u.test(character)) return width + 0.64;
+    if (/[a-z]/u.test(character)) return width + 0.52;
+    if (/\d/u.test(character)) return width + 0.56;
+    return width + 0.35;
+  }, 0);
+}
 
-  if (characters.length <= limit) return description.trim();
+function wrapDescription(description: string, lang: "ko" | "en") {
+  const maxLineWidth = lang === "ko" ? 37 : 39;
+  const maxLines = 2;
+  const tokens = description.trim().split(/\s+/u).filter(Boolean);
+  const lines: string[][] = [];
+  let omittedTokens = false;
 
-  const shortened = characters.slice(0, limit).join("");
-  const cleanEnding = shortened
-    .replace(/\s+\S*$/u, "")
-    .replace(/[\s,.;:·/([{\-]+$/u, "")
-    .trimEnd();
+  for (const token of tokens) {
+    const currentLine = lines.at(-1);
+    const candidate = currentLine ? [...currentLine, token].join(" ") : token;
 
-  return `${cleanEnding}…`;
+    if (!currentLine || getDescriptionWidth(candidate) > maxLineWidth) {
+      if (lines.length === maxLines) {
+        omittedTokens = true;
+        break;
+      }
+      lines.push([token]);
+    } else {
+      currentLine.push(token);
+    }
+  }
+
+  if (omittedTokens) {
+    const lastLine = lines.at(-1);
+    if (lastLine) {
+      while (
+        lastLine.length > 1 &&
+        getDescriptionWidth(`${lastLine.join(" ")}…`) > maxLineWidth
+      ) {
+        lastLine.pop();
+      }
+      lastLine[lastLine.length - 1] += "…";
+    }
+  }
+
+  return lines.map(line => line.join(" "));
 }
 
 function formatDate(date: Date) {
@@ -143,10 +172,9 @@ export const GET: APIRoute = async ({ props, url }) => {
   const titleFontSize = getTitleFontSize(props.data.title, props.data.lang);
   const title = wrapKoreanTitle(props.data.title, props.data.lang);
   const hasLongTitle = titleFontSize <= 52;
-  const description = trimDescription(
+  const descriptionLines = wrapDescription(
     props.data.description,
-    props.data.lang,
-    hasLongTitle
+    props.data.lang
   );
   const metadata = [
     formatDate(props.data.pubDatetime),
@@ -344,6 +372,8 @@ export const GET: APIRoute = async ({ props, url }) => {
                             width: 790,
                             maxHeight: isKorean ? 66 : 63,
                             marginTop: hasLongTitle ? 20 : 24,
+                            display: "flex",
+                            flexDirection: "column",
                             overflow: "hidden",
                             color: "#5f584f",
                             fontFamily,
@@ -352,7 +382,16 @@ export const GET: APIRoute = async ({ props, url }) => {
                             lineHeight: 1.55,
                             letterSpacing: isKorean ? "-0.012em" : "-0.02em",
                           },
-                          children: description,
+                          children: descriptionLines.map(line => ({
+                            type: "span",
+                            props: {
+                              style: {
+                                display: "flex",
+                                whiteSpace: "nowrap",
+                              },
+                              children: line,
+                            },
+                          })),
                         },
                       },
                     ],
