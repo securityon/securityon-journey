@@ -2,9 +2,22 @@
 
 ## Purpose
 
-SecurityOn Research Journey is BAN Seok's bilingual academic research journal and engineering record. It documents graduate study, professional IT/security experience, research questions, experiments, and publications, with a growing focus on AI Security.
+SecurityOn Research Journey is BAN Seok's bilingual technical research journal
+and engineering record. It documents graduate study, security research, AI and
+local-LLM research, research workstation engineering, publication preparation,
+experiments, and implementation decisions, informed by professional IT/security
+experience.
 
 Preserve its restrained research-journal character. It is not a marketing portfolio, startup landing page, dashboard, or decorative product site.
+
+Write calmly, precisely, reflectively, and from evidence. Use first person where
+appropriate; never make the record promotional or exaggerate outcomes. When
+useful, connect the initial plan, observation, decision or change, reason, and
+result or limitation. Let that sequence emerge through normal prose rather than
+forcing repeated labelled subsections.
+
+This root `AGENTS.md` is the persistent editorial and implementation working
+agreement for future work in the repository.
 
 ## Stack and repository map
 
@@ -40,6 +53,9 @@ The repository originated from AstroPaper, but current source and intentional pr
 
 ## Notes content model
 
+Before creating a Note, inspect `src/content.config.ts` and relevant existing
+KO/EN pairs. Follow the current schema rather than inventing frontmatter fields.
+
 The former AstroPaper `posts` model was intentionally retired in favour of `notes`.
 `notes` is the only content collection. About is the standalone
 `src/pages/about.astro` route; do not recreate the removed `pages` collection or
@@ -70,6 +86,15 @@ Important Note frontmatter:
 `getUniqueTags()` applies Note visibility filtering, slug-deduplicates tags, and sorts them.
 
 Current filenames are date-prefixed, with English counterparts commonly ending in `-en`. `getNotePaths.ts` removes both filename conventions from public slugs. Content subdirectories become slugged URL segments.
+
+Keep pair filenames consistent: `YYYY-MM-DD-slug.md` and
+`YYYY-MM-DD-slug-en.md`. Follow existing publication-date and timezone
+conventions, explicit `lang`, semantic `translationKey`, tags, and
+`featured` / `draft` usage. Preserve existing publication metadata during
+editorial refinements unless changing it is part of the task.
+
+Do not manually add a custom `ogImage` unless explicitly requested. Notes
+normally use the shared dynamic OG generator.
 
 Use `getNoteUrl()` for Note-detail links rather than rebuilding URLs manually.
 
@@ -125,6 +150,10 @@ For a normal bilingual pair:
 - unrelated Notes must not reuse that key;
 - filename similarity is not the pairing contract;
 - an unpaired Note is valid and must not produce a broken language toggle.
+
+Paired KO/EN Notes must remain factually equivalent. Apply substantive factual
+or editorial changes to both versions while allowing natural phrasing in each
+language.
 
 ## Language-state architecture
 
@@ -200,29 +229,198 @@ Prefer inheritance from the article boundary over long element-specific override
 
 English must not inherit Korean font classes.
 
-Per-Note dynamic OG images use the local `RIDIBatang.otf` registered at weight
-`400` for Korean titles. English titles retain the Google Sans Code bold
-treatment. Keep the existing OG layout unless a task explicitly requires a
-design change.
+OG typography is separate from site prose typography; follow the shared OG
+rules below.
+
+### Numbered headings
+
+Wrapped numbered headings must use a generic hanging-indent layout in both KO
+and EN Notes. Continuation lines must align with the heading text after the
+number, not with the far-left edge:
+
+```text
+2. First line of a long heading
+   continuation aligned with heading text
+```
+
+This is a required visual behaviour for shared heading implementation, not a
+claim that the current styles already implement it. When heading layout is in
+scope, address it generically in shared rendering or styling; do not hard-code
+particular headings, add manual breaks to individual Notes, or alter unrelated
+styles during a content-only task.
+
+Layout should not compensate for unnecessarily verbose headings. When a heading
+becomes long, translation-like, or bureaucratic, prefer a concise, natural
+heading that preserves the section meaning. Apply this judgement consistently
+in Korean and English. Do not shorten official names or technical terms merely
+for visual fit.
+
+For example, where the section meaning allows, “Operating System, Licensing,
+and Organisation Registration” may become “OS, Licence, and Device Registration”.
+This is an illustration, not a global replacement rule for that wording.
 
 ## Editorial conventions
 
-Use concise technical prose with a restrained academic / research-journal tone.
+### Language
 
-Prefer British English where the wording is not an official name or quotation, e.g.:
+Use natural technical Korean. Retain common English technical terms when they
+are clearer, avoid awkward translated terminology, and avoid marketing language.
 
-- `programme`
-- `analyse`
-- `organisation`
-- `behaviour`
-- `modelling`
-- `centre`
-- `towards`
-- `colour`
+Use natural British English rather than mechanically copying Korean sentence
+structure. Prefer British spelling where the wording is not an official name or
+quotation, including:
 
-Preserve official names verbatim.
+- organisation, behaviour, modelling;
+- optimisation / optimised;
+- programme where appropriate;
+- licence as a noun, license as a verb;
+- analyse, centre, towards, colour.
 
-When editing bilingual static content, preserve both language variants.
+Preserve the official spelling of technical, product, application, and service
+names. When editing bilingual static content, preserve both language variants.
+
+### Terminology consistency
+
+Choose terms by their role; do not rotate synonyms merely for stylistic variety.
+
+| English term | Use                                                               |
+| ------------ | ----------------------------------------------------------------- |
+| laptop       | The physical Galaxy Book computer                                 |
+| device       | Registration, management, Device Manager, or asset/policy context |
+| workstation  | The configured research system or the laptop's research role      |
+| environment  | The OS, software, development, or research environment            |
+
+Avoid machine unless technically justified. Do not use notebook to mean the
+physical laptop; preserve Jupyter Notebook and genuine notebook-computing
+terminology.
+
+| Korean term                | Use                                                  |
+| -------------------------- | ---------------------------------------------------- |
+| 노트북                     | Physical laptop                                      |
+| 장비                       | Asset, hardware, registration, or management context |
+| 연구 워크스테이션          | Configured research system                           |
+| 환경 / 연구환경 / 개발환경 | Software and tooling layers                          |
+
+Do not arbitrarily rotate 노트북, 장비, 기기, and 워크스테이션.
+
+For removable Windows installation media, prefer USB installation media, USB
+drive, or USB flash drive according to context. Avoid bare USB where a more
+precise noun improves the sentence. Do not use pen drive as the primary term.
+
+### Markdown semantics
+
+Use styling according to semantic role, not decoration:
+
+- Reserve first-meaningful-occurrence bold primarily for named applications,
+  products, services, or UI-facing tools, such as **Samsung Device Care**,
+  **Samsung Settings**, **Galaxy Book Experience**, **Microsoft 365**, **Zotero**,
+  and **Firefox**. Nearby subsequent mentions may be plain text. Preserve
+  official product spelling, and do not add quotation marks merely to make names
+  stand out.
+- Do not bold general technologies, standards, protocols, frameworks, or Windows
+  features merely because they are proper names. BitLocker, WSL2, CUDA, PyTorch,
+  Windows Update, WinRE, OneDrive, and Pagefind normally remain plain prose unless
+  emphasis is contextually useful. Use editorial judgement rather than
+  mechanically bolding every trademark.
+- Use bold for UI labels, menu items, buttons, and selectable modes, such as
+  **Battery Protection**, **High Performance**, and **Settings**.
+- Inside tables, do not force first-occurrence bolding when the table structure
+  already makes the semantic role clear. Prefer clean, readable cells over
+  decorative emphasis; use bold only when it communicates a real distinction
+  or emphasis.
+- Use inline code for commands and command names, paths, filenames, package
+  identifiers, registry keys, environment variables, and exact technical values
+  or status strings where distinction is useful. Examples: `winget export`,
+  `D:\Lab`, `GoldenResearch.wim`, `AzureAdJoined`, and `Fully Decrypted`.
+- Do not use inline code merely to style a normal product name.
+- Use Korean title brackets such as 「...」 where appropriate when referring to
+  Korean Note or article titles in prose.
+
+Avoid excessive bolding. Emphasis should make semantic categories easier to
+scan. Check actual Markdown source for accidental literal escape artefacts;
+do not change valid syntax because a chat copy displayed it differently.
+
+### Factual discipline
+
+Notes document real research and implementation work. Never invent commands
+that were not run, results that were not observed, version numbers, performance
+measurements, configuration states, failure causes, security-policy details,
+activation mechanisms, or benchmark results.
+
+Clearly distinguish observed facts, decisions, planned future work, inferences,
+and unverified possibilities. If a cause was not determined, say so. Do not turn
+planned work into completed work or imply that a configuration was validated
+when only its presence was observed.
+
+### Commands and technical evidence
+
+Use code blocks only when they materially improve the technical record. Prefer
+a few representative state-changing commands, relevant output excerpts, and
+small before/after or decision tables over long command dumps. Preserve exact
+commands and outputs when they form part of the actual research record.
+
+Do not turn a research Note into a step-by-step beginner tutorial unless that
+is its explicit purpose. Explain decisions and boundaries as well as actions.
+
+### Historical design decisions
+
+Do not silently rewrite an older architecture or design Note merely because
+implementation evolved. Document what the original design assumed, what actual
+implementation revealed, what changed, and why the new decision was preferable
+in the subsequent implementation record.
+
+Revise an older Note only when explicitly requested or when correcting a clear
+error. Preserve original design snapshots and keep implementation-specific
+history in the relevant Notes.
+
+## Security and privacy
+
+Generalise organisation-specific details. Never expose:
+
+- product keys, passwords, or tokens;
+- tenant IDs;
+- personal account email addresses unless explicitly required;
+- internal hostnames, domains, or IP addresses;
+- proxy addresses;
+- certificates or secrets;
+- sensitive security-policy details.
+
+Generic enterprise controls such as Proxy, Firewall, CA, SSL/TLS Inspection,
+EDR, DLP, and Application Control may be discussed without disclosing internal
+identifiers or policy specifics.
+
+## Shared dynamic Note OG images
+
+The shared implementation is
+`src/pages/notes/[lang]/[...slug]/index.png.ts`, producing per-language
+`/notes/{lang}/{slug}/index.png` assets. Do not special-case individual articles.
+Any OG change must work generically for existing KO Notes, existing EN Notes,
+and future Notes. Preserve the template unless OG work is part of the task.
+
+The visual direction is:
+
+- warm cream editorial layout;
+- charcoal typography and muted brown accents;
+- the SecurityOn mountain visual inherited from the main OG identity;
+- RIDIBatang for Note titles and descriptions in both languages;
+- Google Sans Code for UI, metadata, and branding.
+
+The current renderer uses local `RIDIBatang.otf` at weight `400` for both KO and
+EN titles and descriptions. Do not confuse these roles with site headings,
+which follow the site typography rules above.
+
+OG text layout must:
+
+- avoid breaking Korean words, English words, or acronyms in the middle;
+- wrap Korean descriptions at sensible word or space boundaries;
+- truncate descriptions only at complete word boundaries;
+- keep metadata sparse;
+- adapt gracefully to short and long titles.
+
+If CSS or Satori word-breaking is unreliable, prefer a reusable helper that
+builds lines from tokens over article-specific hard-coded breaks. Treat these
+as layout requirements to verify during OG work, not as proof that every
+current rendering already satisfies them.
 
 ## Visual conventions
 
@@ -332,7 +530,7 @@ RSS is one combined Korean / English feed using:
 
 ### Pagefind
 
-`npm run build` runs Pagefind against `dist` and copies the Pagefind bundle to `public/pagefind`.
+`pnpm run build` runs Pagefind against `dist` and copies the Pagefind bundle to `public/pagefind`.
 
 Only pages carrying `data-pagefind-body` are indexed; currently Note detail pages are the main indexed content.
 
@@ -351,6 +549,7 @@ Before editing:
 3. Treat existing modifications as user-owned.
 4. Inspect the relevant schema, route, helpers, components, styles, and history.
 5. Trace multilingual consequences before changing shared routing or language logic.
+6. Check for applicable nested `AGENTS.md` files when working in a subdirectory.
 
 While editing:
 
@@ -362,15 +561,47 @@ While editing:
 - do not add redirects, dependencies, or abstractions outside scope without clear justification;
 - do not opportunistically “clean up” unrelated remnants.
 
-Validation:
+Do not modify unrelated Notes, layouts, styles, routes, or configuration unless
+required by the task. If a request reveals a reusable rule, prefer a concise
+`AGENTS.md` update or, when implementation is in scope, shared styling/rendering
+logic over repeated article-specific workarounds. A newly documented rule does
+not authorise a retroactive sweep of existing content or implementation.
 
-- run `git diff --check`;
-- inspect focused diffs;
-- run `npm run build` after source, content, schema, routing, or style changes;
-- use `npm run lint` or `npm run format:check` when relevant;
-- report exact files changed, reasons, validation, and any warnings.
+### Validation
+
+When creating or editing Notes:
+
+1. Run Prettier only on the files changed in the task, unless broader formatting
+   was explicitly requested, for example `pnpm exec prettier --write <changed-files>`.
+2. Run `pnpm run lint`.
+3. Run `pnpm run build`.
+4. Run `git diff --check` and inspect the focused diff. New untracked Notes also
+   need whitespace review; ordinary `git diff` does not include them.
+5. Verify the relevant generated KO/EN routes and translation links.
+6. Verify the relevant dynamic OG PNGs and the pages' OG image references.
+
+For other source, schema, routing, or style changes, run `pnpm run build` and
+checks appropriate to the change, including `pnpm run lint` where relevant.
+Keep formatting limited to the task's files. Documentation-only changes to this
+guide need focused Markdown and diff checks; a site build is not required.
+
+At completion, report the files changed, important editorial or technical
+decisions, validation results and warnings, and factual ambiguities deliberately
+left unresolved. State when a required check could not be completed.
 
 Never commit, push, reset, discard work, or perform destructive Git operations unless explicitly instructed.
+
+## Maintaining this guide
+
+Treat this file as the persistent project working agreement. When future work
+reveals a reusable rule, propose or make a concise update when appropriate to
+the task. Do not add one-off article facts, installation inventories, or dated
+implementation history here; keep those in their relevant Notes.
+
+Keep this guide focused on reusable editorial, engineering, validation, and
+security conventions. Distinguish required future behaviour from verified
+current implementation, and correct stale implementation descriptions after
+checking the source.
 
 ## Architectural invariants
 
