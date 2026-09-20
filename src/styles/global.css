@@ -22,29 +22,17 @@
 }
 
 .ko-body {
-  font-family:
-    "RIDIBatang",
-    "Apple SD Gothic Neo",
-    "Malgun Gothic",
-    serif;
+  font-family: "RIDIBatang", "Apple SD Gothic Neo", "Malgun Gothic", serif;
 
   line-height: 1.8;
 }
 
 .ko-ui {
-  font-family:
-    "Pretendard",
-    "Apple SD Gothic Neo",
-    "Malgun Gothic",
-    sans-serif;
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 }
 
 .app-prose.ko-body :where(h1, h2, h3, h4, h5, h6, th) {
-  font-family:
-    "Pretendard",
-    "Apple SD Gothic Neo",
-    "Malgun Gothic",
-    sans-serif;
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 }
 
 .app-prose.ko-body {

@@ -39,14 +39,14 @@ dark themes.
 
 The project requires Node.js 22.12 or later. From the repository root:
 
-| Command | Purpose |
-| --- | --- |
-| `pnpm install` | Install dependencies. |
-| `pnpm dev` | Start the Astro development server. |
-| `pnpm build` | Validate and build the Astro site, run Pagefind indexing, and copy the search bundle. |
-| `pnpm preview` | Preview the production build locally. |
-| `pnpm lint` | Run ESLint. |
-| `pnpm format:check` | Check formatting with Prettier. |
+| Command             | Purpose                                                                               |
+| ------------------- | ------------------------------------------------------------------------------------- |
+| `pnpm install`      | Install dependencies.                                                                 |
+| `pnpm dev`          | Start the Astro development server.                                                   |
+| `pnpm build`        | Validate and build the Astro site, run Pagefind indexing, and copy the search bundle. |
+| `pnpm preview`      | Preview the production build locally.                                                 |
+| `pnpm lint`         | Run ESLint.                                                                           |
+| `pnpm format:check` | Check formatting with Prettier.                                                       |
 
 ## Project background
 

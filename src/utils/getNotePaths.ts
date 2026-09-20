@@ -17,18 +17,12 @@ function getNotePathSegments(filePath: string | undefined): string[] {
 
 function getIdSlug(id: string): string {
   const noteId = id.split("/");
-  const rawId =
-    noteId.length > 0 ? String(noteId[noteId.length - 1]) : id;
+  const rawId = noteId.length > 0 ? String(noteId[noteId.length - 1]) : id;
 
-  return rawId
-    .replace(/^\d{4}-\d{2}-\d{2}-/, "")
-    .replace(/-en$/, "");
+  return rawId.replace(/^\d{4}-\d{2}-\d{2}-/, "").replace(/-en$/, "");
 }
 
-function getNoteSlugPath(
-  id: string,
-  filePath: string | undefined
-): string {
+function getNoteSlugPath(id: string, filePath: string | undefined): string {
   const pathSegments = getNotePathSegments(filePath);
   const slug = getIdSlug(id);
 
@@ -43,10 +37,7 @@ function getNoteSlugPath(
  * Example:
  * /research-journey-begins
  */
-export function getNoteSlug(
-  id: string,
-  filePath: string | undefined
-): string {
+export function getNoteSlug(id: string, filePath: string | undefined): string {
   return `/${getNoteSlugPath(id, filePath)}`;
 }
 

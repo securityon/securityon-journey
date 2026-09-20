@@ -17,7 +17,9 @@ type Tag = {
 export function getUniqueTags(notes: CollectionEntry<"notes">[]) {
   const tagsBySlug = new Map<string, Tag>();
 
-  for (const tagName of notes.filter(noteFilter).flatMap(note => note.data.tags)) {
+  for (const tagName of notes
+    .filter(noteFilter)
+    .flatMap(note => note.data.tags)) {
     const tag = slugifyStr(tagName);
 
     if (!tagsBySlug.has(tag)) {

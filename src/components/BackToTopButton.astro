@@ -28,9 +28,7 @@ const t = useTranslations(Astro.currentLocale);
       class="absolute inset-0 -z-10 block size-12 scale-110 rounded-full bg-transparent md:hidden md:h-8 md:rounded-md"
     ></span>
 
-    <IconArrowLeft
-      class="inline-block size-6 rotate-90 md:hidden"
-    />
+    <IconArrowLeft class="inline-block size-6 rotate-90 md:hidden" />
 
     <span class="group-hover:text-accent sr-only text-sm md:not-sr-only">
       <IconArrowNarrowUp class="inline-block size-4" />
@@ -45,17 +43,10 @@ const t = useTranslations(Astro.currentLocale);
 
     const rootElement = document.documentElement;
     const btnContainer = document.querySelector("#btt-btn-container");
-    const backToTopBtn = document.querySelector(
-      "[data-button='back-to-top']"
-    );
+    const backToTopBtn = document.querySelector("[data-button='back-to-top']");
     const progressIndicator = document.querySelector("#progress-indicator");
 
-    if (
-      !rootElement ||
-      !btnContainer ||
-      !backToTopBtn ||
-      !progressIndicator
-    ) {
+    if (!rootElement || !btnContainer || !backToTopBtn || !progressIndicator) {
       return;
     }
 
@@ -70,8 +61,7 @@ const t = useTranslations(Astro.currentLocale);
     let lastVisible = null;
 
     function handleScroll() {
-      const scrollTotal =
-        rootElement.scrollHeight - rootElement.clientHeight;
+      const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
 
       const scrollTop = rootElement.scrollTop;
 
@@ -81,9 +71,7 @@ const t = useTranslations(Astro.currentLocale);
         return;
       }
 
-      const scrollPercent = Math.floor(
-        (scrollTop / scrollTotal) * 100
-      );
+      const scrollPercent = Math.floor((scrollTop / scrollTotal) * 100);
 
       progressIndicator.style.setProperty(
         "background-image",

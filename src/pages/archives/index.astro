@@ -78,7 +78,9 @@ const monthFormatter = new Intl.DateTimeFormat(locale, { month: "long" });
                             new Date(a.data.pubDatetime).getTime() / 1000
                           )
                       )
-                      .map(data => <Card {...data} />)}
+                      .map(data => (
+                        <Card {...data} />
+                      ))}
                   </ul>
                 </div>
               ))}

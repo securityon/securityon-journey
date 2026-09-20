@@ -42,9 +42,7 @@ const breadcrumbItems: BreadcrumbItem[] = [];
  */
 if (rawSegments[0] === "notes") {
   const noteLanguage =
-    rawSegments[1] === "en" || rawSegments[1] === "ko"
-      ? rawSegments[1]
-      : "ko";
+    rawSegments[1] === "en" || rawSegments[1] === "ko" ? rawSegments[1] : "ko";
 
   const notePath = rawSegments[2];
 
@@ -80,9 +78,7 @@ else {
 
     breadcrumbItems.push({
       label: navLabels[segment] ?? decodeSegment(segment),
-      href: isLast
-        ? undefined
-        : getRelativeLocaleUrl(locale, segment),
+      href: isLast ? undefined : getRelativeLocaleUrl(locale, segment),
     });
   });
 }

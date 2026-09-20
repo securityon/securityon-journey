@@ -21,9 +21,9 @@ const config: ResolvedAstroPaperConfig = {
       userConfig.site.googleVerification || PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
   notes: {
-  perPage: userConfig.notes?.perPage ?? 4,
-  scheduledNoteMargin:
-    userConfig.notes?.scheduledNoteMargin ?? 15 * 60 * 1000,
+    perPage: userConfig.notes?.perPage ?? 4,
+    scheduledNoteMargin:
+      userConfig.notes?.scheduledNoteMargin ?? 15 * 60 * 1000,
   },
   features: {
     lightAndDarkMode: userConfig.features?.lightAndDarkMode ?? true,
