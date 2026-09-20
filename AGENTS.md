@@ -259,6 +259,14 @@ For example, where the section meaning allows, “Operating System, Licensing,
 and Organisation Registration” may become “OS, Licence, and Device Registration”.
 This is an illustration, not a global replacement rule for that wording.
 
+### Markdown tables
+
+Markdown-generated tables are wrapped by the shared rehype rendering path in
+`.table-scroll`. Wide tables may scroll horizontally inside that wrapper, but
+the document itself must not gain horizontal overflow. Do not add manual or
+article-specific table wrappers to Notes; fix shared Markdown rendering or
+styling instead.
+
 ## Editorial conventions
 
 ### Language
@@ -448,6 +456,25 @@ Avoid:
 - unnecessary animation;
 - portfolio-style visual excess.
 
+### Back-to-top and responsive layout
+
+The Note detail page's `app-layout` containing-block structure is the reference
+placement for `BackToTopButton`. Preserve the same structure on general
+editorial pages; do not add page-specific offsets or modify
+`BackToTopButton.astro` merely to compensate for inconsistent page structure.
+Preserve its progress ring, viewport-safe mobile placement, z-index,
+click-to-top behaviour, and Astro client-side navigation behaviour.
+
+For changes affecting shared layout, Markdown rendering, or Back-to-top
+behaviour, verify where relevant:
+
+- desktop around 1280px and mobile around 390px and 360px;
+- no document-level horizontal overflow and wide tables scrolling only inside
+  `.table-scroll`;
+- the button remains inside the viewport, its progress ring stays visible, and
+  clicking it returns the scroll position to `0`;
+- behaviour survives Astro client-side navigation.
+
 ### Section labels
 
 Major labels use the shared `section-label` utility:
@@ -556,7 +583,6 @@ While editing:
 - preserve unrelated work;
 - make the smallest coherent diff;
 - prefer existing helpers, route constructors, tokens, classes, and utilities;
-- avoid broad formatting rewrites during focused tasks;
 - avoid speculative refactors;
 - do not add redirects, dependencies, or abstractions outside scope without clear justification;
 - do not opportunistically “clean up” unrelated remnants.
@@ -567,23 +593,37 @@ required by the task. If a request reveals a reusable rule, prefer a concise
 logic over repeated article-specific workarounds. A newly documented rule does
 not authorise a retroactive sweep of existing content or implementation.
 
+### Formatting and line endings
+
+Limit formatting writes to task files during focused work. Run a repository-wide
+formatting write only when explicitly requested as a formatting-normalisation
+task, and keep functional changes separate from broad formatting-only changes
+when practical.
+
+`.gitattributes` is the source of truth for text line endings and specifies
+`* text=auto eol=lf`. Preserve LF in text files; do not introduce CRLF or mixed
+line endings. Do not change `.gitattributes`, `core.autocrlf`, or other Git
+line-ending policy unless the task explicitly requires it.
+
 ### Validation
+
+Repository-wide `pnpm run format:check` is a normal validation check and is
+expected to pass. Continue running `pnpm run lint`, `pnpm run build`, and
+`git diff --check` as appropriate to the task.
 
 When creating or editing Notes:
 
-1. Run Prettier only on the files changed in the task, unless broader formatting
-   was explicitly requested, for example `pnpm exec prettier --write <changed-files>`.
-2. Run `pnpm run lint`.
-3. Run `pnpm run build`.
-4. Run `git diff --check` and inspect the focused diff. New untracked Notes also
+1. Run `pnpm run lint`.
+2. Run `pnpm run build`.
+3. Run `git diff --check` and inspect the focused diff. New untracked Notes also
    need whitespace review; ordinary `git diff` does not include them.
-5. Verify the relevant generated KO/EN routes and translation links.
-6. Verify the relevant dynamic OG PNGs and the pages' OG image references.
+4. Verify the relevant generated KO/EN routes and translation links.
+5. Verify the relevant dynamic OG PNGs and the pages' OG image references.
 
 For other source, schema, routing, or style changes, run `pnpm run build` and
 checks appropriate to the change, including `pnpm run lint` where relevant.
-Keep formatting limited to the task's files. Documentation-only changes to this
-guide need focused Markdown and diff checks; a site build is not required.
+Documentation-only changes to this guide need focused Markdown and diff checks;
+a site build is not required.
 
 At completion, report the files changed, important editorial or technical
 decisions, validation results and warnings, and factual ambiguities deliberately
