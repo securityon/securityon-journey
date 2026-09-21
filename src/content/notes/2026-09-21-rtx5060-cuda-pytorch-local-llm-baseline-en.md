@@ -21,7 +21,7 @@ The central task was not merely to install CUDA. I needed to separate the roles 
 
 As before, one successful run immediately after installation was insufficient for a `PASS`. GPU computation, model inference, the local API, and storage paths had to work in practice, and the required state had to remain intact after a reboot.
 
-## 1. Starting above the Windows and WSL Baseline
+## 1. Building on the Windows and WSL Baseline
 
 The starting GPU was an NVIDIA GeForce RTX 5060 Laptop GPU with approximately 8 GB of VRAM. The initial driver was `591.74`, and `nvidia-smi` reported CUDA support `13.1`.
 
@@ -103,7 +103,7 @@ I ran a `4096 × 4096` matrix multiplication in the same Windows project and ret
 | FP32      | `14.86 ms`    | about `9.25 TFLOPS`  | `224 MiB`        |
 | FP16      | `4.36 ms`     | about `31.54 TFLOPS` | `224 MiB`        |
 
-These are point-in-time local smoke-test baselines. They are neither official GPU performance specifications nor a comprehensive benchmark. Their purpose is to provide a comparison point for detecting changes under the same test conditions.
+The throughput figures are approximate values derived from the theoretical matrix-multiplication workload of about 2N³ floating-point operations and the measured execution time. These are point-in-time local smoke-test baselines, not official GPU performance specifications or comprehensive benchmark results. Their purpose is to provide a comparison point for detecting changes under the same test conditions.
 
 ## 9. Opening the GPU Path through WSL2
 
@@ -134,7 +134,7 @@ The same smoke workload in WSL produced FP32 `14.88 ms`, about `9.23 TFLOPS`, an
 | Windows     | `14.86 ms`, about `9.25 TFLOPS` | `4.36 ms`, about `31.54 TFLOPS` | `224 MiB`   |
 | WSL2        | `14.88 ms`, about `9.23 TFLOPS` | `4.34 ms`, about `31.64 TFLOPS` | `224 MiB`   |
 
-The two paths were effectively equal for this particular matrix-multiplication smoke workload. I do not generalise that observation into a claim that WSL always has zero GPU overhead. Different models, I/O patterns, memory pressure, and workload shapes may produce different results. The useful conclusion here is that both paths passed the same test reliably and now have an initial comparison point.
+The Windows-native and WSL2 measurements were nearly identical for this particular matrix-multiplication smoke workload. However, this result does not establish that WSL2 always has zero GPU overhead. Differences may emerge with workloads that involve different CPU–GPU data-transfer patterns, memory-access behaviour, I/O, or computational characteristics. The value of this comparison is that the same PyTorch CUDA workload ran reliably through both paths and provided an initial baseline for future environment changes.
 
 ## 12. Separating Model Storage onto D:
 
@@ -201,13 +201,13 @@ LLAMA_BUILD_BORINGSSL=ON
 
 After rebuilding, the HTTPS download of `ggml-org/gemma-3-1b-it-GGUF:Q4_K_M` succeeded. Real CUDA inference ran with `-ngl all`, and `nvidia-smi` showed `llama-cli.exe` using the GPU. Observed VRAM use was approximately `962 MiB`; the prompt baseline was `255.6 tokens/s`, and the generation baseline was `204.8 tokens/s`.
 
-This friction in the newest environment was not a GPU compatibility failure; the build lacked an optional HTTPS capability. I used the options identified by the error to correct the configuration and preserve source building and model retrieval as one reproducible path.
+This friction in the newest environment was not a GPU compatibility failure; the first build did not include an HTTPS backend. I used the options identified by the error to correct the configuration and preserve source building and model retrieval as one reproducible path.
 
 ## 17. Transformers Direct CUDA Inference and API Friction
 
 The third local LLM path used Transformers `5.17.0`, PyTorch `2.14.0+cu132`, and the `Qwen/Qwen3-0.6B` model for direct FP16 CUDA inference. The Hugging Face cache remained on D:.
 
-The first smoke test failed because it assumed that `apply_chat_template()` returned a tensor directly. I updated the code for the current API by:
+The first smoke test failed because it assumed that `apply_chat_template()` returned a tensor directly. In the installed Transformers `5.17.0` environment, the actual return structure did not match that assumption. I updated the smoke-test code by:
 
 - setting `return_dict=True`;
 - calling `model.generate(**inputs)`;
@@ -254,7 +254,7 @@ The final assessment for this phase is:
 | Ollama Local LLM Runtime         | `PASS` | GPU inference, local API, D: models, and reboot persistence         |
 | llama.cpp CUDA Runtime           | `PASS` | CUDA source build, HTTPS retrieval, and `-ngl all` inference        |
 | Transformers Direct CUDA Runtime | `PASS` | FP16 model loading and direct generation through PyTorch            |
-| Reboot / Persistence             | `PASS` | Driver, toolchain, variables, runtimes, and storage paths rechecked |
+| Reboot / Persistence             | `PASS` | Driver, CUDA tools, variables, runtimes, and storage paths verified |
 
 Windows native and WSL2 now both provide GPU research paths validated by real CUDA and PyTorch workloads. I separated the roles of system CUDA `13.4` and the PyTorch `13.2` runtime, and retained the Windows and WSL measurements only as initial comparison points for this smoke workload.
 

@@ -103,7 +103,7 @@ Python `3.12`, uv `0.12.17` 환경에 PyTorch `2.14.0+cu132`를 설치했습니�
 | FP32   | `14.86 ms` | 약 `9.25 TFLOPS`  | `224 MiB`        |
 | FP16   | `4.36 ms`  | 약 `31.54 TFLOPS` | `224 MiB`        |
 
-이 값은 해당 시점의 local smoke-test baseline입니다. 공식 GPU 성능 사양이나 광범위한 benchmark 결과로 해석하지 않습니다. 동일한 test 조건에서 환경 변화 뒤의 이상을 살피기 위한 비교점으로만 사용합니다.
+처리량은 행렬곱의 이론적 연산량을 약 2N³ FLOPs로 두고 측정 시간에서 환산한 근사값입니다. 이 값은 해당 시점의 local smoke-test baseline이며, 공식 GPU 성능 사양이나 광범위한 benchmark 결과로 해석하지 않습니다. 동일한 test 조건에서 환경 변화 뒤의 이상을 살피기 위한 비교점으로만 사용합니다.
 
 ## 9. WSL2를 통한 GPU 접근 경로
 
@@ -134,7 +134,7 @@ WSL의 같은 smoke workload에서는 FP32 `14.88 ms`, 약 `9.23 TFLOPS`, FP16 `
 | Windows | `14.86 ms`, 약 `9.25 TFLOPS` | `4.36 ms`, 약 `31.54 TFLOPS` | `224 MiB`   |
 | WSL2    | `14.88 ms`, 약 `9.23 TFLOPS` | `4.34 ms`, 약 `31.64 TFLOPS` | `224 MiB`   |
 
-이 특정 matrix multiplication smoke workload에서는 두 경로의 값이 사실상 같았습니다. 그러나 이를 WSL의 GPU overhead가 언제나 0이라는 일반 명제로 확대하지 않습니다. Model, I/O, memory pressure와 workload 형태가 달라지면 결과도 달라질 수 있습니다. 이번 기록의 의미는 두 경로 모두 같은 test를 안정적으로 통과했고 초기 비교값을 확보했다는 데 있습니다.
+이 특정 행렬곱 smoke workload에서는 Windows Native와 WSL2의 측정값이 거의 동일했습니다. 다만 이 결과만으로 WSL2의 GPU overhead가 항상 없다고 일반화할 수는 없습니다. CPU와 GPU 사이의 데이터 이동, 메모리 접근 패턴, I/O, 연산 종류와 같은 workload 특성이 달라지면 두 환경의 차이도 달라질 수 있습니다. 이번 비교의 의미는 동일한 PyTorch CUDA workload가 두 경로에서 모두 정상적으로 실행됐고, 이후 환경 변화와 비교할 초기 기준값을 확보했다는 데 있습니다.
 
 ## 12. Model storage를 D:로 분리
 
@@ -201,13 +201,13 @@ LLAMA_BUILD_BORINGSSL=ON
 
 Rebuild 뒤에는 `ggml-org/gemma-3-1b-it-GGUF:Q4_K_M` model의 HTTPS download가 성공했습니다. `-ngl all`로 실제 CUDA inference를 실행했고, `nvidia-smi`에서도 `llama-cli.exe`가 GPU를 사용하는 것을 확인했습니다. 관찰한 VRAM 사용량은 약 `962 MiB`, prompt baseline은 `255.6 tokens/s`, generation baseline은 `204.8 tokens/s`였습니다.
 
-최신 환경에서 만난 friction은 GPU compatibility failure가 아니라 optional HTTPS build capability가 빠진 상태였습니다. Error가 제시한 build option을 근거로 configuration을 고쳐 source build와 model retrieval을 하나의 재현 가능한 경로로 연결했습니다.
+최신 환경에서 만난 friction은 GPU compatibility failure가 아니라 첫 build에 HTTPS backend가 포함되지 않은 데서 발생했습니다. Error가 제시한 build option을 근거로 configuration을 고쳐 source build와 model retrieval을 하나의 재현 가능한 경로로 연결했습니다.
 
 ## 17. Transformers 직접 CUDA inference와 API 변화
 
 세 번째 Local LLM 경로는 Transformers `5.17.0`, PyTorch `2.14.0+cu132`, `Qwen/Qwen3-0.6B` model을 사용한 FP16 direct CUDA inference였습니다. Hugging Face cache는 D: 경로를 사용했습니다.
 
-첫 smoke test는 `apply_chat_template()`가 tensor를 직접 반환한다고 가정해 실패했습니다. 현재 API에 맞춰 다음과 같이 수정했습니다.
+첫 smoke test는 `apply_chat_template()`의 반환값을 tensor로 직접 다룰 수 있다고 가정해 실패했습니다. 이번에 설치한 Transformers `5.17.0` 환경의 실제 반환 구조에 맞춰 다음과 같이 수정했습니다.
 
 - `return_dict=True` 사용
 - `model.generate(**inputs)` 호출
@@ -254,7 +254,7 @@ Rebuild 뒤에는 `ggml-org/gemma-3-1b-it-GGUF:Q4_K_M` model의 HTTPS download�
 | Ollama Local LLM Runtime         | `PASS` | GPU inference, local API, D: model과 reboot persistence        |
 | llama.cpp CUDA Runtime           | `PASS` | CUDA source build, HTTPS retrieval와 `-ngl all` inference      |
 | Transformers Direct CUDA Runtime | `PASS` | FP16 model load와 PyTorch direct generation                    |
-| Reboot / Persistence             | `PASS` | Driver, toolchain, variables, runtime과 storage path 재확인    |
+| Reboot / Persistence             | `PASS` | Driver, nvcc·CMake, variables, runtime과 storage path 재확인   |
 
 Windows Native와 WSL2는 이제 모두 실제 CUDA·PyTorch workload를 통과한 GPU 연구 경로입니다. System CUDA `13.4`와 PyTorch runtime `13.2`의 역할을 분리했고, Windows와 WSL의 측정값은 이 smoke workload에 한정된 초기 비교 기준으로 남겼습니다.
 
