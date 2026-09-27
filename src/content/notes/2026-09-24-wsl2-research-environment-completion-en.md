@@ -16,9 +16,9 @@ draft: false
 
 “Building an Offline Research Assets Foundation for Restricted-Network Research” ended with `WSL_Research_Workflow=DEFERRED_TO_NOTE_7`. WSL2 had already started Ubuntu, exposed `/dev/dxg`, reached the NVIDIA GPU, run PyTorch CUDA and a GPU benchmark, and connected to the matching VS Code Server. Those were valid results, but they proved a WSL GPU compute path rather than the independent Linux research environment intended by the original architecture.
 
-The evidence that exposed the difference was small. During offline-asset preparation, `~/.vscode-server/extensions/extensions.json` returned `[]`. The server existed, but the remote Python and Jupyter layer did not. I left that omission visible in Note 6 instead of extending an already broad phase or rewriting the earlier implementation as complete.
+During offline-asset preparation, `~/.vscode-server/extensions/extensions.json` returned `[]`. The server existed, but the remote Python and Jupyter extensions were missing. I recorded that incomplete state in Note 6 and left it for follow-up work.
 
-This phase closes that gap. Its completion criterion is not package presence. It is a usable workflow spanning Linux-native development, isolated Python projects, Jupyter, VS Code Remote WSL, project-selected interpreters, GPU frameworks, shared model assets, and reboot persistence. Physical network isolation remains the separate end-to-end gate for Note 8.
+This phase adds Linux development tools, isolated Python projects, Jupyter, VS Code Remote WSL, project-selected interpreters, GPU frameworks and shared models, then checks their operation after a reboot. Physical network isolation remains the separate end-to-end test for Note 8.
 
 ## 1. Defining the Environment Beyond GPU Access
 
@@ -48,7 +48,7 @@ uv version: 0.12.17
 
 The first observation described that invocation's `PATH`, not the installation state of the software. The PowerShell-to-bash inventory also encountered some quoting and CRLF friction, reinforcing that a diagnostic path can change what is observed.
 
-The correction is important beyond uv: “command not found” in one shell context does not by itself establish “not installed”. Shell mode, profile loading, environment inheritance, and quoting boundaries must be checked before turning a diagnostic symptom into an inventory fact.
+When a shell cannot find a command, its mode, profile loading, environment inheritance and quoting need checking before drawing conclusions about installation.
 
 ## 3. Adding a Linux-native Build Toolchain
 
@@ -65,7 +65,7 @@ I installed and validated the native WSL stack:
 | Ninja        | `1.13.2`          |
 | `pkg-config` | `2.5.1`           |
 
-The result was `Linux_Native_Build_Toolchain=PASS`. This was not duplication for its own sake. Native Linux projects should build against Linux compilers, headers, package metadata, and filesystem semantics rather than silently depending on the Windows toolchain across the WSL boundary.
+The result was `Linux_Native_Build_Toolchain=PASS`. Linux projects now had their own compilers, headers, package metadata and filesystem on which to build.
 
 ## 4. Separating System Python from Research Python
 
@@ -88,7 +88,7 @@ project-specific .venv
   -> dependency isolation
 ```
 
-This is an architectural choice rather than a workaround for the newer system Python. Replacing or downgrading Ubuntu's Python would couple research compatibility to distribution internals. A separately managed research runtime allows projects to stay on their validated Python line while the operating system retains ownership of its own interpreter.
+Replacing or downgrading Ubuntu's Python would couple research compatibility to distribution internals. A separately managed research runtime lets projects use their validated Python version while the OS retains its own interpreter.
 
 ## 5. Creating the WSL Jupyter Research Base
 
@@ -113,7 +113,7 @@ I opened the project through VS Code Remote WSL and selected `/home/securityon/r
 Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43
 ```
 
-The result was `Jupyter WSL kernel PASS`. Installing Jupyter packages was not the gate; selecting the intended project interpreter and executing a kernel inside the remote environment was.
+Running the remote kernel with the selected project interpreter produced `Jupyter WSL kernel PASS`.
 
 ## 6. Populating the WSL Remote Extension Layer
 
@@ -133,7 +133,7 @@ Before this phase, the WSL extension manifest had been empty. I populated the re
 
 The final count was `9`. Installing the Jupyter extension also brought related helper extensions into the remote host, so I do not describe all nine as individually installed by hand. The Remote - WSL extension itself remains on the Windows/local side and is not part of this remote count.
 
-This produced `VS_Code_Remote_Extension_Layer=PASS`. VS Code Server connectivity and remote extension availability are separate states; the former had passed earlier while the latter had still been empty.
+Following the earlier VS Code Server connection test, I recorded `VS_Code_Remote_Extension_Layer=PASS`.
 
 ## 7. Discovering the Workspace Trust Gate
 
@@ -145,7 +145,7 @@ After I trusted the research workspace, the Python extension became usable and t
 2. the extension is enabled for the workspace; and
 3. Workspace Trust permits its runtime features.
 
-Installed does not mean enabled, and enabled does not mean trusted. This distinction matters in recovery evidence: an extension inventory can be entirely correct while the expected commands remain restricted by editor security state. The resolved path produced `Workspace_Trust=PASS`.
+Even with an accurate extension inventory, editor security settings can restrict commands. After configuring trust, I recorded `Workspace_Trust=PASS`.
 
 ## 8. Revalidating the Existing PyTorch Project through VS Code
 
@@ -169,7 +169,7 @@ VS Code Remote WSL
   -> actual CUDA workload
 ```
 
-This closed `PyTorch_CUDA_Research_Workflow=PASS` at the workflow level rather than inferring it from device detection alone.
+These checks established `PyTorch_CUDA_Research_Workflow=PASS`.
 
 ## 9. Creating a WSL Transformers Project
 
@@ -234,7 +234,7 @@ Triton_Compile_Warning=OBSERVED
 Functional_Impact=None observed
 ```
 
-The evidence supports a header or macro redefinition warning and a successful workload. It does not support a deeper root-cause claim, nor does a warning alone justify changing a functional PASS into a failure.
+A header or macro redefinition warning occurred, but the test succeeded. I did not establish a deeper cause or observe a functional impact.
 
 ## 12. Validating the Project-specific Interpreter Path
 
@@ -263,7 +263,7 @@ TensorFlow remained a secondary WSL framework path, not a gate for completing th
 
 For `2.21.0`, NVIDIA library and `ptxas` remediation had been applied, but GPU discovery still failed. For `2.20.0`, the RTX 5060 appeared with Compute Capability `12.0`, but actual execution failed first with `CUDA_ERROR_INVALID_PTX` and then `CUDA_ERROR_INVALID_HANDLE`.
 
-The stable result therefore remains `Stable_TensorFlow_GPU_Path=DEFERRED`. GPU discovery and GPU execution are separate gates, and neither package installation nor a visible device is enough to establish a usable framework path.
+The stable result remains `Stable_TensorFlow_GPU_Path=DEFERRED`. I retained separate results for installation, GPU discovery and execution.
 
 ## 14. Demonstrating a TensorFlow Nightly Preview Path
 
@@ -299,7 +299,7 @@ This matches the runtime architecture: Ubuntu owns system components, while each
 
 After completing the environment, I rebooted Windows and revalidated WSL startup, the Ubuntu release and kernel, the Linux build toolchain, uv, research Python, the Jupyter base, `/dev/dxg`, RTX 5060 access, the matching VS Code Server, the nine remote extensions, the PyTorch CUDA workflow, and the Transformers local-model workflow.
 
-All of those checks passed after restart, producing `Reboot_Persistence=PASS`. Reboot validation matters because a research workflow that depends on transient shell state, a one-session editor connection, or unrecovered mounts is not complete merely because it worked once before restart.
+All checks passed after reboot, producing `Reboot_Persistence=PASS`.
 
 ## 17. Recording the WSL Research Baseline
 
@@ -315,7 +315,7 @@ Its WSL path is:
 /mnt/d/Lab/OfflineLab/manifests/wsl-research-baseline.txt
 ```
 
-At the time of the baseline, `D:\Lab\OfflineLab\manifests` contained `21` files. This does not replace the earlier Note 6 snapshot, whose count was taken at a different point in the asset history. The increase is intentional evidence of the inventory's evolution rather than a discrepancy to edit out of the earlier record.
+At the time of recording, `D:\Lab\OfflineLab\manifests` contained `21` files. The Note 6 inventory was captured earlier, so I retained each count at its original point in the record.
 
 This manifest records the WSL research baseline and the stable TensorFlow `DEFERRED` state at that time. The TensorFlow nightly result was later follow-up evidence included in this Note; I did not retroactively rewrite the historical baseline manifest to include it.
 
@@ -342,13 +342,13 @@ The Note 7 final state includes the later TensorFlow nightly follow-up while sep
 | TensorFlow Nightly GPU Path         | `PREVIEW_PASS` |
 | WSL2 Research Environment           | `PASS`         |
 
-TensorFlow's stable GPU gap does not invalidate the Linux build, Python, Jupyter, PyTorch, Transformers, shared-model, or editor workflows that define the primary WSL research environment. Conversely, the nightly success does not erase the stable gap. Keeping both statements visible preserves the difference between current baseline and forward-looking compatibility evidence.
+The primary WSL environment passed its Linux build, Python, Jupyter, PyTorch, Transformers, model-sharing and editor checks. Stable TensorFlow remains deferred, while nightly results are retained separately as follow-up compatibility evidence.
 
 ## 19. From Compute Path to Research Environment
 
 WSL2 has progressed from a validated GPU compute path to a usable Linux research environment. It now has Linux-native build tools, isolated research Python, Jupyter, a populated VS Code remote extension layer, trusted research workspaces, project-specific uv environments, PyTorch CUDA, Transformers CUDA, shared local-model access, and reboot persistence.
 
-The most important corrections were not package-version changes. Shell context changed an inventory result; server presence did not imply remote extensions; extension installation did not imply enablement or Workspace Trust; a detected GPU did not imply successful execution; and the absence of a system-wide cuDNN package did not imply that a project-managed runtime lacked cuDNN. Testing the actual path resolved each ambiguity.
+This work checked shell invocation, remote extensions, trust settings and project-library locations against actual execution. The record retains distinctions that an installation inventory alone could miss.
 
 The correct closing status is:
 
@@ -360,4 +360,4 @@ TensorFlow Nightly GPU Path = PREVIEW PASS
 
 The `tf-nightly 2.22.0-dev20260923` result demonstrates RTX 5060 discovery, normal and memory-growth GPU execution, XLA/JIT execution, and project-managed cuDNN `9.26` use. It remains preview evidence, not the stable baseline.
 
-The workstation as a whole has not yet passed a physically disconnected end-to-end validation. Closing the gap discovered during Note 6 before attempting that final gate was the value of this phase. Note 8 will perform the end-to-end offline research environment validation under physical network isolation.
+The complete workstation has not yet undergone physically disconnected validation. With the WSL gaps identified in Note 6 addressed, Note 8 will test the full environment offline.

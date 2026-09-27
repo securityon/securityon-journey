@@ -1,6 +1,6 @@
 ---
 title: "Validating the Research Environment Under Physical Network Isolation"
-description: "Physically disconnecting the workstation, restoring WSL and fresh Python environments from preserved assets, correcting a failed llama.cpp bundle, and defining the verified offline boundary."
+description: "Testing the research environment before entering a restricted network: restored WSL, fresh Python environments, and a failed llama.cpp bundle that changed the source-recovery checks."
 lang: en
 translationKey: end-to-end-offline-research-environment-validation
 pubDatetime: 2026-09-25T00:00:00+09:00
@@ -15,24 +15,24 @@ featured: false
 draft: false
 ---
 
-“Completing WSL2 as a Practical Linux Research Environment” closed the implementation gap discovered during offline-asset preparation. WSL2 had become a usable Linux research environment with native build tools, isolated Python projects, Jupyter, VS Code Remote WSL, PyTorch CUDA, Transformers CUDA, shared models, and reboot persistence.
+“Completing WSL2 as a Practical Linux Research Environment” filled the omissions found during offline-asset preparation. I had configured Linux build tools, isolated Python projects, Jupyter, and VS Code Remote WSL, then verified PyTorch and Transformers GPU workloads, shared-model access, and operation after a reboot.
 
-That still left a stronger question unanswered. Application settings such as `HF_HUB_OFFLINE=1`, `TRANSFORMERS_OFFLINE=1`, `local_files_only=True`, and `uv --offline` can prevent their respective tools from looking online, but they do not prove that the workstation remains useful when external networking is physically unavailable. Nor does the existence of an installer, wheelhouse, archive, or Git bundle prove that it can reconstruct anything.
+The next step was to disconnect external networking. Settings such as `HF_HUB_OFFLINE=1`, `TRANSFORMERS_OFFLINE=1`, `local_files_only=True`, and `uv --offline` prevent their respective tools from looking online. I now wanted to use the environment without a connection and test whether the preserved assets could reconstruct or restore it.
 
-This final validation phase therefore combined physical network isolation with restored environments, real GPU workloads, fresh package reconstruction, source recovery, and persistence testing. It also found a genuine weakness: the llama.cpp bundle that had passed `git bundle verify` in Note 6 failed its first independent clone. Preserving that failure and the correction became as important as the successful offline runs.
+This is the eighth Note in the Windows workstation construction series. While preparing for a restricted network in an environment with unrestricted Internet access, I tested disconnected operation alongside restoration and reconstruction. The tests exposed a problem: the llama.cpp bundle that had passed `git bundle verify` in Note 6 failed its first independent clone.
 
-## 1. Raising the Offline Validation Gate
+## 1. Scope of This Validation
 
-The starting point was already strong. The WSL2 Research Environment, Linux-native toolchain, research Python, Jupyter, Remote WSL, PyTorch CUDA, Transformers CUDA, shared D: model store, and reboot persistence had passed. OfflineLab held installers, wheelhouses, source assets, recovery documentation, checksums, and manifests, while `D:\Lab\Models` remained a separate shared model store.
+The WSL research environment and its operation after a reboot had passed the preceding tests. OfflineLab held installers, wheelhouses, source, recovery documentation, checksums, and manifests. Models remained separately managed under `D:\Lab\Models`.
 
-Note 8 raised two earlier gates:
+This phase added two checks:
 
-| Earlier evidence                        | Stronger Note 8 gate                                     |
-| --------------------------------------- | -------------------------------------------------------- |
-| Application-level offline mode          | Physical external network isolation                      |
-| Preserved asset exists and hashes match | Fresh reconstruction or independent restoration succeeds |
+| Earlier evidence                     | Stronger Note 8 gate                                     |
+| ------------------------------------ | -------------------------------------------------------- |
+| Application-level offline mode       | Physical external network isolation                      |
+| Assets preserved and hashes recorded | Fresh reconstruction or independent restoration succeeds |
 
-The TensorFlow boundary also remained unchanged. Stable TensorFlow `2.21.0` installed but still failed GPU discovery after the NVIDIA library and `ptxas` remediation. Stable `2.20.0` found the RTX 5060 at Compute Capability `12.0`, but execution failed with `CUDA_ERROR_INVALID_PTX` followed by `CUDA_ERROR_INVALID_HANDLE`.
+The earlier stable TensorFlow results still applied. Version `2.21.0` installed but failed GPU discovery after the NVIDIA library and `ptxas` remediation. Version `2.20.0` found the RTX 5060 at Compute Capability `12.0`, but execution failed with `CUDA_ERROR_INVALID_PTX` followed by `CUDA_ERROR_INVALID_HANDLE`.
 
 The TensorFlow `2.22.0-dev20260923` nightly development build (`tf-nightly`) remained a preview: it had passed a normal `2048 x 2048` GPU matrix multiplication, repeated that workload with memory growth and without the earlier large pre-allocation warnings, and completed a `1024 x 1024` XLA/JIT workload with `Compiled cluster using XLA!`. It reported Compute Capability `12.0a` and loaded cuDNN `9.26.0`. These results did not promote it to a stable baseline.
 
@@ -52,7 +52,7 @@ The TAR occupied `20.1 GB` and had SHA-256:
 
 The snapshot preserved Ubuntu, the Linux-native build toolchain, uv and research Python, the Jupyter environment, VS Code Server and remote extensions, and the PyTorch, Transformers, and TensorFlow research projects. It did not duplicate the model store. Model assets remained separately managed under `D:\Lab\Models`, preserving the storage boundary established in Note 6.
 
-A WSL export is a useful full-environment recovery asset, but its size and successful creation are not functional evidence. The archive still had to be imported separately and exercised.
+To test recovery from the TAR, I imported it into a separate distribution and ran the restored environment.
 
 ## 3. Importing a Separate Restore-test Distribution
 
@@ -64,7 +64,7 @@ D:\Lab\WSL-Restore-Test
 
 The original `Ubuntu-26.04` distribution was left untouched, and `wsl -l -v` showed both distributions independently. This separation prevented a restore test from quietly reusing the original distro's state.
 
-The chronology matters: the `wsl --import` operation itself occurred before physical network isolation. I first checked that the restored distro was functional, then used that restored environment for the physically disconnected tests. I do not claim that the import command was repeated while offline.
+The `wsl --import` operation took place before network isolation. I checked the restored distro first, then disconnected the network for the operational tests. I did not repeat the import while offline.
 
 ## 4. Checking the Restored User and Research State
 
@@ -111,13 +111,13 @@ I then physically disconnected the workstation from external networking. The iso
 | PyPI                   | `BLOCKED`      | `PASS`              |
 | Hugging Face           | `BLOCKED`      | `PASS`              |
 
-The machine had no usable external network path during this stage, producing `Physical_Network_Isolation=PASS`. This state was not simulated by environment variables. The offline flags used in later tests added application-level constraints on top of actual physical isolation.
+There was no usable external connection, producing `Physical_Network_Isolation=PASS`. The later tests also applied each tool's offline settings during this disconnected state.
 
 ## 7. Exercising WSL Python, Jupyter, and Remote Development Offline
 
 Inside `Ubuntu-26.04-RestoreTest`, I invoked uv with `--offline` where appropriate and validated research Python `3.12.14`, JupyterLab `4.6.4`, IPython `9.17.1`, and ipykernel `7.3.0`. The result was `Physical_Offline_WSL_Python_Jupyter=PASS`.
 
-The distro retained `/dev/dxg` and the NVIDIA GeForce RTX 5060 Laptop GPU, producing `Physical_Offline_WSL_GPU_Access=PASS`. Device visibility was only an intermediate gate; the framework workloads in the next sections supplied execution evidence.
+The distro retained `/dev/dxg` and the NVIDIA GeForce RTX 5060 Laptop GPU. After recording `Physical_Offline_WSL_GPU_Access=PASS`, I tested actual workloads.
 
 VS Code Remote WSL also worked while external networking remained unavailable. The matching server, Python and Jupyter remote extension layers, project interpreters, and Jupyter kernel were already present and usable. This produced `Physical_Offline_VS_Code_WSL=PASS` and `Physical_Offline_Jupyter=PASS`.
 
@@ -136,7 +136,7 @@ From `/home/securityon/research/pytorch-smoke-test`, I executed the restored pro
 | Workload       | `2048 x 2048` matrix multiplication    |
 | Output         | `torch.Size([2048, 2048])` on `cuda:0` |
 
-The final result was `PHYSICAL OFFLINE WSL PyTorch CUDA PASS`. This combined a restored environment, unavailable external package access, explicit uv offline mode, and actual GPU execution.
+The restored environment completed GPU computation without external package access and printed `PHYSICAL OFFLINE WSL PyTorch CUDA PASS`.
 
 ## 9. Running Transformers from the Shared Model Store
 
@@ -151,15 +151,15 @@ local_files_only=True
 
 `Qwen/Qwen3-0.6B` loaded from `/mnt/d/Lab/Models/HuggingFace`, the WSL view of the shared Windows model store. Inference completed on `cuda:0`, producing `PHYSICAL OFFLINE WSL Transformers CUDA PASS`.
 
-Physical isolation proved that an external fallback was unavailable. The uv and Hugging Face settings proved that the tools were explicitly constrained to their offline paths. Local-files-only loading proved the model source, and CUDA inference proved functional execution. These controls are complementary rather than interchangeable.
-
 ## 10. Retesting the TensorFlow Nightly Preview Offline
 
 The restored TensorFlow nightly project also ran while physically disconnected. The TensorFlow `2.22.0-dev20260923` nightly build (`tf-nightly`) discovered the RTX 5060, completed normal GPU matrix multiplication, passed the memory-growth path, and completed the XLA/JIT path.
 
 The XLA runtime again used project-managed cuDNN. No system-wide WSL cuDNN package was present, while the project environment contained `nvidia-cudnn-cu12 9.26.0.51` and execution logged `Loaded cuDNN version 92600`.
 
-The offline test produced `TensorFlow_Nightly_Offline_Preview=PASS`. The broader framework classification remains `TensorFlow_Nightly_GPU_Path=PREVIEW_PASS`, while `Stable_TensorFlow_GPU_Path=PENDING`. A successful nightly development build is useful compatibility evidence, but it is not a stable, beta, or production baseline.
+The offline test produced `TensorFlow_Nightly_Offline_Preview=PASS`. I retained `TensorFlow_Nightly_GPU_Path=PREVIEW_PASS` for the development build and recorded `Stable_TensorFlow_GPU_Path=PENDING` for the stable path.
+
+In Notes 6 and 7, `DEFERRED` recorded the decision to set aside the stable path after those tests failed to provide usable GPU execution. Here, `PENDING` means that, following the nightly success, I am awaiting the TensorFlow `2.22` stable release and a retest. The stable path has not newly passed, and the nightly build has not been adopted as a stable, beta, or production baseline.
 
 ## 11. Using Windows Local AI without External Networking
 
@@ -171,7 +171,7 @@ http://localhost:11434
 
 Localhost communication does not constitute external network access. The result was `Physical_Offline_Ollama=PASS`.
 
-The llama.cpp runtime used an existing local GGUF file and completed GPU-offloaded local inference, producing `Physical_Offline_llama.cpp=PASS`. I did not use or claim the `-hf` retrieval path for this test; choosing the local model file was part of the offline validation boundary.
+The llama.cpp runtime completed GPU-offloaded inference with an existing local GGUF file, producing `Physical_Offline_llama.cpp=PASS`. I specified the local file directly and did not use `-hf` retrieval in this test.
 
 ## 12. Reconstructing PyTorch from the Wheelhouse
 
@@ -189,8 +189,6 @@ D:\Lab\OfflineLab\wheelhouse\pytorch-cu132-py312
 
 The fresh environment reported PyTorch `2.14.0+cu132`, CUDA availability, and the NVIDIA GeForce RTX 5060 Laptop GPU. An actual CUDA matrix multiplication passed. The result was `PHYSICAL OFFLINE PYTORCH WHEELHOUSE PASS`, or `Physical_Offline_PyTorch_Wheelhouse_Reconstruction=PASS` in the final baseline.
 
-This test converted the wheelhouse from a collection of saved files into a verified reconstruction asset.
-
 ## 13. Reconstructing Transformers and Local Inference
 
 I created a second new Windows project at:
@@ -203,9 +201,7 @@ With the network still disconnected, installation used `--no-index` and `--find-
 
 `Qwen/Qwen3-0.6B` then loaded all `311 / 311` weights from `D:\Lab\Models\HuggingFace` and completed inference on `cuda:0`. The result was `PHYSICAL OFFLINE TRANSFORMERS WHEELHOUSE PASS`, recorded as `Physical_Offline_Transformers_Wheelhouse_Reconstruction=PASS`.
 
-This single gate joined fresh package reconstruction, a separately managed local model, and real CUDA inference.
-
-## 14. Discovering That the Original llama.cpp Bundle Could Not Restore
+## 14. The Original llama.cpp Bundle Fails to Restore
 
 Note 6 had preserved llama.cpp commit `b29c606e28a01b1bc8c1351026a0fa6e616bf6c4` in `llama.cpp-b29c606.bundle`. At the time, `git bundle verify` reported that the bundle recorded complete history and was okay. That was the source-preservation standard used then.
 
@@ -224,7 +220,7 @@ Earlier_Bundle_Format_Verification=PASS
 Earlier_Bundle_Independent_Restore=FAIL
 ```
 
-This failure was not a reason to rewrite Note 6. That Note accurately records the check performed at the time. The end-to-end recovery attempt revealed that the check had been insufficient for this workflow.
+Note 6 retains the result of the check performed at the time. The independent restoration attempt showed that this check alone was insufficient to establish recoverability.
 
 ## 15. Investigating the Original Repository
 
@@ -240,7 +236,7 @@ Repository integrity also passed:
 | Objects checked        | `99,090`     |
 | Packed repository size | `378.25 MiB` |
 
-The bounded conclusion is that the original source repository was healthy while the preserved bundle was insufficient for independent restoration. The evidence does not establish a more precise internal Git root cause, so I do not speculate beyond it.
+The original repository passed its integrity checks, but the preserved bundle could not restore an independent repository. I did not establish a more specific internal Git cause.
 
 ## 16. Building and Independently Restoring a Replacement Bundle
 
@@ -260,22 +256,20 @@ The SHA-256 recorded for the earlier bundle in Note 6 belongs to the retained fa
 
 An independent clone from the replacement transferred approximately `356.08 MiB` and restored `93,839` objects. I checked out `b10964`; the resulting detached HEAD was expected for an exact tag and was not a recovery failure. The restored HEAD matched `b29c606e28a01b1bc8c1351026a0fa6e616bf6c4`, and `git fsck --full` passed over `93,839` objects.
 
-The result was `llama.cpp_Source_Recovery=PASS`. This was a local-file independent clone that did not require a remote Git repository. I do not claim that the corrected bundle's final clone was repeated while external networking remained physically disconnected.
+The result was `llama.cpp_Source_Recovery=PASS`. The clone used a local bundle without a remote Git repository, but the final clone of the replacement took place after reconnection. I did not disconnect the network again to repeat it.
 
 ## 17. Strengthening the Source-recovery Gate
 
-The failure changed the source-preservation criterion. In this workflow, `git bundle verify` alone was not sufficient evidence that an independent repository could be recovered.
-
-The stronger gate is now:
+After this failure, I decided to supplement `git bundle verify` with the following recovery checks:
 
 1. preserve the source asset;
 2. clone it into a completely separate location and repository;
 3. verify the exact expected commit; and
 4. run `git fsck --full` on the restored repository.
 
-Retaining the failed bundle preserves the evidence that motivated this stronger standard. The correction does not erase the earlier failure; it makes the recovery history reproducible.
+I also retained the failed bundle so that the reason for changing the checks could be traced.
 
-## 18. Refreshing Current Integrity Evidence
+## 18. Recording Current Asset Hashes
 
 I did not overwrite the historical `D:\Lab\OfflineLab\manifests\offline-assets-sha256.txt` from Note 6. Instead, I created a current manifest for the intentionally preserved OfflineLab roots:
 
@@ -292,13 +286,13 @@ Size: 5,623 bytes
 Model root: D:\Lab\Models
 ```
 
-Historical manifests remain snapshots of the evidence available at their recording time. New manifests describe the stronger later state without retroactively changing the earlier record.
+I retained the earlier manifest as a record of its original state and recorded the current assets in new dated files.
 
 ## 19. Verifying Persistence while Still Offline
 
 During the earlier physical-isolation run, before reconnecting the network for the llama.cpp troubleshooting, I shut down and restarted the WSL environment. After restart, RTX 5060 access passed and the PyTorch CUDA workload passed again.
 
-The result was `Physical_Offline_Persistence=PASS`. This was narrower than another Windows reboot test and I do not attach unobserved timings or additional restart evidence to it. It demonstrates that the physically offline WSL and GPU path survived a WSL shutdown and restart.
+The result was `Physical_Offline_Persistence=PASS`. This test covered an offline WSL shutdown and restart, not a full Windows reboot.
 
 ## 20. Recording the End-to-End Baseline
 
@@ -308,7 +302,7 @@ The final validation baseline was written to:
 D:\Lab\OfflineLab\manifests\offline-end-to-end-validation-baseline.txt
 ```
 
-Its observed size was `6,875` bytes. At Note 8 completion, `D:\Lab\OfflineLab\manifests` contained `24` files, compared with `21` at Note 7 completion. Earlier Note 6 and Note 7 counts remain historical snapshots rather than values to rewrite.
+The file occupied `6,875` bytes. At the end of this phase, `D:\Lab\OfflineLab\manifests` contained `24` files, compared with `21` at Note 7 completion.
 
 | Baseline key                                              | Result    |
 | --------------------------------------------------------- | --------- |
@@ -331,15 +325,15 @@ Its observed size was `6,875` bytes. At Note 8 completion, `D:\Lab\OfflineLab\ma
 | `End_to_End_Offline_Research_Environment`                 | `PASS`    |
 | `Manifest_Files_Current`                                  | `24`      |
 
-`End_to_End_Offline_Research_Environment=PASS` and `Stable_TensorFlow_GPU_Path=PENDING` are compatible conclusions. Stable TensorFlow is a secondary compatibility path, not a gate for the primary workflows validated here.
+Stable TensorFlow remains a separate follow-up. The completion scope below refers to the primary research workflows tested in this phase.
 
-## 21. Closing the Windows Workstation Construction Series
+## 21. Pre-deployment Preparation and Offline Tests
 
-The Windows research workstation has now passed an end-to-end offline validation for its primary research workflows. The tested scope includes physical network isolation, restored WSL, Python and uv, Jupyter, VS Code Remote WSL, PyTorch CUDA, Transformers CUDA, shared local models, Ollama, llama.cpp local GGUF inference, fresh reconstruction from explicit wheelhouses, independent source recovery, current checksum evidence, and offline persistence.
+This phase tested the prepared research environment with external networking disconnected and reconstructed selected environments from preserved assets. Research tools and GPU workloads ran in restored WSL, Windows local AI remained usable, and wheelhouses supplied fresh Python environments. The WSL import itself took place before isolation; the final clone of the replacement llama.cpp bundle took place after reconnection.
 
-The most valuable result was not an uninterrupted list of passes. The first llama.cpp bundle passed format verification but failed actual independent restoration. The original repository was healthy, the preservation artifact was the weak point, and rebuilding from the exact validated tag produced a recoverable local bundle. End-to-end validation did what it was meant to do: it tried to break assumptions established during preparation and strengthened the gate when one failed.
+The llama.cpp failure showed why I needed to use preserved files in an independent environment. Source-recovery checks now include a separate clone, verification of the expected commit, and an integrity check of the restored repository.
 
-The correct closing distinction is:
+The recorded closing states are:
 
 ```text
 End-to-End Offline Research Environment = PASS
@@ -347,6 +341,6 @@ Stable TensorFlow GPU Path = PENDING
 TensorFlow Nightly GPU Path = PREVIEW PASS
 ```
 
-This does not mean the workstation will never need Internet access again, nor that every possible AI or development framework has been validated offline. It means that, under the tested conditions, the primary research environment can operate without external networking and important workflows can be reconstructed from explicitly preserved local assets.
+The completed scope is pre-deployment preparation and the offline workflows tested here. Adaptation and validation under the target company's mandatory security software and network policies, including proxy, CA, and SSL/TLS inspection, have not yet been performed. Embedding and RAG workflows, creation of `D:\Recovery\GoldenResearch.wim`, and recovery testing through WinRE also remain unfinished. I plan to retest TensorFlow `2.22` after its stable release.
 
-This is the final validation Note of the Windows research workstation construction series. The remaining follow-up is to retest TensorFlow `2.22` after its official stable release; the MacBook research environment belongs to a separate subsequent project.
+The original architecture's objectives are therefore not all complete. This Note records how far research functionality and recovery paths have been verified before entering the restricted network. The MacBook research environment remains a separate subsequent project.

@@ -18,7 +18,7 @@ In “Building the RTX 5060 CUDA, PyTorch, and Local LLM Research Layer”, I es
 
 This phase does not claim that the complete workstation has passed a physically disconnected test. I preserved exact installers, explicit Python wheelhouses, source and configuration records, then exercised selected reconstruction paths with package indexes and model lookup disabled. I refer to these as offline-mode or offline-style validations. The final end-to-end test with network access actually disconnected remains a later gate.
 
-The implementation also changed the series. Preparing the offline assets exposed that WSL2 had passed the GPU compute path but had not yet become the independent Linux research environment intended by the original architecture. I did not rewrite that history or force the missing work into this phase. This Note records the discovery, makes WSL completion Note 7, and moves end-to-end offline validation to Note 8.
+Preparing the offline assets revealed that WSL2 had passed GPU compute tests but still lacked parts of the independent Linux research environment envisaged in the architecture. I therefore separated WSL completion into Note 7 and end-to-end offline validation into Note 8.
 
 ## 1. Starting from an OfflineLab Skeleton
 
@@ -50,9 +50,9 @@ The D: volume had `602.8 GB` total capacity and `577.9 GB` free before the major
 
 The purpose of OfflineLab is to reconstruct and explain the environment, not to become a second copy of every large model store. Avoiding that duplication preserves a clear lifecycle boundary and prevents a misleading asset total. Models still matter to offline operation, but they are inventoried in their own location.
 
-## 3. Preserving the As-built Installer Set
+## 3. Preserving Version-Matched Recovery Installers
 
-I preserved the versions that had produced the validated workstation rather than automatically downloading whichever installer was newest on collection day.
+I preserved recovery installers matching the versions in the validated environment. The table records the preserved assets; it does not establish that each is the same installer used for the original installation.
 
 | Component              | Validated state                                                   | Preserved offline asset                |
 | ---------------------- | ----------------------------------------------------------------- | -------------------------------------- |
@@ -85,7 +85,7 @@ Verification completed. No problem was found.
 Setup completed successfully.
 ```
 
-This is not every Visual Studio workload. It is the VCTools workload with its Recommended and Optional components. I intentionally kept that broad C++ scope because future CUDA, llama.cpp, or other native research builds may require components that are difficult to obtain after isolation. The additional size buys flexibility within a defined workload rather than an unbounded archive of Visual Studio.
+The preserved scope is VCTools with its Recommended and Optional components. I kept this C++ scope deliberately broad because future CUDA, llama.cpp, and other native research builds may need components that would be difficult to obtain after isolation.
 
 ## 5. Correcting the VSIX Platform Assumption
 
@@ -106,7 +106,7 @@ The validated Windows VS Code baseline contained ten extensions:
 
 All ten exact-version VSIX packages were preserved. Four were `win32-x64` packages and six were universal packages.
 
-The first collection attempt assumed that every extension would publish a `win32-x64`-specific VSIX. Several requests instead reported `has no support for targetPlatform win32-x64`. That message did not mean the extensions were unsupported on Windows; those releases were distributed as universal VSIX packages. I corrected the collection logic to try `win32-x64` first and fall back to universal. Recording that correction is more useful than presenting the final ten files as if the packaging model had been obvious in advance.
+I initially assumed every extension would publish a `win32-x64`-specific VSIX. Several requests returned `has no support for targetPlatform win32-x64`; those releases used universal packages. I changed the collection logic to try `win32-x64` first and fall back to universal.
 
 ## 6. Preserving the Matching WSL VS Code Server
 
@@ -128,13 +128,13 @@ I explicitly preserved the matching Linux x64 VS Code Server archive. Its SHA-25
 F766476592CD9F875E9E7E66E483DBA7E9661B794D8DBCA566249126D3525324
 ```
 
-The commit match check passed. This asset is easy to miss because an already connected WSL session makes the server feel like part of VS Code itself. In an isolated rebuild, however, the precise server archive is a separate dependency tied to the desktop client's commit.
+The commit match check passed. An offline rebuild requires a separate server archive matching the desktop client's exact commit.
 
 ## 7. Replacing Cache Confidence with Explicit Wheelhouses
 
 I did not accept the existing uv cache as evidence that Python environments could be rebuilt offline. Instead, I created explicit, purpose-specific wheelhouses for Python `3.12`.
 
-This changed the recovery question from “does the cache happen to contain enough objects?” to “does this directory contain the distributions required by this declared environment?” The latter can be inventoried, hashed, copied, and tested with `--no-index`. Cache reuse remains useful for normal work, but it is not part of the verified foundation.
+Collecting the distributions required by the declared environment in one directory allows inventory, hashing, copying, and installation tests with `--no-index`. I retained the uv cache for normal work but excluded it from this validation.
 
 ## 8. Preserving PyTorch cu132 Provenance
 
@@ -169,7 +169,7 @@ I created a new environment at:
 D:\Lab\Research\pytorch-offline-test
 ```
 
-Installation used `--no-index` and `--find-links` against the local wheelhouse. This was a reconstruction test, not merely an inventory check. The installed environment reported:
+Installation used `--no-index` and `--find-links` against the local wheelhouse. The new environment reported:
 
 | Check                       | Observed result                        |
 | --------------------------- | -------------------------------------- |
@@ -179,7 +179,7 @@ Installation used `--no-index` and `--find-links` against the local wheelhouse. 
 | GPU                         | NVIDIA GeForce RTX 5060 Laptop GPU     |
 | Workload                    | `torch.Size([2048, 2048])` on `cuda:0` |
 
-The actual local CUDA matrix multiplication completed successfully. The PyTorch offline wheelhouse therefore received `PASS`: it could create a fresh environment without package indexes and execute a GPU workload, rather than simply holding files with plausible names.
+CUDA matrix multiplication completed successfully. I assigned the PyTorch offline wheelhouse `PASS` because it could create a fresh environment without package indexes and execute a GPU workload.
 
 ## 10. Reconstructing the Transformers Environment
 
@@ -235,7 +235,7 @@ CMAKE_CUDA_ARCHITECTURES=120
 LLAMA_BUILD_BORINGSSL=ON
 ```
 
-The BoringSSL option records a real implementation lesson. The first CUDA-enabled build detected the GPU but could not retrieve Hugging Face models because it had no HTTPS backend. Rebuilding with `LLAMA_BUILD_BORINGSSL=ON` produced a path where HTTPS model retrieval and CUDA inference both passed. Source alone would not have preserved that operational knowledge.
+The first CUDA build lacked an HTTPS backend and could not retrieve Hugging Face models. Rebuilding with `LLAMA_BUILD_BORINGSSL=ON` enabled both HTTPS retrieval and CUDA inference. I retained that setting in the build record for reconstruction.
 
 ## 13. Retaining Smoke Tests and Recovery Records
 
@@ -266,7 +266,7 @@ Cannot dlopen some GPU libraries
 
 I applied the official-style symlink remediation for shared NVIDIA `.so` libraries and `ptxas`. The resulting `ptxas` was CUDA `12.9`, version `V12.9.86`. GPU discovery still failed after that remediation.
 
-The important result is not that the package installation eventually completed. For this environment, TensorFlow `2.21.0` did not reach a usable GPU path.
+TensorFlow `2.21.0` did not reach a usable GPU path in this environment.
 
 ## 15. Comparing TensorFlow 2.20.0
 
@@ -286,7 +286,7 @@ The comparison therefore produced two different incomplete states:
 | TensorFlow `2.21.0` | `FAIL`        | Not reached   |
 | TensorFlow `2.20.0` | `PASS`        | `FAIL`        |
 
-GPU detection and GPU execution are separate gates. A device appearing in framework output is useful diagnostic evidence, but it cannot substitute for a completed workload.
+I recorded GPU detection and actual execution as separate checks.
 
 ## 16. Deferring the TensorFlow GPU Path
 
@@ -312,7 +312,7 @@ WSL had already passed Ubuntu startup, `/dev/dxg` GPU access, the NVIDIA driver 
 
 The original architecture intended WSL2 to be more than a GPU smoke-test route. It was meant to provide a usable, independent Linux research environment under restricted or offline conditions. Offline asset preparation exposed that implementation had not yet reached that design intent.
 
-I treat this as a useful pre-validation discovery, not a hidden failure. Completing WSL inside this already broad asset-preservation phase would blur the evidence and scope. The correction is to make “WSL2 Research Environment Completion” Note 7, then validate the complete environment end to end in Note 8.
+I separated WSL research environment completion into Note 7, followed by end-to-end validation in Note 8.
 
 ## 18. Reviewing the Asset Inventory Before Final Baseline Recording
 
@@ -346,7 +346,7 @@ I generated a complete SHA-256 manifest over the intentionally preserved roots:
 
 The result was `D:\Lab\OfflineLab\manifests\offline-assets-sha256.txt`, with a size of `348,367` bytes and `1,506` entries. Disposable `cache` was deliberately excluded.
 
-Checksums do not prove that every installer will execute or that every dependency relationship is complete. They provide integrity evidence for the exact collected files. The reconstruction tests supply the complementary functional evidence.
+I retained checksums as a reference for checking the integrity of the collected files. Installer execution and dependency completeness require separate reconstruction tests.
 
 ## 20. Recording the Foundation Baseline
 
@@ -372,13 +372,13 @@ D:\Lab\OfflineLab\manifests\offline-assets-baseline.txt
 | WSL Research Workflow               | `DEFERRED_TO_NOTE_7` |
 | Offline Research Assets Foundation  | `PASS`               |
 
-The central lesson is that offline readiness is a system of evidence: exact installers, explicit wheelhouses, separately managed models, rebuildable source, configuration records, checksums, and actual reconstruction tests. No single cache, lockfile, device-detection result, or successful online installation can stand in for that system.
+The preserved installers, wheelhouses, source, configuration records, and checksums can now support recovery alongside the separately managed models and reconstruction test results.
 
 ## 21. Foundation PASS, with Two Explicit Gaps
 
 The foundational offline reconstruction assets are now explicit, versioned, hashed, and partially reconstruction-tested. The Windows Python, PyTorch, Transformers, and local-model paths passed offline-style tests, and the source and toolchain assets required for further reconstruction are preserved.
 
-The workstation is not yet fully offline-ready. The complete WSL research workflow remains unfinished, TensorFlow GPU compatibility remains unresolved, and an end-to-end validation with the network physically disconnected has not been performed. Those limits are part of the result, not footnotes to it.
+The full WSL research workflow, TensorFlow GPU compatibility, and end-to-end validation with the network physically disconnected remain unfinished.
 
 The correct status for this phase is therefore:
 
@@ -386,4 +386,4 @@ The correct status for this phase is therefore:
 Offline Research Assets Foundation = PASS
 ```
 
-Note 7 will complete the WSL2 research environment that the architecture originally intended. Note 8 will then perform the end-to-end offline research environment validation. Splitting the work at the gap discovered during implementation preserves a more accurate engineering record than retroactively making the original sequence appear complete.
+Note 7 will complete the WSL2 research environment, followed by end-to-end offline validation in Note 8.

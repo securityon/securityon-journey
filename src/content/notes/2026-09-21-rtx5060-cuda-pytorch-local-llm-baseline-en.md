@@ -17,9 +17,9 @@ draft: false
 
 In “Building the Windows Research Development Baseline and Validating the WSL2 Gate”, I verified two development paths—Windows native and WSL2—through real projects and a reboot. This phase retained that baseline while testing whether the RTX 5060 could support CUDA and PyTorch research and local LLM execution.
 
-The central task was not merely to install CUDA. I needed to separate the roles of system CUDA, framework-bundled CUDA runtimes, model runtimes, and model storage, then validate each layer with a real workload. I also wanted to preserve the compatibility friction introduced by choosing the latest officially supported versions as evidence for future rebuilding.
+I separated the roles of system CUDA, framework-bundled CUDA runtimes, model runtimes, and model storage, then tested each with real work. I also recorded the compatibility issues and corrections encountered with the latest officially supported versions as evidence for future rebuilding.
 
-As before, one successful run immediately after installation was insufficient for a `PASS`. GPU computation, model inference, the local API, and storage paths had to work in practice, and the required state had to remain intact after a reboot.
+I required GPU computation, model inference, the local API, and storage paths to work, with the necessary state retained after a reboot, before assigning `PASS`.
 
 ## 1. Building on the Windows and WSL Baseline
 
@@ -27,7 +27,7 @@ The starting GPU was an NVIDIA GeForce RTX 5060 Laptop GPU with approximately 8 
 
 No CUDA Toolkit was installed. The `nvcc` command was absent, `CUDA_PATH` did not exist, and there was no CUDA Toolkit directory. The CUDA value in `nvidia-smi` describes the level supported by the current driver; it does not prove that a Toolkit of that version is installed on the system. I made that distinction explicit in the starting state.
 
-The Windows projects and WSL2 distribution validated in the previous phase remained in place. The objective was not to replace that baseline with a separate GPU environment, but to add a verifiable GPU research layer to both the Windows-native and WSL2 paths.
+I retained the Windows projects and WSL2 distribution from the previous phase and added GPU research capabilities to both.
 
 ## 2. Choosing the Latest Officially Supported Stack
 
@@ -35,7 +35,7 @@ I expect this research workstation to remain in use for at least a year. I there
 
 The newer combination did expose gaps between components. The system CUDA Toolkit was `13.4`, while the PyTorch wheel bundled a CUDA `13.2` runtime. The first llama.cpp CUDA build lacked HTTPS support, and the current Transformers API differed from an assumption in my initial smoke-test code.
 
-I did not treat those differences as a failure of the version strategy. For a long-lived research environment, it was more useful to find working paths within the supported range and record both the friction and the evidence behind each correction.
+For a long-lived research environment, I considered it useful to find working combinations within the supported range and record the issues and the evidence behind each correction.
 
 ## 3. Establishing the MSVC and CMake Toolchain
 
@@ -48,13 +48,13 @@ I first established a Windows x64 C++ toolchain for CUDA C++ and local source bu
 | `cl.exe`                  | Executed successfully in the Visual Studio Developer environment |
 | CMake                     | `4.4.3`, later used for the llama.cpp source build               |
 
-I did not stop at the installed-programme entry: `cl.exe` ran successfully in the Visual Studio Developer environment. CMake `4.4.3` was installed later. Together, they formed the common build foundation for the CUDA smoke test and llama.cpp.
+I verified that `cl.exe` ran in the Visual Studio Developer environment, then installed CMake `4.4.3`. Together, they supported the CUDA smoke test and llama.cpp build.
 
 ## 4. Updating the NVIDIA Driver
 
 I updated the NVIDIA driver from `591.74` to `616.92`. The final observed state was NVIDIA kernel-mode driver (KMD) `616.92` and CUDA user-mode driver (UMD) `13.4`. The RTX 5060 remained correctly identified after the update.
 
-I did not finish the assessment at the post-install state. After a Windows reboot, driver `616.92`, CUDA UMD `13.4`, and correct RTX 5060 detection were all confirmed again. The subsequent Windows and WSL GPU paths were validated against this driver baseline.
+After a Windows reboot, driver `616.92`, CUDA UMD `13.4`, and correct RTX 5060 detection were confirmed again. I used this state for the subsequent Windows and WSL GPU tests.
 
 ## 5. Installing CUDA Toolkit 13.4
 
@@ -66,13 +66,13 @@ I installed CUDA Toolkit `13.4` on the Windows system. The completed state was:
 | `CUDA_PATH`     | `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.4` |
 | Toolkit version | `13.4`                                                     |
 
-This separated driver-level CUDA support from an installed Toolkit containing the compiler, headers, and libraries. A version query was still not enough to pass the CUDA Toolkit Gate. The next requirement was to compile actual device code and execute it on the RTX 5060.
+After confirming installation of the Toolkit's compiler, headers, and libraries, I tested the CUDA Toolkit Gate by compiling device code and executing it on the RTX 5060.
 
 ## 6. A Real CUDA C++ Smoke Test
 
 I compiled the CUDA C++ smoke test for `sm_120`, matching the RTX 5060's reported Compute Capability `12.0`. The test performed vector addition over `1,048,576` `float` elements.
 
-It exercised host-to-device copies, a kernel launch, synchronisation, a device-to-host copy, and result validation. This was not merely a probe that retrieved the GPU name; it tested the compiler, runtime, memory transfers, and real kernel execution in one path.
+The test exercised host-to-device copies, a kernel launch, synchronisation, a device-to-host copy, and result validation.
 
 ```text
 CUDA smoke test PASS
@@ -92,7 +92,7 @@ The environment used Python `3.12`, uv `0.12.17`, and PyTorch `2.14.0+cu132`. Py
 
 The system CUDA Toolkit `13.4` and the PyTorch wheel's CUDA runtime `13.2` belong to different layers. A prebuilt PyTorch wheel uses its bundled runtime, so the two versions do not need to match exactly for normal prebuilt PyTorch execution. I validated the system Toolkit through the preceding CUDA C++ build and the framework runtime through the PyTorch workload.
 
-A real matrix multiplication completed on `cuda:0`. PyTorch therefore did more than query the device name: it performed tensor computation on the RTX 5060.
+A matrix multiplication completed on `cuda:0`, confirming that PyTorch performed tensor computation on the RTX 5060.
 
 ## 8. The Windows GPU Smoke Benchmark
 
@@ -111,7 +111,7 @@ The WSL environment was Ubuntu `26.04.1 LTS` with kernel `6.18.33.2-microsoft-st
 
 I also confirmed the presence of `/usr/lib/wsl/lib/libcuda.so*` and `/dev/dxg`. I did not install a separate Linux NVIDIA display driver inside WSL. GPU access uses the path supplied to WSL by the Windows NVIDIA driver.
 
-Preserving this boundary was important. Rather than install a duplicate Linux display driver that could conflict with the Windows path, I placed the Linux research runtime above WSL's provided GPU paravirtualisation path.
+I configured the Linux research runtime above the GPU paravirtualisation path provided by WSL.
 
 ## 10. PyTorch CUDA inside WSL
 
@@ -154,7 +154,7 @@ The current Ollama Desktop application has its own Model location setting, so I 
 
 I installed **Ollama** `0.34.2` and deployed the `qwen3.5:4b` model. The model was approximately `3.4 GB` with a context of `4096`.
 
-The model loaded successfully, and interactive inference worked. `ollama ps` reported `100% GPU`; observed VRAM use was approximately `3.8 GB`. The RTX 5060 local LLM path therefore progressed beyond model inventory to real GPU inference.
+Model loading and interactive inference succeeded. `ollama ps` reported `100% GPU`; observed VRAM use was approximately `3.8 GB`.
 
 Those values describe the observed model and runtime state. They do not imply that a different context length, model, request concurrency, or runtime configuration will use the same amount of memory.
 
@@ -183,7 +183,7 @@ I built llama.cpp locally from source rather than relying only on a prebuilt bin
 
 The CUDA configuration used `GGML_CUDA=ON` and `CMAKE_CUDA_ARCHITECTURES=120`. The resulting runtime detected the RTX 5060 as `CUDA0` and reported approximately `8123 MiB`.
 
-This connected the CUDA Toolkit Gate and C++ toolchain to the source build of real research software. The first build correctly detected the GPU, but its Hugging Face `-hf` model retrieval lacked the required HTTPS support.
+The first build correctly detected the GPU but lacked the HTTPS support needed for Hugging Face `-hf` model retrieval.
 
 ## 16. Adding HTTPS through BoringSSL
 
@@ -193,7 +193,7 @@ When I attempted `-hf` retrieval with the first CUDA build, the error stated tha
 - `LLAMA_BUILD_LIBRESSL=ON`
 - `LLAMA_OPENSSL=ON`
 
-Rather than work around the problem by downloading the model manually, I changed the build configuration to:
+To include model retrieval in the build, I changed the configuration to:
 
 ```text
 LLAMA_BUILD_BORINGSSL=ON
@@ -201,7 +201,7 @@ LLAMA_BUILD_BORINGSSL=ON
 
 After rebuilding, the HTTPS download of `ggml-org/gemma-3-1b-it-GGUF:Q4_K_M` succeeded. Real CUDA inference ran with `-ngl all`, and `nvidia-smi` showed `llama-cli.exe` using the GPU. Observed VRAM use was approximately `962 MiB`; the prompt baseline was `255.6 tokens/s`, and the generation baseline was `204.8 tokens/s`.
 
-This friction in the newest environment was not a GPU compatibility failure; the first build did not include an HTTPS backend. I used the options identified by the error to correct the configuration and preserve source building and model retrieval as one reproducible path.
+Adding an HTTPS backend with the build option identified by the error resolved the download failure.
 
 ## 17. Transformers Direct CUDA Inference and API Friction
 
@@ -258,6 +258,6 @@ The final assessment for this phase is:
 
 Windows native and WSL2 now both provide GPU research paths validated by real CUDA and PyTorch workloads. I separated the roles of system CUDA `13.4` and the PyTorch `13.2` runtime, and retained the Windows and WSL measurements only as initial comparison points for this smoke workload.
 
-I also validated three distinct local LLM execution paths: Ollama, llama.cpp, and Transformers/PyTorch. The process exposed compatibility friction around an HTTPS build option and changes in the Transformers API. Rather than concealing those issues with workarounds, I bounded each cause and incorporated a reproducible correction.
+I validated three local LLM paths: Ollama, llama.cpp, and Transformers/PyTorch. For the HTTPS build option and Transformers API issues, I retained both the causes and the corrections.
 
 The next research layer can build on this baseline with reusable workflows for embeddings, RAG, offline-ready assets, and repeatable AI experiments. I have not fixed their precise order, but the smoke tests and manifests from this phase now provide evidence against which later changes can be compared.
