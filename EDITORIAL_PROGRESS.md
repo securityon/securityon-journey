@@ -1,8 +1,226 @@
 # Bilingual Notes editorial progress
 
-Last updated: 2026-09-27 (Asia/Seoul).
+Last updated: 2026-09-28 (Asia/Seoul).
 
 ## Resume here
+
+Publication split checkpoint (2026-09-28, authoritative): the author approved
+THREE bilingual Notes: commands, environment/GPU scripts, offline recovery
+scripts. This supersedes all earlier two-Note and no-commit/push instructions
+for this batch. Original script sections 1–8 remain in environment-inventory;
+9–14 moved to offline-recovery and were renumbered 1–6. All 77 saved source
+blocks and language parity passed comparison after splitting. Editorial source
+collection status was removed from the public Notes and remains here.
+Missing historical sources: earlier CUDA/CMake builds, stable TensorFlow
+remediation, installer/VSIX/wheel downloads and image-only outputs. Enterprise
+deployment, Embedding/RAG and WIM recovery are still unfinished.
+Final checks passed: lint; full build (zero Astro diagnostics, 94 pages, 28
+indexed Notes); all six language routes, reciprocal translation links and OG
+references; visual review of all six OG PNGs; source-block preservation,
+bilingual code parity, LF/whitespace and focused formatting. Full format check
+still flags only the pre-existing Naver verification HTML. Korean script titles
+were shortened to prevent split words in OG images; shared rendering is unchanged.
+Final line counts per language: commands 477, environment/GPU 442, offline
+recovery 569. Next: commit and push the six Notes, coverage map and this checkpoint.
+Keep raw chat recovery files local; leave the pre-existing AGENTS.md change
+separate. Original commands were not run.
+
+
+Comprehensive expansion checkpoint (2026-09-28): both existing bilingual Notes
+are now expanded; no additional Note pairs were created. Command Note: 16
+numbered sections covering installation, paths, uv/cache, virtualisation, WSL,
+Git, OS queries and Linux projects. Script Note: 14 numbered sections covering
+inventories, GPU/nightly tests, bundle diagnosis, WSL snapshots, hashing,
+physical-offline workflows and fresh wheelhouse environments. Broad titles now
+match this scope; filenames/translation keys/publication times are preserved.
+
+`WINDOWS_COMMAND_COVERAGE.md` maps all 77 fenced blocks from the six saved source
+files to their actual destination sections. This includes output and repeated
+source blocks: it is not a count of unique commands. An automated comparison
+confirmed all source blocks are present verbatim in both languages, KO/EN code
+block sequences match, and files retain LF with no trailing whitespace. A
+one-off copying helper was removed after successful mapping. Do not regenerate
+or append the same batches. Source preservation is complete for these six files,
+not for the entire historical conversation.
+
+Lint and full build passed (zero Astro diagnostics, 90 pages, 26 indexed Notes).
+Repository format check still flags only the pre-existing Naver HTML. The final
+build after the inline email-placeholder correction passed. All four generated
+routes have the correct document language, reciprocal translation links and OG
+references; all four OG PNGs were visually reviewed and are readable. Diff checks
+passed. Original script commands were never executed.
+Next: obtain missing original CUDA/CMake, stable
+TensorFlow remediation and installer/VSIX/wheel download material as needed.
+Keep this two-Note structure; proposed/observed distinctions and incomplete
+enterprise/Embedding/RAG/WIM work remain explicit. No commit or push.
+
+Scope correction (2026-09-28, authoritative): the author wants TWO companion
+Notes total: one comprehensive command Note and one comprehensive script Note,
+each bilingual. Earlier plans for more thematic Notes are superseded. Expand
+the existing four files; do not create further Note pairs. Preserve every
+recovered option and meaningful failed/corrected variant. Explain commands and
+options in both languages. Full historical chat recovery is NOT complete.
+Create a source-to-Note coverage manifest and explicitly track unrecovered work.
+The inventory found 77 fenced source blocks across six recovery files. Expansion
+and validation are complete as recorded in the newer checkpoint above; the
+earlier pending-validation instruction is superseded. No commit/push.
+
+Second companion Note checkpoint (2026-09-28): clarified that the first Note
+only covered version/path queries and that chat recovery remains incomplete.
+Created `2026-09-28-workstation-scripts-environment-inventory{,-en}.md`, separating
+Windows PowerShell inventory/extension saving from WSL Bash tool/directory
+checks. Every section explains the actual syntax/options. Sources are the first
+two blocks of `WINDOWS_COMMAND_CHAT_EXTRACTS.md`, build-tool queries in
+`WINDOWS_COMMAND_RECOVERY_WSL.md`, and directory queries in the WSL/offline
+source collections. Proposed scripts remain proposed; tool-version output is
+recorded evidence. File overwrite behaviour and the absence of automatic success
+checks are explained. Lint, code-block parity, LF/whitespace and diff checks
+passed. Format checking reports only the pre-existing Naver HTML issue.
+Build first failed at the Pagefind copy access step; rerun with required access
+passed (90 pages, 26 indexed Notes, zero Astro diagnostics). Both translation
+links and OG references passed. Both OGs were reviewed and titles refined for
+readability, followed by a successful rebuild. No commit/push. Remaining topics
+include installation/downloads, Python/GPU workflows and offline recovery;
+source collection is still incomplete and must not be described as exhaustive.
+
+Command explanations checkpoint (2026-09-28): at the author's request, added
+command/option/argument explanation tables to all five sections of the first
+KO/EN command Note. Covered version flags, search names and scope, uv subcommands
+and version requests, Jupyter entry points, reagentc `/info`, positional property
+arguments and PowerShell pipelines. Consulted official Microsoft, VS Code and uv
+references. Preserved all seven original code blocks, metadata and historical
+evidence distinctions. This explanatory format is the author's preference for
+subsequent command Notes as well. No commit/push. Lint, focused formatting,
+untracked-file whitespace and diff checks passed. Initial build reached Pagefind
+but its copy to public/pagefind failed with access denied; rerun with required
+access passed (zero Astro diagnostics, 24 indexed Notes). Generated translation
+links and OG references passed after the completed rebuild. Titles/descriptions
+and OG content are unchanged from the preceding visual review.
+
+First companion Note checkpoint (2026-09-28): the author moved the task from
+collection to writing. Created the KO/EN pair
+`2026-09-28-workstation-command-notes-paths-and-versions{,-en}.md`.
+The first topic is version/path checks, Python discovery, the Jupyter command-name
+failure, proposed reagentc checks, and a recorded AppX name listing. Source map:
+`WINDOWS_COMMAND_RECOVERY_2026-09-28.md` sections 1, 2, 4 and 10.
+Code blocks are identical across the pair; no installation proposal was recast
+as a verified execution. reagentc remains explicitly proposed, PATH modification
+and preserved-installer provenance remain unresolved. Official Microsoft/uv
+references support command semantics, not historical execution claims.
+
+The pair uses normal local build visibility (`draft: false`) for route/OG review;
+this is an uncommitted editorial draft and has not been deployed. No existing
+Notes or implementation were changed. Lint passed; repository format checking
+still fails only on the existing Naver verification HTML. Build passed with zero
+Astro diagnostics (86 pages, 24 indexed Notes). Both language routes, translation
+links and OG references passed; both PNGs were visually reviewed. Shortened both
+titles after OG review and rebuilt successfully. Seven fenced command blocks
+match exactly across KO/EN; explicit untracked-file LF/whitespace checks passed.
+Next work should develop the remaining thematic
+Notes from recovered material, filling specific evidence gaps as needed rather
+than treating complete chat recovery as a prerequisite for writing.
+
+Follow-up recovery checkpoint (2026-09-28): continued backwards through
+“공부 계획 이어가기”. Added `WINDOWS_COMMAND_RECOVERY_OFFLINE.md` (WSL export/import,
+bundle failure/correction, cuDNN queries, hash generation),
+`WINDOWS_OFFLINE_TEST_COMMANDS_SOURCE.md` (the original proposed steps 0–17,
+including full Python test bodies and PowerShell options),
+`WINDOWS_COMMAND_RECOVERY_TENSORFLOW.md` (nightly proposal and user-confirmed
+memory-growth/XLA commands and outputs), and `WINDOWS_COMMAND_RECOVERY_WSL.md`
+(project setup, toolchain/Jupyter/extensions, actual PyTorch execution and
+post-Windows-reboot proposal). These are working source collections, not
+published Notes. Proposals, user-reported success and direct output are distinct.
+
+New evidence: the original offline procedure includes comparison against an
+existing SHA-256 manifest, not only hash generation. Individual execution output
+and checked-entry count have not been recovered, so do not strengthen the
+published integrity claim yet. It also proposes specific network-disconnection
+actions; that does not establish which action was actually taken. The original
+PASS strings and incomplete-test distinctions remain intact. No Notes changed.
+
+Current browser position: around the initial WSL inventory and subsequent Linux
+toolchain installation, before the Jupyter/remote-extension work. About 127
+distinct rendered text units from this conversation are in session memory; only
+selected reviewed excerpts are saved. The old `fallback-turn-*` keys repeat,
+so collection now deduplicates by text and documents contextual anchors.
+Remaining: the initial WSL inventory script, stable TensorFlow failures and
+remediation, earlier GPU setup, downloads/wheelhouse/VSIX/source-asset creation,
+untranscribed image results, and completeness reconciliation. Some displayed
+messages retain “Show more”; clicking those buttons did not reliably change the
+extracted text. Do not claim all collapsed content was recovered. Continue from
+this checkpoint rather than repeating the saved offline procedure.
+
+Validation: focused Prettier checks passed on all seven task documents;
+the five recovery/source files passed explicit LF and trailing-whitespace checks,
+including untracked files. `git diff --check` passed. No site build was needed
+for these unpublished working documents. No setup commands, commits or pushes are authorised by the
+source chats; none were performed during recovery. The earlier guide changes
+remain user-owned local work.
+
+Browser recovery checkpoint (2026-09-28): the author logged into ChatGPT.
+Read older rendered messages in “공부 계획 정리_old”, reaching initial Windows
+installation preparation. Saved selected exact commands/options, source message
+IDs, execution evidence and uncertainties in `WINDOWS_COMMAND_RECOVERY_2026-09-28.md`
+(ten thematic sections). This expands the earlier five-script extraction; it
+does not establish complete recovery. About 366 message units were accumulated
+in browser-session memory, not 366 commands and not a durable full transcript.
+Only the reviewed document excerpts are saved to disk. Do not rely on that
+in-memory collection after a session reset. Some long messages remain collapsed;
+image-only results have not been transcribed. Sensitive values were excluded.
+
+Opened “공부 계획 이어가기”, conversation
+`6aaf667f-5018-83e8-bc3f-3078bb38e4f1`, and started scrolling backwards from the
+Note 8 editorial/publishing discussion. GPU, offline assets and restoration
+commands in this conversation remain to be recovered. The browser currently
+uses fallback message keys in that conversation; these are not stable provenance
+IDs and must not be used to deduplicate a full transcript. Record excerpts with
+conversation URL and visible contextual anchors until stable IDs are available.
+Next: continue upwards into actual workstation test logs, expand relevant long
+messages, preserve exact flags, and separate proposals from executed commands.
+Then reconcile the collected sources before writing bilingual companion Notes.
+The old separate-script-location question is no longer a prerequisite.
+
+Evidence found: machine-scope VS Code installation was proposed and a subsequent
+user `where.exe code` output reports Program Files. This supports installation
+location, not provenance of the preserved User Installer. Initial driver backup
+was proposed but explicitly skipped by the author. Do not promote either a
+proposal or an assistant's interpretation to a completed test.
+
+This batch changes working documentation only. No setup command was executed,
+no public Note was created, and no commit/push was performed. Focused Markdown
+formatting and whitespace checks are the applicable validation for this batch;
+the historical site build results below are not a new validation run.
+
+Chat-source checkpoint (2026-09-27): the author directed the command collection
+to ChatGPT history. Located “공부 계획 정리_old” and “공부 계획 이어가기” through
+the app's thread tools. Saved five complete proposed script blocks and a
+user-supplied WSL command/output excerpt in `WINDOWS_COMMAND_CHAT_EXTRACTS.md`,
+with thread/turn provenance and separate proposed/executed classifications.
+The returned pages do not establish complete historical coverage. Next: obtain
+additional accessible conversation segments and reconcile actual executions;
+do not require a separate script folder before investigating chat sources.
+
+Command-notes checkpoint (2026-09-27): the author proposed companion Notes
+preserving the actual Windows/PowerShell commands, options, and practical tips.
+Created `WINDOWS_COMMAND_NOTES_PLAN.md` with thematic structure, a preliminary
+source inventory, and gaps requiring original history or scripts. Searched the
+repository; no independent workstation script/history files were found in the
+file inventory. Asked for the location of additional command records. No shell
+history outside the repository has been read and no recorded setup command run.
+Next: reconcile supplied originals, then draft bilingual companion Notes. Do
+not invent omitted options or treat the initial design as an execution log.
+The guide changes below remain local; no new commit or push is requested.
+
+Guide checkpoint (2026-09-27): the editorial batch was committed as `1a52643`
+and pushed to `origin/main`; the working tree was clean before this follow-up.
+The author then requested reusable lessons in AGENTS.md. Added guidance for
+claim-strength parity across translations, restrained prose, validation-stage
+boundaries, historical statuses, source checking, evidence preservation, and
+editorial handoffs. No Note content or implementation changed in this follow-up.
+Focused Prettier and diff checks passed for the guide; no site build is required
+for this documentation-only change. This guide update and checkpoint are not
+yet committed or pushed. Earlier publication records below concern the prior
+editorial batch, not this follow-up.
 
 Publication checkpoint (2026-09-27): the author explicitly authorised committing
 and pushing the completed editorial work. This supersedes the earlier pending
