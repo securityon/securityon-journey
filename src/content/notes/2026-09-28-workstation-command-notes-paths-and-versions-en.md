@@ -15,7 +15,7 @@ draft: false
 
 During the Windows research workstation setup, I used inspection commands as often as installation commands. I repeatedly checked whether a tool would run, where its executable was found, and whether a project used the intended Python interpreter. The implementation journal records the results and decisions; keeping the commands and their arguments makes those checks easier to revisit.
 
-This note collects installation, configuration and inspection commands from the workstation setup. Versions refer to the setup at that time. The blocks are grouped by purpose and do not form an installation script to run from top to bottom. The text distinguishes commands with recorded execution output from checks that were only proposed at the time.
+This note collects installation, configuration and inspection commands from the workstation setup. Versions refer to the setup at that time. The blocks are grouped by purpose and do not form an installation script to run from top to bottom. I describe the checks alongside their results and identify items for which no result remains.
 
 ## 1. Checking versions alongside paths
 
@@ -65,7 +65,7 @@ uv python find 3.12
 
 The request for `3.12` installed `3.12.14`. The command did not pin that patch version, so the observed result belongs alongside the installation command.
 
-Installation produced a warning that the user's `.local\bin` was absent from PATH. A subsequent `where.exe python` result included both `.local\bin` and WindowsApps paths. The exact PATH modification command has not been recovered, so I have left that gap rather than reconstructing it.
+Installation produced a warning that the user's `.local\bin` was absent from PATH. A subsequent `where.exe python` result included both `.local\bin` and WindowsApps paths. My notes do not record exactly how PATH was changed.
 
 I compared the Python installations shown by `uv python list` with the interpreter reached by `python --version`. I also used `uv python find 3.12` to locate the executable matching that request through uv. The search behaviour is described in [uv's Python versions documentation](https://docs.astral.sh/uv/concepts/python-versions/).
 
@@ -109,7 +109,7 @@ See the [uv tool list reference](https://docs.astral.sh/uv/reference/cli/#uv-too
 
 ## 4. Separating file existence from command discovery
 
-Command discovery also arose while examining the Windows recovery environment. The conversation proposed the following checks for `reagentc.exe`. Individual execution outputs for this group have not been recovered.
+Command discovery also arose while examining the Windows recovery environment. The following commands show how to locate `reagentc.exe`. I have no execution results for this group, so this section describes the lookup method.
 
 ```powershell
 where.exe reagentc.exe
@@ -117,13 +117,13 @@ Get-Command reagentc.exe
 Test-Path C:\Windows\System32\reagentc.exe
 ```
 
-The proposal was to run the following command only if `Test-Path` returned `True`.
+If `Test-Path` returns `True`, the executable can be called by its full path as follows.
 
 ```powershell
 C:\Windows\System32\reagentc.exe /info
 ```
 
-The useful reminder is to avoid concluding that a file is absent solely from an empty command search. Executable discovery, existence at a known path and actual execution are separate checks. This section preserves the proposed approach without making a new judgement about the WinRE state.
+The useful reminder is to avoid concluding that a file is absent solely from an empty command search. Executable discovery, existence at a known path and actual execution are separate checks. This command list alone does not establish the WinRE state at the time.
 
 | Command or argument                          | Explanation                                                                                                                                                    |
 | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -132,7 +132,7 @@ The useful reminder is to avoid concluding that a file is absent solely from an 
 | `Test-Path C:\Windows\System32\reagentc.exe` | Returns `True` or `False` for existence at the given full path. The path is a positional argument; this call does not test whether the file runs successfully. |
 | `C:\Windows\System32\reagentc.exe /info`     | Runs the program by its full path. `/info` displays Windows RE status and recovery information.                                                                |
 
-These explanations follow the official [Get-Command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-command), [Test-Path](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/test-path) and [REAgentC](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/reagentc-command-line-options) references. They do not change the distinction between proposed and recorded execution.
+These explanations follow the official [Get-Command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-command), [Test-Path](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/test-path) and [REAgentC](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/reagentc-command-line-options) references.
 
 ## 5. Reducing a package list to the relevant field
 
@@ -159,7 +159,7 @@ Reviewing the setup reminded me that even short inspection commands answered dif
 
 ## 6. Windows installation and package queries
 
-These are original proposals. `install` installs; `list` queries packages. `--id` selects a package ID, `-e` requests an exact match, and `--scope machine` requests installation for all users. Firefox and Chrome strings are listing queries. These commands do not preserve installer files.
+These commands install and query packages through WinGet. I have no individual execution results for them. `install` installs; `list` queries packages. `--id` selects a package ID, `-e` requests an exact match, and `--scope machine` requests installation for all users. Firefox and Chrome strings are listing queries. These commands do not preserve installer files.
 
 ```powershell
 winget install --id Git.Git -e
@@ -195,7 +195,7 @@ where.exe jupyter-lab
 
 ## 8. uv dependencies and cache
 
-Execution output exists for the first group. `uv add` adds a dependency; `uv run` runs a command in the project environment. `New-Item -ItemType Directory -Force` prepares a directory and tolerates an existing directory. Installation completed after a hardlink warning and copy fallback. The environment-variable assignment is only a proposal. `User` selects user scope; the proposal called for checking the cache path in a new shell.
+Execution output exists for the first group. `uv add` adds a dependency; `uv run` runs a command in the project environment. `New-Item -ItemType Directory -Force` prepares a directory and tolerates an existing directory. Installation completed after a hardlink warning and copy fallback. I have also included the environment-variable setting for changing the cache path. My notes do not establish whether it was applied. `User` selects user scope; the changed path needs to be checked in a new shell.
 
 ```powershell
 uv add requests
@@ -210,7 +210,7 @@ uv run python .\main.py
 
 ## 9. Virtualisation and service diagnostics
 
-`-Property` selects properties, `-Online` targets the running Windows installation, and `-Match` filters with a regular expression. The `|` within the pattern means alternatives, not a pipeline. Comma-separated service names select services. `findstr /i` ignores case. `-ErrorAction SilentlyContinue` suppresses error display, so an empty result is not a success verdict. `-ClassName` and `-Namespace` select the CIM query target. Early vmcompute and hcsdiag queries failed; later states differed. The Device Guard block is a proposal linked to subsequent property output.
+`-Property` selects properties, `-Online` targets the running Windows installation, and `-Match` filters with a regular expression. The `|` within the pattern means alternatives, not a pipeline. Comma-separated service names select services. `findstr /i` ignores case. `-ErrorAction SilentlyContinue` suppresses error display, so an empty result is not a success verdict. `-ClassName` and `-Namespace` select the CIM query target. Early vmcompute and hcsdiag queries failed; later states differed. I have kept the Device Guard query alongside the property values checked afterwards.
 
 ```powershell
 Get-ComputerInfo -Property `
@@ -322,7 +322,7 @@ git ls-files --eol .gitattributes
 
 ## 12. OS, recovery state and user folders
 
-The OS checks are original proposals; image-only results are not resolved here. `manage-bde -status` queries BitLocker status, `dsregcmd /status` device registration, and `dism /online /Get-CurrentEdition` the running Windows edition. Querying the SoftwareLicensingService property can display an actual product key; no key value is published. The User Shell Folders query selects named properties from the user registry and appears in the user command record.
+The following commands query OS and recovery state. The results remain only as images, so I have not transcribed state values here. `manage-bde -status` queries BitLocker status, `dsregcmd /status` device registration, and `dism /online /Get-CurrentEdition` the running Windows edition. Querying the SoftwareLicensingService property can display an actual product key; no key value is published. I checked user folders by selecting the relevant properties from the User Shell Folders registry key.
 
 ```powershell
 where.exe reagentc.exe
@@ -342,7 +342,7 @@ Select-Object Desktop, Personal, 'My Pictures', 'My Music', 'My Video', '{374DE2
 
 ## 13. Finding records and checking line endings
 
-development-* is a wildcard for names with that prefix; the query is proposed. The WSL cat and git status calls are recorded user executions; the text block is actual .gitattributes content. `* text=auto eol=lf` is Git attributes syntax, not a shell command.
+development-* is a wildcard for names with that prefix; no result remains for this search. In WSL, I used `cat` and `git status` to check file contents and changes. The text block shows .gitattributes as it was then. `* text=auto eol=lf` is Git attributes syntax, not a shell command.
 
 ```powershell
 Get-ChildItem D:\Lab\OfflineLab\manifests\development-*
@@ -360,7 +360,7 @@ git status --short
 
 ## 14. Linux tools, projects and extensions
 
-Installation groups are proposals linked to subsequent versions/configuration. JSON reading and activation appear in user records. `mkdir -p` creates required parent paths and tolerates existing directories. `uv init --python 3.12` sets the project Python request; `==` pins a dependency and `>=` sets a minimum. `--index name=URL` specifies a package source. `sudo apt update` refreshes package lists; `apt install -y` automatically accepts installation prompts. `@version` specifies an extension version and `--force` requests forced installation. `source` reads activation code into the current Bash shell. The kernelspec listing is proposed; its individual output is still missing.
+I have kept the installation commands alongside the versions and configuration checked afterwards, including the commands I used to read the JSON settings and activate the environment. `mkdir -p` creates required parent paths and tolerates existing directories. `uv init --python 3.12` sets the project Python request; `==` pins a dependency and `>=` sets a minimum. `--index name=URL` specifies a package source. `sudo apt update` refreshes package lists; `apt install -y` automatically accepts installation prompts. `@version` specifies an extension version and `--force` requests forced installation. `source` reads activation code into the current Bash shell. `kernelspec list` can list the kernels. I have no result for that query.
 
 ```bash
 cd ~/research
@@ -426,7 +426,7 @@ source /home/securityon/research/wsl-research-base/.venv/bin/activate
 
 ## 15. Installing TensorFlow nightly
 
-This is an installation proposal using the historical version. `[and-cuda]` requests an extra dependency group; `==` pins the nightly version. This does not establish a stable TensorFlow pass.
+This installation command specifies the nightly version from that time. I have no output from the installation command itself; the later computation results appear in the environment and GPU script note. `[and-cuda]` requests an extra dependency group; `==` pins the nightly version. This does not establish a stable TensorFlow pass.
 
 ```bash
 cd ~/research
@@ -439,7 +439,7 @@ uv run python -c "import tensorflow as tf; print(tf.__version__); print(tf.confi
 
 ## 16. cuDNN and restored-environment queries
 
-The cuDNN queries have user output. `dpkg -l` lists packages; `grep -i` filters without case sensitivity. uv pip list lists environment packages. The HEAD-query group records an initial restoration failure while fsck checked 93839 objects. Later user/directory/distribution queries are proposals. `id` reports user information, `whoami` the current user, and WSL `-u` selects a user.
+I checked the cuDNN packages with the following commands. `dpkg -l` lists packages; `grep -i` filters without case sensitivity. uv pip list lists environment packages. The HEAD-query group records an initial restoration failure while fsck checked 93839 objects. The later commands show how to check users, directories and distributions in the restored environment. I have no individual results for those queries. `id` reports user information, `whoami` the current user, and WSL `-u` selects a user.
 
 ```bash
 dpkg -l | grep -i cudnn

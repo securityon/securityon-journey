@@ -15,7 +15,7 @@ draft: false
 
 Windows 연구 워크스테이션을 구축하는 동안 설치 명령만큼 자주 쓴 것은 확인 명령이었습니다. 설치한 도구가 실행되는지, 어느 경로에서 발견되는지, 프로젝트가 의도한 Python을 사용하는지를 반복해서 살폈습니다. 구축 일지에는 그 결과와 판단을 중심으로 남겼지만, 나중에 같은 확인을 하려면 명령과 옵션도 함께 찾아볼 수 있어야 했습니다.
 
-이 글에는 구축 과정의 설치·설정·상태 조회 명령과 당시 옵션을 정리합니다. 버전은 구축 당시의 값입니다. 코드 블록은 용도별로 묶었으므로 위에서부터 실행하는 설치 스크립트는 아닙니다. 실행 출력이 남은 명령과 당시 제안만 확인된 명령은 본문에서 구분합니다.
+이 글에는 구축 과정의 설치·설정·상태 조회 명령과 당시 옵션을 정리합니다. 버전은 구축 당시의 값입니다. 코드 블록은 용도별로 묶었으므로 위에서부터 실행하는 설치 스크립트는 아닙니다. 확인 방법과 실행 결과를 함께 정리하되, 결과가 남아 있지 않은 항목은 별도로 표시했습니다.
 
 ## 1. 버전과 경로를 함께 확인하기
 
@@ -65,7 +65,7 @@ uv python find 3.12
 
 `3.12`를 지정한 설치 결과는 `3.12.14`였습니다. 이 명령 자체가 패치 버전까지 고정한 것은 아니므로, 설치 당시 결과를 함께 보관합니다.
 
-설치 과정에는 사용자 `.local\bin`이 PATH에 없다는 경고가 있었습니다. 후속 `where.exe python` 출력에는 `.local\bin`과 WindowsApps 경로가 함께 나타났습니다. 다만 PATH를 수정한 정확한 명령은 현재 확보한 기록에 없어 임의로 보충하지 않았습니다.
+설치 과정에는 사용자 `.local\bin`이 PATH에 없다는 경고가 있었습니다. 후속 `where.exe python` 출력에는 `.local\bin`과 WindowsApps 경로가 함께 나타났습니다. 다만 PATH를 어떻게 수정했는지는 당시 기록에 남아 있지 않습니다.
 
 `uv python list`로 보이는 Python 목록과 `python --version`으로 실행되는 Python을 함께 확인했습니다. `uv python find 3.12`는 uv가 요청한 버전에 맞춰 찾는 실행 파일을 확인하는 데 썼습니다. 이 명령의 탐색 방식은 [uv의 Python 버전 문서](https://docs.astral.sh/uv/concepts/python-versions/)에서 확인할 수 있습니다.
 
@@ -109,7 +109,7 @@ where.exe jupyter-lab
 
 ## 4. 파일 존재와 명령 검색을 나눠 보기
 
-Windows 복구환경을 점검할 때도 명령 검색 문제가 있었습니다. 당시 대화에서는 `reagentc.exe` 확인을 위해 아래 조회가 제안됐습니다. 이 묶음은 각 명령의 실행 출력까지 확보된 기록은 아닙니다.
+Windows 복구환경을 점검할 때도 명령 검색 문제가 있었습니다. 아래 명령은 `reagentc.exe`를 찾는 방법입니다. 당시 실행 결과는 남아 있지 않아 여기서는 조회 방법을 설명합니다.
 
 ```powershell
 where.exe reagentc.exe
@@ -117,13 +117,13 @@ Get-Command reagentc.exe
 Test-Path C:\Windows\System32\reagentc.exe
 ```
 
-전체 경로의 존재 여부를 확인한 뒤, `Test-Path`가 `True`인 경우 다음 명령을 실행하도록 제안됐습니다.
+`Test-Path`가 `True`를 반환하면 다음과 같이 전체 경로로 실행할 수 있습니다.
 
 ```powershell
 C:\Windows\System32\reagentc.exe /info
 ```
 
-이 과정에서 남길 팁은 검색 결과가 없을 때 파일 부재를 바로 결론 내리지 않는 것입니다. 실행 파일 검색, 알려진 경로의 파일 존재, 실제 명령 실행을 순서대로 구분해 볼 수 있습니다. 여기서는 제안된 조회 방법만 보존하며 WinRE 상태를 새로 판정하지 않습니다.
+이 과정에서 남길 팁은 검색 결과가 없을 때 파일 부재를 바로 결론 내리지 않는 것입니다. 실행 파일 검색, 알려진 경로의 파일 존재, 실제 명령 실행을 순서대로 구분해 볼 수 있습니다. 이 명령 목록만으로 당시 WinRE 상태를 판단할 수는 없습니다.
 
 | 명령·인자                                    | 설명                                                                                                                                         |
 | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -159,7 +159,7 @@ Sort-Object Name
 
 ## 6. Windows 설치와 패키지 조회
 
-제안 원문입니다. `install`은 설치, `list`는 목록 조회입니다. `--id`는 패키지 ID, `-e`는 정확한 일치, `--scope machine`은 전체 사용자 설치 범위 요청입니다. 뒤의 Firefox·Chrome 문자열은 목록 검색 인자입니다. 설치 파일 자체를 보관하는 명령은 아닙니다.
+다음은 WinGet으로 패키지를 설치하고 조회하는 명령입니다. 개별 실행 결과는 남아 있지 않습니다. `install`은 설치, `list`는 목록 조회입니다. `--id`는 패키지 ID, `-e`는 정확한 일치, `--scope machine`은 전체 사용자 설치 범위 요청입니다. 뒤의 Firefox·Chrome 문자열은 목록 검색 인자입니다. 설치 파일 자체를 보관하는 명령은 아닙니다.
 
 ```powershell
 winget install --id Git.Git -e
@@ -195,7 +195,7 @@ where.exe jupyter-lab
 
 ## 8. uv 의존성과 캐시
 
-첫 묶음은 실행 출력이 있습니다. `uv add`는 의존성을 추가하고 `uv run`은 프로젝트 환경에서 명령을 실행합니다. `New-Item -ItemType Directory -Force`는 디렉터리를 준비하며 `-Force`는 이미 존재하는 디렉터리를 허용합니다. hardlink 실패 뒤 copy fallback 경고가 있었지만 설치는 완료됐습니다. 환경변수 변경 한 줄은 제안만 확보했습니다. `User`는 사용자 범위이며 이후 새 셸에서 캐시 경로를 확인하도록 안내됐습니다.
+첫 묶음은 실행 출력이 있습니다. `uv add`는 의존성을 추가하고 `uv run`은 프로젝트 환경에서 명령을 실행합니다. `New-Item -ItemType Directory -Force`는 디렉터리를 준비하며 `-Force`는 이미 존재하는 디렉터리를 허용합니다. hardlink 실패 뒤 copy fallback 경고가 있었지만 설치는 완료됐습니다. 캐시 경로를 바꾸는 환경변수 설정도 함께 적었습니다. 이 설정의 적용 여부는 기록에 남아 있지 않습니다. `User`는 사용자 범위이며, 변경 후에는 새 셸에서 캐시 경로를 확인해야 합니다.
 
 ```powershell
 uv add requests
@@ -210,7 +210,7 @@ uv run python .\main.py
 
 ## 9. 가상화 기능과 서비스 진단
 
-`-Property`는 조회 속성, `-Online`은 현재 Windows, `-Match`는 정규식 필터입니다. 패턴 안의 `|`는 대안이며 파이프와 구분합니다. `Get-Service`의 쉼표 목록은 서비스 이름입니다. `findstr /i`는 대소문자를 무시합니다. `-ErrorAction SilentlyContinue`는 오류 표시를 억제하므로 빈 결과를 정상 판정으로 읽지 않습니다. `-ClassName`과 `-Namespace`는 CIM 조회 대상을 지정합니다. 초기에는 vmcompute와 hcsdiag 조회 실패가 있었고 후속 상태가 달랐습니다. Device Guard 블록은 제안과 후속 속성 출력의 연결입니다.
+`-Property`는 조회 속성, `-Online`은 현재 Windows, `-Match`는 정규식 필터입니다. 패턴 안의 `|`는 대안이며 파이프와 구분합니다. `Get-Service`의 쉼표 목록은 서비스 이름입니다. `findstr /i`는 대소문자를 무시합니다. `-ErrorAction SilentlyContinue`는 오류 표시를 억제하므로 빈 결과를 정상 판정으로 읽지 않습니다. `-ClassName`과 `-Namespace`는 CIM 조회 대상을 지정합니다. 초기에는 vmcompute와 hcsdiag 조회 실패가 있었고 후속 상태가 달랐습니다. Device Guard 조회 방법은 뒤이어 확인한 속성 값과 함께 정리했습니다.
 
 ```powershell
 Get-ComputerInfo -Property `
@@ -322,7 +322,7 @@ git ls-files --eol .gitattributes
 
 ## 12. OS·복구 상태와 사용자 폴더
 
-OS 점검 묶음은 제안 원문이며 이미지로만 남은 결과는 확정하지 않습니다. `manage-bde -status`는 BitLocker 상태, `dsregcmd /status`는 장비 등록 상태, `dism /online /Get-CurrentEdition`은 실행 중인 Windows 에디션 조회입니다. SoftwareLicensingService 속성 조회는 실제 제품 키를 표시할 수 있으므로 출력 값은 게시하지 않습니다. User Shell Folders 조회는 사용자 레지스트리에서 지정한 폴더 속성을 선택하며 사용자 명령 기록이 있습니다.
+다음은 OS와 복구 상태를 조회하는 명령입니다. 당시 결과는 이미지로만 남아 있어 여기서는 상태 값을 옮기지 않았습니다. `manage-bde -status`는 BitLocker 상태, `dsregcmd /status`는 장비 등록 상태, `dism /online /Get-CurrentEdition`은 실행 중인 Windows 에디션 조회입니다. SoftwareLicensingService 속성 조회는 실제 제품 키를 표시할 수 있으므로 출력 값은 게시하지 않습니다. 사용자 폴더는 User Shell Folders 레지스트리에서 지정한 속성을 조회했습니다.
 
 ```powershell
 where.exe reagentc.exe
@@ -342,7 +342,7 @@ Select-Object Desktop, Personal, 'My Pictures', 'My Music', 'My Video', '{374DE2
 
 ## 13. 기록 파일 검색과 줄바꿈 확인
 
-development-*는 이름 접두사에 맞는 항목을 찾는 와일드카드입니다. 해당 조회는 제안입니다. WSL의 cat·git status는 사용자 실행 기록이며 text 블록은 .gitattributes의 실제 내용입니다. `* text=auto eol=lf`는 Git 속성 설정이지 셸 명령이 아닙니다.
+development-*는 이름 접두사에 맞는 항목을 찾는 와일드카드입니다. 이 검색의 결과는 남아 있지 않습니다. WSL에서는 `cat`과 `git status`로 파일 내용과 변경 상태를 확인했습니다. text 블록은 당시 .gitattributes의 내용입니다. `* text=auto eol=lf`는 Git 속성 설정이지 셸 명령이 아닙니다.
 
 ```powershell
 Get-ChildItem D:\Lab\OfflineLab\manifests\development-*
@@ -360,7 +360,7 @@ git status --short
 
 ## 14. Linux 도구·프로젝트·확장 구성
 
-설치 묶음은 제안과 후속 버전·설정 출력으로 연결됩니다. JSON 읽기와 활성화 명령은 사용자 기록입니다. `mkdir -p`는 필요한 상위 경로를 포함해 디렉터리를 만들고 기존 디렉터리를 허용합니다. `uv init --python 3.12`는 프로젝트 Python 조건, `uv add`의 ==는 버전 고정, >=는 최소 버전입니다. `--index 이름=URL`은 패키지 소스를 지정합니다. `sudo apt update`는 패키지 목록 갱신, `apt install -y`는 설치 질문에 자동 동의입니다. `@버전`은 확장 버전, `--force`는 강제 설치 요청입니다. `source`는 현재 Bash에 가상환경 활성화 코드를 읽습니다. kernelspec list는 커널 목록 조회 제안이며 개별 결과가 아직 없습니다.
+설치 명령은 이후 확인한 버전·설정과 함께 정리했습니다. JSON 설정을 읽고 가상환경을 활성화한 명령도 포함했습니다. `mkdir -p`는 필요한 상위 경로를 포함해 디렉터리를 만들고 기존 디렉터리를 허용합니다. `uv init --python 3.12`는 프로젝트 Python 조건, `uv add`의 ==는 버전 고정, >=는 최소 버전입니다. `--index 이름=URL`은 패키지 소스를 지정합니다. `sudo apt update`는 패키지 목록 갱신, `apt install -y`는 설치 질문에 자동 동의입니다. `@버전`은 확장 버전, `--force`는 강제 설치 요청입니다. `source`는 현재 Bash에 가상환경 활성화 코드를 읽습니다. `kernelspec list`로 커널 목록을 조회할 수 있습니다. 당시 조회 결과는 남아 있지 않습니다.
 
 ```bash
 cd ~/research
@@ -426,7 +426,7 @@ source /home/securityon/research/wsl-research-base/.venv/bin/activate
 
 ## 15. TensorFlow nightly 설치
 
-설치 제안이며 버전은 당시 값입니다. `[and-cuda]`는 추가 의존성 묶음, `==`는 특정 nightly 버전 고정입니다. stable TensorFlow를 통과한 기록으로 쓰지 않습니다.
+다음은 당시 nightly 버전을 지정한 설치 명령입니다. 설치 명령 자체의 실행 출력은 남아 있지 않으며, 이후 연산 결과는 GPU 검증 스크립트 편에서 다룹니다. `[and-cuda]`는 추가 의존성 묶음, `==`는 특정 nightly 버전 고정입니다. stable TensorFlow를 통과한 기록으로 쓰지 않습니다.
 
 ```bash
 cd ~/research
@@ -439,7 +439,7 @@ uv run python -c "import tensorflow as tf; print(tf.__version__); print(tf.confi
 
 ## 16. cuDNN과 복원본 조회
 
-cuDNN 조회는 사용자 출력이 있습니다. `dpkg -l`은 패키지 목록, `grep -i`는 대소문자 무시 필터입니다. uv pip list는 프로젝트 패키지 목록입니다. HEAD 조회 묶음은 초기 복구에서 실패한 기록이며 fsck는 93839개 객체를 검사했습니다. 뒤의 사용자·폴더·배포판 조회는 제안입니다. `id`는 사용자 정보, `whoami`는 현재 사용자, WSL `-u`는 실행 사용자 지정입니다.
+cuDNN 패키지는 다음 명령으로 확인했습니다. `dpkg -l`은 패키지 목록, `grep -i`는 대소문자 무시 필터입니다. uv pip list는 프로젝트 패키지 목록입니다. HEAD 조회 묶음은 초기 복구에서 실패한 기록이며 fsck는 93839개 객체를 검사했습니다. 뒤의 명령은 복원본의 사용자·폴더·배포판을 확인하는 방법입니다. 이 조회들의 개별 결과는 남아 있지 않습니다. `id`는 사용자 정보, `whoami`는 현재 사용자, WSL `-u`는 실행 사용자 지정입니다.
 
 ```bash
 dpkg -l | grep -i cudnn

@@ -297,6 +297,14 @@ programme. Preserve literal identifiers and quoted output regardless of spelling
 
 ### Prose rhythm and repetition
 
+Write public Notes from the author's perspective, not an assistant's review of
+source material. Do not call the author "the user" or narrate chat recovery,
+proposals to the user, or editorial evidence gathering. Keep that provenance in
+working documents. Describe verified actions and observations in the author's
+voice; describe unverified commands as methods, with relevant uncertainty stated
+locally. Never turn an unverified example into a claimed execution merely to
+remove reviewer language.
+
 Prefer direct accounts of what was observed, changed, and tested. Reduce repeated
 contrasts such as “A does not prove B” once the relevant limit is clear, while
 retaining limitations that materially affect interpretation. Conclusions should

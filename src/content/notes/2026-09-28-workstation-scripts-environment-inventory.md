@@ -14,13 +14,13 @@ featured: false
 draft: false
 ---
 
-Windows와 WSL 환경을 나중에 비교할 수 있도록 조회 결과를 파일로 모았습니다. 이 글에는 환경 목록을 남기는 스크립트와 PyTorch·TensorFlow GPU 시험을 정리합니다. 개별 설치·조회 명령은 「워크스테이션 구축 명령어 기록」에서, 보존과 복구는 「스크립트: 오프라인 보존과 복구」에서 다룹니다.
+Windows와 WSL 환경을 나중에 비교하려면 조회 결과를 파일로 남겨 두는 편이 편리합니다. 이 글에는 환경 목록을 남기는 스크립트와 PyTorch·TensorFlow GPU 시험을 정리합니다. 개별 설치·조회 명령은 「워크스테이션 구축 명령어 기록」에서, 보존과 복구는 「스크립트: 오프라인 보존과 복구」에서 다룹니다.
 
-각 스크립트의 옵션과 인자는 당시 값을 유지했습니다. 제안된 점검과 실행 결과가 남은 시험은 해당 절에서 구분합니다.
+각 스크립트의 옵션과 인자는 당시 값을 유지했습니다. 점검 방법을 설명하고, 실행 결과가 남아 있는 시험은 그 결과를 함께 적었습니다.
 
 ## 1. PowerShell에서 환경 기록을 파일로 저장하기
 
-다음은 Windows 개발환경의 정보를 한 파일로 모으도록 당시 대화에서 제안된 원문입니다. 각 줄의 실행 출력까지 확보한 것은 아닙니다. `D:\Lab\OfflineLab\manifests`가 이미 존재하는 구성을 전제로 하며, 같은 출력 파일이 있으면 덮어씁니다.
+다음 스크립트는 Windows 개발환경의 정보를 한 파일로 모읍니다. 당시 저장 결과는 남아 있지 않아, 여기서는 파일을 만드는 방법과 주의할 점을 정리합니다. `D:\Lab\OfflineLab\manifests`가 이미 존재하는 구성을 전제로 하며, 같은 출력 파일이 있으면 덮어씁니다.
 
 ```powershell
 @(
@@ -76,7 +76,7 @@ Windows와 WSL 환경을 나중에 비교할 수 있도록 조회 결과를 파�
 
 ## 2. PowerShell에서 확장 목록 저장하기
 
-같은 대화에서 별도로 제안된 확장 목록 저장 명령입니다. 환경 기록과 파일을 나눠 두면 확장만 비교할 때 찾아보기 쉽습니다.
+확장 목록은 다음 명령으로 별도 파일에 저장할 수 있습니다. 환경 기록과 파일을 나눠 두면 확장만 비교할 때 찾아보기 쉽습니다.
 
 ```powershell
 code --list-extensions --show-versions |
@@ -92,7 +92,7 @@ Out-File `
 | `Out-File`와 출력 경로   | 목록을 지정한 파일에 저장합니다. 여기서도 기존 파일은 덮어씁니다. |
 | `-Encoding utf8`         | 텍스트 인코딩을 지정합니다.                                       |
 
-이 블록은 Windows PowerShell에서의 목록 저장 제안입니다. WSL remote 확장의 상태는 WSL 쪽에서 별도로 확인했습니다. 두 목록을 하나의 설치 상태로 합치지 않습니다. 옵션 설명은 [VS Code CLI 문서](https://code.visualstudio.com/docs/configure/command-line)를 참고했습니다.
+이 명령은 Windows PowerShell용이며, 당시 저장 결과는 남아 있지 않습니다. WSL remote 확장의 상태는 WSL 쪽에서 별도로 확인했습니다. 두 목록을 하나의 설치 상태로 합치지 않습니다. 옵션 설명은 [VS Code CLI 문서](https://code.visualstudio.com/docs/configure/command-line)를 참고했습니다.
 
 ## 3. Bash에서 Linux 빌드 도구 확인하기
 
@@ -120,7 +120,7 @@ pkg-config --version
 
 ## 4. Bash에서 디렉터리 이름만 추리기
 
-복원된 연구 프로젝트와 VS Code Server 디렉터리를 확인할 때는 다음 조회가 제안됐습니다. 각각의 시험 문맥에서 가져온 두 명령이며, 개별 실행 출력은 아직 모두 확보하지 못했습니다.
+복원본의 연구 프로젝트와 VS Code Server 디렉터리는 다음과 같이 조회할 수 있습니다. 두 명령은 서로 다른 경로를 확인하며, 당시의 개별 조회 결과는 남아 있지 않습니다.
 
 ```bash
 find ~/research -maxdepth 1 -mindepth 1 -type d -printf '%f\n' | sort
@@ -140,7 +140,7 @@ find ~/.vscode-server/bin -maxdepth 1 -mindepth 1 -type d -printf '%f\n'
 
 ## 5. 설치·스토리지 목록 내보내기
 
-첫 블록은 실행 출력이 있으며 나머지는 보완 제안입니다. `winget export -o`는 JSON 대상 파일, `--include-versions`는 버전 포함입니다. 일부 설치 패키지나 버전을 원본에서 찾을 수 없다는 경고가 있었습니다. `Get-Item`은 파일 정보, `Get-Content`는 내용, `Get-ItemProperty`는 레지스트리 속성을 읽습니다. HKLM 두 경로는 설치 항목을 조회하고 `Where-Object DisplayName`으로 이름이 있는 항목을 추립니다. `Format-Table -AutoSize`는 열 너비를 조정하는 표시 형식이며 구조화된 데이터 내보내기가 아닙니다. Known Folder GUID는 개인 식별자가 아닌 원문 속 폴더 식별자입니다.
+WinGet으로 설치 목록을 내보냈습니다. 뒤의 파일·레지스트리 조회는 결과를 점검하는 방법이며, 개별 조회 결과는 남아 있지 않습니다. `winget export -o`는 JSON 대상 파일, `--include-versions`는 버전 포함입니다. 일부 설치 패키지나 버전을 원본에서 찾을 수 없다는 경고가 있었습니다. `Get-Item`은 파일 정보, `Get-Content`는 내용, `Get-ItemProperty`는 레지스트리 속성을 읽습니다. HKLM 두 경로는 설치 항목을 조회하고 `Where-Object DisplayName`으로 이름이 있는 항목을 추립니다. `Format-Table -AutoSize`는 열 너비를 조정하는 표시 형식이며 구조화된 데이터 내보내기가 아닙니다. Known Folder GUID는 개인 식별자가 아닌 원문 속 폴더 식별자입니다.
 
 ```powershell
 winget list | Out-File `
@@ -185,7 +185,7 @@ Out-File D:\Lab\OfflineLab\manifests\known-folders-baseline.txt -Encoding utf8
 
 ## 6. Windows·WSL 기준 상태 저장
 
-모두 제안 원문입니다. 앞 절과 동일한 블록은 재수록하지 않습니다. Git 설정 조회에 값을 넘기지 않으면 현재 값을 읽습니다. 실제 이메일·사용자 경로가 결과에 들어갈 수 있어 결과 파일 공개 전 확인이 필요합니다. Bash `{ ...; }` 묶음은 같은 셸에서 실행하며 `>`로 표준 출력을 저장합니다. `date --iso-8601=seconds`는 초 단위 시각 형식, `ls -ld`는 디렉터리 자체의 상세 정보입니다.
+다음은 Windows와 WSL의 기준 상태를 파일로 남기는 스크립트입니다. 당시 생성 파일은 확인되지 않아 저장 방법을 중심으로 정리합니다. Git 설정 조회에 값을 넘기지 않으면 현재 값을 읽습니다. 실제 이메일·사용자 경로가 결과에 들어갈 수 있어 결과 파일 공개 전 확인이 필요합니다. Bash `{ ...; }` 묶음은 같은 셸에서 실행하며 `>`로 표준 출력을 저장합니다. `date --iso-8601=seconds`는 초 단위 시각 형식, `ls -ld`는 디렉터리 자체의 상세 정보입니다.
 
 ```powershell
 @(
@@ -236,7 +236,7 @@ Out-File D:\Lab\OfflineLab\manifests\known-folders-baseline.txt -Encoding utf8
 
 ## 7. WSL GPU와 재부팅 후 시험
 
-첫 블록에는 실제 출력이 있고 나머지는 Windows 재부팅 후 점검 제안과 사용자 통과 보고입니다. `python -c`는 문자열 코드를 실행하고 `python -`는 표준 입력 코드를 실행합니다. `<<'PY'`는 셸 확장 없이 Python 본문을 전달하는 here-document입니다. 행렬을 cuda에 만들고 synchronize로 완료를 기다립니다. 모델 시험은 float16, 로컬 파일만 사용, 결정적 토큰 선택(do_sample=False)을 지정했습니다. `max_new_tokens=32`는 추가 생성 길이입니다. `grep -E`는 확장 정규식, `uname -r`은 커널 릴리스, `test -e`는 경로 존재, `&&`는 앞 명령 성공 시 후속 실행입니다. 이 블록은 뒤의 물리적 오프라인 시험과 별개입니다.
+첫 PyTorch 연산에서는 실행 출력을 확인했습니다. Windows 재부팅 뒤 점검도 당시에는 통과한 것으로 기록했지만, 항목별 출력까지 남기지는 못했습니다. `python -c`는 문자열 코드를 실행하고 `python -`는 표준 입력 코드를 실행합니다. `<<'PY'`는 셸 확장 없이 Python 본문을 전달하는 here-document입니다. 행렬을 cuda에 만들고 synchronize로 완료를 기다립니다. 모델 시험은 float16, 로컬 파일만 사용, 결정적 토큰 선택(do_sample=False)을 지정했습니다. `max_new_tokens=32`는 추가 생성 길이입니다. `grep -E`는 확장 정규식, `uname -r`은 커널 릴리스, `test -e`는 경로 존재, `&&`는 앞 명령 성공 시 후속 실행입니다. 이 블록은 뒤의 물리적 오프라인 시험과 별개입니다.
 
 ```bash
 python --version
@@ -351,7 +351,7 @@ PY
 
 ## 8. TensorFlow 연산·메모리·XLA
 
-첫 연산은 제안이며 memory growth·XLA 블록에는 사용자 명령과 출력이 있습니다. 메모리 증가 설정은 GPU 초기화 전 적용하며 `jit_compile=True`는 XLA 컴파일 요청입니다. c.numpy()로 결과를 읽어 실행 완료를 확인합니다. 출력 발췌 외에 PTX JIT 경고와 AutoGraph 소스 탐색 경고도 있었습니다. nightly 성공은 stable 채택과 구분합니다.
+첫 블록은 기본 행렬 연산을 확인하는 코드이며 실행 결과는 남아 있지 않습니다. 이어지는 memory growth·XLA 시험에서는 명령과 출력을 함께 남겼습니다. 메모리 증가 설정은 GPU 초기화 전 적용하며 `jit_compile=True`는 XLA 컴파일 요청입니다. c.numpy()로 결과를 읽어 실행 완료를 확인합니다. 출력 발췌 외에 PTX JIT 경고와 AutoGraph 소스 탐색 경고도 있었습니다. nightly 성공은 stable 채택과 구분합니다.
 
 ```bash
 uv run python - <<'PY'

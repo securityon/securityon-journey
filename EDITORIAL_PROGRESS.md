@@ -1,8 +1,23 @@
 # Bilingual Notes editorial progress
 
-Last updated: 2026-09-28 (Asia/Seoul).
+Last updated: 2026-09-29 (Asia/Seoul).
 
 ## Resume here
+
+Author-voice correction (2026-09-29, current): resumed after the usage-limit
+interruption. All six companion Notes now describe the author’s work rather
+than a reviewer’s collection of user messages. Unverified commands remain
+methods, not claimed executions. The unexplained step 15 reference now names
+Git bundle recovery. Added the reusable author-perspective rule to AGENTS.md.
+Commands, outputs, historical statuses and publication metadata are unchanged.
+Validation passed: exact fenced-code and frontmatter comparison against HEAD,
+KO/EN code parity, focused formatting, lint, build (zero Astro diagnostics),
+six language routes and translation links, OG references and PNG dimensions.
+Titles/descriptions and OG layout are unchanged from the preceding visual review.
+Full format check still flags only the existing Naver verification HTML.
+Next: commit and push this correction under the continuing publication
+authorisation. Raw chat recovery material remains local.
+
 
 Publication split checkpoint (2026-09-28, authoritative): the author approved
 THREE bilingual Notes: commands, environment/GPU scripts, offline recovery

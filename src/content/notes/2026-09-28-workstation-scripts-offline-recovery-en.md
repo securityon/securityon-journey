@@ -16,11 +16,11 @@ draft: false
 
 After preparing the research environment, I tested how the preserved files could support execution and recovery without external downloads. This note collects the Git bundle, WSL snapshot, hash and offline execution scripts. “Workstation Scripts: Environment and GPU” covers the preceding environment inventories and GPU tests.
 
-The original failed commands and proposed checks remain alongside the corrections and observed results. WSL import took place before network isolation, and the corrected bundle was finally cloned after reconnection. Those conditions matter when interpreting the recovery results.
+I have kept the failed commands and inspection methods alongside the corrections and observed results. WSL import took place before network isolation, and the corrected bundle was finally cloned after reconnection. Those conditions matter when interpreting the recovery results.
 
 ## 1. Git bundle diagnosis and corrected recovery
 
-The first block is user execution; the others are proposals with subsequent recovery results. `replace -l` lists replacements; `cat-file -p/-t` prints object content/type. `merge-base --is-ancestor` reports ancestry through its exit code; `$LASTEXITCODE` reads the last native-command status. `rev-list --objects --all` walks objects reachable from all refs; `--no-replace-objects` disables replacements. `Measure-Object -Line` counts lines. A tag-scoped bundle was created, verified in an empty bare repository, then cloned with `--branch b10964` to select the tag. Remove-Item deletes test directories: verify paths and data before reuse. Final cloning occurred after reconnection and produced the recorded exact HEAD and fsck result.
+I first inspected Git objects and references to investigate the failure. The later blocks describe how to rebuild the bundle, alongside the results checked after recovery. `replace -l` lists replacements; `cat-file -p/-t` prints object content/type. `merge-base --is-ancestor` reports ancestry through its exit code; `$LASTEXITCODE` reads the last native-command status. `rev-list --objects --all` walks objects reachable from all refs; `--no-replace-objects` disables replacements. `Measure-Object -Line` counts lines. A tag-scoped bundle was created, verified in an empty bare repository, then cloned with `--branch b10964` to select the tag. Remove-Item deletes test directories: verify paths and data before reuse. Final cloning occurred after reconnection and produced the recorded exact HEAD and fsck result.
 
 ```powershell
 cd D:\Lab\Research\llama.cpp
@@ -89,7 +89,7 @@ git fsck --full
 
 ## 2. WSL snapshots and current hash manifests
 
-Export/import proposals are linked to subsequent file/restoration observations. `--export` preserves a distribution as TAR; `--import` takes a new name, installation path and TAR. Import preceded network isolation. Running New-Item before assigning `$restoreRoot` produced a null-path error. `Get-FileHash -Algorithm SHA256` computes current hashes, `-Recurse -File` traverses files, Sort-Object orders results and ForEach-Object processes each file. `.Count` counts items, Length is file size and Round rounds for display. Set-Content writes; Add-Content appends. Generation differs from comparison against expected hashes. $baseline requires the existing final baseline file path.
+I have kept the WSL export and import commands alongside the resulting files and restoration results. `--export` preserves a distribution as TAR; `--import` takes a new name, installation path and TAR. Import preceded network isolation. Running New-Item before assigning `$restoreRoot` produced a null-path error. `Get-FileHash -Algorithm SHA256` computes current hashes, `-Recurse -File` traverses files, Sort-Object orders results and ForEach-Object processes each file. `.Count` counts items, Length is file size and Round rounds for display. Set-Content writes; Add-Content appends. Generation differs from comparison against expected hashes. $baseline requires the existing final baseline file path.
 
 ```powershell
 wsl -l -v
@@ -194,7 +194,7 @@ Get-Content $baseline
 
 ## 3. Preparing and inspecting physical offline tests
 
-These are original proposals for the complete test. The actual choice of Wi-Fi/cable/VPN disconnection remains unverified. `Test-NetConnection -Port 443` tests that TCP port; curl `-I` requests headers and `--max-time 5` limits the request to five seconds. `2>&1` merges standard error into the standard-output destination. find limits depth/type and prints names using `%f\n`. `--only-installed` restricts the uv Python listing. Unconditional PASS text is not automatic validation.
+The following commands can check external connectivity and the test environment. My notes do not record which Wi-Fi, cable or VPN disconnection method I used. `Test-NetConnection -Port 443` tests that TCP port; curl `-I` requests headers and `--max-time 5` limits the request to five seconds. `2>&1` merges standard error into the standard-output destination. find limits depth/type and prints names using `%f\n`. `--only-installed` restricts the uv Python listing. Unconditional PASS text is not automatic validation.
 
 ```powershell
 wsl -l -v
@@ -259,7 +259,7 @@ test -e /dev/dxg && echo "/dev/dxg: PASS"
 
 ## 4. Physical offline Python and model tests
 
-These are proposals followed by the user reporting apparent success except step 15. Output for every line is not available. `uv run --offline` restricts uv network access; HF_HUB_OFFLINE, TRANSFORMERS_OFFLINE and local_files_only restrict model lookup. They do not replace evidence of physical disconnection. Tensors/models are placed on CUDA for computation/generation. The dot in `code .` selects the current project; sys.executable in the Python cell reports the actual kernel path.
+After the full test, my assessment was that everything except the Git bundle recovery appeared to pass. I did not retain output for every command. `uv run --offline` restricts uv network access; HF_HUB_OFFLINE, TRANSFORMERS_OFFLINE and local_files_only restrict model lookup. They do not replace evidence of physical disconnection. Tensors/models are placed on CUDA for computation/generation. The dot in `code .` selects the current project; sys.executable in the Python cell reports the actual kernel path.
 
 ```bash
 cd ~/research/pytorch-smoke-test
@@ -392,7 +392,7 @@ print("PHYSICAL OFFLINE VS Code WSL Jupyter PASS")
 
 ## 5. Local models, API and fresh wheelhouse environments
 
-These are original proposals. ollama run takes a model name and prompt. ConvertTo-Json creates a request; Invoke-RestMethod supplies Uri, Method Post, ContentType and Body to the localhost API. Get-ChildItem Filter/File/Recurse plus Select-Object -First 1 -ExpandProperty FullName selects the first matching file path. llama.cpp uses `-m` for the model, `-ngl all` to request GPU offload, `-p` for the prompt and `-n 64` for generation length. For wheelhouses, `--python` selects the interpreter, `--no-index` disables index lookup, `--find-links` supplies the local package location and `-r` reads requirements. Remove-Item deletes the existing test path. A PowerShell here-string is passed to python -. Returned Transformers output included cuda:0 and the success marker.
+The following code tests local models and APIs and creates fresh environments from wheelhouses. I do not have individual output confirming execution of every block. ollama run takes a model name and prompt. ConvertTo-Json creates a request; Invoke-RestMethod supplies Uri, Method Post, ContentType and Body to the localhost API. Get-ChildItem Filter/File/Recurse plus Select-Object -First 1 -ExpandProperty FullName selects the first matching file path. llama.cpp uses `-m` for the model, `-ngl all` to request GPU offload, `-p` for the prompt and `-n 64` for generation length. For wheelhouses, `--python` selects the interpreter, `--no-index` disables index lookup, `--find-links` supplies the local package location and `-r` reads requirements. Remove-Item deletes the existing test path. A PowerShell here-string is passed to python -. In the Transformers test output, I confirmed `cuda:0` and the success marker.
 
 ```powershell
 ollama --version
@@ -497,7 +497,7 @@ print("PHYSICAL OFFLINE TRANSFORMERS WHEELHOUSE PASS")
 
 ## 6. First bundle failure, hash comparison and WSL restart
 
-The initial clone actually failed, followed by failed cd and Git queries. Hash comparison is proposed; checked-entry counts and individual results remain unavailable. `-match` splits a 64-character hash and path into `$matches`; `-ne` compares the current hash. The original script does not fully validate malformed lines, errors or empty input. The last test shuts down and restarts WSL, not Windows. Its original REBOOT success string is retained.
+The initial clone actually failed, followed by failed cd and Git queries. The hash-comparison code below shows how to compare expected hashes with current files. I have no checked-entry count or individual results from that time. `-match` splits a 64-character hash and path into `$matches`; `-ne` compares the current hash. The original script does not fully validate malformed lines, errors or empty input. The last test shuts down and restarts WSL, not Windows. Its original REBOOT success string is retained.
 
 ```powershell
 $bundle = "D:\Lab\OfflineLab\repos\llama.cpp\b29c606\llama.cpp-b29c606.bundle"

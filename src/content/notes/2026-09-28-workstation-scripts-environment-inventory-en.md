@@ -14,13 +14,13 @@ featured: false
 draft: false
 ---
 
-I grouped environment queries into files so that I could compare the Windows and WSL setup later. This note covers those inventories and the GPU tests for PyTorch and TensorFlow. “Workstation Command Record” covers individual installation and inspection commands; “Workstation Scripts: Offline Recovery” covers preservation and recovery.
+Saving environment queries to files makes it easier to compare the Windows and WSL setup later. This note covers those inventories and the GPU tests for PyTorch and TensorFlow. “Workstation Command Record” covers individual installation and inspection commands; “Workstation Scripts: Offline Recovery” covers preservation and recovery.
 
-The scripts retain their original options and arguments. Each section distinguishes proposed checks from recorded executions and results.
+The scripts retain their original options and arguments. Each section explains the checks and includes execution results where I have them.
 
 ## 1. Saving an environment record with PowerShell
 
-The following script was proposed in the original conversation to collect Windows development information in one file. Execution output for every line has not been recovered. It assumes that `D:\Lab\OfflineLab\manifests` already exists and overwrites the output file if present.
+The following script collects Windows development information in one file. I have no saved result from that run, so I describe how the file is created and what needs care. It assumes that `D:\Lab\OfflineLab\manifests` already exists and overwrites the output file if present.
 
 ```powershell
 @(
@@ -76,7 +76,7 @@ See the [Out-File reference](https://learn.microsoft.com/en-us/powershell/module
 
 ## 2. Saving an extension inventory with PowerShell
 
-The same conversation proposed saving the extension list separately. A separate file makes it easier to compare extensions without searching the full environment record.
+The following command can save the extension list to a separate file. A separate file makes it easier to compare extensions without searching the full environment record.
 
 ```powershell
 code --list-extensions --show-versions |
@@ -92,7 +92,7 @@ Out-File `
 | `Out-File` and the output path | Save the listing to the named file, overwriting an existing file. |
 | `-Encoding utf8`               | Selects the text encoding.                                        |
 
-This was a Windows PowerShell inventory proposal. WSL remote extensions were checked separately inside WSL; the two lists should not be treated as one installation state. The options are documented in the [VS Code CLI reference](https://code.visualstudio.com/docs/configure/command-line).
+This command is for Windows PowerShell; I have no saved result from that run. WSL remote extensions were checked separately inside WSL; the two lists should not be treated as one installation state. The options are documented in the [VS Code CLI reference](https://code.visualstudio.com/docs/configure/command-line).
 
 ## 3. Checking Linux build tools in Bash
 
@@ -120,7 +120,7 @@ The recorded results were GCC and G++ `15.2.0`, GNU Make `4.4.1`, CMake `4.2.3`,
 
 ## 4. Selecting directory names in Bash
 
-The following queries were proposed when inspecting restored research projects and VS Code Server directories. They come from separate test contexts; individual execution outputs have not all been recovered.
+The following queries can inspect research projects and VS Code Server directories in the restored environment. They target different paths; I have no individual query results from that time.
 
 ```bash
 find ~/research -maxdepth 1 -mindepth 1 -type d -printf '%f\n' | sort
@@ -140,7 +140,7 @@ The first query was intended to list project names; the second inspected server 
 
 ## 5. Exporting installation and storage inventories
 
-The first block has execution output; the others are supplementary proposals. `winget export -o` selects a JSON file and `--include-versions` includes versions. Warnings reported packages or versions unavailable from configured sources. `Get-Item` reads file information, `Get-Content` reads contents, and `Get-ItemProperty` reads registry properties. The two HKLM paths query installation entries; `Where-Object DisplayName` keeps entries with a name. `Format-Table -AutoSize` adjusts display columns, not structured export. The Known Folder GUID is a folder identifier from the original command, not a personal identifier.
+I exported the installation inventory with WinGet. The later file and registry queries show how to inspect the result; I have no individual results for those queries. `winget export -o` selects a JSON file and `--include-versions` includes versions. Warnings reported packages or versions unavailable from configured sources. `Get-Item` reads file information, `Get-Content` reads contents, and `Get-ItemProperty` reads registry properties. The two HKLM paths query installation entries; `Where-Object DisplayName` keeps entries with a name. `Format-Table -AutoSize` adjusts display columns, not structured export. The Known Folder GUID is a folder identifier from the original command, not a personal identifier.
 
 ```powershell
 winget list | Out-File `
@@ -185,7 +185,7 @@ Out-File D:\Lab\OfflineLab\manifests\known-folders-baseline.txt -Encoding utf8
 
 ## 6. Saving Windows and WSL baselines
 
-These are original proposals. Blocks already present above are not repeated. Git configuration queries without a value read the setting. Output can contain personal email and user paths, so inspect files before publication. Bash `{ ...; }` groups commands in the current shell; `>` saves standard output. `date --iso-8601=seconds` requests a timestamp to seconds, and `ls -ld` reports details of the directory itself.
+These scripts save Windows and WSL baselines to files. I cannot confirm the files created at the time, so this section focuses on the method. Git configuration queries without a value read the setting. Output can contain personal email and user paths, so inspect files before publication. Bash `{ ...; }` groups commands in the current shell; `>` saves standard output. `date --iso-8601=seconds` requests a timestamp to seconds, and `ls -ld` reports details of the directory itself.
 
 ```powershell
 @(
@@ -236,7 +236,7 @@ These are original proposals. Blocks already present above are not repeated. Git
 
 ## 7. WSL GPU and post-reboot tests
 
-The first block has actual output; the others are post-Windows-reboot proposals with a user success report. `python -c` executes string code; `python -` reads code from standard input. `<<'PY'` passes a here-document without shell expansion. Matrices are allocated on CUDA and synchronise waits for completion. Model tests select float16, local files only and non-sampling token selection (`do_sample=False`); `max_new_tokens=32` limits new tokens. `grep -E` uses extended regular expressions, `uname -r` reports the kernel release, `test -e` checks path existence, and `&&` runs the next command after success. These are separate from the later physically disconnected tests.
+I checked the output of the first PyTorch computation. I also recorded the post-Windows-reboot checks as passing at the time, but did not retain output for every item. `python -c` executes string code; `python -` reads code from standard input. `<<'PY'` passes a here-document without shell expansion. Matrices are allocated on CUDA and synchronise waits for completion. Model tests select float16, local files only and non-sampling token selection (`do_sample=False`); `max_new_tokens=32` limits new tokens. `grep -E` uses extended regular expressions, `uname -r` reports the kernel release, `test -e` checks path existence, and `&&` runs the next command after success. These are separate from the later physically disconnected tests.
 
 ```bash
 python --version
@@ -351,7 +351,7 @@ PY
 
 ## 8. TensorFlow execution, memory and XLA
 
-The initial computation is proposed; memory-growth and XLA blocks have user commands and output. Memory growth is configured before GPU initialisation; `jit_compile=True` requests XLA compilation. Reading c.numpy() materialises the result. PTX JIT and AutoGraph source-discovery warnings also occurred beyond these excerpts. Nightly success remains separate from stable adoption.
+The first block checks a basic matrix computation; I have no result for it. For the subsequent memory-growth and XLA tests, I kept both the commands and their output. Memory growth is configured before GPU initialisation; `jit_compile=True` requests XLA compilation. Reading c.numpy() materialises the result. PTX JIT and AutoGraph source-discovery warnings also occurred beyond these excerpts. Nightly success remains separate from stable adoption.
 
 ```bash
 uv run python - <<'PY'
