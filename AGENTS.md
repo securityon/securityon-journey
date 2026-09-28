@@ -155,6 +155,11 @@ Paired KO/EN Notes must remain factually equivalent. Apply substantive factual
 or editorial changes to both versions while allowing natural phrasing in each
 language.
 
+Compare the strength of claims as well as the facts: chronology, test conditions,
+completion scope, and uncertainty must agree in both languages. Review tables,
+titles, descriptions, and conclusions as well as body paragraphs; a concise
+summary must not imply stronger evidence than the detailed account provides.
+
 ## Language-state architecture
 
 There are two bilingual mechanisms.
@@ -287,6 +292,24 @@ quotation, including:
 Preserve the official spelling of technical, product, application, and service
 names. When editing bilingual static content, preserve both language variants.
 
+Use `program` for computer software and `programme` for an academic or organised
+programme. Preserve literal identifiers and quoted output regardless of spelling.
+
+### Prose rhythm and repetition
+
+Prefer direct accounts of what was observed, changed, and tested. Reduce repeated
+contrasts such as “A does not prove B” once the relevant limit is clear, while
+retaining limitations that materially affect interpretation. Conclusions should
+state the outcome and remaining work without repeating the full troubleshooting
+account. Keep brief reflections brief; do not impose a uniform length or section
+template across Notes.
+
+In Korean prose, translate ordinary English nouns when that improves readability,
+while retaining established technical terms where clearer. Review complete
+sentences and particles after edits rather than applying broad word replacements.
+Do not force synonym rotation, sentence-ending variation, or artificial flaws
+to make prose appear human; concrete evidence and the author's reasoning matter.
+
 ### Terminology consistency
 
 Choose terms by their role; do not rotate synonyms merely for stylistic variety.
@@ -359,6 +382,32 @@ Clearly distinguish observed facts, decisions, planned future work, inferences,
 and unverified possibilities. If a cause was not determined, say so. Do not turn
 planned work into completed work or imply that a configuration was validated
 when only its presence was observed.
+
+Keep validation stages distinct: installation, discovery, execution, persistence,
+reconstruction, and deployment each need their own evidence. For example, hash
+generation does not establish a match against expected hashes; a service or WSL
+restart does not establish a full OS reboot test; a local-file test after network
+reconnection does not establish a disconnected test. Preserved recovery media
+need not be the same installer or installation scope used originally.
+
+Limit completion claims to the tested phase and conditions. Reconcile conclusions
+with the original objectives and identify unfinished objectives without treating
+them as cancelled. Where evidence is missing, preserve the uncertainty and keep
+editing independently resolvable prose; do not invent a resolution.
+
+Treat reviewer suggestions, including model-generated reviews, as proposals.
+Check the actual source before correcting a claimed inconsistency; use primary
+references where external facts need verification and report the scope checked.
+
+### Historical statuses and follow-up states
+
+Preserve recorded status strings, version numbers, counts, and evidence at their
+original point in time. Do not mechanically unify labels such as `DEFERRED` and
+`PENDING`, or spacing and underscores inside recorded results. A later label may
+describe a genuine follow-up state. Explain a transition when the record or
+author establishes its reason; otherwise leave the distinction unresolved.
+Preserving a historical label does not justify strengthening the prose around it.
+New releases and later successful tests do not retroactively change earlier results.
 
 ### Commands and technical evidence
 
@@ -620,6 +669,12 @@ When creating or editing Notes:
 4. Verify the relevant generated KO/EN routes and translation links.
 5. Verify the relevant dynamic OG PNGs and the pages' OG image references.
 
+For editorial refinements, compare technical evidence, historical statuses, and
+protected metadata against the starting state. When changing a title, check
+quoted references in other Notes as well as generated output. Do not change
+publication dates merely to mark copyediting. A successful site build validates
+the publication, not the technical experiments described in its Notes.
+
 For other source, schema, routing, or style changes, run `pnpm run build` and
 checks appropriate to the change, including `pnpm run lint` where relevant.
 Documentation-only changes to this guide need focused Markdown and diff checks;
@@ -630,6 +685,15 @@ decisions, validation results and warnings, and factual ambiguities deliberately
 left unresolved. State when a required check could not be completed.
 
 Never commit, push, reset, discard work, or perform destructive Git operations unless explicitly instructed.
+
+### Resuming editorial work
+
+For editorial work spanning multiple batches, maintain `EDITORIAL_PROGRESS.md`
+after each completed pair, validation milestone, and before stopping. Record the
+latest completed scope, remaining work, unresolved facts, check results, and next
+action. Read its latest checkpoint alongside Git status when resuming; do not
+automatically repeat completed batches. Clearly supersede outdated next steps
+and permission notes. Keep dated task history here rather than in this guide.
 
 ## Maintaining this guide
 

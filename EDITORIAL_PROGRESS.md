@@ -21,9 +21,15 @@ bilingual code parity, LF/whitespace and focused formatting. Full format check
 still flags only the pre-existing Naver verification HTML. Korean script titles
 were shortened to prevent split words in OG images; shared rendering is unchanged.
 Final line counts per language: commands 477, environment/GPU 442, offline
-recovery 569. Next: commit and push the six Notes, coverage map and this checkpoint.
-Keep raw chat recovery files local; leave the pre-existing AGENTS.md change
-separate. Original commands were not run.
+recovery 569. Commit 0842269 was pushed successfully to origin/main. The first
+live-site check immediately after the push returned 404; the subsequent check
+confirmed HTTP 200 for all six KO/EN routes. Public deployment is now confirmed.
+The author requested the remaining commit and push: the persistent AGENTS.md
+editorial guidance and this progress update are included in the follow-up
+documentation commit. Raw chat recovery files and the collection plan remain
+local. Next: continue missing-source recovery only when requested. Original
+commands were not run. Focused Markdown, LF and diff checks passed; this
+documentation-only follow-up does not require another site build.
 
 
 Comprehensive expansion checkpoint (2026-09-28): both existing bilingual Notes
