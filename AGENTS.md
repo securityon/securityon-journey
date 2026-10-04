@@ -711,9 +711,15 @@ Never commit, push, reset, discard work, or perform destructive Git operations u
 Publishing or changing the public website requires the author's explicit approval
 for that specific commit/push. A request to write or prepare a Note is not
 permission to publish it. Complete and validate the proposed changes first,
-then ask before pushing them to the deployment branch. If the author explicitly
-asks to remove already-published content, that request authorises the necessary
-unpublishing commit and push only.
+then ask before pushing them to the deployment branch.
+
+Absolute push rule: never push without explicit permission for the completed,
+reviewable change. Present the final Note or diff and validation results first,
+then obtain explicit push permission. General intentions such as "let us publish
+this Note", "continue", or "proceed" do not waive this review and approval step.
+Approval for an earlier push does not authorise later corrections or follow-up
+pushes. Every push requires its own explicit permission; do not infer it from
+installation, drafting, editing, or validation requests.
 
 ### Resuming editorial work
 

@@ -13,7 +13,7 @@ featured: false
 draft: false
 ---
 
-In “Establishing the macOS and Research Material Baseline”, I checked Command Line Tools and GitHub SSH authentication and chose locations for code and research material. The next task was to make the website I had managed on Windows available for editing and validation on the MacBook. As I continue organising the research environment, it is convenient to manage the website from the same MacBook on which I write about that work.
+In “Establishing the macOS and Research Material Baseline”, I checked Command Line Tools and GitHub SSH authentication and chose locations for code and research material. The next task was to bring the work from the PC I had previously used to manage the website onto the MacBook, with editing and validation tools in place. As I continue organising the research environment, it is convenient to manage the website from the same MacBook on which I write about that work.
 
 I brought the existing repository into the local code directory and installed the runtime tools and editor it needed. I went beyond an installation inventory to check dependency installation, validation, a build and a browser preview. This Note is my first website-management record written on the MacBook.
 
@@ -91,7 +91,7 @@ The application is in `/Applications/Visual Studio Code.app`. I added its intern
 | ESLint                    | Showing code-check results in the editor |
 | Prettier                  | Formatting according to repository rules |
 
-The project's Prettier package and the VS Code Prettier extension have different roles. Terminal checks run the package installed in the project; the extension supports formatting in the editor. The repository's existing `.prettierrc`, also used on Windows, retains the same formatting criteria across operating systems. I did not add automatic formatting on save during this stage.
+The project's Prettier package and the VS Code Prettier extension have different roles. Terminal checks run the package installed in the project; the extension supports formatting in the editor. The repository's existing `.prettierrc`, used on the PC that previously managed the website, retains the same formatting criteria on the MacBook. I did not add automatic formatting on save during this stage.
 
 For research editing, I also installed Python, Pylance and Jupyter extensions. Python Debugger, Python Environments and related Jupyter extensions were installed alongside them. `code --list-extensions --show-versions` confirmed 13 installed extensions. This established editing support; it did not configure or test a Python virtual environment, experimental packages or a Jupyter kernel.
 
@@ -107,7 +107,7 @@ pnpm run preview --host 127.0.0.1 --port 4321
 
 I opened `http://127.0.0.1:4321/` and inspected the existing Korean baseline Note's body and rendering. `preview` serves the generated site. When editing content or styling, I will use `pnpm dev`, taking care to avoid a port conflict if a preview server is already running.
 
-Windows and the MacBook each hold a local copy of the same repository, with GitHub carrying changes between them. I intend to check the branch and working tree before starting and bring in changes published from the other PC first. This should reduce independently editing the same file on both PCs and reconciling it later. During this preparation, I fetched the remote history again and confirmed that local `main` was not behind.
+The PC previously used to manage the website and the MacBook each hold a local copy of the same repository, with GitHub carrying changes between them. I intend to check the branch and working tree before starting and bring in changes published from the other computer first. This should reduce independently editing the same file on both PCs and reconciling it later. During this preparation, I fetched the remote history again and confirmed that local `main` was not behind.
 
 The preview server depends on a running process. I have not configured it as a service that persists after the application or execution session closes. Use of the SSH key after a reboot and debugging from the editor also remain untested.
 

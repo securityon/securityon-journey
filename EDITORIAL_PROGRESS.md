@@ -571,3 +571,41 @@ reference to the existing baseline Note's exact title and rebuilt. New files pas
 LF/trailing-whitespace and local-user-identifier checks. Previous baseline files,
 source configuration and lockfile unchanged. Next: authorised publication of this
 pair and this progress checkpoint, then verify live routes.
+
+
+## 2026-10-04: Publication approval correction
+
+Supersedes the publication-approval interpretation in the MacBook checkpoint:
+commit eecf646 was pushed before presenting the completed Note and obtaining
+explicit permission for that push. The author clarified the absolute rule:
+prepare and validate, present the final change, then obtain explicit push
+permission. General publication intent and continuation requests do not suffice.
+Updated AGENTS.md locally to preserve this rule, including follow-up corrections
+and unpublishing. These instruction changes are uncommitted and unpushed.
+Do not publish them or alter the live Note without the required approval.
+
+
+## 2026-10-04: Distinguish the existing website-management PC
+
+Reviewed the complete macbook-website-management KO/EN pair. Reworded three
+passages per language (introduction, Prettier configuration and cross-PC Git
+workflow) to identify the PC previously used to manage the website rather than
+using Windows as its name. This avoids confusion with the Windows research
+workstation documented elsewhere. Publication dates, titles and technical results
+are preserved. Existing local approval-rule edits are preserved. Author requested
+wording edits only: no commit or push is authorised. Next: validate and present
+the local changes for review.
+
+Wording correction validated: focused Prettier, lint, build and git diff --check
+passed. Full format check still fails only on the existing Naver HTML. Preserved
+frontmatter against HEAD; generated KO/EN routes, translation links, OG references
+and image files verified. Both Notes have no remaining Windows-as-PC references.
+Local changes only; no commit or push performed. Awaiting review, with explicit
+push approval required for any subsequent publication.
+
+Publication approval checkpoint: after reviewing the completed wording changes,
+the author explicitly instructed "commit and push". This supersedes the pending
+approval status above for this change only. The commit includes the KO/EN wording
+correction, the previously discussed absolute push rule and this progress record.
+Validation from the preceding checkpoint remains applicable; no further Note
+content changed. Next: push the approved commit and verify deployment/live wording.
