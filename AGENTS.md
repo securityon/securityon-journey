@@ -305,6 +305,20 @@ voice; describe unverified commands as methods, with relevant uncertainty stated
 locally. Never turn an unverified example into a claimed execution merely to
 remove reviewer language.
 
+Check the point of view in whole sentences, not just pronouns. Phrases such as
+"the user's terminal", "the user confirmed", "the supplied values", "while
+expanding this draft", and their Korean equivalents (`사용자 터미널`, `사용자가 확인`,
+`제공받은 값`, `초안을 확장하면서`) expose an assistant or editor standing outside
+the work. In a public Note, write what I checked, chose, ran, or observed, and
+name the actual terminal, tool, or setting only when its execution context
+matters. For example, distinguish an unsuccessful check in a restricted
+execution environment from a later successful check in the Mac login terminal
+without calling the latter "the user's terminal". Keep chat handoff details,
+missing source-output inventories, and editorial timing in working records;
+express their technical consequence in the Note, such as an untested reboot
+boundary. Apply the same narrative viewpoint to KO and EN while preserving
+their factual equivalence.
+
 Prefer direct accounts of what was observed, changed, and tested. Reduce repeated
 contrasts such as “A does not prove B” once the relevant limit is clear, while
 retaining limitations that materially affect interpretation. Conclusions should
