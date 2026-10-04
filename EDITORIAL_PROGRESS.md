@@ -1,10 +1,17 @@
 # Bilingual Notes editorial progress
 
-Last updated: 2026-09-29 (Asia/Seoul).
+Last updated: 2026-10-04 (Asia/Seoul).
 
 ## Resume here
 
-Author-voice correction (2026-09-29, current): resumed after the usage-limit
+Conference goal link cleanup (2026-10-04): removed the three selective
+EACL/PODS/WWW hyperlinks from each language of the 2026-08-25 conference-goal
+pair. Venue names, metadata, and all other prose are unchanged. Focused text
+comparison, Prettier, lint, build, generated KO/EN routes, translation links,
+and OG references/PNGs passed. The author then requested a commit and push.
+Existing local recovery files remain untouched.
+
+Author-voice correction (2026-09-29): resumed after the usage-limit
 interruption. All six companion Notes now describe the author’s work rather
 than a reviewer’s collection of user messages. Unverified commands remain
 methods, not claimed executions. The unexplained step 15 reference now names
@@ -15,8 +22,9 @@ KO/EN code parity, focused formatting, lint, build (zero Astro diagnostics),
 six language routes and translation links, OG references and PNG dimensions.
 Titles/descriptions and OG layout are unchanged from the preceding visual review.
 Full format check still flags only the existing Naver verification HTML.
-Next: commit and push this correction under the continuing publication
-authorisation. Raw chat recovery material remains local.
+Commit 8ca95a9 was pushed successfully to origin/main. The corrected public
+site content has not yet been checked after this push. Next: confirm deployment
+of the author-voice correction. Raw chat recovery material remains local.
 
 
 Publication split checkpoint (2026-09-28, authoritative): the author approved
