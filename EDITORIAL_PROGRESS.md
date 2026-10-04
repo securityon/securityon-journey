@@ -707,3 +707,63 @@ Final fifth-Note production checks passed: focused Prettier, lint, build,
 source whitespace, KO/EN routes, translation links and OG references.
 Approved scope is exactly two Note files and EDITORIAL_PROGRESS.md.
 Next: commit, push, verify public deployment.
+
+## 2026-10-05: Sixth MacBook Note — local LLM and research records
+
+Separate ~/Developer/research-local-llm project, Python3.13.16,
+MLX/MLX-Metal0.32.3, MLX-LM0.32.0, transformers5.18.0.
+Official Qwen3-1.7B-MLX-4bit pinned revision downloaded; two LFS SHA-256
+values matched expected metadata, remaining file hashes recorded.
+Normal macOS Terminal GPU execution completed twice. Pinned chat template
+ignored enable_thinking=False; initial calculation truncated and citations
+failed. First results preserved. Empty completed think prefix added in code,
+model files unchanged. Rerun completed all five answers: correct numeric smoke,
+correct folder/calculation/precision facts; folder/calculation citations still
+wrong; precision citation correct; missing 70B speed acknowledged.
+Three public Note excerpts, lexical two-character cosine retrieval top2;
+no embeddings, private documents, server, training or disconnected-network
+claim. Small-case tool throughput/memory observed, no capacity benchmark.
+KO/EN draft:true pair created; validation and local preview in progress.
+Author has not approved commit/push for this pair. No commit/push performed.
+
+Sixth Note preparation complete: focused Prettier, lint, preview build,
+tracked/untracked whitespace review, generated KO/EN routes, translation
+links and OG references passed. Both OG images visually checked; KO/EN
+browser content and English document overflow checked. Source draft:true
+restored after temporary preview build. Repository-wide format result
+retained in technical log under the existing reporting rule.
+Actual GPU outputs, initial failure, manifest and manual citation review
+saved in working records. Scope: local small-model execution and public
+excerpt retrieval; inaccurate citations remain documented, not resolved.
+Local preview: /notes/ko/macbook-local-llm/ on port4321.
+Next: author review and requested revisions. No commit/push approval.
+
+Sixth Note author-review revision: clarified local inference definition and
+identified M5 Pro/24GB MacBook Pro. Expanded first install command, unpinned
+MLX-LM, selected old dependency versions and missing Rust compiler failure;
+recorded insufficient pre-install compatibility review and that the resolver's
+older selection was not fully traced. Replaced vague speed-question wording
+with the actual question in both languages. Korean numerical ranges now use
+words, fixing unintended Markdown strikethrough.
+Shared rehypeExternalLinks adds _blank plus noopener/noreferrer to external
+HTTP(S) Markdown links; internal navigation remains unchanged. AGENTS records
+shared reference-link and range conventions. No historical Note sources changed.
+Final lint/build/focused format/diff checks passed. Built KO/EN drafts contain
+no del elements; both references use new tabs; 70 external links across all
+rendered Note bodies verified. Browser confirmed revised intro/link attributes.
+Draft:true retained; no commit/push authorised or performed.
+
+## 2026-10-05: Sixth Note publication approval
+
+Author explicitly approved changing D1로 to D1으로, committing and pushing
+the prepared sixth Note and shared external-link changes. Exactly two Korean
+occurrences corrected; no other prose revised. KO/EN draft:false for publication.
+Approved scope: two Notes, rehypeExternalLinks.ts, astro.config.ts, AGENTS.md
+and EDITORIAL_PROGRESS.md. Final production checks, commit/push and deployment
+verification next. This approval applies only to this completed change.
+
+Sixth Note final production validation passed: lint/build, focused Prettier,
+tracked/untracked whitespace, KO/EN routes/translation links/OGs, external
+reference targets and two D1으로 corrections. SSH fetch denied publickey;
+author asked to reload the existing key in normal Terminal. Commit can proceed;
+push and public deployment verification await authentication.

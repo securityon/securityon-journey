@@ -393,6 +393,15 @@ Avoid excessive bolding. Emphasis should make semantic categories easier to
 scan. Check actual Markdown source for accidental literal escape artefacts;
 do not change valid syntax because a chat copy displayed it differently.
 
+### External reference links
+
+Markdown body links to external HTTP(S) sites open in a new tab with
+`target="_blank"` and `rel="noopener noreferrer"` through the shared rehype
+processor. Internal links and section anchors keep their normal navigation.
+Preserve this shared behaviour rather than adding per-Note HTML links.
+Use words or an en dash for numerical ranges; do not use paired tildes that
+Markdown may render as strikethrough.
+
 ### Factual discipline
 
 Notes document real research and implementation work. Never invent commands
