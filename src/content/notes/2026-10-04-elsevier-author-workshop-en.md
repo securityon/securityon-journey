@@ -1,6 +1,6 @@
 ---
 title: "Notes from the Elsevier Author Workshop"
-description: "What I took from the Elsevier author workshop in Seoul in September 2026 about manuscripts, peer review, research integrity and generative AI."
+description: "Notes from the September 2026 Elsevier Author Workshop webinar, including questions on submission, peer review, research integrity and AI use."
 lang: en
 translationKey: elsevier-author-workshop-2026
 pubDatetime: 2026-10-04T10:40:00+09:00
@@ -9,12 +9,12 @@ tags:
   - publication
   - graduate-study
 featured: false
-draft: true
+draft: false
 ---
 
-I attended the **Elsevier Author Workshop** in Seoul on 29 September. The session followed the process of preparing and submitting a journal manuscript from a publisher's perspective. In “Towards a Conference Publication”, I had written about developing my research into a paper. This workshop helped me connect that goal to the structure of a manuscript and the criteria an editor applies.
+I attended the **Elsevier Author Workshop** online on 29 September. The presenter spoke from Seoul about preparing and submitting a journal manuscript from a publisher's perspective. In “Towards a Conference Publication”, I had written about developing my research into a paper. This webinar helped me connect that goal to the structure of a manuscript and the criteria an editor applies.
 
-The session covered manuscript preparation, publication and peer review, research integrity, generative AI, and resources for researchers. I have selected the points that connect most closely to my own research plans. This account does not replace the current instructions of any particular journal.
+The presentation covered manuscript preparation, publication and peer review, research integrity, and generative AI. It was followed by questions from attendees. I have selected the parts of the presentation and discussion that connect directly to preparing my own paper. This account does not replace the current instructions of any particular journal.
 
 ## Start with the contribution
 
@@ -52,8 +52,32 @@ The slides were more specific about images. They distinguished limited use for e
 
 For reviewers and editors, the presentation emphasised manuscript confidentiality and independent human judgement. As an author, I also need to decide what research material can be entered into an external tool and keep track of what the tool assisted with and what I verified myself.
 
+## Questions that clarified the submission boundaries
+
+### Earlier public versions and a subsequent submission
+
+Attendees asked whether work from a dissertation could become a journal article and whether a publicly available thesis counted as prior publication. The presenter advised checking with the target journal or editor because the answer can depend on the field and journal. She said that preprints were allowed under Elsevier's sharing policy at the time, but that authors should disclose a posted preprint at submission. An overlap check may otherwise flag a close match between the manuscript and its public version. I should not assume that a thesis and a preprint are treated identically.
+
+The discussion also distinguished simultaneous submission from trying another journal after rejection. The same manuscript should not be under consideration at several journals at once. Once the first journal has sent an official rejection, it can be submitted elsewhere. The contributors should also agree on authorship and order before submission.
+
+### AI-assisted language work and responsibility for the manuscript
+
+A question about translation and English polishing drew a distinction between improving language and generating or distorting the research itself. The presenter accepted language assistance for researchers writing in a second language, while keeping the author responsible for every submitted claim. Any use needs to be disclosed according to the target journal's requirements. She also cautioned against treating a plagiarism-check percentage as a verdict without looking at where and why text overlaps; repeated wording in a methods section may need different interpretation.
+
+Asked about detecting AI-generated manuscripts, the presenter said the focus was on misconduct and breaches of publication ethics rather than detecting AI use in itself. For my own work, the practical question is whether the evidence and results are real, and whether I can explain what the tool helped with and what I checked myself.
+
+### Communicating with editors and reviewers
+
+The cover-letter questions brought out common problems: a long or recycled letter, an impersonal salutation, and a message that hides the paper's contribution. The letter should explain why this work belongs in that journal instead of copying the abstract. The presenter also identified submissions outside a journal's scope and poorly prepared manuscripts as common reasons for an early editorial rejection. She said that a rise in submission volume did not mean a corresponding rise in acceptance.
+
+Asked how an anonymous but inadequate review is handled, the presenter said that editors assess review reports and may seek another reviewer, which can lengthen the process. There was no fixed estimate for another round after major revision: timing depends on the field, the available editors and reviewers, and whether further experiments are needed. If a submission appears to have stalled, the author can check its status and send a brief, polite enquiry to the editor.
+
+### Open access and acceptance
+
+An attendee asked whether an early-career researcher would have a better chance with an open-access or subscription journal. The presenter said that the access model itself did not determine an editor's acceptance decision. I should assess the journal's readership, scope and requirements before treating its business model as a factor in venue choice.
+
 ## What I will carry into the next manuscript
 
-The workshop gave me a clearer order of work. First, I should state a contribution that the results support and test its logic against the figures, tables and draft. Then I should check the readership and submission requirements of a suitable journal. Finally, I should make authorship, competing interests and AI use clear in the manuscript and submission material.
+The webinar gave me a clearer order of work. First, I should state a contribution that the results support and test its logic against the figures, tables and draft. Then I should check the readership and submission requirements of a suitable journal. Finally, I should make authorship, earlier public versions, competing interests and AI use clear in the manuscript and submission material.
 
 My longer-term goal remains to develop the research towards a suitable conference or journal submission. This workshop dealt mainly with **journal publication**; a conference submission would require its own format and policy checks. I intend to use these questions when preparing a manuscript.
