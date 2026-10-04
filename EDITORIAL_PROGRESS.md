@@ -667,3 +667,43 @@ Final publication checks passed: focused Prettier, lint, production build,
 diff/Note whitespace, bilingual routes, translation links and OG references.
 Restart verification is complete. Approved scope: KO/EN Note, AGENTS.md and
 this progress record. Next: commit, push, verify deployed routes.
+
+## 2026-10-05: Apple Silicon AI verification (fifth MacBook Note)
+
+Separate local Python3.13.16 project with torch2.14.1/mlx0.32.3/numpy2.5.3.
+Restricted shell lacked Metal access; normal login Terminal GPU runs verified.
+PyTorch MPS float32/float16 and linear training passed. MLX default float32
+failed original tolerances; documented MLX_ENABLE_TF32=0 repeated in a fresh
+process passed without changing tolerances. MLX float16 and GPU/CPU linear
+training passed in both modes. All actual logs/JSON saved, initial failure
+preserved. No throughput, capacity, LLM or reboot claim. KO/EN drafts created
+with draft:true; local validation next. No commit/push authorised.
+
+Fifth Note validation complete: focused Prettier, lint, build, source
+whitespace, bilingual routes and translation links passed. OGs visually
+verified after shortening the title to prevent Korean title clipping.
+Browser KO/EN content checked. Full format result retained in technical log.
+Sources restored to draft:true after temporary local preview build.
+GPU experiment/Note preparation complete; author review and explicit
+commit/push approval pending. No commit/push performed.
+
+Fifth Note readability revision: added plain-language tool roles, project
+Python range and exact pin distinction, GPU/tensor/stream discovery meanings,
+finite precision and tolerance explanation with a reference=1 illustration.
+Explicitly identified tolerances as pre-run working criteria, not official
+recommendations or analytically derived bounds. Explained linear learning,
+loss, automatic differentiation and memory counters. Measured results and
+execution settings preserved in both languages; no new experiment claimed.
+Draft:true remains; commit/push not authorised.
+
+## 2026-10-05: Fifth Note publication approval
+
+Author explicitly approved committing and pushing the completed readability
+revision of the KO/EN fifth Note and its progress record. Both drafts changed
+to draft:false, publication metadata preserved. Previous pending-approval
+status is superseded for this publication only. Final production checks next.
+
+Final fifth-Note production checks passed: focused Prettier, lint, build,
+source whitespace, KO/EN routes, translation links and OG references.
+Approved scope is exactly two Note files and EDITORIAL_PROGRESS.md.
+Next: commit, push, verify public deployment.
