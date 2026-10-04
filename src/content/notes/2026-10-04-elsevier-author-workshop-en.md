@@ -3,7 +3,7 @@ title: "Notes from the Elsevier Author Workshop"
 description: "Notes from the September 2026 Elsevier Author Workshop webinar, including questions on submission, peer review, research integrity and AI use."
 lang: en
 translationKey: elsevier-author-workshop-2026
-pubDatetime: 2026-10-04T10:40:00+09:00
+pubDatetime: 2026-10-04T12:13:00+09:00
 tags:
   - research-journey
   - publication

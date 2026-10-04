@@ -3,7 +3,7 @@ title: "Elsevier 저자 워크숍 기록"
 description: "2026년 9월 Elsevier 저자 워크숍 웨비나에 참석해 원고 준비와 후반부 질의응답에서 다룬 투고·심사·연구윤리 문제를 정리한 기록입니다."
 lang: ko
 translationKey: elsevier-author-workshop-2026
-pubDatetime: 2026-10-04T10:40:00+09:00
+pubDatetime: 2026-10-04T12:13:00+09:00
 tags:
   - research-journey
   - publication
