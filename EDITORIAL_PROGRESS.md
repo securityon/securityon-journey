@@ -4,6 +4,20 @@ Last updated: 2026-10-04 (Asia/Seoul).
 
 ## Resume here
 
+Elsevier workshop Note (2026-10-04, current): completed one KO/EN pair from the
+51-slide Elsevier Author Workshop PDF dated 2026-09-29, Seoul. Both Notes are
+59 lines, below the requested 500-line maximum. The account is written from
+the attendee's perspective and distinguishes the September 2026 workshop's
+journal-specific advice from future conference requirements and changing journal
+policies. No research result, submission, or personal reaction was invented.
+Source PDF is outside this repository and is not copied into the site.
+Focused formatting, lint, build (zero Astro diagnostics, 96 pages and 30 indexed
+Notes), pair metadata/line-ending/line-count checks, generated language routes,
+translation links and OG PNGs passed. Both OG images were visually reviewed.
+Repository-wide format checking still flags only the pre-existing Naver HTML.
+The author asked to put this Note on the site, so the completed pair and this
+checkpoint are ready to commit and push. Local recovery files remain untouched.
+
 Conference goal link cleanup (2026-10-04): removed the three selective
 EACL/PODS/WWW hyperlinks from each language of the 2026-08-25 conference-goal
 pair. Venue names, metadata, and all other prose are unchanged. Focused text
