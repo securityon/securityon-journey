@@ -9,7 +9,7 @@ tags:
   - publication
   - graduate-study
 featured: false
-draft: false
+draft: true
 ---
 
 I attended the **Elsevier Author Workshop** in Seoul on 29 September. The session followed the process of preparing and submitting a journal manuscript from a publisher's perspective. In “Towards a Conference Publication”, I had written about developing my research into a paper. This workshop helped me connect that goal to the structure of a manuscript and the criteria an editor applies.

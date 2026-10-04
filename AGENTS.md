@@ -694,6 +694,13 @@ left unresolved. State when a required check could not be completed.
 
 Never commit, push, reset, discard work, or perform destructive Git operations unless explicitly instructed.
 
+Publishing or changing the public website requires the author's explicit approval
+for that specific commit/push. A request to write or prepare a Note is not
+permission to publish it. Complete and validate the proposed changes first,
+then ask before pushing them to the deployment branch. If the author explicitly
+asks to remove already-published content, that request authorises the necessary
+unpublishing commit and push only.
+
 ### Resuming editorial work
 
 For editorial work spanning multiple batches, maintain `EDITORIAL_PROGRESS.md`

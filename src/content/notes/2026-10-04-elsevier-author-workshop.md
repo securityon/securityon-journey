@@ -9,7 +9,7 @@ tags:
   - publication
   - graduate-study
 featured: false
-draft: false
+draft: true
 ---
 
 9월 29일 서울에서 열린 **Elsevier Author Workshop**에 참석했습니다. 발표 자료는 저널의 관점에서 원고를 준비하고 투고하는 과정을 다뤘습니다. 이전에 「학회 논문 투고를 목표로」에서 연구 결과를 논문으로 발전시키겠다는 목표를 적었습니다. 이번 워크숍을 통해 그 목표를 원고의 구성과 편집자의 판단 기준에 연결해 볼 수 있었습니다.

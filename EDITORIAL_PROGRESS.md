@@ -4,6 +4,17 @@ Last updated: 2026-10-04 (Asia/Seoul).
 
 ## Resume here
 
+Urgent unpublish (2026-10-04, current): the author requested removal of the
+Elsevier workshop Note from the public site and revoked any inferred permission
+to push future Notes. Both language sources are retained with `draft: true`.
+The shared visibility filter excludes drafts from Note routes, lists and search;
+the OG generator also excludes draft images. AGENTS.md now requires explicit
+approval for each future website-changing commit/push. This request explicitly
+authorises only the unpublishing commit/push. Lint and build passed; both pages
+and OGs are absent from `dist`, as are links in generated HTML/XML. Next: push
+the scoped unpublishing change and verify public 404s.
+Keep the local command-recovery files untouched.
+
 Elsevier workshop Note (2026-10-04, current): completed one KO/EN pair from the
 51-slide Elsevier Author Workshop PDF dated 2026-09-29, Seoul. Both Notes are
 59 lines, below the requested 500-line maximum. The account is written from
