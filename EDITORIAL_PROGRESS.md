@@ -544,3 +544,30 @@ Completed editorial scope and preservation reminders:
 Do not mechanically normalise status labels or quoted UI/API spelling.
 The claimed English `quantization` inconsistency was not found in the current
 English files; check actual source before changing it.
+
+## 2026-10-04: MacBook website-management Note
+
+Supersedes previous permission notes for this new pair only: the author asked to
+publish this stage's Note from the MacBook. Existing baseline Notes remain historical
+records and are unchanged. Repository was clean and main matched origin/main after
+fetch. Read root guide, content schema, existing MacBook KO/EN pairs and editor
+recommendations. No nested guide was found.
+
+Created macbook-website-management KO/EN pair from recorded clone, Node/pnpm setup,
+VS Code/extension installation and initial lint/build/preview results. Kept research
+Python kernels, reboot persistence and editor debugging untested. Existing Naver
+HTML formatting failure and build notices are disclosed. Publication verification
+is separate from local checks. Next: focused formatting, lint, full format check,
+build, generated bilingual routes/OG verification, then authorised commit/push and
+live verification. No publication action yet.
+
+Validation complete: focused Prettier passed for both new Notes; lint passed.
+Full format check still fails only on the pre-existing Naver verification HTML.
+Build passed: Astro 60 files, zero errors/warnings/hints; Pagefind 38 pages in two
+languages. Generated KO/EN routes, html languages, translation links and canonical
+OG references checked. Both 1200 x 630 dynamic OG images inspected; local KO/EN
+pages and language navigation verified in the browser. Corrected the English
+reference to the existing baseline Note's exact title and rebuilt. New files passed
+LF/trailing-whitespace and local-user-identifier checks. Previous baseline files,
+source configuration and lockfile unchanged. Next: authorised publication of this
+pair and this progress checkpoint, then verify live routes.
