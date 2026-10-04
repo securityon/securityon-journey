@@ -15,8 +15,9 @@ Focused formatting, lint, build (zero Astro diagnostics, 96 pages and 30 indexed
 Notes), pair metadata/line-ending/line-count checks, generated language routes,
 translation links and OG PNGs passed. Both OG images were visually reviewed.
 Repository-wide format checking still flags only the pre-existing Naver HTML.
-The author asked to put this Note on the site, so the completed pair and this
-checkpoint are ready to commit and push. Local recovery files remain untouched.
+The author asked to put this Note on the site. Commit cd5f369 was pushed to
+origin/main, and both public language URLs returned HTTP 200 after deployment.
+Local recovery files remain untouched. No further work is pending for this pair.
 
 Conference goal link cleanup (2026-10-04): removed the three selective
 EACL/PODS/WWW hyperlinks from each language of the 2026-08-25 conference-goal
