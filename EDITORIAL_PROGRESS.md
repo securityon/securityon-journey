@@ -609,3 +609,61 @@ approval status above for this change only. The commit includes the KO/EN wordin
 correction, the previously discussed absolute push rule and this progress record.
 Validation from the preceding checkpoint remains applicable; no further Note
 content changed. Next: push the approved commit and verify deployment/live wording.
+
+## 2026-10-04: Python and Jupyter baseline (fourth MacBook Note)
+
+Preserved the existing local AGENTS.md reporting preference. New uv0.12.23 release
+archive digest checked, managed CPython3.13.16 and local research-python-baseline
+configured. numpy/pandas/matplotlib and ipykernel/jupyterlab/nbconvert recorded in
+project pyproject.toml and uv.lock. Verified terminal, nbconvert, VS Code notebook
+and Python extension script execution: matching .venv, Python, architecture,
+package versions, sum55/mean11, CSV/PNG/JSON results. nbconvert produced outputs
+and exit0 but kernel shutdown psutil/sysctl permission error remains documented.
+Fresh login-shell offline repeat succeeded in the existing environment/cache;
+OS reboot and clean-environment reconstruction not tested. JupyterLab browser
+server not tested. No AI computation claimed.
+
+Created bilingual macbook-python-jupyter pair with draft:true. No commits or
+pushes authorised. Next: format/lint/build and local unpublished route/OG preview
+validation, then present completed drafts and reboot verification steps.
+
+Fourth Note validation checkpoint: focused Prettier and lint passed. Local preview
+build passed after temporary draft:false override; both original draft:true files
+were restored immediately. Generated bilingual routes, translation links and OG
+references checked; both OG images visually inspected and KO/EN browser pages
+verified. Full format result retained in the task's technical log according to
+the local reporting preference. LF/trailing-whitespace and masked user paths
+checked. Current local preview serves the temporary built output; a normal build
+with restored sources excludes the drafts. No commit/push. Remaining fourth-stage
+check: repeat terminal and VS Code notebook execution after OS reboot. Source
+reconstruction and AI computation remain later-stage work.
+
+Fourth Note editorial revision: explained the expected squared values
+1, 4, 9, 16, 25 and the sum55/mean11 calculation before reporting results,
+in both languages. Removed reboot-pending wording from the public drafts;
+reboot verification remains a publication prerequisite in working records.
+No reboot success claimed, no commit/push authorised.
+
+Fourth Note reboot checkpoint: author reported macOS restarted; terminal
+verification and actual VS Code Python script/Notebook: Run All succeeded
+afterwards with retained .venv, matching versions and sum55/mean11.
+Saved notebook has no cell errors and includes PNG output. KO/EN drafts
+now record the completed restart check. Prior reboot-pending status is
+superseded. No commit or push permission; keep draft:true.
+
+Post-restart Note validation: focused format, lint, diff checks passed;
+preview build and bilingual route/translation/OG checks passed after
+network permission grant. Sources remain draft:true. Ready for author
+review, no commit/push authorised.
+
+## 2026-10-05: Fourth Note publication approval
+
+Author explicitly approved committing and pushing the completed Python/Jupyter
+KO/EN pair together with the local AGENTS.md change. Changed both drafts to
+draft:false; original publication timestamp preserved. This approval applies
+to this publication commit only. Final production checks precede the push.
+
+Final publication checks passed: focused Prettier, lint, production build,
+diff/Note whitespace, bilingual routes, translation links and OG references.
+Restart verification is complete. Approved scope: KO/EN Note, AGENTS.md and
+this progress record. Next: commit, push, verify deployed routes.

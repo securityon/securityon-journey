@@ -706,6 +706,16 @@ At completion, report the files changed, important editorial or technical
 decisions, validation results and warnings, and factual ambiguities deliberately
 left unresolved. State when a required check could not be completed.
 
+### Known verification-file notices
+
+Omit the existing Naver verification HTML formatting issue and related HTML
+notice from routine progress reports, completion summaries, future-work lists,
+and new Notes. Continue required checks and retain their actual results in
+technical logs; do not claim a failed repository-wide check passed. Do not
+repeatedly raise this known issue or propose unrelated fixes. Discuss it only
+if the author explicitly asks or a new failure materially blocks the current
+work. Leave already-published Notes unchanged unless asked to edit them.
+
 Never commit, push, reset, discard work, or perform destructive Git operations unless explicitly instructed.
 
 Publishing or changing the public website requires the author's explicit approval
