@@ -283,7 +283,7 @@ The correct classification is `TensorFlow_Nightly_GPU_Path=PREVIEW_PASS`. A nigh
 
 ## 15. Verifying Project-managed cuDNN
 
-During the later final review of this Note, I additionally verified the scope of the cuDNN installation. No cuDNN system package was installed inside WSL: `dpkg -l | grep -i cudnn` returned no result. That did not mean cuDNN was unavailable to TensorFlow. The environment at `/home/securityon/research/tensorflow-nightly-smoke-test` contained `nvidia-cudnn-cu12 9.26.0.51`, and XLA execution logged `Loaded cuDNN version 92600`.
+I also checked how cuDNN was installed. No cuDNN system package was installed inside WSL: `dpkg -l | grep -i cudnn` returned no result. That did not mean cuDNN was unavailable to TensorFlow. The environment at `/home/securityon/research/tensorflow-nightly-smoke-test` contained `nvidia-cudnn-cu12 9.26.0.51`, and XLA execution logged `Loaded cuDNN version 92600`.
 
 The observed state was:
 

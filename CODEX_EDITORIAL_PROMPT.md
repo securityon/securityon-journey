@@ -49,6 +49,13 @@ Write calmly and concretely, with the author's research-journal voice. Connect
 the initial intent, observation, decision, reason, and outcome where useful,
 without imposing that sequence as a repeated section template.
 
+Make the author's viewpoint the first editorial priority. Apply AGENTS.md's
+"Applying the author's viewpoint" and "Consistency between Notes" rules: remove
+outside-editor narration, distinguish legitimate technical uses of "user", check
+related Notes before declaring a state unverified, and preserve historical plans.
+Explain unfamiliar terms and expected numerical results where first introduced;
+reduce repeated hardware identification and recaps when they add no context.
+
 Use natural technical Korean. Translate ordinary prose nouns when that improves
 readability; retain established technical terms, official names, and exact
 literals when clearer. Check whole sentences and particles after edits rather
@@ -112,6 +119,13 @@ Update EDITORIAL_PROGRESS.md after each completed pair or batch, meaningful
 validation milestone, scope change, and before stopping. Record completed work,
 pending work, unresolved facts, checks and warnings, and the next concrete step.
 Make the latest checkpoint unambiguous while preserving useful historical logs.
+
+For multi-Note editing, save an audit-start snapshot and a per-pair inventory.
+If a before/after comparison is requested, follow AGENTS.md's comparison rules:
+retain one non-empty surrounding line, show the actual changed fragments distinctly
+and verify displayed text against both source versions. Keep artifacts outside
+published content. State explicitly when work is complete, what remains and whether
+commit/push has been authorised; do not leave completion implicit in a checkpoint.
 
 In the final response, report changed files, consequential editorial decisions,
 validation results and limitations, and facts deliberately left unresolved.

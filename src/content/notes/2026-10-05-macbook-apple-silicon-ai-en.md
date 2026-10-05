@@ -14,7 +14,7 @@ featured: false
 draft: false
 ---
 
-“Building a Python and Jupyter Research Environment” established project-specific Python and checked computation. This time I used the MacBook GPU for calculations and a small training task. GPUs can handle repeated numerical operations across many values. PyTorch and MLX provide tools for expressing those operations and training AI models. I started with small problems to check whether both tools run on this MacBook and whether their results are dependable.
+“Building a Python and Jupyter Research Environment” established project-specific Python and checked computation. This time I used the MacBook GPU for calculations and a small training task. GPUs can handle repeated numerical operations across many values. PyTorch and MLX provide tools for expressing those operations and training AI models. I started with small problems to check whether both tools perform GPU computation and whether their results are dependable.
 
 ## 1. A Separate Project and Two Execution Models
 

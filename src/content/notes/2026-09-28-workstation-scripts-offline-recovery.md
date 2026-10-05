@@ -497,7 +497,7 @@ print("PHYSICAL OFFLINE TRANSFORMERS WHEELHOUSE PASS")
 
 ## 6. 첫 번들 실패·해시 대조·WSL 재시작
 
-첫 clone은 실제로 실패했고 후속 cd와 Git 조회도 실패했습니다. 아래 해시 대조 코드는 기대값과 현재 파일을 비교하는 방법입니다. 당시 검사 수와 개별 결과는 남아 있지 않습니다. `-match`로 64자리 해시와 경로를 나눠 `$matches`로 읽고 현재 해시와 `-ne` 비교합니다. 정규식에 맞지 않는 행이나 오류·빈 입력을 완전히 검증하지 않는 원문 한계도 남깁니다. 마지막은 wsl --shutdown 후 재실행이며 Windows 재부팅이 아닙니다. 원래 REBOOT 성공 문자열은 변경하지 않습니다.
+첫 clone은 실제로 실패했고 후속 cd와 Git 조회도 실패했습니다. 아래 해시 대조 코드는 기대값과 현재 파일을 비교하는 방법입니다. 당시 검사 수와 개별 결과는 남아 있지 않습니다. `-match`로 64자리 해시와 경로를 나눠 `$matches`로 읽고 현재 해시와 `-ne` 비교합니다. 이 코드는 정규식에 맞지 않는 행, 조회 오류와 빈 입력을 모두 검사하지는 않습니다. 마지막 시험은 `wsl --shutdown` 후 WSL을 다시 실행합니다. 출력에는 `REBOOT`라고 적혀 있지만 Windows를 재부팅한 시험은 아닙니다.
 
 ```powershell
 $bundle = "D:\Lab\OfflineLab\repos\llama.cpp\b29c606\llama.cpp-b29c606.bundle"

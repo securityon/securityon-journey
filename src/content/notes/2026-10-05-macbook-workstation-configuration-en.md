@@ -52,7 +52,7 @@ I retained the decision to leave FileVault disabled. Rechecking `fdesetup status
 
 Creating folders does not complete the workflow by itself. Each project's `.gitignore` listed `results` for exclusion, but earlier outputs still remained inside their project folders. I copied actual results into dated Research locations, retained the originals and distinguished historical results from new executions.
 
-The website is already preserved on GitHub. At this inspection the three research projects were still local folders without Git repositories. I decided to use three separate private research repositories. Creating them, making the initial commits and pushing are separate steps following review of the prepared content.
+I preserve the website on GitHub. The three research projects were environment checks, so I decided to retain local source and dated archives without creating separate GitHub repositories. When starting a real research project, I will choose its remote repository and result-preservation method separately.
 
 ## 3. Building a Separate Website Clone
 

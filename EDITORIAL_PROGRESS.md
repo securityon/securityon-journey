@@ -822,3 +822,49 @@ Author approved committing and pushing the reviewed seventh Note pair with
 AGENTS and this progress record. Both Notes set to draft:false for publication.
 Research private repository creation and initial pushes remain unapproved and
 outside this website publication. Stop after successful website push.
+
+Author decided not to create GitHub repositories for the three test projects.
+Source snapshots/results remain preserved; private remote creation is no
+longer a pending setup requirement. Note body link policy expanded to internal
+and external HTTP(S) links in new tabs across existing and future Notes,
+retaining same-page anchors and site navigation. Shared processor renamed
+rehypeBodyLinks. No commit/push approved for this follow-up.
+
+Command-reference companion KO/EN drafts prepared with a downloadable source
+ZIP (31 entries; notebook outputs cleared; project README export instructions).
+Original verification code and pinned dependency records retained; no model
+weights, credentials or results included. Archive bytes and syntax checked.
+Python project extracted to an isolated folder, new venv uv sync --locked
+--offline and baseline run passed 55/11.0; existing package cache reused.
+GPU/LLM not rerun. Initial lint/build/routes/links/OG/browser checks passed.
+Both draft:true; no commit/push approved. Final editorial check follows.
+
+Command-reference final preview build passed with draft:true restored.
+KO/EN pairing, OG references and images, body links, ZIP HTTP download and
+archive metadata checked. No horizontal overflow in either language preview.
+Focused format and whitespace checks passed; full format log retained.
+No commit/push. Ready for author review alongside pending shared body-link change.
+
+Full Note editorial audit resumed: 14/24 KO/EN pairs reviewed. Author voice is the primary criterion; cross-Note cache and baseline-file evidence clarified without claiming new execution. Command/output blocks and publication metadata preserved. Checkpoint inventory and before snapshots: Codex task work/editorial-audit; findings: outputs/full-note-editorial-review.md. Remaining: two workshops and eight MacBook pairs. No commit/push approved.
+
+Full Note editorial audit checkpoint: 16/24 KO/EN pairs reviewed. 워크숍 2편 한영 검토 완료. 참석자·발표자·저자 자격은 실제 강의 대상이므로 유지. 본인의 경험·계획과 강의 내용이 구분돼 있어 수정 없음. No commit/push approved. Resume from the inventory under the Codex task work/editorial-audit.
+
+Full Note editorial audit checkpoint: 17/24 KO/EN pairs reviewed. Python/Jupyter 한영 검토 완료. 잠금 파일을 uv.lock의 버전 기록으로 설명하고 마지막 문단의 중복 예고를 줄임. 실행 경로·재시동 결과·미검증 범위 유지. No commit/push approved. Resume from the inventory under the Codex task work/editorial-audit.
+
+Full Note editorial audit checkpoint: 20/24 KO/EN pairs reviewed. MacBook 설계·홈페이지 관리·macOS 기준 상태 한영 검토 완료. 설계는 당시 계획으로 유지하고 Windows 연구 장비와 기존 홈페이지 관리 PC를 구분한 표현을 확인. 홈페이지 의존성 기록은 pnpm-lock.yaml로 구체화. 초기 미검증과 후속 검증은 시점 차이로 유지. No commit/push approved. Resume from the inventory under the Codex task work/editorial-audit.
+
+Full Note editorial audit checkpoint: 21/24 KO/EN pairs reviewed. Apple Silicon AI 한영 검토 완료. 도입의 이 MacBook 반복을 GPU 계산이라는 실제 검증 대상으로 바꿈. 허용 오차의 사전 기준·실패와 재실행·메모리 측정 범위 보존. No commit/push approved. Resume from the inventory under the Codex task work/editorial-audit.
+
+Full Note editorial audit checkpoint: 22/24 KO/EN pairs reviewed. 로컬 LLM 한영 검토 완료. 실제 질문의 이 MacBook은 시험 입력 원문이므로 유지. 하드웨어는 속도·메모리 관측을 해석할 조건으로 유지. 설치 실패 원인의 미추적 범위·인용 오류·모델 답변을 보존. No commit/push approved. Resume from the inventory under the Codex task work/editorial-audit.
+
+Full Note editorial audit checkpoint: 24/24 KO/EN pairs reviewed. 全24편 한영 본문 검토 완료. 명령어 초안의 첫 계산 결과에 예상값의 의미를 설명하고 링크 표기를 실제 노트 제목에 맞춤. 7편에 남은 세 비공개 저장소 생성 계획은 이후 결정(환경 테스트는 별도 원격 생성 없이 소스·사본 보존)에 맞게 수정. 다음: 전체 변경 대조와 사이트 검사. No commit/push approved. Resume from the inventory under the Codex task work/editorial-audit.
+
+Full Note editorial audit COMPLETE: 24 pairs / 48 files (23 published pairs plus one command-reference draft). Edited 11 pairs / 19 files for author viewpoint, cross-Note evidence, plain terminology, duplication, link-title consistency and the decision not to create test-project remotes. All frontmatter and fenced commands/output unchanged against audit-start snapshots. ESLint, preview build, focused Prettier and whitespace checks passed; full format result retained in the audit log. All 48 routes, document languages, translation links and OG references/PNG dimensions verified; 88 body HTTP(S) links use new tabs and internal targets exist. Source ZIP bytes unchanged; no experiments rerun. Draft:true restored for companion. Review summary/diff and machine-readable checkpoints saved in the Codex task outputs and work/editorial-audit. No commit/push approved or performed. Next: author review of the editorial diff and the previously prepared body-link/command-reference changes, then specific approval if publication is wanted. This completion supersedes earlier partial checkpoints.
+
+Local preview restarted on 127.0.0.1:4321 with telemetry disabled; updated seventh KO/EN text confirmed over HTTP. Generated preview includes the unpublished command-reference pair, whose source remains draft:true. No public deployment checked.
+
+Editorial agreement refinement after author review of the comparison: AGENTS.md now prioritises author viewpoint with technical-term exceptions, contextual system identification, first-result explanations, cross-Note evidence and historical transitions, and reliable before/after comparison presentation. The editing entry point now reads this latest checkpoint. CODEX_EDITORIAL_PROMPT.md references the same rules; README points to the agreement, checkpoint and explicitly invoked prompt. Dated EDITORIAL_REVIEW_SUMMARY.md retained as historical evidence. Documentation only; no Note or site source changed in this step. Focused Prettier and git diff --check passed. No fresh site build required for this documentation-only change. Explicit completion reporting also recorded in AGENTS.md. No commit/push authorised or performed.
+
+Author explicitly approved one combined commit and push of the reviewed Note edits and editorial/configuration files. Include the previously prepared shared Note-body new-tab processor and command-reference source bundle/pair. The command-reference pair retains its reviewed draft:true state; no additional publication-status change requested. Previous evidence-preservation, lint/build and route/OG/link checks remain applicable; final staging checks follow. Stop after successful push, with no deployment polling. This authorisation supersedes earlier pending permission checkpoints for this combined change.
+
+Combined publication preparation checks complete: focused documentation/source formatting and git diff --check passed; 48 generated routes, translation/OG references, source evidence and unchanged archive rechecked. Remote main fetched successfully; local and remote tips match before the combined commit. Previously completed lint/content build remain valid because subsequent changes are documentation-only. Command-reference remains draft:true. Authorised combined commit and push follow.

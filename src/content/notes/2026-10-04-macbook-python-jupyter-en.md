@@ -37,7 +37,7 @@ export UV_CACHE_DIR="$HOME/Developer/.tools/uv-cache"
 
 I then ran `uv python install 3.13` in a login shell. As explained in [uv's Python management guide](https://docs.astral.sh/uv/guides/install-python/), managed Python uses Astral's python-build-standalone distributions. That was the source of this installation; I did not use the macOS installer from python.org.
 
-## 2. A Project Environment and Lockfile
+## 2. A Project Environment and Dependency Records
 
 I created the baseline project at `~/Developer/research-python-baseline`, outside cloud synchronisation.
 
@@ -122,4 +122,4 @@ This repeated execution used the existing `.venv` and cache. It confirmed work w
 
 Rebuilding an environment from the lockfile in a separate project copy, and preserving selected results in Google Drive with content comparisons, are also follow-up work.
 
-This stage established research Python separate from system Python, recorded project dependencies, and checked execution paths in the terminal, editor and notebook. Next I intend to use a separate small AI project to test actual PyTorch MPS and MLX computation. Availability of installation candidates for the same Python series and successful computation on Apple Silicon will be checked separately in that stage.
+This stage established research Python separate from system Python, recorded project dependencies, and checked execution paths in the terminal, editor and notebook. Next I intend to use a separate small AI project to test actual PyTorch MPS and MLX computation.

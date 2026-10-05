@@ -64,7 +64,7 @@ OfflineLab에는 환경 재구축에 필요한 파일과 기록을 모으고, �
 | CUDA                   | Toolkit `13.4`; `nvcc V13.4.92`                                   | `cuda_13.4.2_windows_x86_64.exe`       |
 | Ollama                 | `0.34.2`                                                          | Windows x64 installer                  |
 
-uv 아카이브에는 `uv.exe`, `uvw.exe`, `uvx.exe`가 들어 있습니다. CUDA 이름은 특히 구분할 필요가 있습니다. `13.4.2`는 보존한 설치 파일 릴리스이고, `13.4`는 설치된 Toolkit 계열이며, `V13.4.92`는 관찰한 컴파일러 버전입니다. 서로 연관된 서로 다른 계층의 표기이며, 하나의 버전을 다르게 보고한 것이 아닙니다.
+uv 아카이브에는 `uv.exe`, `uvw.exe`, `uvx.exe`가 들어 있습니다. CUDA 이름은 특히 구분할 필요가 있습니다. `13.4.2`는 보존한 설치 파일 릴리스이고, `13.4`는 설치된 Toolkit 계열이며, `V13.4.92`는 관찰한 컴파일러 버전입니다. 서로 연관된 값이지만 계층이 다른 표기이며, 하나의 버전을 다르게 보고한 것이 아닙니다.
 
 오프라인 복구에서는 이미 동작한 버전을 다시 구성하는 것이 우선입니다. 새 버전은 별도로 평가해야 하며, 보관 파일을 교체하면 복구 과정에 새로운 호환성 검증이 필요해집니다.
 
@@ -270,7 +270,7 @@ Cannot dlopen some GPU libraries
 
 ## 15. TensorFlow 2.20.0 비교
 
-A/B 비교를 위해 TensorFlow `2.20.0`용 별도 환경를 만들었습니다. 이 버전은 NVIDIA GeForce RTX 5060 Laptop GPU를 찾았고 Compute Capability `12.0`을 보고했습니다.
+A/B 비교를 위해 TensorFlow `2.20.0`용 별도 환경을 만들었습니다. 이 버전은 NVIDIA GeForce RTX 5060 Laptop GPU를 찾았고 Compute Capability `12.0`을 보고했습니다.
 
 GPU 식별 뒤 실제 연산을 시험했습니다. TensorFlow는 사전 빌드된 wheel에 Compute Capability `12.0`과 호환되는 CUDA 커널 바이너리가 없어 PTX에서 JIT 컴파일할 것이라고 경고했습니다. 실제 GPU 작업은 다음 오류로 실패했습니다.
 

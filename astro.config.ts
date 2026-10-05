@@ -19,7 +19,7 @@ import {
 import { transformerFileName } from "./src/utils/transformers/fileName";
 import { rehypeNumberedHeadings } from "./src/utils/rehypeNumberedHeadings";
 import { rehypeWrapTables } from "./src/utils/rehypeWrapTables";
-import { rehypeExternalLinks } from "./src/utils/rehypeExternalLinks";
+import { rehypeBodyLinks } from "./src/utils/rehypeBodyLinks";
 import config from "./astro-paper.config";
 
 export default defineConfig({
@@ -48,7 +48,7 @@ export default defineConfig({
         rehypeCallouts,
         rehypeNumberedHeadings,
         rehypeWrapTables,
-        [rehypeExternalLinks, { siteUrl: config.site.url }],
+        [rehypeBodyLinks, { siteUrl: config.site.url }],
       ],
     }),
     shikiConfig: {

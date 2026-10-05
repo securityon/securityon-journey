@@ -7,24 +7,22 @@ type HastNode = {
 
 type Options = { siteUrl: string };
 
-export function rehypeExternalLinks({ siteUrl }: Options) {
-  const siteOrigin = new URL(siteUrl).origin;
-
+export function rehypeBodyLinks({ siteUrl }: Options) {
   return (tree: HastNode) => {
     function visit(node: HastNode) {
       const href = node.properties?.href;
-      if (node.tagName === "a" && typeof href === "string") {
+      if (
+        node.tagName === "a" &&
+        typeof href === "string" &&
+        !href.startsWith("#")
+      ) {
         let url: URL | undefined;
         try {
           url = new URL(href, siteUrl);
         } catch {
           // Leave non-URL links unchanged.
         }
-        if (
-          url &&
-          (url.protocol === "https:" || url.protocol === "http:") &&
-          url.origin !== siteOrigin
-        ) {
+        if (url && (url.protocol === "https:" || url.protocol === "http:")) {
           const properties = (node.properties ??= {});
           properties.target = "_blank";
           const rel = properties.rel;

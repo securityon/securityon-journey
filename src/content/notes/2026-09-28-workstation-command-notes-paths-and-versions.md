@@ -34,7 +34,7 @@ where.exe uv
 | ------- | ------------------ | --------------------------------------------- |
 | Git     | `2.55.0.windows.3` | `C:\Program Files\Git\cmd\git.exe`            |
 | VS Code | `1.138.0`          | `C:\Program Files\Microsoft VS Code\bin` 아래 |
-| uv      | `0.12.17`          | 사용자 WinGet Links 아래                      |
+| uv      | `0.12.17`          | 내 계정의 WinGet Links 아래                   |
 
 버전과 경로를 나란히 남기니, 나중에 다른 설치본이나 실행 별칭을 만났을 때 비교할 기준이 생겼습니다. VS Code는 이때 `Program Files` 아래 경로가 확인됐습니다. 별도로 보관한 User Installer가 원래 설치에 사용된 파일이었는지는 이 조회로 알 수 없어 미확인으로 남깁니다.
 
@@ -65,7 +65,7 @@ uv python find 3.12
 
 `3.12`를 지정한 설치 결과는 `3.12.14`였습니다. 이 명령 자체가 패치 버전까지 고정한 것은 아니므로, 설치 당시 결과를 함께 보관합니다.
 
-설치 과정에는 사용자 `.local\bin`이 PATH에 없다는 경고가 있었습니다. 후속 `where.exe python` 출력에는 `.local\bin`과 WindowsApps 경로가 함께 나타났습니다. 다만 PATH를 어떻게 수정했는지는 당시 기록에 남아 있지 않습니다.
+설치 과정에는 내 계정의 `.local\bin`이 PATH에 없다는 경고가 있었습니다. 후속 `where.exe python` 출력에는 `.local\bin`과 WindowsApps 경로가 함께 나타났습니다. 다만 PATH를 어떻게 수정했는지는 당시 기록에 남아 있지 않습니다.
 
 `uv python list`로 보이는 Python 목록과 `python --version`으로 실행되는 Python을 함께 확인했습니다. `uv python find 3.12`는 uv가 요청한 버전에 맞춰 찾는 실행 파일을 확인하는 데 썼습니다. 이 명령의 탐색 방식은 [uv의 Python 버전 문서](https://docs.astral.sh/uv/concepts/python-versions/)에서 확인할 수 있습니다.
 
@@ -132,7 +132,7 @@ C:\Windows\System32\reagentc.exe /info
 | `Test-Path C:\Windows\System32\reagentc.exe` | 주어진 전체 경로가 존재하는지 `True` 또는 `False`로 반환합니다. 경로는 위치 인자이며, 이 호출은 파일의 정상 실행 여부를 검사하지 않습니다.   |
 | `C:\Windows\System32\reagentc.exe /info`     | 전체 경로로 프로그램을 실행합니다. `/info`는 Windows RE의 상태와 복구 정보를 표시하는 옵션입니다.                                            |
 
-명령 동작은 [Get-Command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-command), [Test-Path](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/test-path), [REAgentC](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/reagentc-command-line-options) 공식 문서를 참고했습니다. 동작 설명을 추가한 것이며, 당시 실행 여부의 구분은 그대로 유지합니다.
+명령 동작은 [Get-Command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-command), [Test-Path](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/test-path), [REAgentC](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/reagentc-command-line-options) 공식 문서를 참고했습니다.
 
 ## 5. 설치 목록을 읽기 쉽게 줄이기
 
@@ -195,7 +195,7 @@ where.exe jupyter-lab
 
 ## 8. uv 의존성과 캐시
 
-첫 묶음은 실행 출력이 있습니다. `uv add`는 의존성을 추가하고 `uv run`은 프로젝트 환경에서 명령을 실행합니다. `New-Item -ItemType Directory -Force`는 디렉터리를 준비하며 `-Force`는 이미 존재하는 디렉터리를 허용합니다. hardlink 실패 뒤 copy fallback 경고가 있었지만 설치는 완료됐습니다. 캐시 경로를 바꾸는 환경변수 설정도 함께 적었습니다. 이 설정의 적용 여부는 기록에 남아 있지 않습니다. `User`는 사용자 범위이며, 변경 후에는 새 셸에서 캐시 경로를 확인해야 합니다.
+첫 묶음은 실행 출력이 있습니다. `uv add`는 의존성을 추가하고 `uv run`은 프로젝트 환경에서 명령을 실행합니다. `New-Item -ItemType Directory -Force`는 디렉터리를 준비하며 `-Force`는 이미 존재하는 디렉터리를 허용합니다. hardlink 실패 뒤 copy fallback 경고가 있었지만 설치는 완료됐습니다. 캐시를 D:로 옮긴 상태는 앞선 개발환경 노트에 기록했고, 오프라인 자산 점검에서도 해당 위치의 uv 캐시를 확인했습니다. 아래에는 그 경로를 지정하는 환경변수 설정을 남겼습니다. `User`는 사용자 범위이며, 변경 후에는 새 셸에서 캐시 경로를 확인해야 합니다.
 
 ```powershell
 uv add requests
@@ -279,7 +279,7 @@ cat /mnt/d/Lab/Research/wsl-test.txt
 
 ## 11. Git 설정과 변경 확인
 
-Windows 작업 위치는 D:\Lab\Research\smoke-test, WSL은 ~/research/wsl-smoke-test였습니다. `--global`은 사용자 설정, `input`은 당시 core.autocrlf 값입니다. `init`은 초기화, `add .`은 현재 경로의 변경 스테이징, `commit -m`은 메시지를 지정한 커밋입니다. `branch -m`은 이름 변경, `--show-current`는 현재 브랜치 조회입니다. `status --short`는 짧은 상태, `log -1 --oneline`은 최근 한 커밋의 한 줄 표시입니다. `diff --`는 뒤를 경로로 구분하며 `ls-files --eol`은 인덱스·작업 파일의 줄바꿈을 조회합니다. 이메일은 `<email>`로 일반화했습니다. 초기 Windows 커밋은 master였고, .gitattributes 변경 원인은 미확인입니다.
+Windows 작업 위치는 `D:\Lab\Research\smoke-test`, WSL은 `~/research/wsl-smoke-test`였습니다. `--global`은 사용자 설정, `input`은 당시 `core.autocrlf` 값입니다. `init`은 초기화, `add .`은 현재 경로의 변경 스테이징, `commit -m`은 메시지를 지정한 커밋입니다. `branch -m`은 이름 변경, `--show-current`는 현재 브랜치 조회입니다. `status --short`는 짧은 상태, `log -1 --oneline`은 최근 한 커밋의 한 줄 표시입니다. `diff --`는 뒤를 경로로 구분하며 `ls-files --eol`은 인덱스·작업 파일의 줄바꿈을 조회합니다. 이메일은 `<email>`로 일반화했습니다. 초기 Windows 커밋의 브랜치는 `master`였고, `.gitattributes` 변경 원인은 미확인입니다.
 
 ```powershell
 Get-Content .gitignore
@@ -474,4 +474,4 @@ code --list-extensions --show-versions | sort
 
 ## 옵션 설명의 참고 문서
 
-추가한 설치·프로젝트 옵션은 [WinGet install](https://learn.microsoft.com/en-za/windows/package-manager/winget/install), [uv CLI](https://docs.astral.sh/uv/reference/cli/)를 참고했습니다. 이 문서는 명령 동작 설명을 보조하며 당시 실행 결과를 대신하지 않습니다.
+설치·프로젝트 옵션은 [WinGet install](https://learn.microsoft.com/en-za/windows/package-manager/winget/install), [uv CLI](https://docs.astral.sh/uv/reference/cli/)를 참고했습니다. 이 문서는 명령 동작 설명을 보조하며 당시 실행 결과를 대신하지 않습니다.

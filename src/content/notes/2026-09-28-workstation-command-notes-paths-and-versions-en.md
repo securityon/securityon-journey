@@ -34,7 +34,7 @@ where.exe uv
 | ------- | ------------------ | ---------------------------------------------- |
 | Git     | `2.55.0.windows.3` | `C:\Program Files\Git\cmd\git.exe`             |
 | VS Code | `1.138.0`          | Under `C:\Program Files\Microsoft VS Code\bin` |
-| uv      | `0.12.17`          | Under the user's WinGet Links directory        |
+| uv      | `0.12.17`          | Under my account's WinGet Links directory      |
 
 Keeping versions and paths together gave me a reference for later encounters with another installation or execution alias. The VS Code query reported a location under `Program Files`. Whether the separately preserved User Installer was the file used for the original installation remains unverified.
 
@@ -65,7 +65,7 @@ uv python find 3.12
 
 The request for `3.12` installed `3.12.14`. The command did not pin that patch version, so the observed result belongs alongside the installation command.
 
-Installation produced a warning that the user's `.local\bin` was absent from PATH. A subsequent `where.exe python` result included both `.local\bin` and WindowsApps paths. My notes do not record exactly how PATH was changed.
+Installation produced a warning that my account's `.local\bin` was absent from PATH. A subsequent `where.exe python` result included both `.local\bin` and WindowsApps paths. My notes do not record exactly how PATH was changed.
 
 I compared the Python installations shown by `uv python list` with the interpreter reached by `python --version`. I also used `uv python find 3.12` to locate the executable matching that request through uv. The search behaviour is described in [uv's Python versions documentation](https://docs.astral.sh/uv/concepts/python-versions/).
 
@@ -195,7 +195,7 @@ where.exe jupyter-lab
 
 ## 8. uv dependencies and cache
 
-Execution output exists for the first group. `uv add` adds a dependency; `uv run` runs a command in the project environment. `New-Item -ItemType Directory -Force` prepares a directory and tolerates an existing directory. Installation completed after a hardlink warning and copy fallback. I have also included the environment-variable setting for changing the cache path. My notes do not establish whether it was applied. `User` selects user scope; the changed path needs to be checked in a new shell.
+Execution output exists for the first group. `uv add` adds a dependency; `uv run` runs a command in the project environment. `New-Item -ItemType Directory -Force` prepares a directory and tolerates an existing directory. Installation completed after a hardlink warning and copy fallback. The earlier development-baseline Note records moving the cache to D:, and the offline-assets check confirmed the uv cache at that location. The environment-variable command below selects that path. `User` selects user scope; the changed path needs to be checked in a new shell.
 
 ```powershell
 uv add requests
@@ -474,4 +474,4 @@ code --list-extensions --show-versions | sort
 
 ## References for option behaviour
 
-The added installation and project options were checked against [WinGet install](https://learn.microsoft.com/en-za/windows/package-manager/winget/install) and the [uv CLI reference](https://docs.astral.sh/uv/reference/cli/). These support command explanations, not historical execution results.
+The installation and project options were checked against [WinGet install](https://learn.microsoft.com/en-za/windows/package-manager/winget/install) and the [uv CLI reference](https://docs.astral.sh/uv/reference/cli/). These support command explanations, not historical execution results.

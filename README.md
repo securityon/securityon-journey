@@ -48,6 +48,16 @@ The project requires Node.js 22.12 or later. From the repository root:
 | `pnpm lint`         | Run ESLint.                                                                           |
 | `pnpm format:check` | Check formatting with Prettier.                                                       |
 
+## Editorial workflow
+
+[AGENTS.md](AGENTS.md) is the persistent project agreement for author viewpoint,
+bilingual consistency, evidence boundaries, validation and publication approval.
+Read its current rules and the latest [EDITORIAL_PROGRESS.md](EDITORIAL_PROGRESS.md)
+checkpoint before editing. [CODEX_EDITORIAL_PROMPT.md](CODEX_EDITORIAL_PROMPT.md)
+is a reusable task prompt to invoke explicitly; it is not automatically loaded
+configuration. Dated review summaries record completed reviews and do not replace
+these current instructions.
+
 ## Project background
 
 This project originated from [AstroPaper by Sat Naing](https://github.com/satnaing/astro-paper)

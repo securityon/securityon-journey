@@ -497,7 +497,7 @@ print("PHYSICAL OFFLINE TRANSFORMERS WHEELHOUSE PASS")
 
 ## 6. First bundle failure, hash comparison and WSL restart
 
-The initial clone actually failed, followed by failed cd and Git queries. The hash-comparison code below shows how to compare expected hashes with current files. I have no checked-entry count or individual results from that time. `-match` splits a 64-character hash and path into `$matches`; `-ne` compares the current hash. The original script does not fully validate malformed lines, errors or empty input. The last test shuts down and restarts WSL, not Windows. Its original REBOOT success string is retained.
+The initial clone actually failed, followed by failed cd and Git queries. The hash-comparison code below shows how to compare expected hashes with current files. I have no checked-entry count or individual results from that time. `-match` splits a 64-character hash and path into `$matches`; `-ne` compares the current hash. This script does not fully validate malformed lines, errors or empty input. The final test prints `REBOOT`, but it shuts down and restarts WSL rather than rebooting Windows.
 
 ```powershell
 $bundle = "D:\Lab\OfflineLab\repos\llama.cpp\b29c606\llama.cpp-b29c606.bundle"

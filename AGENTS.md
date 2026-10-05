@@ -332,6 +332,52 @@ sentences and particles after edits rather than applying broad word replacements
 Do not force synonym rotation, sentence-ending variation, or artificial flaws
 to make prose appear human; concrete evidence and the author's reasoning matter.
 
+### Applying the author's viewpoint
+
+Author viewpoint is the first editorial priority; consistency and repetition
+come next. Review complete paragraphs, headings, tables and conclusions, not
+just a list of suspicious words. Describe the work I performed and the decisions
+I made; move chat handoffs, draft expansion and editorial-review timing into
+working records. Removing that provenance must not strengthen the factual claim.
+
+Do not replace every occurrence of "user", `사용자`, "author" or "assistant".
+Account paths, permissions, user profiles, workshop participants, authorship
+criteria and model roles may legitimately require those terms. Change wording
+only when it treats this journal's author as an outside person's subject.
+
+Resolve ambiguous references such as "this MacBook" through the local context.
+Name the actual system or test target when needed, but do not repeat the full
+hardware specification in every introduction. Retain specifications that matter
+for interpreting a measurement, and preserve literal questions and model output.
+Repeated series references should help the reader locate the relevant work rather
+than repeat a standard introduction or closing recap.
+
+Explain an unfamiliar term through its concrete role before relying on it.
+For dependency records, name `uv.lock` or `pnpm-lock.yaml` and explain what they
+record rather than relying solely on a literal translation of "lockfile".
+At the first numerical test result, explain the input, expected result and pass
+criterion. Identify chosen tolerances as experiment criteria and explain their
+purpose without presenting them as derived bounds or official recommendations.
+
+### Consistency between Notes
+
+Before describing a state as unverified, compare relevant earlier and later
+Notes and available execution records. An observed final state and a missing
+transcript for one command are different evidence boundaries. Do not turn missing
+per-command output into a claim that previously observed files or settings were
+never confirmed; do not infer that a particular command ran from that state alone.
+
+Distinguish contradictions from changes over time. Preserve initial design plans,
+then describe implementation changes and superseding decisions in the appropriate
+later record. Do not rewrite every earlier "next step" as completed. A final
+configuration or current task list must not leave an abandoned plan pending.
+Keep these distinctions equivalent in Korean and English.
+
+When naming another Note, use its actual title or an explicitly descriptive link
+label. Do not present an invented alternate title as the Note's name. Review
+related introductions and conclusions for unnecessary duplication without
+removing evidence or limitations needed to understand each experiment.
+
 ### Terminology consistency
 
 Choose terms by their role; do not rotate synonyms merely for stylistic variety.
@@ -393,11 +439,12 @@ Avoid excessive bolding. Emphasis should make semantic categories easier to
 scan. Check actual Markdown source for accidental literal escape artefacts;
 do not change valid syntax because a chat copy displayed it differently.
 
-### External reference links
+### Note body links
 
-Markdown body links to external HTTP(S) sites open in a new tab with
-`target="_blank"` and `rel="noopener noreferrer"` through the shared rehype
-processor. Internal links and section anchors keep their normal navigation.
+Markdown body links to internal pages and external HTTP(S) sites open in a
+new tab with `target="_blank"` and `rel="noopener noreferrer"` through the
+shared rehype processor. Same-page section anchors keep their normal navigation.
+Site navigation, language controls and previous/next controls are unchanged.
 Preserve this shared behaviour rather than adding per-Note HTML links.
 Use words or an en dash for numerical ranges; do not use paired tildes that
 Markdown may render as strikethrough.
@@ -651,7 +698,8 @@ application font.
 
 Before editing:
 
-1. Read this file.
+1. Read this file and the latest checkpoint in `EDITORIAL_PROGRESS.md`. For an
+   explicitly invoked editorial prompt, also read `CODEX_EDITORIAL_PROMPT.md`.
 2. Run `git status --short`.
 3. Treat existing modifications as user-owned.
 4. Inspect the relevant schema, route, helpers, components, styles, and history.
@@ -713,7 +761,28 @@ a site build is not required.
 
 At completion, report the files changed, important editorial or technical
 decisions, validation results and warnings, and factual ambiguities deliberately
-left unresolved. State when a required check could not be completed.
+left unresolved. State when a required check could not be completed. Clearly state
+whether the requested work is complete, what remains, and whether a commit or
+push was performed; do not leave completion implicit in a progress checkpoint.
+
+### Presenting editorial comparisons
+
+For a multi-Note editorial review, save a starting snapshot and progress inventory
+before making changes. Preserve pre-existing edits and compare against that
+snapshot rather than assuming Git HEAD is the review baseline. Keep snapshots
+and detailed comparison artifacts outside published Note content.
+
+When preparing a requested before/after comparison, include both versions with
+one surrounding non-empty source line on either side, identifying this context
+convention. Preserve paragraph text and original line numbers; exclude padding-only
+changes and mask private account paths. A source line may be an entire paragraph.
+In HTML, highlight removed and added text separately with colours and a second
+visual cue; colouring whole paragraphs identically is insufficient. Keep unchanged
+text and surrounding context visually quieter. Check that every displayed version
+matches its source and that each comparison contains a real difference. Verify the
+rendered result when permitted; report any actual viewing limitation without
+claiming visual verification. A comparison artifact is not permission to commit
+or publish its underlying changes.
 
 ### Known verification-file notices
 

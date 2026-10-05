@@ -283,7 +283,7 @@ XLA 시험은 `TensorFlow Nightly XLA GPU PASS`로 끝났습니다. 대화형 �
 
 ## 15. 프로젝트 내부의 cuDNN 검증
 
-이 노트를 최종 검토하면서 cuDNN 설치 범위를 추가로 확인했습니다. WSL에는 시스템 전체에 설치된 cuDNN 패키지가 없었고 `dpkg -l | grep -i cudnn`도 결과를 반환하지 않았습니다. 반면 `/home/securityon/research/tensorflow-nightly-smoke-test` 환경에는 `nvidia-cudnn-cu12 9.26.0.51`이 있었고, XLA 실행에서 `Loaded cuDNN version 92600`을 기록했습니다.
+cuDNN이 어느 범위에 설치됐는지도 확인했습니다. WSL에는 시스템 전체에 설치된 cuDNN 패키지가 없었고 `dpkg -l | grep -i cudnn`도 결과를 반환하지 않았습니다. 반면 `/home/securityon/research/tensorflow-nightly-smoke-test` 환경에는 `nvidia-cudnn-cu12 9.26.0.51`이 있었고, XLA 실행에서 `Loaded cuDNN version 92600`을 기록했습니다.
 
 관찰한 상태는 다음과 같습니다.
 

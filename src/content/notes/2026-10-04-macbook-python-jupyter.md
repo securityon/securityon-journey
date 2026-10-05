@@ -37,7 +37,7 @@ export UV_CACHE_DIR="$HOME/Developer/.tools/uv-cache"
 
 이후 로그인 셸에서 `uv python install 3.13`을 실행했습니다. [uv의 Python 관리 설명](https://docs.astral.sh/uv/guides/install-python/)에 따르면 관리형 Python은 Astral의 python-build-standalone 배포를 사용합니다. 이번에 설치한 Python도 그 경로이며 python.org의 macOS 설치 패키지를 사용한 것은 아닙니다.
 
-## 2. 프로젝트별 가상환경과 잠금 파일
+## 2. 프로젝트별 가상환경과 의존성 기록
 
 기준 프로젝트는 클라우드 동기화 밖의 `~/Developer/research-python-baseline`에 만들었습니다.
 
@@ -120,6 +120,6 @@ uv run --locked --offline research-python-baseline
 
 이미 있는 `.venv`와 캐시를 이용한 반복 실행입니다. `--offline`으로 새 패키지를 요청하지 않고 작업할 수 있는 것은 확인했지만, 이 실행으로 네트워크를 끊은 장비 전체나 깨끗한 새 환경의 복구를 검증한 것은 아닙니다.
 
-별도 프로젝트 복사본에서 잠금 파일을 이용해 환경을 새로 구성하는 시험과, 남길 결과를 Google Drive에 보존하고 내용을 대조하는 작업은 후속 범위입니다.
+별도 프로젝트 복사본에서 `uv.lock`에 기록한 버전을 이용해 환경을 새로 구성하는 시험과, 남길 결과를 Google Drive에 보존하고 내용을 대조하는 작업은 후속 범위입니다.
 
-이번 단계에서는 시스템 Python과 구분된 연구용 Python, 프로젝트별 의존성 기록, 터미널과 편집기·노트북의 실행 경로를 확보했습니다. 다음에는 이 기반과 분리된 작은 AI 프로젝트에서 PyTorch MPS와 MLX의 실제 연산을 확인할 생각입니다. 같은 Python 계열의 설치 후보가 있다는 사실과 Apple Silicon에서 계산이 성공한다는 결과는 다음 단계에서 각각 확인하겠습니다.
+이번 단계에서는 시스템 Python과 구분된 연구용 Python, 프로젝트별 의존성 기록, 터미널과 편집기·노트북의 실행 경로를 확보했습니다. 다음에는 이 기반과 분리된 작은 AI 프로젝트에서 PyTorch MPS와 MLX의 실제 연산을 확인할 생각입니다.

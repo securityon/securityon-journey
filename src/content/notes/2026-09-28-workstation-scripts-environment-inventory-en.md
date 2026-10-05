@@ -185,7 +185,7 @@ Out-File D:\Lab\OfflineLab\manifests\known-folders-baseline.txt -Encoding utf8
 
 ## 6. Saving Windows and WSL baselines
 
-These scripts save Windows and WSL baselines to files. I cannot confirm the files created at the time, so this section focuses on the method. Git configuration queries without a value read the setting. Output can contain personal email and user paths, so inspect files before publication. Bash `{ ...; }` groups commands in the current shell; `>` saves standard output. `date --iso-8601=seconds` requests a timestamp to seconds, and `ls -ld` reports details of the directory itself.
+These scripts save Windows and WSL baselines to files. The earlier development-baseline Note records saving the baseline files. I did not retain the immediate output of each script, so this section describes the saving method and what to check. Git configuration queries without a value read the setting. Output can contain personal email and user paths, so inspect files before publication. Bash `{ ...; }` groups commands in the current shell; `>` saves standard output. `date --iso-8601=seconds` requests a timestamp to seconds, and `ls -ld` reports details of the directory itself.
 
 ```powershell
 @(
