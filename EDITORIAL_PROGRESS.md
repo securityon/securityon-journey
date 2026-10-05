@@ -767,3 +767,58 @@ tracked/untracked whitespace, KO/EN routes/translation links/OGs, external
 reference targets and two D1으로 corrections. SSH fetch denied publickey;
 author asked to reload the existing key in normal Terminal. Commit can proceed;
 push and public deployment verification await authentication.
+
+## 2026-10-05: Seventh MacBook Note — configuration and reconstruction
+
+Sixth Note 9f152c0 pushed successfully after author reloaded SSH key; public
+KO/EN and Cloudflare success were verified at that time. New author preference:
+future authorised pushes stop after Git push success, without deployment waits
+or public-page checks. AGENTS records this preference.
+
+Seventh stage in progress: GitHub website clone at 9f152c0 built from frozen
+pnpm lockfile; Python source/lock copied without venv/cache/results and fresh
+venv created with uv sync --locked. Script verified55/11.0 and Notebook
+executed in the new venv after local Jupyter runtime paths were specified.
+Existing uv package cache reused: not a clean OS or empty-cache rebuild.
+Three local source tarballs and actual result copies saved under Research,
+byte comparisons passed. Toy cloud revision1 downloaded with matching SHA-256;
+revision2 synced and version1 still present, recovery download in progress.
+Author selected three separate private GitHub research repositories; remote
+creation and all commit/push still await specific completed-change approval.
+No seventh Note commit/push authorised. KO/EN drafting next.
+
+Seventh cloud recovery completed: in-app browser earlier-version download
+returned HTTP error. Native Chrome downloaded version1 successfully (93bytes),
+SHA-256 matched the original. Restored the local revision2 test file from that
+older cloud download and confirmed revision1/55 and original hash. Cause of
+in-app HTTP error not established. No private documents used or deleted.
+Three project READMEs updated to factual execution/reconstruction states;
+updated review-ready source archives and file manifests saved under Research,
+original dated archives retained. Three private GitHub repositories remain
+uncreated pending explicit creation/commit/push approval. No project Git commits.
+KO/EN seventh drafts complete; final preview checks in progress. No website
+commit/push authorised. New push-only verification preference preserved.
+
+Seventh Note preparation complete: final lint/build, focused Prettier,
+tracked/untracked whitespace and source path-privacy checks passed. Generated
+KO/EN routes, translation links, external reference new-tab target and OG
+references verified; both OGs visually reviewed. KO/EN browser content and
+no document horizontal overflow confirmed. Corrected .gitignore wording to
+avoid implying local research repositories already existed; representative
+Python commands now retain the actually used --project option. Draft:true
+restored after preview build. Full format result preserved in technical log.
+Review-ready seventh pair, updated AGENTS/progress and three research READMEs
+are saved. Separate private remote creation/initial commits/pushes and website
+commit/push are not approved. Next: author review and specific approval.
+
+Seventh editorial refinement: removed routine push/deployment preferences and
+in-app browser HTTP incident from both public drafts. Replaced Korean lockfile
+translation with concrete uv.lock/pnpm-lock.yaml purpose and version records.
+Recovery success evidence retained; incident remains only in technical records.
+Focused formatting, lint, preview build and whitespace checks passed; draft:true
+restored. No commit/push authorised or performed.
+
+Author approved committing and pushing the reviewed seventh Note pair with
+AGENTS and this progress record. Both Notes set to draft:false for publication.
+Research private repository creation and initial pushes remain unapproved and
+outside this website publication. Stop after successful website push.

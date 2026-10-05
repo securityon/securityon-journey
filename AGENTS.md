@@ -740,6 +740,11 @@ Approval for an earlier push does not authorise later corrections or follow-up
 pushes. Every push requires its own explicit permission; do not infer it from
 installation, drafting, editing, or validation requests.
 
+After an authorised push succeeds, stop without waiting for deployment or
+checking the public site unless the author explicitly requests those checks.
+Report push completion separately from deployment; do not claim public
+reflection was verified when it was intentionally not checked.
+
 ### Resuming editorial work
 
 For editorial work spanning multiple batches, maintain `EDITORIAL_PROGRESS.md`
