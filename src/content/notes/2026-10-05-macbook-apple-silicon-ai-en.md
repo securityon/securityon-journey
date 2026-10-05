@@ -4,6 +4,7 @@ description: "Configuring PyTorch and MLX in a separate MacBook Python project a
 lang: en
 translationKey: macbook-apple-silicon-ai
 pubDatetime: 2026-10-05T00:00:00+09:00
+sortOrder: 5
 tags:
   - research-journey
   - macos

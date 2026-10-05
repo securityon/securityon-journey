@@ -4,6 +4,7 @@ description: "Recording code, material and result preservation boundaries, and r
 lang: en
 translationKey: macbook-workstation-configuration
 pubDatetime: 2026-10-05T00:00:00+09:00
+sortOrder: 7
 tags:
   - research-journey
   - macos

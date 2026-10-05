@@ -12,6 +12,7 @@ const notes = defineCollection({
       author: z.string().default(config.site.author),
       pubDatetime: z.date(),
       modDatetime: z.date().optional().nullable(),
+      sortOrder: z.number().int().optional(),
       title: z.string(),
       featured: z.boolean().optional(),
       draft: z.boolean().optional(),

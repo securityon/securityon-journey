@@ -4,6 +4,7 @@ description: "작은 언어 모델을 MacBook에서 실행하고, 공개된 연�
 lang: ko
 translationKey: macbook-local-llm
 pubDatetime: 2026-10-05T00:00:00+09:00
+sortOrder: 6
 tags:
   - research-journey
   - macos

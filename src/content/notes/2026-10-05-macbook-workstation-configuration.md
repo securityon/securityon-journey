@@ -4,6 +4,7 @@ description: "구축한 MacBook 연구환경의 코드·자료·결과 보존 �
 lang: ko
 translationKey: macbook-workstation-configuration
 pubDatetime: 2026-10-05T00:00:00+09:00
+sortOrder: 7
 tags:
   - research-journey
   - macos

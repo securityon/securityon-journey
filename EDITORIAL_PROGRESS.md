@@ -868,3 +868,33 @@ Editorial agreement refinement after author review of the comparison: AGENTS.md 
 Author explicitly approved one combined commit and push of the reviewed Note edits and editorial/configuration files. Include the previously prepared shared Note-body new-tab processor and command-reference source bundle/pair. The command-reference pair retains its reviewed draft:true state; no additional publication-status change requested. Previous evidence-preservation, lint/build and route/OG/link checks remain applicable; final staging checks follow. Stop after successful push, with no deployment polling. This authorisation supersedes earlier pending permission checkpoints for this combined change.
 
 Combined publication preparation checks complete: focused documentation/source formatting and git diff --check passed; 48 generated routes, translation/OG references, source evidence and unchanged archive rechecked. Remote main fetched successfully; local and remote tips match before the combined commit. Previously completed lint/content build remain valid because subsequent changes are documentation-only. Command-reference remains draft:true. Authorised combined commit and push follow.
+
+
+## 2026-10-05: Command-reference publication and equal-date ordering
+
+Author requested correction after finding the final companion absent from the
+public list. Its source was pushed in c2d5d20 but remained draft:true. Both
+command-reference Notes now use draft:false. Added optional integer sortOrder
+to the content schema and shared sorter, applied only when last-updated
+timestamps match. MacBook stages 5/6/7 and companion 8 use matching KO/EN values
+5/6/7/8, so lists, RSS and adjacent navigation share the intended order.
+Publication times, Note bodies and source ZIP remain unchanged. Before snapshots
+and validation logs: Codex task work/note-publication-order. Validation pending;
+no new commit or push authorised or performed.
+
+Publication/order preparation COMPLETE: ESLint and production build passed
+(Astro check: zero errors, warnings or hints). Actual generated KO/EN lists,
+RSS, adjacent links, translation links, OG references and 1200x630 images
+verified. Sorter checks cover date precedence, modDatetime, draft filtering,
+unchanged input and default tie behaviour. All eight Note bodies and original
+publication timestamps are byte-equivalent to starting snapshots after removing
+the intended frontmatter changes. Source ZIP hash unchanged. Full formatting
+result retained in technical log; focused formatting and whitespace checks
+passed. Ready for author review; no commit/push performed or approved.
+
+
+Author explicitly approved committing and pushing the completed publication
+and ordering correction (12 reviewed files). This supersedes the pending
+approval above. Prior lint/build/generated-output checks remain applicable;
+final whitespace and staging checks follow. Stop after successful push without
+deployment polling.

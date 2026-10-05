@@ -4,6 +4,7 @@ description: "A reference to the commands and verification source used during th
 lang: en
 translationKey: macbook-workstation-commands
 pubDatetime: 2026-10-05T00:00:00+09:00
+sortOrder: 8
 tags:
   - research-journey
   - macos
@@ -11,7 +12,7 @@ tags:
   - development
   - reproducibility
 featured: false
-draft: true
+draft: false
 ---
 
 The seven MacBook setup Notes recorded tool choices and execution results in stages. This companion brings together the commands and verification scripts for later reference. It covers environment inspection, website maintenance, Python/Jupyter, GPU computation and local inference, with working directories and results to check.

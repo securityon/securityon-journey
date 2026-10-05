@@ -4,6 +4,7 @@ description: "Running a small language model on MacBook and checking whether ans
 lang: en
 translationKey: macbook-local-llm
 pubDatetime: 2026-10-05T00:00:00+09:00
+sortOrder: 6
 tags:
   - research-journey
   - macos

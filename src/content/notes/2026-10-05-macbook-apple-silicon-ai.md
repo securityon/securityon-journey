@@ -4,6 +4,7 @@ description: "MacBook의 별도 Python 프로젝트에 PyTorch와 MLX를 구성�
 lang: ko
 translationKey: macbook-apple-silicon-ai
 pubDatetime: 2026-10-05T00:00:00+09:00
+sortOrder: 5
 tags:
   - research-journey
   - macos

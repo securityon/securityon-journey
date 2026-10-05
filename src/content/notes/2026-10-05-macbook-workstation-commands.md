@@ -4,6 +4,7 @@ description: "MacBook 구축에 사용한 명령과 검증 소스를 모으고, 
 lang: ko
 translationKey: macbook-workstation-commands
 pubDatetime: 2026-10-05T00:00:00+09:00
+sortOrder: 8
 tags:
   - research-journey
   - macos
@@ -11,7 +12,7 @@ tags:
   - development
   - reproducibility
 featured: false
-draft: true
+draft: false
 ---
 
 MacBook 구축 일곱 편에서는 도구를 선택한 이유와 실행 결과를 단계별로 기록했습니다. 이 글은 그 과정에서 사용한 명령과 검증 스크립트를 다시 찾기 위한 참고 편입니다. 환경 점검부터 홈페이지 관리, Python·Jupyter, GPU 계산과 로컬 LLM까지 실행 위치와 확인할 결과를 함께 모았습니다.

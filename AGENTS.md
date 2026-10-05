@@ -81,7 +81,10 @@ Important Note frontmatter:
 
 `noteFilter()` excludes drafts. In production it also withholds scheduled Notes until the configured scheduling margin; development shows non-draft future Notes for authoring.
 
-`getSortedNotes()` sorts descending by `modDatetime ?? pubDatetime`.
+`getSortedNotes()` sorts descending by `modDatetime ?? pubDatetime`. For equal
+timestamps, optional integer `sortOrder` breaks ties in descending order
+(default `0`). Keep this value identical in a KO/EN pair. Use it to preserve
+series order without inventing publication times; it does not override dates.
 
 `getUniqueTags()` applies Note visibility filtering, slug-deduplicates tags, and sorts them.
 
