@@ -343,6 +343,28 @@ just a list of suspicious words. Describe the work I performed and the decisions
 I made; move chat handoffs, draft expansion and editorial-review timing into
 working records. Removing that provenance must not strengthen the factual claim.
 
+For course and workshop Notes, write as the participant who learnt, tried and
+understood the material. Avoid lecturer or reviewer narration such as
+`복습에서는 ... 소개했습니다` or "the handout introduced ..." when a direct
+account of what I learnt or implemented is clearer. Explain concepts directly;
+retain source attribution when it matters to a quotation, policy or technical
+claim. Do not narrate editorial supplementation (`공식 문서를 참고해 설명을
+보충했습니다`); put useful references beside the explanation itself.
+
+A short recap in supplied material does not establish that the original course
+was brief or that the author lacked earlier practice. Use confirmed learning
+history without inventing exercises or treating missing attachments as missing
+experience. Preserve the distinction between recalling an earlier course and
+performing the current exercise in both languages.
+
+Distinguish a reference to another Note from a recollection of the activity.
+Use "In the previous Note, I described ..." / `앞 글에서는 ... 기술했습니다`
+when connecting articles; use "I learnt/implemented ..." only when referring
+to the actual learning or work. For capabilities such as installing a Skill,
+name what the reader supplies, what the application does, and how the result
+is used. Explain terms such as a repository address through their concrete role
+rather than assuming attendance at the course.
+
 Do not replace every occurrence of "user", `사용자`, "author" or "assistant".
 Account paths, permissions, user profiles, workshop participants, authorship
 criteria and model roles may legitimately require those terms. Change wording
@@ -356,6 +378,10 @@ Repeated series references should help the reader locate the relevant work rathe
 than repeat a standard introduction or closing recap.
 
 Explain an unfamiliar term through its concrete role before relying on it.
+Introduce course-specific example files and functions with their purpose,
+inputs and behaviour before describing how their implementation was divided.
+An illustrative calculation may clarify the expected result, but must not be
+presented as captured execution output or an additional test that was run.
 For dependency records, name `uv.lock` or `pnpm-lock.yaml` and explain what they
 record rather than relying solely on a literal translation of "lockfile".
 At the first numerical test result, explain the input, expected result and pass
@@ -586,6 +612,32 @@ Avoid:
 - unnecessary animation;
 - portfolio-style visual excess.
 
+### Explanatory figures in Notes
+
+Add a diagram, illustration or image when it makes a structure, flow or comparison
+materially easier to understand than prose alone. Use restraint: no image quota,
+decorative filler, automatic image insertion into every Note, or retroactive sweep
+of existing Notes. Keep figures close to the relevant passage and retain enough
+prose for the explanation to stand on its own.
+
+Prefer simple, maintainable vector diagrams for technical relationships. Use
+existing colours, restrained lines and readable labels; avoid making an explanatory
+figure resemble a dashboard. Centre standalone explanatory figures within the
+article column using shared rendering or styling rather than per-Note alignment
+markup. Provide meaningful alt text and equivalent KO/EN
+versions where labels carry meaning. Show actual relationships and distinguish
+conceptual diagrams from measured results or screenshots. Verify rendering and
+legibility at desktop and narrow mobile widths without document overflow.
+
+Judge a figure in the rendered article beside its surrounding paragraphs, not
+only as a standalone image. Match the site's type families and restrained weight
+where practical; keep labels near body-text scale and titles subordinate to
+article headings. Balance its width, height, line weight and internal whitespace
+with the reading column. Reduce oversized boxes, gaps or redundant labels before
+shrinking all text. A tall figure should not dominate the prose unnecessarily.
+Check the complete composition at desktop and mobile widths and preserve useful
+zoom behaviour; passing overflow checks alone does not establish visual balance.
+
 ### Back-to-top and responsive layout
 
 The Note detail page's `app-layout` containing-block structure is the reference
@@ -698,6 +750,13 @@ result typography to Korean search results; English results retain the
 application font.
 
 ## Safe editing workflow
+
+For a batch of serial Notes, establish the intended reading order before
+publication. When the author requests publication-time offsets, give successive
+parts increasing `pubDatetime` values and mirror each value in its KO/EN pair.
+Check the actual generated list (newest first) and previous/next sequence
+(reading order), not just filenames or frontmatter. Do not alter unrelated
+published dates as part of this check.
 
 Before editing:
 

@@ -1,19 +1,596 @@
 # Bilingual Notes editorial progress
 
-Last updated: 2026-10-04 (Asia/Seoul).
+Last updated: 2026-10-17 (Asia/Seoul).
 
 ## Resume here
 
-Urgent unpublish (2026-10-04, current): the author requested removal of the
+AI Agent series publication package (2026-10-17, latest): author explicitly
+selected "3편 모두 공개하고 커밋·푸시" after reviewing the completed Notes and
+figures. Changed only draft: true → false in all six KO/EN sources; preserved
+09:00/09:10/09:20 publication offsets, content and centred figures. This supersedes
+all earlier draft-only and no-push instructions for this completed package.
+Final publication build passed (56 indexed Notes). Verified six generated public
+routes, translation links, series list order 3/2/1, adjacent article links, SVG
+references, RSS inclusion, OG references and 1200×630 PNGs. Prior visual browser
+review remains applicable; actual deployed appearance is still unverified.
+Precommit lint and focused formatting passed; repository format:check retained
+only the existing Naver verification HTML failure (technical log). Origin/main
+matched local main after fetch. Commit scope: six Notes, six SVGs, AGENTS.md,
+EDITORIAL_PROGRESS.md and AI_AGENT_COURSE_EDITORIAL_PLAN.md. Unrelated Mac/Windows
+working files and tmp artifacts remain local. Author authorised committing and
+pushing this package; stop after push without deployment/public-site checks.
+
+Figure alignment follow-up (2026-10-17, latest): author deferred final visual
+judgement until the deployed site can be viewed and requested centred figures.
+Confirmed existing shared .app-prose img uses mx-auto and previous actual browser
+screenshots show the six figures centred within the article column (desktop
+1280px: 480px figure spans x=400–880). No SVG, Note source or shared CSS changes
+needed. Added explicit centred standalone-figure guidance to AGENTS.md. Previous
+font/scale observations remain review considerations, not an author-approved
+redesign request. Current request complete locally; final server appearance is
+unverified and pending later authorised publication/review. All six Notes remain
+drafts. No commit or push. Documentation-only follow-up: focused formatting and
+git diff --check; previous build/browser validation remains applicable.
+
+AI Agent figure/body balance completed locally (2026-10-17, latest): read
+AGENTS.md and latest checkpoint before editing. Added reusable guidance to judge
+figures beside surrounding prose, including font family/weight/scale, dimensions,
+line weight and whitespace; passing overflow alone is insufficient. Reworked six
+KO/EN SVGs: intrinsic width 640 → 480px, heights approximately 854/750/1060 →
+495/450/612px. Compressed boxes and gaps, lightened lines/headings and used site
+UI/application font stacks with local fallbacks (SVG images do not embed fonts).
+Preserved relationships and equivalent labels, shortening several EN labels for
+fit. All six Note sources match the starting snapshots byte-for-byte: text,
+metadata, 09:00/09:10/09:20 offsets and draft: true unchanged. No shared CSS,
+routing, dependencies or unrelated Notes changed.
+
+Validation: preview build passed (56 indexed Notes); isolated local headless Edge
+passed all 18 checks (KO/EN × 3 parts × 1280/390/360px). Figures loaded, stayed
+inside viewport, produced no document overflow and retained mobile zoom/Escape
+behaviour. Visually reviewed all six diagrams in actual surrounding prose, with
+additional narrow mobile views. Desktop body text is 16px, main diagram labels
+about 20px; mobile figure widths are 358/328px. Final build with drafts restored
+passed (50 indexed Notes); six routes and list/RSS entries excluded. Lint,
+focused Markdown/SVG formatting, LF checks and git diff --check passed.
+Repository format:check retained only existing Naver verification HTML failure;
+existing Korean Pagefind stemming notice remains. Snapshots, generator, 18 context
+screenshots, browser measurements and build logs saved outside public content in
+tmp/agent-figure-balance-20261017; temporary browser helper removed. No commit or
+push authorised/performed. Current request complete; await author review.
+
+AI Agent wording/figures review completed (2026-10-17, latest): changed
+parts 2–3 KO/EN introductions to describe the previous article. Explained Skill
+installation in concrete terms: GitHub Skill page URL in chat, app retrieves/
+installs its guidance, chat requests choose usage, HTML Tool creates the file.
+Added one original explanatory diagram per part with localised KO/EN SVGs in
+src/assets/notes/ai-agent-course (six assets): worktree separation/integration;
+Skill import/use; Supervisor versus expert-only Full-Mesh. Central Orchestrator
+Tool calls remain in both patterns, with dashed/bidirectional A2A expert links.
+Uses existing theme colours and standard Markdown images with meaningful alt
+text; no new dependency, shared route/style change or unrelated Note edits.
+AGENTS.md now covers article-reference versus experience transitions, concrete
+capability explanation, and selective/localised/accessible figures (no image
+quota, decorative filler or automatic retroactive insertion). Metadata and
+09:00/09:10/09:20 publication offsets preserved; all six sources draft: true.
+Validation: lint, focused Markdown + SVG HTML-parser formatting, LF/whitespace
+and git diff --check passed. Repository format:check retained only existing
+Naver verification HTML failure (technical log); existing Korean Pagefind
+stemming notice remains. Preview build passed (56 Notes); checked six image
+references and optimised SVG outputs, alt text, languages/translation links,
+list/adjacent order and OG references/PNG dimensions. Six source SVG renders
+and actual mobile screenshots visually reviewed. Browser passed 18 viewport
+checks (KO/EN × 3 parts × widths 1280/390/360), loaded images/no document
+overflow, plus mobile lightbox open/Escape close. Used isolated headless Edge
+because bundled Chromium executable was absent; helper adapted for image lazy
+loading and close animation, not site changes. Final draft build passed (50
+existing Notes); all draft routes, lists and RSS entries excluded. Source
+snapshots, generator and QA evidence remain in tmp/agent-diagram-review-20261017,
+nonpublic; temporary browser script removed. Working plan updated.
+Next: author reviews the text and diagrams. No commit/push authorised or
+performed. This supersedes the in-progress figure checkpoint and prior prose-only
+review status; do not repeat completed drafting/verification.
+
+AI Agent diagrams/clarity review (2026-10-17, in progress): author requested
+article-to-article transitions ("described" rather than "learnt"), a concrete
+external-Skill explanation, restrained explanatory figures and persistent guide
+rules. Saved source/guide/plan snapshots under tmp/agent-diagram-review-20261017.
+Revised part 2 and 3 introductions in KO/EN; explained sending a GitHub Skill
+page URL in chat, installation by the app, conversational use selection and
+Skill guidance versus HTML Tool action. Added one original, localised SVG per
+part: worktree separation/merge; Skill import/use; Supervisor and expert-only
+Full-Mesh with central Tool calls retained. Six SVGs in
+src/assets/notes/ai-agent-course, linked through standard Markdown image paths.
+Use existing theme colours, no scripts, external image services or dependencies.
+Updated AGENTS.md on article transitions, concrete feature descriptions and
+selective/accessibly localised figures. No unrelated Note sweep or shared style
+changes. All source metadata/draft state retained. Next: format/lint/build,
+verify diagrams and actual rendered pages at desktop/mobile, confirm ordering
+and final draft exclusion, then update checkpoints. No commit/push authorised.
+
+AI Agent author review completed (2026-10-17, latest): revised all three
+KO/EN pairs (97/93/104 lines per language) and AGENTS.md. Incorporated confirmed
+August learning/practice with Codex and Gemini without inferring brief teaching
+from the short recap or claiming unrecorded custom-command execution. Removed
+lecturer/reviewer and editorial-supplementation narration, retained useful
+technical references and genuine validation limits. Explained timeline.py,
+its year/period inputs, jump_forward/jump_back calculations and function-stub
+assignment. The 2026/10 example illustrates expected behaviour, not new test
+output. Added the same role-first explanation for invoke in part 2. Updated
+parts 2–3 towards direct implementation narrative. Added reusable guide rules
+for participant voice, learning history, explanatory examples and series order.
+Explicitly requested pubDatetime offsets now 09:00, 09:10, 09:20 +09:00 on
+2026-10-17, mirrored KO/EN; removed sortOrder. No other metadata changed.
+Validation: lint, focused Prettier, git diff --check, new-file LF/whitespace,
+protected metadata/identifier/source-link comparisons against starting snapshots
+and KO/EN equivalence review passed. Preview build passed (56 indexed Notes);
+checked six languages, translation links, OG references, actual timestamps,
+newest-first lists 3→2→1 and previous/next reading order 1→2→3. Visually checked
+six OG PNGs. Restored all to draft: true; final build passed (50 existing Notes),
+with draft detail routes, list and RSS entries absent. Technical format log:
+repository format:check exited 1 only for the existing Naver verification HTML;
+task formatting passed. Existing Korean Pagefind stemming notice retained.
+Starting snapshots and focused actual-source diffs remain in
+`tmp/agent-author-review-20261017/`, outside published content; working plan
+updated to current timestamps. Original PDF sources and unrelated work untouched.
+Next: author continues reviewing the revised drafts, especially parts 2–3.
+No commit or push authorised or performed. This supersedes previous completed
+and in-progress editorial/timestamp checkpoints for this series.
+
+AI Agent author-review revision (2026-10-17, in progress): author clarified
+that the four concepts were taught in detail in August and practised with
+Codex/Gemini. Revised all three KO/EN pairs towards participant perspective;
+removed narration of editorial supplementation and handout presentation while
+keeping useful references and technical limits. Explained timeline.py inputs,
+forward/backward functions and illustrative year arithmetic before worktree
+assignment. Preserved custom-command example status (no invented August
+command execution). At author's explicit request, changed publication times
+to 09:00 / 09:10 / 09:20 +09:00 and removed redundant sortOrder in both languages.
+Updated reusable rules in AGENTS.md and superseding coverage/metadata record
+in AI_AGENT_COURSE_EDITORIAL_PLAN.md. Starting snapshots saved under
+tmp/agent-author-review-20261017. All six remain draft: true. No commit/push
+authorised. Next: validate pair equivalence, preview order/routes/OG and final
+draft exclusion; then record completed review. Earlier equal-date/sortOrder
+checkpoints are superseded by this request.
+
+AI Agent course Notes complete locally (2026-10-17, latest): three KO/EN
+pairs completed, 96/94/105 lines per language. Covers first handout from PDF
+29 onward and all four later handouts. Author confirmed all handout exercises
+succeeded without a separate variant; public prose reflects that, while
+separating synthetic data, protocol conformance, real business use and test
+scope. Four engineering concepts supplemented with primary documents; course
+progression explicitly described as its teaching framework. Supplementary
+links are in both languages. Second title shortened to `AI Agent 개발 2: 도구와
+기억` / `AI Agent Development 2: Tools and Memory` after detecting a broken
+Korean word in its OG; revised PNGs visually inspected. All other OG PNGs
+also visually checked. No unrelated source or guide changes.
+Validation: lint, focused Prettier, pair metadata/heading/technical-identifier
+sets (translated placeholders normalised), source-link equivalence, LF/new
+untracked whitespace and `git diff --check` passed. Reviewed KO/EN prose for
+factual equivalence. Temporary non-draft preview builds passed, indexing 56
+Notes. Verified six static document languages, translation links, OG image
+references, external-link attributes, descending list order 3/2/1, and adjacent
+reading order 1→2→3 in both languages. Restored all six to draft: true; final
+build passed, 61 Astro files with zero diagnostics and 50 indexed existing
+Notes. Verified absence of all draft detail routes, list entries and RSS items.
+Existing Korean Pagefind stemming limitation remains. Technical format log:
+repository format:check exited 1 solely for the existing Naver verification
+HTML; task files passed. Final build passed with expanded permissions needed
+for font/local-server access. PDF/render/preview intermediates removed after
+inspection. Coverage/evidence/source decisions remain in
+AI_AGENT_COURSE_EDITORIAL_PLAN.md. Original PDFs and unrelated work untouched.
+Next: author reviews the three draft pairs. Preparation date is 2026-10-17;
+attendance date 2026-10-12 is in the prose. Equal timestamps use sortOrder 1/2/3.
+No commit or push was performed or authorised. This checkpoint supersedes all
+in-progress checkpoints below; do not repeat completed drafting/validation.
+
+AI Agent course drafting milestone (2026-10-17, latest): completed three
+KO/EN pairs: `ai-agent-development-foundations`,
+`ai-agent-development-tools-and-memory`, and
+`ai-agent-development-orchestration`. Author replied that all handout exercises
+were completed successfully, with no separate variant; incorporated observed
+completion without inventing measurements. Each pair has draft: true and
+preparation timestamp 2026-10-17T09:00:00+09:00; sortOrder 1/2/3 preserves
+reading order for equal timestamps. Four-concept explanations supplemented
+with primary sources and linked in prose. Coverage/evidence decisions saved
+in AI_AGENT_COURSE_EDITORIAL_PLAN.md. Focused Prettier completed. Next: review
+KO/EN factual equivalence and protected literals; lint/build, preview all six
+routes/translation links/series order/OG, then restore drafts and final build.
+No commit/push authorised. This supersedes the prior optional-question pending
+state: hands-on completion is now confirmed.
+
+AI Agent course Notes (2026-10-17, in progress): author attended one day
+of AI Agent development training at company headquarters on 2026-10-12,
+following the August basic course. Read the first handout only from PDF page
+29 (Unit 3) through 37 as requested; extracted/read all remaining four PDFs
+(77/39/81/69 pages). Inspected selected visual diagrams/code/examples in all
+five. Plan three KO/EN draft pairs: foundations + Agent View/worktrees;
+AI API/dashboard + Deep Agents/tools/skills/memory; orchestration + final
+supervisor/full-mesh project and integration. Supplement the four engineering
+concepts with primary Anthropic documentation, and qualify the course's
+progression as a teaching framework rather than a universal taxonomy.
+Checked primary Git, LangChain Deep Agents, MCP and A2A docs for distinctions.
+Author's individual completion/results remain unknown; optional question sent.
+Do not claim successful hands-on outcomes from instructional example screens.
+Keep company identifiers, credentials, slide images and full handouts out of
+published Notes. Existing changes/planning files preserved. All new pairs will
+remain `draft: true`; no commit/push authorised. Next: draft three KO/EN pairs,
+validate routes/translation ordering/OG locally, update this checkpoint.
+
+DBpia publication (2026-10-11, latest): author explicitly requested commit
+and push after reviewing the terminology/clarity revision. Set only the KO/EN
+`2026-10-11-dbpia-reading-and-search` pair to `draft: false`; content, dates
+and other metadata unchanged. Focused formatting, lint, build, source LF/
+whitespace and staged diff checks passed. Both generated languages, translation
+links, list entries, RSS and OG references/1200x630 PNGs verified; the same OG
+layout had been visually checked in the preceding revision. Build indexed 50
+Notes. Fetched origin/main before committing and confirmed no divergence.
+Committed exactly the two Note files as `b193e91` (Publish DBpia webinar reading
+and search notes), then pushed `e8b4126..b193e91` to origin/main successfully.
+Progress and existing local planning/recovery files were excluded from the
+commit. Per the guide, stopped without deployment polling or public-site checks;
+public reflection is not verified. This supersedes previous draft/no-authorisation
+notes for this pair. No further action pending for the authorised publication.
+Future changes and pushes require their own explicit author instruction.
+
+DBpia terminology/clarity validation (2026-10-11, latest): completed both
+97-line drafts after author review. KO event naming now uses `웨비나`, matching
+Elsevier's existing spelling, with `발표` for presented content and `배부 자료`
+for handouts. The only retained `수업` means university course classification,
+not the webinar. English uses webinar/presentation/handout correspondingly.
+Removed the blanket feature-testing disclaimer; no feature execution claims
+were added. Original concept definitions must be checked rather than merely
+wishing to check them. Full-text AI/XML explanations now describe their
+concrete source/process and separate original-text comparison. Reviewed both
+languages and preserved dates, statuses, translationKey, tags and draft state.
+No other Notes or guide files changed. Focused formatting, lint, untracked
+LF/whitespace checks and `git diff --check` passed. Expanded-permission preview
+and final draft builds passed; generated KO/EN languages, translation links,
+OG references and both OG PNGs checked. Final drafts remain excluded from
+detail routes, lists and RSS (48 indexed Notes; preview 50). Existing Korean
+Pagefind stemming notice remains. Technical format log: whole-repository
+`format:check` exited 1 for the existing Naver verification HTML only; focused
+checks passed. Temporary source snapshots and preview/build intermediates
+were removed after inspection. This supersedes the in-progress revision
+checkpoint below. Next: author reviews the revised pair. No commit or push
+performed or authorised; retain `draft: true` until explicit publication review.
+
+DBpia terminology/clarity revision (2026-10-11, in progress): author reviewed
+four passages. Checked existing Notes: library event uses `특강`/lecture
+material, Elsevier uses `워크숍`, `웨비나`, presentation and workshop material.
+Aligned this KO draft with `웨비나` for the event, `발표` for its content and
+`배부 자료` for the handouts; preserved legitimate `수업·학기` classification.
+Removed the general not-individually-tested disclaimer while retaining
+presentation attribution and avoiding any new executed-feature claims.
+Changed source-definition checking from a wish to a requirement in both
+languages. Explained Full-text AI as image-to-text recognition and Full-text
+XML as publisher-supplied structured text, with a separate source-comparison
+sentence. English event/presentation/handout terminology matches. Only this
+pair changed; published library/Elsevier Notes were inspected, not edited.
+Preparation date, translationKey, tags and `draft: true` remain unchanged.
+Starting source snapshots are in `tmp/dbpia-editorial-20261011/`; validation
+is next. No commit or push is authorised.
+
+DBpia webinar Note validation (2026-10-11, latest): completed the combined
+KO/EN `2026-10-11-dbpia-reading-and-search` draft pair, 95 lines each. Author
+confirmed the two webinar dates and titles; no attendance facts remain pending.
+Both Notes retain `draft: true`, with preparation timestamp
+`2026-10-11T09:00:00+09:00`. No commit or push was performed or authorised.
+Focused Prettier, lint, LF/untracked whitespace review and `git diff --check`
+passed. The temporary non-draft preview build passed (50 indexed Note pages);
+checked static KO/EN languages, both translation links, OG image references
+and shared table wrappers, and visually inspected both OG PNGs. Sources were
+restored to drafts and the final build passed (48 indexed Note pages). Verified
+absence of this pair from final generated detail pages, both lists and RSS.
+Astro checked 61 files with zero errors/warnings/hints. Korean Pagefind stemming
+remains unsupported. Restricted build attempts failed on font fetching/local
+Astro font-server access; approved expanded-permission local builds passed.
+Technical check log: repository `format:check` exited 1 solely for the existing
+`public/naver7fe53df996acb7e90822345eedea536d.html`; task-file formatting passed.
+PDF extraction/rendering/preview intermediates removed after inspection.
+Next: author reviews the KO/EN drafts; revise within the agreed scope. Do not
+publish, commit or push without a new explicit instruction. This checkpoint
+supersedes the preparation checkpoint below. Existing local planning and
+recovery files, progress history and the earlier safety stash were preserved.
+
+DBpia webinar Note preparation (2026-10-11, latest): read both supplied PDF
+handouts (76 and 68 pages) and inspected their covers and key reading, search,
+full-text and AI-function slides. Author confirmed attendance online on
+2026-10-06 and 2026-10-07 and supplied both session titles. Created one combined
+KO/EN draft pair, `2026-10-11-dbpia-reading-and-search`, joining paper structure,
+citation tracing, DBpia access/search, literature organisation and bounded AI
+use. `draft: true`; publication metadata is the draft preparation date, not a
+claim about the webinar dates. No individual feature test, Q&A or measured
+learning outcome is claimed. Attendance/BGM administration and promotional
+claims were omitted. Focused formatting completed; validation is next. No
+commit or push authorised. This checkpoint supersedes the Windows-sync entry
+as the current next task, while preserving that history below.
+
+Windows checkout sync (2026-10-11, latest): after the MacBook's latest push,
+fetched `origin/main` and found this Windows checkout eight commits behind.
+Backed up and stashed only the locally modified `EDITORIAL_PROGRESS.md`, then
+fast-forwarded `main` from `75257a1` to `e8b4126` with `git pull --ff-only`.
+Reapplied the saved progress change without conflicts; both the Windows-local
+MacBook publication checkpoint near the top and the remote 2026-10-05
+command-reference/order checkpoint near the end are present. `HEAD` and
+`origin/main` now match. Existing untracked planning/recovery files are
+untouched. The safety stash and temporary backup remain available; no commit
+or push was made from this Windows checkout. Future website pushes still need
+specific author approval.
+
+MacBook baseline publication (2026-10-04, latest): the author explicitly
+requested committing and pushing the MacBook work. Commit `75257a1` contains
+only the KO/EN `2026-10-04-macos-research-materials-baseline` Note pair, both
+with `draft: false`, and was pushed from `cb9026e` to `origin/main`. The
+generated KO/EN pages and OG PNGs passed local checks; the Korean title was
+shortened to prevent a broken word in the OG image. After deployment, both
+public Note URLs and both OG PNG URLs returned HTTP 200. The website is now
+published for this pair. `EDITORIAL_PROGRESS.md` and all other local working
+files remain outside the commit. The MacBook's own website clone/build/push
+workflow is still untested; this publication was performed from Windows.
+Future public changes continue to require specific author approval.
+
+MacBook baseline publication preparation (2026-10-04, superseded by publication above): the author
+explicitly requested committing and pushing the MacBook work. Set `draft:
+false` on the existing KO/EN baseline pair for publication, leaving all other
+local work outside the intended commit. Shortened the KO title to `macOS와
+연구자료의 기준 상태` because the original title split the final Korean word in
+the generated OG image; the original design Note's provisional roadmap title
+remains as historical text. Focused Prettier, lint, build, LF/trailing-space
+checks passed. Astro checked 60 files with zero diagnostics; 114 pages built,
+Pagefind indexed 36 Notes. Both KO/EN routes, static document languages,
+translation links, adjacent links, newest-first list positions, RSS entries,
+OG references and both PNGs passed; the revised KO OG was visually inspected.
+Existing Pagefind Naver HTML/Korean stemming notices remain. Next: stage only
+the two Note files, inspect staged diff, commit and push on the author's
+instruction, then verify the public pages and images. Mac execution facts are
+from the Mac-side handoff, not direct Mac terminal access in this checkout.
+
+AGENTS.md author-voice rule (2026-10-04, latest): expanded the existing
+public-Note perspective guidance with concrete Korean/English examples such
+as `사용자 터미널`, plus the rule to retain execution-context distinctions in
+the author's own voice. Focused Prettier, LF and staged diff checks passed;
+documentation-only work did not require a site build. Committed only AGENTS.md
+as `cb9026e` and pushed it to `origin/main` at the author's explicit request.
+The remote update from `0cc4c2d` to `cb9026e` changed only AGENTS.md. The
+MacBook KO/EN drafts and all other local working files remain uncommitted and
+unpublished. Future site publication still requires specific approval.
+
+MacBook baseline voice refinement (2026-10-04, latest): author flagged
+`사용자 터미널` as assistant/reviewer phrasing. Revised the existing KO/EN pair
+to narrate checks in the Mac login terminal from the author's perspective,
+replaced source-gathering language around keychain output with the actual
+untested reboot boundary, and removed references to expanding the draft from
+the public prose. No factual results, metadata or draft status changed.
+Focused Prettier, `pnpm run lint`, `pnpm run build` and `git diff --check`
+passed. Astro checked 60 files with zero diagnostics; the build remains at
+108 pages because the pair is still drafted. The existing Pagefind Naver HTML
+and Korean stemming notices remain. No commit/push/publication authorised.
+
+Expanded MacBook baseline draft (2026-10-04, latest): Mac-side follow-up
+provided the installation-before/after checks, SSH host-fingerprint and
+authentication sequence, Git identity decision, separate local Git commit
+test, Google Drive installer/sync correction, and FileVault result. Revised
+the existing KO/EN pair rather than creating another Note. Each is now 116
+source lines and includes the local `work/git-baseline-check` result: a `main`
+branch, one commit, clean worktree, and author fields matching global Git
+settings. That test happened while expanding the draft, after initial Mac
+inspection. No remote was configured or push attempted from that test repo;
+website clone/build/publish and cloud-content recovery remain untested. GitHub,
+Google and Apple primary documentation was checked for the cited technical
+details. Keep `draft: true`; no commit, push or publication is authorised.
+Validation and final wording review are the next actions.
+Validation passed: focused Prettier, `pnpm run lint`, `pnpm run build` and
+`git diff --check`. Both Note sources have LF line endings without trailing
+whitespace. Astro checked 60 files with zero diagnostics; the build generated
+108 pages. With `draft: true`, no KO/EN detail route or OG PNG for this pair
+was generated, as expected. Existing Pagefind notices concern the Naver
+verification file and unavailable Korean stemming. Next: author review of the
+expanded pair and, separately, Mac-side website clone/build work. The source
+handoff remains the account of Mac-side execution; no Mac terminal commands
+were run from this Windows checkout.
+
+Author review (2026-10-04, superseded by expansion above): the MacBook baseline draft is too short
+for publication and omits substantive Git setup/workflow detail. Keep both
+files as unpublished drafts; do not pad them with generic guidance or infer
+Mac actions from the Windows Git identity conversation. Accessible Mac-side
+handoff establishes Git version, author-identity check and successful GitHub
+SSH authentication, but not repository clone, project checks, commit, push or
+deployment from the Mac. Resume this Note when further Mac-side commands,
+outputs and decisions are available; consider incorporating the actual Git
+and website setup into this pair if the resulting account stays coherent.
+No commit or push is authorised.
+
+MacBook baseline Note draft (2026-10-04, current): created local KO/EN
+`2026-10-04-macos-research-materials-baseline` pair with a shared translation
+key and `draft: true`. It records the author-reported Mac login-terminal
+inspection, Command Line Tools, local `~/Developer`, Research-only Google Drive
+sync, iCloud boundary and deliberate FileVault decision. It keeps website
+clone/build/push, cloud content comparison/recovery, and fresh-project
+reconstruction unverified. The earlier design Note remains unchanged. No
+commit, push or publication is authorised for this pair. Next: review the
+wording with the author; after approval, prepare a specific publication change
+and seek separate approval before any push. Validation details follow below.
+Focused Prettier, `pnpm run lint`, `pnpm run build` and `git diff --check`
+passed. Both new Markdown files use LF without trailing whitespace. The build
+reported 60 Astro files with zero diagnostics and 108 generated pages. Because
+the pair is drafted, neither language's detail route nor OG PNG is generated;
+this is the expected unpublished state. Existing Pagefind notices concern the
+Naver verification HTML and Korean stemming. No Mac commands were executed
+from this Windows checkout; the factual account uses the Mac-side handoff.
+
+Interim workflow decision (2026-10-04, latest): the author believes the Mac
+connection step was installing and signing into the Codex app. Until the Mac
+can manage the website locally, they want to continue using the connected
+Windows environment for website work. Keep this chat's Windows execution
+context for existing repository operations; native Mac execution is not a
+prerequisite for discussing or guiding the baseline inspection. Obtain actual
+Mac observations through an available Mac execution context or author-supplied
+terminal output. Next: inspect macOS version, architecture and storage, then
+existing development tools and cloud/material paths. Configure the Mac's local
+website workflow and verify build, commit, push and deployment before treating
+it as independent website management. This interim arrangement does not grant
+blanket approval for future website commits/pushes.
+
+MacBook connection report (2026-10-04, latest): the author has moved to the
+MacBook and reports connecting Codex, noting that this additional connection
+step was unexpected. Include the actual connection/setup process in the future
+implementation record once its method is established. A read-only execution
+check in this chat still returned Windows and
+`F:\Projects\securityon-journey`; the project list exposes only the Windows
+repository. Mac filesystem/terminal access is not yet verified from this chat.
+Next: establish the chat's Mac execution context before running the baseline
+inspection. Do not treat successful remote access to Windows as Mac setup.
+
+MacBook implementation handoff (2026-10-04, latest): the author confirmed that
+no MacBook setup or inspection has been performed since the planning Note.
+They are moving from the existing Windows PC in the living room to the MacBook
+to begin work. Next: inspect the MacBook's current state before making changes,
+starting with macOS version and available storage, then existing development
+tools, Google Drive/iCloud usage and code/material locations. Record observed
+facts and actual changes for the next KO/EN Note on the macOS and research
+material baseline. Do not draft completed setup claims from the plan or treat
+this handoff as permission to publish the next Note. The website workflow
+remains the first implementation goal after the baseline inspection.
+
+MacBook design Note (2026-10-04, current): the author requested a public KO/EN
+planning Note and intends to continue research-environment work during this
+holiday after Chuseok. This supersedes the earlier instruction to defer the
+MacBook topic until after two or three other Notes. Created
+`2026-10-04-macbook-research-workstation-architecture.md` and its `-en` pair,
+with matching translation keys and `2026-10-04T17:05:00+09:00` timestamps.
+The public prose follows the author's Windows design/implementation voice,
+not the internal review-document format. Includes website management first,
+Google Drive material/results, GitHub code, download-on-demand tools and
+public assets, no required Time Machine/full-Mac recovery, independent
+Python/Jupyter and MPS/MLX checks, provisional LLM choices and a seven-part
+roadmap. Mac work remains planned; corporate Windows validation and other
+unfinished objectives are not claimed complete. Earlier bundle recovery and
+command-recording experience is described from the author's perspective.
+`draft: false` enabled local route/OG validation before publication approval.
+Focused Prettier, lint, build and diff checks passed. Astro
+checked 60 files with zero errors/warnings/hints; 108 pages were built and
+Pagefind indexed 34 Notes in two languages. Generated KO/EN routes, static
+document languages and article fonts, reciprocal translation/adjacent links,
+newest-first list placement, RSS entries and shared table wrappers passed.
+Both 1200 x 630 OG PNGs were visually checked: title words remain intact and
+descriptions fit at word boundaries. Shared metadata, headings and bilingual
+claim strength were reviewed. Full format checking still flags only the
+pre-existing Naver verification HTML; existing Naver/Pagefind Korean stemming
+notices remain. The internal review's obsolete deferral memo was superseded;
+the review remains working material, not public prose.
+Publication approval (2026-10-04): the author explicitly approved pushing this
+concrete pair. Commit `0cc4c2d` contains only the two MacBook Note files and was
+pushed successfully to `origin/main`; local/remote refs match. Other local
+working material and this progress file were not included. The first public
+check returned 404 for both languages. After waiting for deployment, both
+public Note pages and both OG PNG URLs returned HTTP 200. Public titles,
+static document languages, reciprocal translation links, OG references and
+the Time Machine scope paragraph were confirmed. Publication is complete.
+Next: proceed with Mac implementation records only when requested; no Mac
+setup commands were executed. Preserve other local material. Future public
+changes still require approval for their specific commit/push.
+
+Publication-order correction (2026-10-04, latest): the author clarified that
+the later-published Elsevier webinar must appear above the earlier library
+workshop in the newest-first Note lists. Chronological article navigation must
+run library -> Elsevier. The original timestamps were reversed for that intent:
+library `2026-10-04T12:00:00+09:00`, Elsevier `2026-10-04T10:40:00+09:00`.
+Changed only the Elsevier KO/EN `pubDatetime` to
+`2026-10-04T12:13:00+09:00`, matching the recorded successful deployment time
+of the second publication. Focused Prettier, lint, build, diff checks, both
+language list orders, and both directions of adjacent navigation passed. The
+two-line change was committed as `06c374c`. Automatic approval review
+initially rejected the push because this specific public-site push needed
+explicit approval. The author then approved that exact commit, and it was
+pushed to `origin/main`. Cloudflare Pages reports a successful production
+deployment of `06c374c`. The public KO and EN lists now show Elsevier above
+the library Note; the library Note's Next link reaches Elsevier, and the
+Elsevier Note's Previous link reaches the library Note in both languages.
+Other local files, including this progress file, were not included in the
+commit. Future website pushes still need fresh explicit approval.
+
+Publication checkpoint (2026-10-04, authoritative): the author reviewed both
+Note pairs and explicitly approved publishing the September library workshop
+first and the Elsevier webinar second, without waiting for the stable
+TensorFlow update. In the library KO/EN pair, replaced the broad semester
+reference with September 2026 and removed unnecessary "in-person" wording;
+the author confirmed attendance, but the exact day remains unspecified.
+Both pairs now have `draft: false` and retain their 2026-10-04 publication
+timestamps. Library pair commit `3e93538` was pushed first to `origin/main`;
+corrected Elsevier pair commit `91bd901` was pushed second. No unrelated local
+files or this progress file were included. Focused Prettier, lint, builds,
+staged whitespace checks, both KO/EN routes, static document languages,
+reciprocal translation links and OG references passed. All four OG images were
+visually inspected. Cloudflare Pages reports successful production deployment
+of `91bd901`. The author separately approved disabling the narrowly scoped
+Cloudflare rule `130d7e17ae084aaeb7ae87f05974149a` that blocked only the
+Elsevier path on `journey.securityon.org`; its dashboard status is Disabled.
+All four public Note URLs and both Elsevier OG URLs returned HTTP 200. Public
+body checks found the September wording and corrected webinar Q&A. Full-site
+format checking still flags only the pre-existing Naver verification HTML.
+The Windows workstation series and stable TensorFlow follow-up remain separate
+unfinished work. Future website pushes still require fresh explicit approval.
+The three draft/unpublish checkpoints immediately below are historical; their
+draft and no-push instructions are superseded by this publication checkpoint.
+
+Library workshop draft (2026-10-04, historical): the author confirmed in-person
+attendance at the Cheonan engineering library workshop. The 31-page PDF,
+"AI와 학술 DB로 시작하는 선행연구 탐색", is image-only; all pages were visually
+reviewed. Created one KO/EN Note pair with `draft: true`, summarising question
+design, search terms and sources, full-text access, citation tracing, a
+prior-research comparison matrix and the division between AI assistance and
+researcher responsibility. Tool mentions describe the workshop material, not
+the author's own tool tests. Excluded the satisfaction survey and the slide
+that repeats OpenAlex content under a DeepL heading. The PDF establishes only
+"second semester of academic year 2026"; the exact event date is pending
+author confirmation. The filename and `pubDatetime` use the local draft date,
+2026-10-04, and should be reconsidered before publication if the event date
+or publication schedule warrants it. The author wants this Note considered for
+publication before the Elsevier webinar if the TensorFlow stable update remains
+delayed; this is a publication plan, not push approval. Elsevier remains a
+private draft for a later step, and its Cloudflare block remains active.
+Focused Prettier, lint, build, LF, whitespace and pair checks passed. The build
+generated no routes, OG PNGs, or site links for either draft pair. Full format
+check still fails only on the pre-existing Naver verification HTML. Review this
+pair with the author. No commit or push was performed in this batch.
+
+Elsevier webinar correction (2026-10-04, historical): the author clarified that
+attendance was online, not in person, and that this pair is a draft for later
+publication after other Notes. Reviewed the 72-minute recording with its
+same-basename Zoom transcript, captions and chat export. The presentation ends
+around 49 minutes; substantive Q&A runs to about 69 minutes. Revised both
+language drafts to state online attendance and added the supported Q&A on
+theses/preprints, simultaneous submission and rejection, authorship order,
+AI-assisted language work and integrity checks, cover letters and editorial
+rejection, review quality and timing, and open-access versus subscription.
+Excluded audio checks, joining instructions, recording delivery, workshop codes,
+and other session administration. The automatic transcript is unreliable in
+some multilingual passages, so only clear answers were used; target-journal
+rules still need checking at submission. `draft: true`, translation key,
+publication timestamp and other protected metadata are unchanged. Both Notes
+remain below 500 lines. Focused Prettier, lint and build passed; no KO/EN
+workshop routes, OG images or links appear in `dist`. Full format check still
+flags only the existing Naver verification HTML. Review the local KO/EN diff
+with the author. Do not commit, push, publish or disable the Cloudflare block
+without a new explicit instruction for that action.
+
+Urgent unpublish (2026-10-04, historical): the author requested removal of the
 Elsevier workshop Note from the public site and revoked any inferred permission
 to push future Notes. Both language sources are retained with `draft: true`.
 The shared visibility filter excludes drafts from Note routes, lists and search;
 the OG generator also excludes draft images. AGENTS.md now requires explicit
-approval for each future website-changing commit/push. This request explicitly
-authorises only the unpublishing commit/push. Lint and build passed; both pages
-and OGs are absent from `dist`, as are links in generated HTML/XML. Next: push
-the scoped unpublishing change and verify public 404s.
-Keep the local command-recovery files untouched.
+approval for each future website-changing commit/push. Commit be91855 was
+pushed to origin/main and the Cloudflare Pages check passed. Lint and build
+passed; both pages and OGs are absent from `dist`, as are links in generated
+HTML/XML. The latest Cloudflare Pages deployment and its pages.dev URL return
+404 for the removed Note. The custom domain kept serving cached content after
+both URL-specific and full-zone cache purges. An active Cloudflare custom
+security rule now blocks requests on `journey.securityon.org` whose URI path
+contains `elsevier-author-workshop` (rule ID
+`130d7e17ae084aaeb7ae87f05974149a`). Direct KO/EN Note and OG URLs were
+verified HTTP 403; the unrelated KO Notes index remained HTTP 200. This rule
+must be removed before any author-approved republication. No further push is
+authorised. Keep the local command-recovery files untouched.
 
 Elsevier workshop Note (2026-10-04, current): completed one KO/EN pair from the
 51-slide Elsevier Author Workshop PDF dated 2026-09-29, Seoul. Both Notes are

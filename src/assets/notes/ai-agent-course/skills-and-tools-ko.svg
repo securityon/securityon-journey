@@ -1,0 +1,200 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="480"
+  height="450"
+  viewBox="0 0 640 600"
+  role="img"
+  aria-labelledby="title desc"
+  xml:lang="ko"
+>
+  <title id="title">Skill 지침을 가져와 활용하기</title>
+  <desc id="desc">
+    GitHub의 Skill 주소를 챗봇에 전달하면 앱이 Skill을 설치한다. 대화에서 사용
+    여부를 정하고, 지침을 참고해 HTML 생성 Tool이 문서를 저장한다.
+  </desc>
+  <defs>
+    <marker
+      id="arrow"
+      viewBox="0 0 10 10"
+      refX="9"
+      refY="5"
+      markerWidth="6"
+      markerHeight="6"
+      orient="auto-start-reverse"
+    >
+      <path
+        d="M 1 1 L 9 5 L 1 9"
+        fill="none"
+        stroke="#8a4518"
+        stroke-width="1.6"
+      />
+    </marker>
+  </defs>
+  <rect width="640" height="600" fill="#eee7dc" />
+  <g font-family="Pretendard, Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+    <text
+      x="320"
+      y="42"
+      font-size="28"
+      text-anchor="middle"
+      fill="#2b2723"
+      font-weight="500"
+    >
+      Skill 지침을 가져와 활용하기
+    </text>
+    <rect
+      x="48"
+      y="68"
+      width="544"
+      height="84"
+      rx="3"
+      fill="#f8f3ec"
+      stroke="#bfae9b"
+      stroke-width="1.5"
+    />
+    <text
+      x="320.0"
+      y="104.0"
+      font-size="26.667"
+      text-anchor="middle"
+      fill="#2b2723"
+      font-weight="400"
+    >
+      1. Skill 주소를 채팅으로 전달
+    </text>
+    <text
+      x="320.0"
+      y="132.0"
+      font-size="25.333"
+      text-anchor="middle"
+      fill="#6a625a"
+      font-weight="400"
+    >
+      GitHub의 가이드라인 링크
+    </text>
+    <path
+      d="M 320 152 V 188"
+      fill="none"
+      stroke="#8a4518"
+      stroke-width="1.8"
+      stroke-linejoin="round"
+      marker-end="url(#arrow)"
+    />
+    <rect
+      x="48"
+      y="188"
+      width="544"
+      height="84"
+      rx="3"
+      fill="#f8f3ec"
+      stroke="#bfae9b"
+      stroke-width="1.5"
+    />
+    <text
+      x="320.0"
+      y="224.0"
+      font-size="26.667"
+      text-anchor="middle"
+      fill="#2b2723"
+      font-weight="400"
+    >
+      2. 앱이 Skill을 설치
+    </text>
+    <text
+      x="320.0"
+      y="252.0"
+      font-size="25.333"
+      text-anchor="middle"
+      fill="#6a625a"
+      font-weight="400"
+    >
+      가이드라인 파일 준비
+    </text>
+    <path
+      d="M 320 272 V 308"
+      fill="none"
+      stroke="#8a4518"
+      stroke-width="1.8"
+      stroke-linejoin="round"
+      marker-end="url(#arrow)"
+    />
+    <rect
+      x="48"
+      y="308"
+      width="544"
+      height="84"
+      rx="3"
+      fill="#f8f3ec"
+      stroke="#bfae9b"
+      stroke-width="1.5"
+    />
+    <text
+      x="320.0"
+      y="344.0"
+      font-size="26.667"
+      text-anchor="middle"
+      fill="#2b2723"
+      font-weight="400"
+    >
+      3. 대화로 사용 여부 지정
+    </text>
+    <text
+      x="320.0"
+      y="372.0"
+      font-size="25.333"
+      text-anchor="middle"
+      fill="#6a625a"
+      font-weight="400"
+    >
+      필요한 요청에서 지침 참조
+    </text>
+    <path
+      d="M 320 392 V 428"
+      fill="none"
+      stroke="#8a4518"
+      stroke-width="1.8"
+      stroke-linejoin="round"
+      marker-end="url(#arrow)"
+    />
+    <rect
+      x="48"
+      y="428"
+      width="544"
+      height="84"
+      rx="3"
+      fill="#f8f3ec"
+      stroke="#bfae9b"
+      stroke-width="1.5"
+    />
+    <text
+      x="320.0"
+      y="464.0"
+      font-size="26.667"
+      text-anchor="middle"
+      fill="#2b2723"
+      font-weight="400"
+    >
+      4. HTML 생성 Tool 실행
+    </text>
+    <text
+      x="320.0"
+      y="492.0"
+      font-size="25.333"
+      text-anchor="middle"
+      fill="#6a625a"
+      font-weight="400"
+    >
+      지침을 반영한 문서를 저장
+    </text>
+    <text
+      x="320"
+      y="562"
+      font-size="24"
+      text-anchor="middle"
+      fill="#6a625a"
+      font-weight="400"
+    >
+      Skill은 지침, Tool은 실제 동작
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,285 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="480"
+  height="495"
+  viewBox="0 0 640 660"
+  role="img"
+  aria-labelledby="title desc"
+  xml:lang="en"
+>
+  <title id="title">Separate work, then integrate</title>
+  <desc id="desc">
+    Three worktrees implement forward calculation, backward calculation and
+    documentation from one starting point, then merge into main for an
+    integrated check.
+  </desc>
+  <defs>
+    <marker
+      id="arrow"
+      viewBox="0 0 10 10"
+      refX="9"
+      refY="5"
+      markerWidth="6"
+      markerHeight="6"
+      orient="auto-start-reverse"
+    >
+      <path
+        d="M 1 1 L 9 5 L 1 9"
+        fill="none"
+        stroke="#8a4518"
+        stroke-width="1.6"
+      />
+    </marker>
+  </defs>
+  <rect width="640" height="660" fill="#eee7dc" />
+  <g font-family="Google Sans Code, Consolas, monospace">
+    <text
+      x="320"
+      y="42"
+      font-size="28"
+      text-anchor="middle"
+      fill="#2b2723"
+      font-weight="500"
+    >
+      Separate work, then integrate
+    </text>
+    <rect
+      x="96"
+      y="66"
+      width="448"
+      height="76"
+      rx="3"
+      fill="#f8f3ec"
+      stroke="#bfae9b"
+      stroke-width="1.5"
+    />
+    <text
+      x="320.0"
+      y="98.0"
+      font-size="26.667"
+      text-anchor="middle"
+      fill="#2b2723"
+      font-weight="400"
+    >
+      Common starting point
+    </text>
+    <text
+      x="320.0"
+      y="126.0"
+      font-size="25.333"
+      text-anchor="middle"
+      fill="#6a625a"
+      font-weight="400"
+    >
+      Function stubs + README
+    </text>
+    <path
+      d="M 320 142 V 160 H 56 V 400"
+      fill="none"
+      stroke="#8a4518"
+      stroke-width="1.8"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M 56 216 H 96"
+      fill="none"
+      stroke="#8a4518"
+      stroke-width="1.8"
+      stroke-linejoin="round"
+      marker-end="url(#arrow)"
+    />
+    <rect
+      x="96"
+      y="180"
+      width="448"
+      height="72"
+      rx="3"
+      fill="#f8f3ec"
+      stroke="#bfae9b"
+      stroke-width="1.5"
+    />
+    <text
+      x="320.0"
+      y="210.0"
+      font-size="26.667"
+      text-anchor="middle"
+      fill="#2b2723"
+      font-weight="400"
+    >
+      worktree A
+    </text>
+    <text
+      x="320.0"
+      y="238.0"
+      font-size="25.333"
+      text-anchor="middle"
+      fill="#6a625a"
+      font-weight="400"
+    >
+      jump_forward: a + b
+    </text>
+    <path
+      d="M 544 216 H 584"
+      fill="none"
+      stroke="#8a4518"
+      stroke-width="1.8"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M 56 308 H 96"
+      fill="none"
+      stroke="#8a4518"
+      stroke-width="1.8"
+      stroke-linejoin="round"
+      marker-end="url(#arrow)"
+    />
+    <rect
+      x="96"
+      y="272"
+      width="448"
+      height="72"
+      rx="3"
+      fill="#f8f3ec"
+      stroke="#bfae9b"
+      stroke-width="1.5"
+    />
+    <text
+      x="320.0"
+      y="302.0"
+      font-size="26.667"
+      text-anchor="middle"
+      fill="#2b2723"
+      font-weight="400"
+    >
+      worktree B
+    </text>
+    <text
+      x="320.0"
+      y="330.0"
+      font-size="25.333"
+      text-anchor="middle"
+      fill="#6a625a"
+      font-weight="400"
+    >
+      jump_back: a - b
+    </text>
+    <path
+      d="M 544 308 H 584"
+      fill="none"
+      stroke="#8a4518"
+      stroke-width="1.8"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M 56 400 H 96"
+      fill="none"
+      stroke="#8a4518"
+      stroke-width="1.8"
+      stroke-linejoin="round"
+      marker-end="url(#arrow)"
+    />
+    <rect
+      x="96"
+      y="364"
+      width="448"
+      height="72"
+      rx="3"
+      fill="#f8f3ec"
+      stroke="#bfae9b"
+      stroke-width="1.5"
+    />
+    <text
+      x="320.0"
+      y="394.0"
+      font-size="26.667"
+      text-anchor="middle"
+      fill="#2b2723"
+      font-weight="400"
+    >
+      worktree C
+    </text>
+    <text
+      x="320.0"
+      y="422.0"
+      font-size="25.333"
+      text-anchor="middle"
+      fill="#6a625a"
+      font-weight="400"
+    >
+      README.md
+    </text>
+    <path
+      d="M 544 400 H 584"
+      fill="none"
+      stroke="#8a4518"
+      stroke-width="1.8"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M 584 216 V 460 H 320 V 480"
+      fill="none"
+      stroke="#8a4518"
+      stroke-width="1.8"
+      stroke-linejoin="round"
+      marker-end="url(#arrow)"
+    />
+    <rect
+      x="96"
+      y="480"
+      width="448"
+      height="68"
+      rx="3"
+      fill="#f8f3ec"
+      stroke="#bfae9b"
+      stroke-width="1.5"
+    />
+    <text
+      x="320.0"
+      y="508.0"
+      font-size="26.667"
+      text-anchor="middle"
+      fill="#2b2723"
+      font-weight="400"
+    >
+      Merge into main
+    </text>
+    <text
+      x="320.0"
+      y="536.0"
+      font-size="25.333"
+      text-anchor="middle"
+      fill="#6a625a"
+      font-weight="400"
+    >
+      Combine three changes
+    </text>
+    <path
+      d="M 320 548 V 580"
+      fill="none"
+      stroke="#8a4518"
+      stroke-width="1.8"
+      stroke-linejoin="round"
+      marker-end="url(#arrow)"
+    />
+    <rect
+      x="96"
+      y="580"
+      width="448"
+      height="56"
+      rx="3"
+      fill="#f8f3ec"
+      stroke="#bfae9b"
+      stroke-width="1.5"
+    />
+    <text
+      x="320.0"
+      y="616.0"
+      font-size="26.667"
+      text-anchor="middle"
+      fill="#2b2723"
+      font-weight="400"
+    >
+      Check integrated result
+    </text>
+  </g>
+</svg>
