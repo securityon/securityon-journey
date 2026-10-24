@@ -1,0 +1,49 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="480"
+  height="180"
+  viewBox="0 0 640 240"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">Playlist에 담을 수 있는 두 가지 자료</title>
+  <desc id="desc">
+    영상 전체와 원본의 선택 구간인 클립을 같은 주제별 Playlist에 담을 수
+    있습니다.
+  </desc>
+  <defs>
+    <marker
+      id="arrow"
+      markerWidth="6"
+      markerHeight="6"
+      refX="5"
+      refY="3"
+      orient="auto"
+    >
+      <path d="M0 0 6 3 0 6" fill="none" stroke="#8a4518" stroke-width="1.2" />
+    </marker>
+  </defs>
+  <g fill="#f8f3ec" stroke="#bfae9b" stroke-width="1.5">
+    <rect x="20" y="24" width="250" height="72" rx="3" />
+    <rect x="20" y="144" width="250" height="72" rx="3" />
+    <rect x="390" y="78" width="230" height="84" rx="3" />
+  </g>
+  <g fill="none" stroke="#8a4518" stroke-width="1.8" marker-end="url(#arrow)">
+    <path d="M270 60H330V105H390" />
+    <path d="M270 180H330V135H390" />
+  </g>
+  <g
+    fill="#2b2723"
+    font-family="Pretendard, Malgun Gothic, sans-serif"
+    font-size="23"
+    font-weight="400"
+    text-anchor="middle"
+    dominant-baseline="middle"
+  >
+    <text x="145" y="60">영상 전체</text>
+    <text x="145" y="169">클립</text>
+    <text x="145" y="195" font-size="19">원본의 선택 구간</text>
+    <text x="505" y="107">Playlist</text>
+    <text x="505" y="138" font-size="21">주제별 모음</text>
+  </g>
+</svg>

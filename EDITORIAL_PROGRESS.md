@@ -4,6 +4,63 @@ Last updated: 2026-10-24 (Asia/Seoul).
 
 ## Resume here
 
+AVON publication approved and validated (2026-10-24, latest): after reviewing
+the completed bilingual draft, the author explicitly requested commit and push.
+Changed only draft: true → false in the two AVON Notes; preserved reviewed prose,
+figures, dates and pairing. This approval supersedes the earlier draft-only
+checkpoints for this specific AVON package. Publication build and lint passed;
+focused Markdown/SVG formatting and whitespace checks passed. Repository-wide
+format:check retained only the known Naver verification HTML failure (technical
+log; unrelated file untouched). Checked generated KO/EN routes, truthful static
+language, translation links, public list/RSS inclusion and OG references. Both
+1200×630 OG PNG hashes match the previously visually reviewed final previews.
+Earlier 1280/390/360px diagram/zoom/layout QA remains applicable. Pagefind indexed
+62 public pages. Remote main matched local main before commit.
+
+Commit scope: KO/EN AVON Notes, two original SVGs, this progress record and
+AVON_WEBINAR_ANALYSIS_2026-10-24.md. Unrelated Mac/Windows working files and all
+temporary captions/source/QA artifacts remain local. Commit/push authorised;
+next action is the scoped commit and push to origin/main. Stop on success
+without deployment polling or public-site verification.
+
+AVON bilingual draft complete (2026-10-24, latest): author confirmed attendance
+at the 15 October webinar 「전 주제분야 학술 동영상 자료 DB, AVON 이용교육」
+and requested a Note from its PDF and recording. Read AGENTS.md, schema, relevant
+existing pairs and all 12 PDF pages; rendered the full contact sheet and checked
+enlarged feature pages. Read all 1,133 supplied Korean caption cues through
+43:17.714 of the 43:20.24 recording, plus selected video frames. This was
+caption-led review, not continuous full-audio listening. Source mapping, ASR
+issues and scope are in AVON_WEBINAR_ANALYSIS_2026-10-24.md. Prior Wiley push
+completed as e2ffcf0; its permission does not extend to this new Note.
+
+Created 99-line KO/EN pair 2026-10-24-avon-academic-video-webinar.md / -en.md,
+shared key avon-academic-video-webinar-2026, pubDatetime
+2026-10-24T09:20:00+09:00, draft: true. Webinar date/title remain explicit in KO
+introduction; EN uses a descriptive event label rather than an invented official
+English title. Main flow: material/context, institutional access vs personal
+account, search/filters, transcript vs captions, Watchlist/Playlist/Clip, clip
+visibility, citations/RIS, Interactions and future application. Actual personal
+feature use, current access entitlement or completed exercises are not asserted.
+Added one original compact conceptual SVG per language in
+src/assets/notes/avon-academic-video/. No third-party film/slide captures copied
+to public assets; no guide, layout, style or previously published Note changes.
+
+Preview and final restored-draft builds passed, as did lint, focused Markdown
+and SVG formatting, source whitespace and git diff --check. Repository-wide
+format:check retains only known public/naver7fe53df996acb7e90822345eedea536d.html
+failure (technical log; left untouched). Local browser QA covered KO/EN at
+1280/390/360px: no document overflow, image centred exactly, image zoom/Escape,
+translation links, external new-tab links and two table scroll wrappers pass.
+Reviewed complete figure/prose composition and both 1200×630 OG PNGs. Shortened
+the custom Korean Note title to 「AVON: 학술 동영상 검색과 활용」 for a concise
+heading and intact word wrapping; retained the full official event title in
+the introduction. Final preview build included the title and simplified
+Interactions prose. Final draft build excludes new routes and OGs and has no
+AVON links in public HTML/RSS/sitemap; search indexed 60 public pages, versus
+preview 62. Working captions, source renders and QA artifacts remain under
+tmp/pdfs/avon-20261024. Draft ready for author review. No commit/push authorised
+or performed for AVON; next action is review, not publication.
+
 Wiley publication approved and validated (2026-10-24, latest): author confirmed
 the official Korean webinar title, "오픈 액세스 출판 성공 가이드: 연구자를 위한
 실무 안내", and explicitly requested the corresponding title/body correction
