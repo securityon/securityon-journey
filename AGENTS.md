@@ -329,6 +329,14 @@ state the outcome and remaining work without repeating the full troubleshooting
 account. Keep brief reflections brief; do not impose a uniform length or section
 template across Notes.
 
+When explaining a method or requirement, state the action directly rather than
+repeatedly reporting that guidance or an example exists. For example,
+`인코딩 설정도 확인하도록 안내합니다` may become `인코딩 설정도 확인해야 합니다`
+when the requirement is established. Use concrete wording such as
+`필요할 때 참조하면 좋은 페이지` instead of an abstract metaphor where clearer.
+Retain attribution when the recommendation itself matters, and do not turn an
+optional suggestion into a requirement or a described method into claimed use.
+
 In Korean prose, translate ordinary English nouns when that improves readability,
 while retaining established technical terms where clearer. Review complete
 sentences and particles after edits rather than applying broad word replacements.
@@ -350,6 +358,13 @@ account of what I learnt or implemented is clearer. Explain concepts directly;
 retain source attribution when it matters to a quotation, policy or technical
 claim. Do not narrate editorial supplementation (`공식 문서를 참고해 설명을
 보충했습니다`); put useful references beside the explanation itself.
+
+When combining overlapping teaching materials, organise the Note around a
+coherent topic or workflow and explain shared content once. Avoid a file-by-file
+review unless differences between sources matter. A verified official guide can
+provide an introductory link to tutorials, teaching materials and recordings;
+its wider catalogue does not expand the agreed content scope. Keep detailed
+source-to-section mapping in working records rather than the public narrative.
 
 A short recap in supplied material does not establish that the original course
 was brief or that the author lacked earlier practice. Use confirmed learning
@@ -637,6 +652,22 @@ with the reading column. Reduce oversized boxes, gaps or redundant labels before
 shrinking all text. A tall figure should not dominate the prose unnecessarily.
 Check the complete composition at desktop and mobile widths and preserve useful
 zoom behaviour; passing overflow checks alone does not establish visual balance.
+
+For interface instructions, a few representative screenshots may explain the
+controls better than another diagram. Use genuine captures or extracts from the
+source material; do not generate or reconstruct an interface and present it as
+a capture. Select relevant regions and retain enough context to identify the
+control. Preserve UI text, values and states. Remove sensitive content from the
+stored asset itself rather than merely hiding it with clipping or an overlay.
+Attribute third-party teaching screens and distinguish added annotations from
+the source; do not imply they are the author's own execution results.
+
+Use small numbered callouts and restrained highlights when they help the reader
+locate controls. Keep labels unobscured and match the numbers to nearby prose or
+a short ordered list. A genuine screenshot may retain its original interface
+language in both Notes; localise alt text, captions and explanations instead of
+fabricating translated UI. Explain a historical product name visible in a screen
+when needed to avoid confusion. These are selective aids, not an image quota.
 
 ### Back-to-top and responsive layout
 

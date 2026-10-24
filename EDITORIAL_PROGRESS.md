@@ -1,8 +1,137 @@
 # Bilingual Notes editorial progress
 
-Last updated: 2026-10-17 (Asia/Seoul).
+Last updated: 2026-10-24 (Asia/Seoul).
 
 ## Resume here
+
+EndNote Fusion publication package approved (2026-10-24, latest): after reviewing
+the final folder wording, restored conclusion and screenshots, author explicitly
+requested commit and push. Switched only draft: true → false in the two reviewed
+127-line KO/EN Notes; retained original 2026-10-24T09:00:00+09:00 publication time
+and all other content/metadata. This approval supersedes earlier draft-only/no-
+push checkpoints for this completed EndNote package. Final public build passed.
+Checked both public routes, list/RSS inclusion, static languages, translation
+links, guide link, three generated image assets/alt, closing headings and OG
+references/1200×630 PNGs. Prior lint and visual checks remain applicable; focused
+Markdown/SVG formatting and diff checks passed. Repository format:check retained
+only known Naver verification HTML failure (technical log). Remote main matched
+local main after fetch. Commit scope is 8 files: pair, 3 SVG screen assets,
+AGENTS.md, this progress record and source-analysis working record. Unrelated
+Mac/Windows working files and tmp artifacts remain local. Commit/push authorised;
+after successful push, stop without checking deployment or public appearance.
+
+EndNote folder wording and closing follow-up (2026-10-24, latest): author
+found "폴더는 반입하는 시점에" unnatural and preferred the earlier ending.
+Changed KO to "문헌을 가져올 때 새 폴더를 만들거나 기존 폴더를 선택할 수
+있습니다. 저장한 뒤에도 폴더를 추가할 수 있습니다." and clarified the EN
+counterpart. Restored the exact earlier three-sentence KO/EN closing paragraph
+from tmp/pdfs/endnote-review-20261024 snapshots, under a modest new closing
+heading (내 연구에 적용하기 / Applying this to my research), separating reflection
+from the export instructions. No new experience/completion claims; screenshots,
+other prose, metadata and draft: true unchanged. Starting pair saved under
+tmp/pdfs/endnote-ending-20261024. No AGENTS.md additions needed; prior user-owned
+guide/source-analysis changes preserved.
+Validation: lint, focused Markdown formatting, source LF/whitespace, metadata
+comparison and git diff --check passed. Repository format:check only known
+Naver HTML failure (technical log). Preview build passed; both generated closing
+sections, static languages, pair links and OG references/PNG dimensions checked.
+Existing screen/OG visual checks remain applicable; figures/titles unchanged.
+Final original-draft build passed. Article/OG routes absent; no Note links
+in generated HTML/XML, including lists/RSS. Focused formatting and diff checks
+passed. Current request complete locally; report wording and restored ending.
+No commit or push authorised/performed.
+
+Reusable guide additions complete (2026-10-24, latest): compared the EndNote
+prose/screenshots work with existing AGENTS.md rules. Added only missing detail:
+direct method/requirement wording without strengthening optional guidance;
+logical integration and deduplication of overlapping teaching materials with
+source mapping kept in working records; official guide links do not expand the
+agreed source scope; genuine screenshot extracts, faithful UI, source attribution,
+sensitive data removed from the actual asset; small numbered callouts matched to
+nearby explanations and bilingual use of original UI with localised captions/alt.
+Existing author-viewpoint, selective-figure, centring, typography and zoom rules
+retained. No article-specific dates, products, quantities or implementation logs
+added to the guide. This follow-up changes AGENTS.md and this checkpoint only;
+prior Note/image work is preserved. Documentation-only: focused formatting,
+LF/whitespace and diff checks; no new site build required. No commit or push.
+Current request complete locally; EndNote pair remains draft for author review.
+
+EndNote Fusion prose/screenshots review (2026-10-24, latest): applied author's
+two exact KO replacements and reviewed full KO/EN paragraphs. Replaced external
+reviewer/guide narration, abstract process wording and repetitive ending with
+direct explanations. Preserved uncertainty about actual attendance/exercises,
+account creation, migration and Zotero use. Metadata matches starting snapshots;
+both sources remain draft: true with original timestamp/key/title/description.
+125 lines per language. Added 3 real training-screen extracts from advanced PDF
+pages 37/51/56: metadata settings, citation locator and separate reference/file
+exports. Source pixels extracted with pypdf; no generated UI or claimed author
+screenshots. SVG wrappers add numbered callouts/region highlights and clip to
+useful areas. Assets: src/assets/notes/endnote-fusion/{metadata-settings,
+citation-locator,export-data-and-files}.svg. Shared source UI retained in both
+languages; localised alt/captions/numbered explanations. Clarivate source and
+added numbers attributed; old RefWorks Citation Manager UI name explained.
+No guide/shared CSS/route/dependency or unrelated Note changes.
+
+Validation: lint passed; repository format:check only known Naver verification
+HTML failure (technical log). Preview build passed with temporary local preview
+draft/time overrides restored afterwards. Generated pair links, static languages,
+OG references and 1200×630 dimensions passed; unchanged OG content had already
+been visually checked. Visually inspected 3 annotated screenshot renders and
+actual body context on desktop/mobile. Isolated local headless Edge passed
+6 page/viewport cases (KO/EN × 1280/390/360), 18 centred/loaded image checks,
+no document overflow and 12 mobile zoom/Escape checks. Browser helper removed;
+snapshots, context captures and measurements retained under
+tmp/pdfs/endnote-review-20261024. Final original-draft build passed; draft
+article/OG routes are absent and generated HTML/XML, including lists/RSS, contain
+no Note links. Focused Markdown/SVG formatting, LF/whitespace and git diff --check
+passed. Current request complete locally; report revised pair and screenshot
+additions for author review. No commit/push authorised or performed.
+
+EndNote Fusion integrated bilingual draft (2026-10-24, latest): author requested
+one flowing Note combining the two PDFs without separate source introductions,
+and the Korean LibGuide/rebrand date in the opening. Read the guide at
+https://proquest.libguides.com/newrwkorea: confirmed 2026-10-06 rebrand, current
+training-material links, past webinar playlist, Quick Learning and tutorials.
+Website content is used for the requested introduction; substantive body remains
+within the attached basic/advanced PDFs. Created KO/EN pair
+2026-10-24-endnote-fusion-reference-management[/-en].md, each 101 source lines,
+translationKey endnote-fusion-reference-management-2026. Intro links the guide;
+body joins citation purpose, import routes, metadata/PDF checking, folders and
+sharing, Writing Tool locators, AI assistance and separate data/attachment export.
+No invented attendance date, account creation, exercises, migration or switch
+from Zotero. No PDF-by-PDF framing, session administration, Q&A invention, slide
+screenshots or new features beyond supplied scope. One import-method comparison
+table suffices; no decorative figure added. No guide/shared-style/route changes.
+
+Validation so far: lint, focused source LF/whitespace and git diff --check passed.
+Repository format:check retained only existing Naver verification HTML failure
+(technical log). First preview generated OGs but scheduled 09:00 timestamps
+withheld article routes before publication time; second local preview temporarily
+used 00:00 on the same date and draft: false, then restored exact source content.
+Second preview passed (58 indexed Notes). Generated KO/EN pages, document language,
+translation links, guide target/rel, table wrappers and OG references/1200×630
+PNGs passed; both OGs visually inspected. Actual sources retain draft: true and
+2026-10-24T09:00:00+09:00 (draft-date placeholder, not attendance date). Final
+original-draft build passed (56 indexed Notes). Draft article and OG routes
+are absent; no links in generated HTML/XML, including lists and RSS. Source
+analysis record updated with website verification and the drafting instruction.
+Current request complete locally: report both draft files for author review.
+No commit/push authorised or performed; no publication or deployment checks.
+
+EndNote Fusion source analysis complete (2026-10-24, latest): author requested
+analysis only of two supplied PDFs. Read all 30 basic + 59 advanced pages via text
+extraction and whole-document rendered contact sheets, with enlarged review of
+image-only AI features, sharing, projects, metadata checking, Hangul integration
+and export screens. Advanced largely repeats basics and adds metadata checking,
+sharing, citation locators/editing, AI assistance and separate data/attachment
+export. Saved detailed coverage, interpretation boundaries and proposed single-
+Note structure in ENDNOTE_FUSION_SOURCE_ANALYSIS_2026-10-24.md (working document,
+not published content). Existing Zotero setup is confirmed in 2026-09-16 Notes;
+do not invent a switch to Fusion. No Q&A content is in either PDF, only closing
+slides. Actual attendance dates/mode, hands-on scope and current service terms
+remain unverified. No Note or guide changes; no build needed for source analysis.
+No commit/push authorised or performed. Next: report analysis, then draft only
+when requested and with author experience distinguished from slide examples.
 
 AI Agent series publication package (2026-10-17, latest): author explicitly
 selected "3편 모두 공개하고 커밋·푸시" after reviewing the completed Notes and
