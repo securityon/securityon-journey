@@ -1,0 +1,62 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="480"
+  height="330"
+  viewBox="0 0 640 440"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">
+    Editorial decisions and revision after external review
+  </title>
+  <desc id="desc">
+    The editor considers reviewer reports and makes the decision. Authors submit
+    a revised manuscript and response for reassessment when revision is
+    requested.
+  </desc>
+  <defs>
+    <marker
+      id="arrow"
+      markerWidth="6"
+      markerHeight="6"
+      refX="5"
+      refY="3"
+      orient="auto"
+    >
+      <path d="M0 0 6 3 0 6" fill="none" stroke="#8a4518" stroke-width="1.2" />
+    </marker>
+  </defs>
+  <g fill="#f8f3ec" stroke="#bfae9b" stroke-width="1.5">
+    <rect x="90" y="26" width="460" height="58" rx="3" />
+    <rect x="90" y="122" width="460" height="62" rx="3" />
+    <rect x="30" y="235" width="150" height="48" rx="3" />
+    <rect x="245" y="235" width="150" height="48" rx="3" />
+    <rect x="460" y="235" width="150" height="48" rx="3" />
+    <rect x="60" y="345" width="490" height="60" rx="3" />
+  </g>
+  <g fill="none" stroke="#8a4518" stroke-width="1.8" marker-end="url(#arrow)">
+    <path d="M320 84V122" />
+    <path d="M320 184V210H105V235" />
+    <path d="M320 184V235" />
+    <path d="M320 184V210H535V235" />
+    <path d="M320 283V345" />
+    <path d="M550 375H628V153H550" stroke-dasharray="5 4" />
+  </g>
+  <g
+    fill="#2b2723"
+    font-family="Google Sans Code, Consolas, monospace"
+    font-size="22"
+    font-weight="400"
+    text-anchor="middle"
+    dominant-baseline="middle"
+  >
+    <text x="320" y="55">Reviewers: assessment and advice</text>
+    <text x="320" y="153">Editor: manuscript and reports</text>
+    <text x="105" y="259">Reject</text>
+    <text x="320" y="259">Revise</text>
+    <text x="535" y="259">Accept</text>
+    <text x="305" y="375" font-size="19">
+      Author: revision and point-by-point reply
+    </text>
+  </g>
+</svg>

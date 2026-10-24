@@ -4,6 +4,79 @@ Last updated: 2026-10-24 (Asia/Seoul).
 
 ## Resume here
 
+Wiley publication approved and validated (2026-10-24, latest): author confirmed
+the official Korean webinar title, "오픈 액세스 출판 성공 가이드: 연구자를 위한
+실무 안내", and explicitly requested the corresponding title/body correction
+followed immediately by commit and push. Updated the KO title and introductory
+webinar name; EN title now uses the original official English title, Open Access
+Publishing Success: A Guide for Authors. Set both Notes to draft: false, retaining
+dates, pairing, substantive content and figures. This specific approval supersedes
+the earlier draft-only/no-push checkpoints for the Wiley package below.
+
+Publication build and lint passed. Focused Markdown formatting and source/diff
+whitespace checks passed; repository format:check retained only the known Naver
+verification HTML failure (technical log). Generated KO/EN routes, official
+titles, static language, translation links, list/RSS inclusion and OG references
+checked; new 1200×630 OG PNGs visually reviewed. Earlier desktop/mobile figure
+QA remains applicable; no layout or figure changes. Remote origin/main matched
+HEAD before commit. Commit scope: the two Notes, their two original SVG figures,
+this progress log and the Wiley source-analysis record. Unrelated working files
+and tmp artifacts remain local. Commit/push now authorised; next action is the
+scoped commit and push to origin/main. Stop after successful push without
+deployment polling or public-site verification.
+
+Wiley bilingual draft complete (2026-10-24, latest): author supplied the 48-page
+Open Access Publishing Success PDF and requested a Note after reading AGENTS.md.
+Read the full guide, schema, latest progress, source analysis and entire PDF;
+rendered all pages in contact sheets and checked key pages. Combined the PDF
+with the previously reviewed recording into the 131-line KO/EN pair
+2026-10-24-wiley-open-access-publishing.md / -en.md. Shared translationKey:
+wiley-open-access-publishing-2026; pubDatetime 2026-10-24T09:10:00+09:00 is draft
+creation metadata, not claimed attendance. Both remain draft: true. Topics: OA
+options/cost support, journal fit/credibility, editorial vs reviewer decisions,
+rejection/appeal/bias Q&A, revision responses reflected in the manuscript,
+writing, AI accountability and selected author support tools. Added one original
+centred conceptual SVG per language in src/assets/notes/wiley-open-access/.
+No live attendance, actual tool use or author funding eligibility asserted.
+No private recording URL/email/key in Note sources or published assets.
+
+Final preview build and restored-draft production build passed; lint, focused
+Markdown/SVG formatting, source whitespace and git diff --check passed. The
+repository-wide format check retained only the known Naver verification HTML
+failure (technical log; unrelated file unchanged). Preview checked explicit
+KO/EN routes and translation links, external new-tab links, 3 table wrappers,
+one diagram each and OG references; both 1200×630 OG PNGs visually checked.
+Isolated local browser QA at 1280/390/360px for both languages: no horizontal
+overflow, diagrams exactly centred, zoom/Escape working. Inspected rendered
+desktop/mobile compositions. Final AI prose/link refinements were included in
+the final preview build and checked in its generated HTML. Final draft build
+omits both new routes and OGs and contains no new Note links in HTML/RSS/sitemap;
+Pagefind indexed 58 public pages, compared with preview 60. No guide/shared
+styles/existing published Notes changed. Source coverage and uncertainties are
+in WILEY_OPEN_ACCESS_WEBINAR_ANALYSIS_2026-10-24.md; temporary QA/transcript files
+remain local. Prior analysis-only next step below is superseded. Requested draft
+work complete; next action is author review. No commit/push authorised or done.
+
+Wiley webinar analysis complete (2026-10-24, latest): supplied personal recording
+link opened and playback worked. Identified Open Access Publishing Success:
+A Guide for Authors, 14 October 2026, Dr. Axel Straube and Kathrin Kaschura,
+59:52 duration. Read entire 0:03–59:50 timestamped transcript (58,276 characters)
+and visually checked key video slides; this was transcript-led review with
+selected video frames, not continuous full audio viewing. Saved topic/Q&A time
+map, scope, transcript errors and a distinct Note angle in
+WILEY_OPEN_ACCESS_WEBINAR_ANALYSIS_2026-10-24.md. Confirmed two material ASR errors
+against slides: AI cannot be an author; peer review cannot reliably detect all
+fabrication. OA stats on slide: 3.5× views, ~1.3×/+33% citations, 3.8× Altmetric;
+whitepaper methodology not independently checked. Costs/waivers/agreements and
+AI requirements remain reported session guidance, not universal/current policy
+or verified author eligibility. Q&A occurs at 16–21, 35–37 and 40–46 minutes;
+no extended closing Q&A. Existing Elsevier Note reviewed for overlap.
+Private transcript/verification captures remain in tmp/webinar-wiley-20261024;
+no personal email, registrant key or access URL saved in working/public files.
+No media download or external upload; no Note/assets/guide changes. Author
+attendance not established. Analysis-only request complete; next report findings
+and draft only if requested. No commit/push authorised or performed.
+
 EndNote Fusion publication package approved (2026-10-24, latest): after reviewing
 the final folder wording, restored conclusion and screenshots, author explicitly
 requested commit and push. Switched only draft: true → false in the two reviewed

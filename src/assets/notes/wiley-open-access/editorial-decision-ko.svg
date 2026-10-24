@@ -1,0 +1,57 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="480"
+  height="330"
+  viewBox="0 0 640 440"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">외부 심사 이후의 편집 판단과 수정</title>
+  <desc id="desc">
+    심사자의 보고서를 바탕으로 편집자가 결정하며, 수정 요청을 받으면 저자가
+    원고와 답변서를 제출해 재검토받습니다.
+  </desc>
+  <defs>
+    <marker
+      id="arrow"
+      markerWidth="6"
+      markerHeight="6"
+      refX="5"
+      refY="3"
+      orient="auto"
+    >
+      <path d="M0 0 6 3 0 6" fill="none" stroke="#8a4518" stroke-width="1.2" />
+    </marker>
+  </defs>
+  <g fill="#f8f3ec" stroke="#bfae9b" stroke-width="1.5">
+    <rect x="90" y="26" width="460" height="58" rx="3" />
+    <rect x="90" y="122" width="460" height="62" rx="3" />
+    <rect x="30" y="235" width="150" height="48" rx="3" />
+    <rect x="245" y="235" width="150" height="48" rx="3" />
+    <rect x="460" y="235" width="150" height="48" rx="3" />
+    <rect x="60" y="345" width="490" height="60" rx="3" />
+  </g>
+  <g fill="none" stroke="#8a4518" stroke-width="1.8" marker-end="url(#arrow)">
+    <path d="M320 84V122" />
+    <path d="M320 184V210H105V235" />
+    <path d="M320 184V235" />
+    <path d="M320 184V210H535V235" />
+    <path d="M320 283V345" />
+    <path d="M550 375H628V153H550" stroke-dasharray="5 4" />
+  </g>
+  <g
+    fill="#2b2723"
+    font-family="Pretendard, Malgun Gothic, Apple SD Gothic Neo, sans-serif"
+    font-size="24"
+    font-weight="400"
+    text-anchor="middle"
+    dominant-baseline="middle"
+  >
+    <text x="320" y="55">심사자: 평가와 권고</text>
+    <text x="320" y="153">편집자: 원고와 보고서 판단</text>
+    <text x="105" y="259">거절</text>
+    <text x="320" y="259">수정 요청</text>
+    <text x="535" y="259">채택</text>
+    <text x="305" y="375" font-size="24">저자: 수정 원고와 항목별 답변</text>
+  </g>
+</svg>
