@@ -1,8 +1,91 @@
 # Bilingual Notes editorial progress
 
-Last updated: 2026-10-24 (Asia/Seoul).
+Last updated: 2026-10-27 (Asia/Seoul).
 
 ## Resume here
+
+Wiley English-writing publication approved and validated (2026-10-27, latest):
+after reviewing the tense/reference, Q&A heading and abrupt-warning corrections,
+the author explicitly requested commit and push. Changed only draft: true → false
+in both Notes; reviewed prose, official titles, figures, publication dates and
+pairing remain intact. This specific approval supersedes the draft-only/no-push
+checkpoints below. Publication build/lint/focused Markdown and SVG formatting/
+whitespace checks passed. Repository-wide format:check retained only known
+Naver verification HTML failure (technical log; unchanged).
+
+Verified generated KO/EN wording and headings, absent removed warning, static
+language, translation links, public list/RSS inclusion and OG references. Both
+1200×630 OG PNG hashes match the previously visually reviewed previews. Prior
+1280/390/360px visual/zoom/overflow checks remain applicable. No recording access
+identifiers in public sources. Pagefind indexed 64 public pages. Remote main
+matched HEAD before commit. Commit scope: two Notes, two original SVGs, this
+progress record and WILEY_ENGLISH_WRITING_ANALYSIS_2026-10-27.md. All unrelated
+working files and temporary source/QA artifacts remain local. Next action:
+authorised scoped commit and push to origin/main, then stop without deployment
+polling or public-site verification.
+
+Wiley English-writing wording review complete (2026-10-27, latest): author
+questioned the previous-Note reference, prospective Q&A heading and abrupt
+external-service warning after a training link. Clarified that journal choice,
+costs and review were covered in the earlier Note, rather than leaving the
+webinar/Note referent ambiguous. Changed heading to 「질의응답 내용」 / Questions
+and answers, removed the redundant prospective Q&A introduction, and deleted the
+external-service sentence. Intro and closing now describe the completed Note's
+contents directly; genuine future plans for applying the learning remain future.
+KO/EN both updated, now 122 lines each. All metadata including draft: true,
+factual boundaries, sources and diagrams match the saved starting state.
+
+Snapshots and logs: tmp/webinar-writing-20261027/review-wording/. Preview and
+restored-draft final builds passed; lint, focused formatting, source whitespace
+and git diff --check passed. Repository-wide format check retained only known
+Naver verification HTML failure (technical log; left untouched). Generated new
+Q&A headings, removal and translation links checked; both OG hashes match the
+previously visually inspected previews. Final draft routes/OG absent, no Note
+links in generated public HTML/RSS/sitemap, 62 public search pages. No shared
+layout/style/guide/published Note changes. Requested edits complete; awaiting
+author review. No commit or push authorised/performed for this draft.
+
+Wiley English-writing bilingual draft complete (2026-10-27, latest): author
+confirmed attendance on 20 October at 「글로벌 연구자를 위한 영어 오픈 액세스
+논문 작성 실무 팁」 and supplied the personal GoTo recording, without a handout.
+Read AGENTS.md, schema, prior Wiley pair and all 329 rendered transcript rows
+(37,246 characters, 0:02–60:49). Media duration 61:49.888. Review was transcript-led
+with selected title/ABC/AI-policy frames, not continuous full-audio listening.
+Confirmed Fabio Di Bello, Wiley Customer Education Manager, and title-slide date.
+The complete later Q&A was read separately beyond the initial accessibility
+snapshot. No media download, external upload or PDF recovery. Private recording
+email/key/URL is absent from Notes, public assets and working records.
+
+Created 124-line KO/EN pair 2026-10-27-wiley-english-research-writing.md / -en.md,
+shared key wiley-english-research-writing-2026, draft: true,
+pubDatetime 2026-10-27T09:00:00+09:00 (preparation date; attendance remains
+20 October). Retained full official titles. Covers organising evidence before
+language editing, ABC principles, section roles, titles/abstracts/references,
+cover letters, AI purpose/disclosure/accountability and substantive Q&A.
+One compact original workflow SVG per language is in
+src/assets/notes/wiley-english-writing/. Source map, spoken inconsistencies and
+decisions are in WILEY_ENGLISH_WRITING_ANALYSIS_2026-10-27.md. Compared official
+Wiley ethics guidance with the speaker's broader personal disclosure advice;
+kept the basic editing exception. Turnitin primary guidance confirms possible
+false positives and independent AI/similarity measures. No universal detector
+threshold, guaranteed zero-hallucination claim, universal watermark assertion,
+or unrelated unverified AI breakthrough claim repeated as fact. No personal
+AI use, experiment or manuscript outcome invented. No existing published Note,
+shared layout/style or AGENTS.md changes.
+
+Preview build/lint/focused Markdown and SVG formatting/whitespace checks passed.
+Repository-wide format:check retained only known
+public/naver7fe53df996acb7e90822345eedea536d.html failure (technical log; unchanged).
+Local browser QA passed for KO/EN at 1280/390/360px: no overflow, image centred,
+zoom/Escape, route languages, translation links, external new-tab links and two
+table wrappers. Reviewed actual figure/prose compositions and mobile title;
+both 1200×630 OG PNGs show complete official titles with intact words. QA and
+build logs are under tmp/webinar-writing-20261027/. Restored-draft final build
+passed and excludes both new routes and OGs, with no new Note links in public
+HTML/RSS/sitemap. Search indexed 62 pages rather than preview 64. Verified draft
+flags, shared pairing/date, LF whitespace and no private access identifiers.
+Requested draft work complete; next action is author review. No commit or push
+authorised/performed. Earlier AVON push completed as e89ea41.
 
 AVON publication approved and validated (2026-10-24, latest): after reviewing
 the completed bilingual draft, the author explicitly requested commit and push.

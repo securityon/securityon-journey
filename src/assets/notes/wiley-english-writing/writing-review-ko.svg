@@ -1,0 +1,50 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="480"
+  height="138"
+  viewBox="0 0 640 184"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">영어 원고 작성 전후의 검토</title>
+  <desc id="desc">
+    내용과 근거를 정리한 뒤 영어 표현을 다듬고, 마지막에 의미와 인용을
+    재검토하는 개념적 흐름입니다.
+  </desc>
+  <defs>
+    <marker
+      id="arrow"
+      markerWidth="6"
+      markerHeight="6"
+      refX="5"
+      refY="3"
+      orient="auto"
+    >
+      <path d="M0 0 6 3 0 6" fill="none" stroke="#8a4518" stroke-width="1.2" />
+    </marker>
+  </defs>
+  <g fill="#f8f3ec" stroke="#bfae9b" stroke-width="1.5">
+    <rect x="12" y="38" width="180" height="108" rx="3" />
+    <rect x="230" y="38" width="180" height="108" rx="3" />
+    <rect x="448" y="38" width="180" height="108" rx="3" />
+  </g>
+  <g fill="none" stroke="#8a4518" stroke-width="1.8" marker-end="url(#arrow)">
+    <path d="M192 92H230" />
+    <path d="M410 92H448" />
+  </g>
+  <g
+    fill="#2b2723"
+    font-family="Pretendard, Malgun Gothic, sans-serif"
+    font-size="24"
+    font-weight="400"
+    text-anchor="middle"
+    dominant-baseline="middle"
+  >
+    <text x="102" y="77">내용·근거</text>
+    <text x="102" y="109">먼저 정리</text>
+    <text x="320" y="77">영어 표현</text>
+    <text x="320" y="109">다듬기</text>
+    <text x="538" y="77">의미·인용</text>
+    <text x="538" y="109">다시 확인</text>
+  </g>
+</svg>
