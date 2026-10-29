@@ -1817,3 +1817,71 @@ and ordering correction (12 reviewed files). This supersedes the pending
 approval above. Prior lint/build/generated-output checks remain applicable;
 final whitespace and staging checks follow. Stop after successful push without
 deployment polling.
+
+## 2026-10-29: AI paper writing and visualisation Note — review-ready draft
+
+Prepared KO/EN Notes from the author's 32-page second-session library handout,
+with original localised SVG diagrams linking source data, quality inspection,
+figure reproduction and manuscript evidence. Organised by research workflow,
+retaining the distinction between teaching examples, proposed applications and
+verified execution. No attendance date or hands-on completion was invented.
+Existing literature-search, EndNote and Wiley Notes informed scope and tone;
+no historical Notes or shared implementation changed.
+
+ESLint, Astro check (zero diagnostics), network-enabled preview build, focused
+Markdown/SVG formatting and tracked/untracked whitespace checks passed. Full
+format output retained in the technical record. Generated KO/EN routes,
+translation links, document languages, wrapped tables, figure assets and body
+link attributes checked. Both 1200x630 OGs visually reviewed. Browser checks at
+1280, 390 and 360 widths found no document overflow; conceptual diagrams were
+reviewed in article context. Preview includes both Notes; both source files
+restored to draft:true. Source mapping and technical evidence are in the task's
+outputs/ai-paper-writing-source-review.md and /private/tmp/journey-note-source.
+
+Writing and local verification complete. Author review and specific publication
+approval remain; no commit or push authorised or performed.
+
+### 2026-10-29: Author correction — course content versus personal intentions
+
+Author rejected unnecessary institutional/instructor detail and the attribution
+of taught methods to personal thinking or invented future plans. Reviewed both
+Notes in full: shortened the introduction to previous/current course titles and
+the graduate audience; replaced speculative first-person plans with direct
+explanations and required checks; removed the invented personal next-steps
+section and redundant example/result disclaimers. Retained genuine references
+to earlier Notes. AGENTS now records this distinction for future course Notes.
+Starting copies: task outputs/ai-paper-writing-before-voice-review.
+Publication metadata, draft:true and figures unchanged. ESLint, focused format
+and whitespace checks passed; refreshed preview build verification follows.
+No commit or push authorised or performed.
+
+Revision validation complete: lint, focused formatting, Astro check (zero
+errors/warnings/hints) and preview build passed. Browser reload confirms the
+shortened introduction and revised body. KO/EN publication metadata preserved,
+draft:true restored; no commit/push. Review-ready preview refreshed.
+
+### 2026-10-29: IMRaD explanation
+
+Author requested only a fuller IMRaD explanation. Expanded the matching KO/EN
+passage with the full section names, logical sequence, each section's role and
+the distinction between observations (Results) and interpretation (Discussion).
+No other Note passages or publication metadata changed. Focused formatting,
+lint, Astro check and preview build passed; refreshed browser text verified.
+Both source files remain draft:true. No commit or push performed.
+
+IMRaD transition refined at the author's request: introduce its use in the
+training before a separate “여기서 IMRaD는…” definition paragraph. Matching
+English transition added. Focused formatting, lint and preview build passed;
+browser text verified. Draft:true retained; no commit/push.
+
+### 2026-10-29: AI paper writing Note publication approval
+
+Author explicitly approved committing and pushing the reviewed change. Both
+Notes now use draft:false. Scope: KO/EN Note sources, two localised conceptual
+SVGs, the reviewed course-writing rule in AGENTS and this progress record.
+Final lint/build/focused-format checks from the reviewed content remain valid:
+the preview build already generated the exact published (draft:false) content.
+Rechecked generated KO/EN lists/detail routes, translation links and 1200x630
+OGs. Remote main fetched; local HEAD and origin/main match before this commit.
+No unrelated work included. Commit and push authorised; stop after successful
+push without deployment polling or public-page checks.

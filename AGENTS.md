@@ -359,6 +359,15 @@ retain source attribution when it matters to a quotation, policy or technical
 claim. Do not narrate editorial supplementation (`공식 문서를 참고해 설명을
 보충했습니다`); put useful references beside the explanation itself.
 
+Keep course introductions brief: the audience and course title normally suffice;
+omit familiar institutional details and instructor names unless they matter to
+the account. Distinguish taught content from the author's own reasoning and
+plans. State taught methods and necessary checks directly; do not invent personal
+intentions such as `기록해 두려 합니다` or attribute the course's organisation
+to the author with `나눠 생각해 봤습니다`. Include personal plans or reflections
+only when the author has supplied them. Apply this distinction throughout both
+language versions, including the conclusion.
+
 When combining overlapping teaching materials, organise the Note around a
 coherent topic or workflow and explain shared content once. Avoid a file-by-file
 review unless differences between sources matter. A verified official guide can

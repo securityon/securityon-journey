@@ -1,0 +1,94 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="520"
+  height="352"
+  viewBox="0 0 560 380"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">Checks from data to manuscript</title>
+  <desc id="desc">A conceptual review sequence, not experimental results.</desc>
+  <path d="M34 38V339" fill="none" stroke="#bfae9b" stroke-width="1.5" />
+  <rect
+    x="64"
+    y="12"
+    width="480"
+    height="74"
+    rx="3"
+    fill="#f8f3ec"
+    stroke="#bfae9b"
+  />
+  <circle cx="34" cy="49" r="17" fill="#f8f3ec" stroke="#8a4518" />
+  <g
+    font-family="Pretendard, Apple SD Gothic Neo, sans-serif"
+    fill="#2b2723"
+    font-weight="400"
+  >
+    <text x="34" y="56" text-anchor="middle" font-size="20">1</text>
+    <text x="84" y="41" font-size="22">Source and conditions</text>
+    <text x="84" y="67" font-size="18">Purpose · version · terms of use</text>
+  </g>
+  <rect
+    x="64"
+    y="106"
+    width="480"
+    height="74"
+    rx="3"
+    fill="#f8f3ec"
+    stroke="#bfae9b"
+  />
+  <circle cx="34" cy="143" r="17" fill="#f8f3ec" stroke="#8a4518" />
+  <g
+    font-family="Pretendard, Apple SD Gothic Neo, sans-serif"
+    fill="#2b2723"
+    font-weight="400"
+  >
+    <text x="34" y="150" text-anchor="middle" font-size="20">2</text>
+    <text x="84" y="135" font-size="22">Structure and quality</text>
+    <text x="84" y="161" font-size="18">
+      Variables · units · missing values
+    </text>
+  </g>
+  <rect
+    x="64"
+    y="200"
+    width="480"
+    height="74"
+    rx="3"
+    fill="#f8f3ec"
+    stroke="#bfae9b"
+  />
+  <circle cx="34" cy="237" r="17" fill="#f8f3ec" stroke="#8a4518" />
+  <g
+    font-family="Pretendard, Apple SD Gothic Neo, sans-serif"
+    fill="#2b2723"
+    font-weight="400"
+  >
+    <text x="34" y="244" text-anchor="middle" font-size="20">3</text>
+    <text x="84" y="229" font-size="22">Reproduce the figure</text>
+    <text x="84" y="255" font-size="18">
+      Code · axes · comparison conditions
+    </text>
+  </g>
+  <rect
+    x="64"
+    y="294"
+    width="480"
+    height="74"
+    rx="3"
+    fill="#f8f3ec"
+    stroke="#bfae9b"
+  />
+  <circle cx="34" cy="331" r="17" fill="#f8f3ec" stroke="#8a4518" />
+  <g
+    font-family="Pretendard, Apple SD Gothic Neo, sans-serif"
+    fill="#2b2723"
+    font-weight="400"
+  >
+    <text x="34" y="338" text-anchor="middle" font-size="20">4</text>
+    <text x="84" y="323" font-size="22">Claims and evidence</text>
+    <text x="84" y="349" font-size="18">
+      Values · interpretation · citations
+    </text>
+  </g>
+</svg>
