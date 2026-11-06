@@ -1,8 +1,51 @@
 # Bilingual Notes editorial progress
 
-Last updated: 2026-10-27 (Asia/Seoul).
+Last updated: 2026-11-06 (Asia/Seoul).
 
 ## Resume here
+
+### 2026-11-06: Existing AI paper-writing Note expanded for review
+
+Pulled origin/main with --ff-only: 4852089 → 41fda71. Author then requested
+strengthening the existing AI paper-writing/visualisation Note rather than
+creating a duplicate. Confirmed attendance: 23 October 2026 at the library,
+「AI를 활용한 논문작성과 시각화」. Read the 32-page handout visually after
+finding no extractable PDF text; all pages rendered, with detailed individual
+checks of the prompt, plot examples, tool workflow, plagiarism and disclosure
+pages. Source map and before snapshots:
+tmp/ai-paper-writing-expansion-20261106/.
+
+Expanded matching KO/EN sources from 103 to 204 lines each. Added data-selection
+conditions and version records, a concrete quality-inspection table, confusion
+matrix/learning-curve interpretation, graph/outline/editing prompt examples,
+tool-specific workflows and retained outputs. Explained all three teaching
+examples: equipment temperature with a 70°C highlighting criterion, the
+temperature–pressure–efficiency 3D plot, and sensor-to-evaluation Mermaid flow.
+Expanded caption, citation/paraphrase/reuse, tagging and AI-use records, with
+a connected conclusion. Used direct explanations from the participant's
+viewpoint; no personal plans, completed experiments or test results invented.
+Unified references to this session as 특강/workshop. All frontmatter matches
+the starting snapshots, including publication date, description and draft:false.
+Existing SVGs and shared source remain unchanged.
+
+Lint, focused formatting, whitespace and initial production build passed;
+Astro reported zero diagnostics. KO/EN local browser checks at 1280/390/360
+passed for overflow, four shared table wrappers, four prompt blocks, image
+loading/centring, translation links, static language and body-link attributes.
+Representative desktop/mobile screenshots and both 1200×630 OGs visually
+reviewed. Final production build and repeated KO/EN browser checks after wording
+polish passed; Pagefind indexed 66 pages across two languages. Confirmed byte-
+equivalent protected frontmatter and LF-only text in both 204-line Notes. Full
+format-check result is retained in the local log. Scope complete and ready for
+author review. Source map, snapshots and QA logs remain in the task's tmp folder.
+
+Author explicitly approved commit and push of this completed revision on
+2026-11-06, superseding the review-only state above. Scope is the two reviewed
+Note sources and this progress record. Prior final lint/build/browser and
+protected-metadata checks remain valid; no Note changes after review. Fetch
+origin and perform final formatting/whitespace/staging checks, then commit and
+push to origin/main. Preserve unrelated local files and stop after push without
+deployment polling or public-site verification.
 
 Wiley English-writing publication approved and validated (2026-10-27, latest):
 after reviewing the tense/reference, Q&A heading and abrupt-warning corrections,
