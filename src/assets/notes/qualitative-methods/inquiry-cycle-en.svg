@@ -1,0 +1,56 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="460"
+  height="164"
+  viewBox="0 0 460 164"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">
+    Moving between questions, evidence and interpretation
+  </title>
+  <desc id="desc">
+    Refining a question leads to evidence collection and interpretation or
+    comparison. Further questions and checks of other cases feed back into
+    question refinement and collection. This is a conceptual diagram.
+  </desc>
+  <defs>
+    <marker
+      id="arrow"
+      viewBox="0 0 8 8"
+      refX="7"
+      refY="4"
+      markerWidth="6"
+      markerHeight="6"
+      orient="auto-start-reverse"
+    >
+      <path d="M1 1L7 4L1 7" fill="none" stroke="#8a4518" stroke-width="1.2" />
+    </marker>
+  </defs>
+  <rect width="460" height="164" fill="#f8f3ec" />
+  <g fill="none" stroke="#8a4518" stroke-width="1.3" marker-end="url(#arrow)">
+    <path d="M140 65H160" />
+    <path d="M295 65H315" />
+    <path d="M385 96V138H75V98" />
+  </g>
+  <g fill="#f8f3ec" stroke="#bfae9b" stroke-width="1.1">
+    <rect x="12" y="36" width="126" height="58" rx="3" />
+    <rect x="167" y="36" width="126" height="58" rx="3" />
+    <rect x="322" y="36" width="126" height="58" rx="3" />
+  </g>
+  <g
+    fill="#2b2723"
+    font-family="Google Sans Code, sans-serif"
+    font-size="16"
+    font-weight="400"
+    text-anchor="middle"
+  >
+    <text x="75" y="60">Refine</text>
+    <text x="75" y="80">question</text>
+    <text x="230" y="60">Collect</text>
+    <text x="230" y="80">evidence</text>
+    <text x="385" y="60">Interpret</text>
+    <text x="385" y="80">and compare</text>
+    <text x="230" y="125">Further questions · other cases</text>
+  </g>
+</svg>

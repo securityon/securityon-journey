@@ -1,0 +1,51 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="460"
+  height="164"
+  viewBox="0 0 460 164"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">질문과 자료, 해석을 오가는 과정</title>
+  <desc id="desc">
+    질문 구체화에서 자료 수집과 해석·비교로 이어집니다. 해석에서 생긴 추가
+    질문과 다른 사례의 확인은 다시 질문을 구체화하고 자료를 수집하는 데
+    반영됩니다. 개념도입니다.
+  </desc>
+  <defs>
+    <marker
+      id="arrow"
+      viewBox="0 0 8 8"
+      refX="7"
+      refY="4"
+      markerWidth="6"
+      markerHeight="6"
+      orient="auto-start-reverse"
+    >
+      <path d="M1 1L7 4L1 7" fill="none" stroke="#8a4518" stroke-width="1.2" />
+    </marker>
+  </defs>
+  <rect width="460" height="164" fill="#f8f3ec" />
+  <g fill="none" stroke="#8a4518" stroke-width="1.3" marker-end="url(#arrow)">
+    <path d="M140 65H160" />
+    <path d="M295 65H315" />
+    <path d="M385 96V138H75V98" />
+  </g>
+  <g fill="#f8f3ec" stroke="#bfae9b" stroke-width="1.1">
+    <rect x="12" y="36" width="126" height="58" rx="3" />
+    <rect x="167" y="36" width="126" height="58" rx="3" />
+    <rect x="322" y="36" width="126" height="58" rx="3" />
+  </g>
+  <g
+    fill="#2b2723"
+    font-family="Pretendard, Apple SD Gothic Neo, sans-serif"
+    font-size="17"
+    font-weight="400"
+    text-anchor="middle"
+  >
+    <text x="75" y="72">질문 구체화</text>
+    <text x="230" y="72">자료 수집</text>
+    <text x="385" y="72">해석·비교</text>
+    <text x="230" y="125">추가 질문 · 다른 사례 확인</text>
+  </g>
+</svg>

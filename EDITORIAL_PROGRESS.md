@@ -4,6 +4,77 @@ Last updated: 2026-11-15 (Asia/Seoul).
 
 ## Resume here
 
+### 2026-11-15: Qualitative-methods Note publication approval
+
+Author explicitly approved committing and pushing the reviewed Note. Both
+language versions now use draft:false; body text, titles, dates and sortOrder:1
+are unchanged. Commit scope: KO/EN Notes, two localised inquiry-cycle SVGs and
+this progress record. Source-analysis documents, transcripts, QA artifacts and
+unrelated working files remain local. Fetched origin/main; it matched HEAD
+51a994f before this change. Earlier preview builds and six browser cases already
+validated the reviewed public content. Final public build passed (70 indexed
+pages); KO/EN detail routes, list order, adjacent links, translations, RSS and
+1200×630 OGs verified. Only draft status differs from the pre-publication copies;
+focused formatting and whitespace checks passed. Source lint passed; default
+lint retains the previously recorded
+temporary-helper errors. This approval supersedes pending-review/no-push notes
+below. After successful push, stop without deployment polling or public checks.
+
+### 2026-11-15: Qualitative methods — review-ready bilingual draft
+
+KO/EN pair complete, 242 lines each, with titles 질적 연구 방법론: 경험과 해석 /
+Qualitative Research Methods: Experience and Interpretation. Shared
+translationKey qualitative-research-methods-2026, pubDatetime
+2026-11-15T09:00:00+09:00, sortOrder:1 and draft:true. Scope: researcher position,
+remote-teaching and parent-interview studies, seven approaches, participant
+selection, concrete neutral interview questions, coding/interpretation and
+twelve contextual Q&A topics. One compact 460×164 conceptual SVG per language.
+Kept source examples separate from illustrative questions, with no invented
+personal tests. No universal sample number, exclusive saturation claim, blanket
+recruitment/compensation ban or medical-effect claim. New files and source map
+are untracked; only this existing tracked progress file was modified.
+
+Focused formatting and source lint excluding tmp passed. Default lint still
+finds the same two prior temporary-helper errors; full format-check output is
+retained in the task log. Preview builds passed (zero diagnostics, 70 pages),
+and six KO/EN browser cases at 1280/390/360 passed for tables, figure, zoom,
+overflow, language, translation links, new text and OG references/dimensions.
+Visually reviewed desktop/mobile article, figure and Q&A screenshots and both
+1200×630 OGs. Shortened long Q&A headings in both languages for narrow screens.
+Generated lists place qualitative above quantitative; each language's adjacent
+links connect them in reading order. Source metadata, LF, whitespace, Q&A count
+and SVG structure checks passed. Final draft-only build passed with 68 indexed
+public pages; draft detail/OG routes and draft links in all generated HTML/XML
+(including RSS/sitemap) are absent. Preparation and validation are complete.
+Next: author review and specific publication approval. No commit/push authorised
+or performed for this task. Prior quantitative Note push 51a994f is complete.
+
+### 2026-11-15: Qualitative research webinar — source review complete
+
+New task: prepare the qualitative-methods Note following the quantitative Note.
+Read AGENTS and schema, checked Git status (no tracked modifications initially),
+and left unrelated untracked working files intact. Verified Zoom title/date
+30 October and 02:00:14 length, exported all 1,073 Korean caption cues and read
+them sequentially, including Q&A 01:38–01:59. Rendered/viewed all 66 PDF pages
+in nine contact sheets. Review was transcript-led and slide-based, not continuous
+audio listening. Source mapping and cautions:
+QUALITATIVE_RESEARCH_SOURCE_ANALYSIS_2026-11-15.md; local artifacts in
+tmp/qualitative-methods-20261115/. Next: detailed KO/EN draft with concrete cases,
+method/analysis explanations and contextual Q&A, then local validation. Preserve
+methodological diversity; no fixed sample-size rule, exclusive saturation rule,
+universal recruitment restriction or medical-effect assertion. No commit/push
+authorised for the new task. Prior quantitative Note push 51a994f is complete.
+
+Draft milestone: prepared the KO/EN qualitative-research-methods pair, 242 lines
+each, draft:true, matching translationKey/date and sortOrder:1. Covers researcher
+position and methodological diversity, two lecture studies, seven approaches,
+sampling, neutral interview prompts, iterative collection/analysis, coding and
+interpretation, and twelve contextual Q&A topics. One compact localised original
+SVG pair illustrates feedback between questions, collection and interpretation.
+No source screenshots, raw participant accounts or personal tests claimed.
+Preview build/browser verification in progress. Default lint has the same two
+prior unrelated temporary-helper errors; source-only lint will be checked.
+
 ### 2026-11-15: Quantitative-methods Note publication approval
 
 Author explicitly approved committing and pushing the reviewed bilingual Note.
