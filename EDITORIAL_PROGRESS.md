@@ -1,8 +1,98 @@
 # Bilingual Notes editorial progress
 
-Last updated: 2026-11-06 (Asia/Seoul).
+Last updated: 2026-11-15 (Asia/Seoul).
 
 ## Resume here
+
+### 2026-11-15: Quantitative-methods Note publication approval
+
+Author explicitly approved committing and pushing the reviewed bilingual Note.
+Both Notes now use draft:false; no body text, titles or publication dates changed
+after review. Commit scope: the KO/EN Notes, two localised conceptual SVGs, the
+reviewed example-context rule in AGENTS and this progress record. Working source
+analysis, raw transcripts, QA artifacts and unrelated untracked files remain
+local. Origin/main fetched and matched HEAD before publication. Earlier preview
+build and six browser checks validated this exact public content. Final public
+build passed with 68 indexed pages; both detail/list routes, translation links,
+RSS entries and 1200×630 OGs verified. Focused formatting and diff checks passed.
+Prior source lint passed; default lint
+has the recorded unrelated temporary-helper errors. This approval supersedes
+the pending-review/no-push instructions for this task below. After successful
+push, stop without deployment polling or public-site checks.
+
+### 2026-11-15: Example context and expanded quantitative-methods Q&A
+
+Author requested self-contained explanations of examples and more detailed Q&A.
+Revised both drafts to introduce the eye movement and shampoo comparison before
+explaining their methodological lessons. Expanded Q&A from seven to twelve
+topics, adding question context, reasoning and interpretation boundaries:
+comparison groups, mixed methods, survey-to-interview selection and sample size,
+survey foundations, EFA, analysis/thesis planning, software, AI graphs, content
+analysis, triangulation, implementation cases and piloting. New explanatory
+illustrations are framed as examples, not captured questions or personal tests.
+Rechecked exported captions, especially 01:35–02:02. No universal minimum sample
+size, blanket journal policy, invented execution or verbatim questions added.
+Both Notes now have 290 lines; all starting frontmatter and draft:true preserved.
+Starting copies: tmp/quantitative-methods-20261115/before-qa-review/.
+
+AGENTS now requires example context understandable without attending the session
+and sufficient question context/reasoning for independently useful Q&A. This
+supersedes the earlier seven-topic/236-line draft checkpoint below. Preview build
+and all six KO/EN browser checks passed, including revised passages, translation
+links, tables, diagram, zoom, overflow and OG dimensions/references. Narrow KO
+Q&A screenshot reviewed. Focused formatting and source lint excluding tmp passed;
+default lint still encounters the two prior untracked helper no-console errors.
+Final draft-only build passed (66 indexed public pages); both draft detail/OG
+routes and all draft links in generated HTML/XML are absent. Final metadata,
+LF and tracked/untracked Note whitespace checks passed. Revision complete.
+No commit or push authorised or performed. Next: author review, then specific
+publication approval before changing draft status or committing/pushing.
+
+### 2026-11-15: Quantitative research webinar — detailed bilingual draft
+
+Current task: author requested a detailed Note from the DBpia quantitative
+methods webinar and supplied its 176-page slides. The 29 October event date
+comes from the recording title; 30 October is its displayed upload date. Read
+all 1,104 exported Korean caption cues, including Q&A through 02:02, and viewed
+all slide contact sheets. Review was transcript-led plus slides and the earlier
+verified title/playback, not continuous two-hour audio listening. Source map:
+QUANTITATIVE_RESEARCH_SOURCE_ANALYSIS_2026-11-15.md. Raw local sources and QA:
+tmp/quantitative-methods-20261115/.
+
+Prepared one KO/EN pair, 236 lines each, filenames
+2026-11-15-quantitative-research-methods.md / -en.md, shared translationKey
+quantitative-research-methods-2026, pubDatetime 2026-11-15T09:00:00+09:00,
+draft:true. Note titles: 양적 연구 방법론: 설계와 측정 / Quantitative Research
+Methods: Design and Measurement. Full webinar title remains in the introduction.
+Two compact original localised SVGs explain parallel pretest/comparison/posttest
+conditions. No shared source or existing Notes changed; no custom OG.
+
+Covered question-led selection, variables, one-/two-group and single-case
+designs, random allocation versus sampling, measurement scales, reliability and
+validity, questionnaires, analysis planning, p-values, robot/game/writing study
+examples, ethics and seven Q&A topics. Reconciled simplified statements against
+primary ASA, UCLA, NIH and research sources. No universal minimum sample size,
+hypothesis-probability interpretation of p, blanket AI-figure ban or personal
+execution claims. Two AI-writing studies are clearly distinguished.
+
+Preview build and six KO/EN browser checks (1280/390/360) passed, including
+six shared table wrappers, centred loaded SVG, zoom/Escape, translations,
+static document language, external-link attributes and OG references/dimensions.
+Article/figure screenshots reviewed. Final concise-title preview and both
+1200×630 OGs passed visual review without split title words. Final draft-only
+build passed with 66 indexed public pages; both draft detail/OG routes absent,
+and no draft links in generated HTML, RSS or sitemap XML. Focused formatting,
+tracked/untracked whitespace, LF and paired metadata checks passed. Default
+lint encountered two errors in a prior untracked tmp QA helper; source lint
+excluding tmp passed. Actual full format-check output remains in the task log.
+The review-ready pair is complete; no unresolved source question blocks review.
+Await author review and specific publication approval. No commit/push authorised
+or performed for this task. New Note/asset and source-analysis files are untracked;
+this progress record is the only pre-existing tracked file modified.
+
+Previous task is complete: expanded AI paper-writing pair and progress were
+committed/pushed as 6e80872 on 2026-11-06. Its future-tense commit instruction
+below is historical and no longer an outstanding action.
 
 ### 2026-11-06: Existing AI paper-writing Note expanded for review
 

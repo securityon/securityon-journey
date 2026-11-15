@@ -1,0 +1,56 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="460"
+  height="208"
+  viewBox="0 0 460 208"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">Two-group pretest–posttest comparison</title>
+  <desc id="desc">
+    Both groups are measured before and after the same period. The experimental
+    group receives intervention A and the comparison group condition B. This
+    conceptual diagram shows neither results nor allocation methods.
+  </desc>
+  <rect width="460" height="208" fill="#f8f3ec" />
+  <g
+    font-family="Google Sans Code, monospace"
+    font-weight="400"
+    text-anchor="middle"
+    fill="#2b2723"
+  >
+    <g font-size="16">
+      <text x="152" y="29">Pretest</text>
+      <text x="275" y="29">Intervention</text>
+      <text x="398" y="29">Posttest</text>
+    </g>
+    <g fill="none" stroke="#bfae9b" stroke-width="1.3">
+      <path d="M112 79H440M112 159H440" />
+      <path d="M152 39V184M398 39V184" stroke-dasharray="3 5" />
+    </g>
+    <g font-size="16" text-anchor="start">
+      <text x="10" y="74">Treatment</text>
+      <text x="10" y="94">group</text>
+      <text x="10" y="154">Comparison</text>
+      <text x="10" y="174">group</text>
+    </g>
+    <g fill="#f8f3ec" stroke="#bfae9b">
+      <rect x="125" y="57" width="54" height="44" rx="3" />
+      <rect x="223" y="57" width="104" height="44" rx="3" />
+      <rect x="371" y="57" width="54" height="44" rx="3" />
+      <rect x="125" y="137" width="54" height="44" rx="3" />
+      <rect x="223" y="137" width="104" height="44" rx="3" />
+      <rect x="371" y="137" width="54" height="44" rx="3" />
+    </g>
+    <g font-size="23">
+      <text x="152" y="87">O₁</text>
+      <text x="398" y="87">O₂</text>
+      <text x="152" y="167">O₁</text>
+      <text x="398" y="167">O₂</text>
+    </g>
+    <g font-size="18" fill="#8a4518">
+      <text x="275" y="86">A</text>
+      <text x="275" y="166">B</text>
+    </g>
+  </g>
+</svg>

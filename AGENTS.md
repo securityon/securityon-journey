@@ -402,6 +402,12 @@ Repeated series references should help the reader locate the relevant work rathe
 than repeat a standard introduction or closing recap.
 
 Explain an unfamiliar term through its concrete role before relying on it.
+Introduce an example's situation, actors or objects, and the question being
+examined before drawing a lesson from it. Readers should not need to have
+attended the session or seen its slides to understand references such as
+“the wink example”. For Q&A, include enough question context and reasoning to
+make the answer useful independently; distinguish source examples from new
+illustrations and do not invent verbatim questions.
 Introduce course-specific example files and functions with their purpose,
 inputs and behaviour before describing how their implementation was divided.
 An illustrative calculation may clarify the expected result, but must not be
