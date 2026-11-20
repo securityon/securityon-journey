@@ -1,8 +1,22 @@
 # Bilingual Notes editorial progress
 
-Last updated: 2026-11-15 (Asia/Seoul).
+Last updated: 2026-11-20 (Asia/Seoul).
 
 ## Resume here
+
+### 2026-11-20: KSDC DB research data
+
+Prepared bilingual local drafts following the quantitative research Note.
+Verified the 2021 KSDC video manual index and official feature descriptions
+in the browser. The Note uses those pages and illustrative research decisions.
+Individual videos, current menu procedures and authenticated functions were
+outside the evidence used for the draft. No webinar attendance or software
+testing is claimed. The draft build excluded both Notes from the generated
+site. The author approved the commit and push on 20 November. Both Notes now
+use draft:false. The commit includes the bilingual pair and this progress
+record. GitHub main matched local HEAD at 7c9af3a before publication.
+The public build passed with zero Astro diagnostics. Both Note pages, list
+entries, translation links, OG images and RSS were verified locally.
 
 ### 2026-11-15: Qualitative-methods Note publication approval
 
