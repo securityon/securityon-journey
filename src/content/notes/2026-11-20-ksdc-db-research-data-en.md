@@ -20,17 +20,17 @@ In “Quantitative Research Methods: Design and Measurement”, I described how 
 
 To find participation rates for online education by age, start by looking for a statistical table covering the relevant age bands and period. Before comparing rates, check whether the denominator is the entire population, survey respondents or users of a particular service. A shared indicator name can conceal differences in the definition of participation or the timing of collection.
 
-To examine the relationship between participation and satisfaction at the individual level, check whether the same survey collected responses to both questions. Searching by questionnaire item, as well as by survey name or subject, can help locate the variables of interest. Where a questionnaire and codebook are available, check the wording, response codes and who was asked each question. If only participants were asked about satisfaction, that limits comparisons of participation and satisfaction across all respondents. [KSDC DB features](https://ksdcdb.kr/intro/introFunc.do)
+To examine the relationship between participation and satisfaction at the individual level, check whether the same survey collected responses to both questions. Searching by questionnaire item, as well as by survey name or subject, can help locate the variables of interest. Where a questionnaire and codebook are available, check the wording, response codes and who was asked each question. If only participants were asked about satisfaction, that limits comparisons of participation and satisfaction across all respondents.
 
 ## When a new survey is needed
 
-A new survey is an option if existing surveys omit the relevant population or ask questions that do not fit the research purpose. KSDC DB's online survey tools can be used to write questions, collect responses and review results on the web. [KSDC DB features](https://ksdcdb.kr/intro/introFunc.do)
+A new survey is an option if existing surveys omit the relevant population or ask questions that do not fit the research purpose. KSDC DB's online survey tools can be used to write questions, collect responses and review results on the web.
 
 Start by stating who the survey is for and why it is being conducted. Pilot the questions with people similar to the intended respondents to check how they understand the wording and whether any response options are missing. Record the distinction between a question left unanswered and one that was never shown, so these situations can be distinguished during analysis.
 
 ## Checking the data structure before online analysis
 
-The manual treats preparation of data, choice of analysis by variable type and E-STAT 3.0 exercises as separate topics. The official feature guide describes online analysis of both KSDC holdings and researchers' own data, with options including frequencies, cross-tabulation and correlation. [KSDC DB video manual](https://ksdcdb.kr/support/bestsView.do?bestsNo=22) · [KSDC DB features](https://ksdcdb.kr/intro/introFunc.do)
+The manual treats preparation of data, choice of analysis by variable type and E-STAT 3.0 exercises as separate topics. The official feature guide describes online analysis of both KSDC holdings and researchers' own data, with options including frequencies, cross-tabulation and correlation.
 
 Before analysing, check whether each row represents a different person or whether several rows contain observations from the same person. For example, numerical codes for age bands indicate categories and their order. Participation counts and proportions by age band may answer the question more directly than the mean age-band code. Record the data version, variable definitions and exclusion criteria so the results can be checked later.
 
