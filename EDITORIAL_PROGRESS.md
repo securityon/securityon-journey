@@ -1,8 +1,35 @@
 # Bilingual Notes editorial progress
 
-Last updated: 2026-11-20 (Asia/Seoul).
+Last updated: 2026-11-21 (Asia/Seoul).
 
 ## Resume here
+
+### 2026-11-21: KSDC survey and ICPSR publication approval
+
+The author approved committing and pushing the expanded bilingual Notes.
+Both now use draft:false with the reviewed text, dates and sortOrder.
+GitHub main matched local HEAD at 05ab88b before publication.
+The public build passed. Verified both generated pages, list and adjacent
+Note order, translation links, source link counts, OG images and RSS.
+
+### 2026-11-20: KSDC survey and ICPSR video draft
+
+Prepared a bilingual draft from KSDC's YouTube training recording
+ZCsriFky1Ig. Korean automatic captions are in tmp/ksdc-video/.
+Reviewed substantive segments on survey design, extraction and analysis,
+the multiple-response Q&A and ICPSR search and comparison. Verified the
+2020 election teaching-data reference at ICPSR. Workflow details refer to
+the recording. No attendee participation or hands-on testing is claimed.
+The draft pair follows the first KSDC Note by sortOrder and awaits review.
+Focused formatting, source lint and draft build passed. Generated HTML and
+XML omit both draft routes and links.
+
+Expanded both drafts to 119 lines after author feedback. Added a playback
+guide, the domestic frequency and aggregate-statistics demonstrations,
+Excel import and missing codes, six question types and conditional items,
+export checks, ICPSR study files and variable comparison, and survey Q&A.
+The expanded draft build, formatting, source lint and draft exclusion
+checks passed. Each source URL appears once per language. Awaiting review.
 
 ### 2026-11-20: KSDC DB research data
 
